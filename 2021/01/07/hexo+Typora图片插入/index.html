@@ -20,13 +20,13 @@
 <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>首先说明，所有博客文件均保存在 <code>Blog/source/_posts/</code>文件夹下。</p>
 <p>在Typora中能够显示图片，但在博客中显示失败</p>
 <p>如下：</p>
-<p><img src="hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5.assets/Typora%E4%B8%AD%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA.png" alt="Typora中正常显示"></p>
-<p><img src="hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5.assets/%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA.png" alt="博客中无法显示"></p>
+<p><img src="/2021/01/07/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/Typora%E4%B8%AD%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA.png" alt="Typora中正常显示"></p>
+<p><img src="/2021/01/07/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA.png" alt="博客中无法显示"></p>
 <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>上面的猫猫表情在Typora中采用的是绝对路径，但是hexo是要用服务器访问自己blog文件夹中的资源的，显然要用相对路径的方式放置图片，让服务器能够访问到图片。</p>
 <h2 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h2><ol>
 <li>进入Typora-&gt;文件-&gt;偏好设置（也可直接按ctrl+逗号）-&gt;图像，按下图所示勾选选项</li>
 </ol>
-<p><img src="hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5.assets/123.png" alt="123"></p>
+<p><img src="/2021/01/07/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/123.png" alt="123"></p>
 <p>解释：</p>
 <blockquote>
 <p>复制图片到./${filename}.assets: </p>
