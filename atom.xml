@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-08T09:05:23.590Z</updated>
+  <updated>2021-01-08T09:15:01.870Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2021/01/08/git%E4%BD%BF%E7%94%A8/"/>
     <id>http://example.com/2021/01/08/git%E4%BD%BF%E7%94%A8/</id>
     <published>2021-01-08T03:31:59.000Z</published>
-    <updated>2021-01-08T09:05:23.590Z</updated>
+    <updated>2021-01-08T09:15:01.870Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>在学校的时候经常用到git和github，一些用法一直不太清楚，<del>出于对知识的热爱</del>（在家太无聊了），决定把这个坑给补上。</p></blockquote><a id="more"></a><h2 id="git简要介绍"><a href="#git简要介绍" class="headerlink" title="git简要介绍"></a>git简要介绍</h2><p>Git官网：<a href="https://git-scm.com/">https://git-scm.com/</a></p><p>Git图标：<img src="/images/git%E4%BD%BF%E7%94%A8/Git%E5%9B%BE%E6%A0%87.jpeg" alt="Git图标"></p><p>Git 是一个<strong>开源的分布式版本控制系统</strong>，用于敏捷高效地处理任何或小或大的项目。</p><p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p><p>Git版本控制</p><ul><li>个人操作</li><li>团队协作：记录每次修改</li></ul><h2 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h2><p>网上都有教程，自行查找安装吧</p><h2 id="git的配置文件"><a href="#git的配置文件" class="headerlink" title="git的配置文件"></a>git的配置文件</h2><h2 id="git的工作流程"><a href="#git的工作流程" class="headerlink" title="git的工作流程"></a>git的工作流程</h2><p><img src="/images/git%E4%BD%BF%E7%94%A8/GIt%E7%BB%93%E6%9E%84.png" alt="GIt结构"></p><p>test</p><p><img src="/images/git%E4%BD%BF%E7%94%A8/17420174-6390f0e8dceda680.png"></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>在学校的时候经常用到git和github，一些用法一直不太清楚，<del>出于对知识的热爱</del>（在家太无聊了），决定把这个坑给补上。</p></blockquote><a id="more"></a><h2 id="git简要介绍"><a href="#git简要介绍" class="headerlink" title="git简要介绍"></a>git简要介绍</h2><p>Git官网：<a href="https://git-scm.com/">https://git-scm.com/</a></p><p>Git图标：<img src="/images/git%E4%BD%BF%E7%94%A8/Git%E5%9B%BE%E6%A0%87.jpeg" alt="Git图标"></p><p>Git 是一个<strong>开源的分布式版本控制系统</strong>，用于敏捷高效地处理任何或小或大的项目。</p><p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p><p>Git版本控制</p><ul><li>个人操作</li><li>团队协作：记录每次修改</li></ul><h2 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h2><p>网上都有教程，自行查找安装吧</p><h2 id="git的配置文件"><a href="#git的配置文件" class="headerlink" title="git的配置文件"></a>git的配置文件</h2><h2 id="git的工作流程"><a href="#git的工作流程" class="headerlink" title="git的工作流程"></a>git的工作流程</h2><p><img src="/images/git%E4%BD%BF%E7%94%A8/GIt%E7%BB%93%E6%9E%84.png" alt="GIt结构"></p><p>test</p><p><img src="/images/git%E4%BD%BF%E7%94%A8/17420174-6390f0e8dceda680.png"></p><p>test1</p><p><img src="/C:/Users/1/Desktop/123.jpg" alt="123"></p>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
