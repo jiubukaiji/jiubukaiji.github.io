@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-08T12:55:50.346Z</updated>
+  <updated>2021-01-10T09:18:40.299Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://example.com/2021/01/08/git%E4%BD%BF%E7%94%A8/"/>
     <id>http://example.com/2021/01/08/git%E4%BD%BF%E7%94%A8/</id>
     <published>2021-01-08T03:31:59.000Z</published>
-    <updated>2021-01-08T12:55:50.346Z</updated>
+    <updated>2021-01-10T09:18:40.299Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>在学校的时候经常用到git和github，一些用法一直不太清楚，<del>出于对知识的热爱</del>（在家太无聊了），决定把这个坑给补上。</p></blockquote><a id="more"></a><h2 id="git简要介绍"><a href="#git简要介绍" class="headerlink" title="git简要介绍"></a>git简要介绍</h2><p>Git官网：<a href="https://git-scm.com/">https://git-scm.com/</a></p><p>Git图标：<img src="/images/git%E4%BD%BF%E7%94%A8/Git%E5%9B%BE%E6%A0%87.jpeg" alt="Git图标"></p><p>Git 是一个<strong>开源的分布式版本控制系统</strong>，用于敏捷高效地处理任何或小或大的项目。</p><p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p><p>Git版本控制</p><ul><li>个人操作</li><li>团队协作：记录每次修改</li></ul><h2 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h2><p>网上都有教程，自行查找安装吧</p><h2 id="git的配置文件"><a href="#git的配置文件" class="headerlink" title="git的配置文件"></a>git的配置文件</h2><h2 id="git的工作流程"><a href="#git的工作流程" class="headerlink" title="git的工作流程"></a>git的工作流程</h2><p><img src="/images/git%E4%BD%BF%E7%94%A8/GIt%E7%BB%93%E6%9E%84.png" alt="GIt结构"></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>本博客的搭建用到了git，<del>出于对知识的热爱</del>（在家太无聊了），决定写一个git的简单使用</p></blockquote><a id="more"></a><h2 id="git简要介绍"><a href="#git简要介绍" class="headerlink" title="git简要介绍"></a>git简要介绍</h2><p>Git官网：<a href="https://git-scm.com/">https://git-scm.com/</a></p><p>Git图标：<img src="/images/git%E4%BD%BF%E7%94%A8/Git%E5%9B%BE%E6%A0%87.jpeg" alt="Git图标"></p><p>Git 是一个<strong>开源的分布式版本控制系统</strong>，用于敏捷高效地处理任何或小或大的项目。</p><p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p><p>Git版本控制</p><ul><li>个人操作</li><li>团队协作：记录每次修改</li></ul><h2 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h2><p>网上都有教程，自行查找安装吧</p><h2 id="git的配置文件"><a href="#git的配置文件" class="headerlink" title="git的配置文件"></a>git的配置文件</h2><p>有以下三种配置文件，若文件中定义的值有冲突，优先级：仓库&gt;用户&gt;系统。</p><ul><li><code>/etc/gitconfig</code> 文件：系统中对所有用户都普遍适用的配置文件。</li><li><code>~/.gitconfig</code> 文件：某个用户目录下的配置文件。</li><li>用户定义的各个库中Git目录下的<code>.git/config</code>配置文件，只对当前仓库有效。</li></ul><h2 id="git的工作流程"><a href="#git的工作流程" class="headerlink" title="git的工作流程"></a>git的工作流程</h2><p><img src="/images/git%E4%BD%BF%E7%94%A8/%E6%B5%81%E7%A8%8B.png" alt="git工作流程"></p><p>名词解释：</p><ul><li>workspace：工作区</li><li>staging area：暂存区/缓存区</li><li>local repository：或本地仓库</li><li>remote repository：远程仓库</li></ul><h2 id="git的基本操作"><a href="#git的基本操作" class="headerlink" title="git的基本操作"></a>git的基本操作</h2><ol><li>初始化本地仓库：<code>git init</code></li><li>从远程仓库下载一个项目：<code>git clone</code></li><li>添加文件到暂存区：<code>git add</code></li><li>提交暂存区到本地仓库：<code>git commit</code></li><li>从本地仓库提交到远程仓库：<code>git push</code></li></ol><h4 id="1-git-init"><a href="#1-git-init" class="headerlink" title="1. git init"></a>1. git init</h4><p><code>git init</code>用于初始化仓库，会把当前目录当做本地仓库，并多出一个<code>.git</code>文件。</p><p><img src="/images/git%E4%BD%BF%E7%94%A8/git%20init.png" alt="git init"></p><h4 id="2-git-clone"><a href="#2-git-clone" class="headerlink" title="2. git clone"></a>2. git clone</h4><p><code>git clone</code>用于从远程仓库下载项目。</p><p>用法：<code>git clone (项目的url) [修改为其他名称]</code></p><p><img src="/images/git%E4%BD%BF%E7%94%A8/git%20clone.png" alt="git clone"></p><h4 id="3-git-add"><a href="#3-git-add" class="headerlink" title="3. git add"></a>3. git add</h4><h4 id="4-git-commit"><a href="#4-git-commit" class="headerlink" title="4. git commit"></a>4. git commit</h4><h4 id="5-git-push"><a href="#5-git-push" class="headerlink" title="5. git push"></a>5. git push</h4>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;在学校的时候经常用到git和github，一些用法一直不太清楚，&lt;del&gt;出于对知识的热爱&lt;/del&gt;（在家太无聊了），决定把这个坑给补上。&lt;/p&gt;
+&lt;p&gt;本博客的搭建用到了git，&lt;del&gt;出于对知识的热爱&lt;/del&gt;（在家太无聊了），决定写一个git的简单使用&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
