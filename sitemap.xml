@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2021/01/11/java-IO%E6%B5%81/</loc>
+    <loc>http://example.com/2021/01/12/java-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
     
     <lastmod>2021-01-12</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2021/01/12/java-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
+    <loc>http://example.com/2021/01/06/my-first/</loc>
+    
+    <lastmod>2021-01-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/01/11/java-IO%E6%B5%81/</loc>
     
     <lastmod>2021-01-12</lastmod>
     
@@ -40,13 +47,6 @@
     <loc>http://example.com/2021/01/07/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/</loc>
     
     <lastmod>2021-01-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/01/06/my-first/</loc>
-    
-    <lastmod>2021-01-07</lastmod>
     
   </url>
   
