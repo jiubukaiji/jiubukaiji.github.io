@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-13T16:16:59.467Z</updated>
+  <updated>2021-01-14T04:13:47.317Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,23 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>java web</title>
+    <link href="http://example.com/2021/01/14/java-web/"/>
+    <id>http://example.com/2021/01/14/java-web/</id>
+    <published>2021-01-14T00:55:28.000Z</published>
+    <updated>2021-01-14T04:13:47.317Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>梳理下javaweb，忘得差不多了。</p></blockquote><a id="more"></a><h2 id="java-web-简述"><a href="#java-web-简述" class="headerlink" title="java web 简述"></a>java web 简述</h2><h3 id="请求与响应"><a href="#请求与响应" class="headerlink" title="请求与响应"></a>请求与响应</h3><p>JavaWeb 是指，所有通过 Java 语言编写可以通过浏览器访问的程序的总称。 JavaWeb 是基于<strong>请求</strong>和<strong>响应</strong>。</p><p><strong>请求（request）：</strong>指客户端给服务器发送数据</p><p><strong>响应（response）：</strong>服务器给客户端回传数据</p><p>请求和响应是成对存在的。</p><h3 id="web资源分类"><a href="#web资源分类" class="headerlink" title="web资源分类"></a>web资源分类</h3><ul><li><strong>静态资源</strong>： html、css、js、txt、mp4 视频 , jpg 图片</li><li><strong>动态资源</strong>： jsp 页面、Servlet 程序</li></ul><h3 id="常用的web服务器"><a href="#常用的web服务器" class="headerlink" title="常用的web服务器"></a>常用的web服务器</h3><p><strong>Tomcat</strong>：由 <strong>Apache 组织</strong>提供的一种 Web 服务器，提供对 jsp 和 Servlet 的支持。它是一种轻量级的 javaWeb 容器（服务 器），也是当前应用最广的 JavaWeb 服务器（免费）。</p><p><strong>Jboss</strong>：是一个遵从 JavaEE 规范的、开放源代码的、纯 Java 的 EJB 服务器，它支持所有的 JavaEE 规范（免费）。</p><p>。。。还有一些企业级的和收费版的</p><h2 id="Tomcat服务器"><a href="#Tomcat服务器" class="headerlink" title="Tomcat服务器"></a>Tomcat服务器</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>找到对应版本的安装包，解压到需要安装的目录即可</p><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><img src="../images/java-web/image-20210114094730750.png" alt="image-20210114094730750" style="zoom: 67%;" /><p>bin ：（binary，二进制文件）专门用来存放 Tomcat 服务器的可执行程序<br>conf ：（configuration，配置文件）专门用来存放 Tocmat 服务器的配置文件<br>lib ：（library）专门用来存放 Tomcat 服务器的 jar 包<br>logs ：专门用来存放 Tomcat 服务器运行时输出的日记信息<br>temp ：（temporary）专门用来存放 Tomcdat 运行时产生的临时数据<br>webapps ：（webapplications）专门用来存放部署的 Web 工程。<br>work ：是 Tomcat 工作时的目录，用来存放 Tomcat 运行时 jsp 翻译为 Servlet 的源码，和 Session 钝化的目录。</p><h3 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h3><ul><li>方法一，进入bin目录下，双击startup.bat文件启动</li><li>方法二，进入bin目录下，在命令行模式下输入<code>catalina run</code></li></ul><p>我遇到的一个启动错误问题：</p><p><img src="../images/java-web/image-20210114101447178.png" alt="image-20210114101447178"></p><p><strong>错误原因</strong>：初始化失败，查找资料后发现是端口号被占用，Tomcat默认的端口号是8080，而这个端口号可能被其他进程给占用了。（如何查看端口号是否被占用？参考链接：<a href="https://blog.csdn.net/qq_47588845/article/details/108281132%EF%BC%89">https://blog.csdn.net/qq_47588845/article/details/108281132）</a></p><p><strong>解决方案：</strong></p><ul><li>将占用该端口的进程kill掉</li><li>修改Tomcat的端口号，在<code>conf\server.xml</code>文件中修改默认端口号为其他的，重启Tomcat</li></ul><p><strong>测试是否成功启动：</strong></p><p>打开浏览器，在浏览器地址栏中输入以下地址测试：</p><ul><li><a href="http://localhost:8080/">http://localhost:8080</a> </li><li><a href="http://127.0.0.1:8080/">http://127.0.0.1:8080</a> </li><li>http://本机ip:8080      （cmd中ipconfig）</li></ul><h3 id="如何部暑-web-工程到-Tomcat-中"><a href="#如何部暑-web-工程到-Tomcat-中" class="headerlink" title="如何部暑 web 工程到 Tomcat 中"></a>如何部暑 web 工程到 Tomcat 中</h3><p><strong>部署方式</strong>：</p><ul><li>方式一，把 web 工程的目录拷贝到 Tomcat 的 webapps 目录下 即可。</li><li>方式二，找到 Tomcat 下的 conf 目录\Catalina\localhost\ 下,创建如下的配置文件：</li></ul><p><img src="../images/java-web/image-20210114112717051.png" alt="image-20210114112717051"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Context 表示一个工程上下文</span><br><span class="line">path 表示工程的访问路径:&#x2F;abc</span><br><span class="line">docBase 表示你的工程目录在哪里</span><br><span class="line">--&gt;</span><br><span class="line">&lt;Context path&#x3D;&quot;&#x2F;test&quot; docBase&#x3D;&quot;E:\book&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure><p><strong>访问</strong>：只需要在浏览器中输入访问地址格式如下： <a href="http://ip:port/工程名/目录下/文件名">http://ip:port/工程名/目录下/文件名</a></p><p><a href="http://ip:port/就已经访问到webapps目录下了，接着输入工程项目、目录名和文件名即可访问">http://ip:port/就已经访问到webapps目录下了，接着输入工程项目、目录名和文件名即可访问</a></p><p><strong>注意</strong>：有时候访问失败，是因为没有重启Tomcat。</p><p><strong>默认访问</strong>：</p><ul><li><p>当我们在浏览器地址栏中输入访问地址如下：</p><p><a href="http://ip:port/">http://ip:port/</a> ====&gt;&gt;&gt;&gt; 没有工程名的时候，默认访问的是 ROOT 工程。</p></li><li><p>当我们在浏览器地址栏中输入的访问地址如下：</p><p><a href="http://ip:port/工程名/">http://ip:port/工程名/</a> ====&gt;&gt;&gt;&gt; 没有资源名，默认访问 index.html 页面</p></li></ul><h2 id="IDEA整合Tomcat服务器"><a href="#IDEA整合Tomcat服务器" class="headerlink" title="IDEA整合Tomcat服务器"></a>IDEA整合Tomcat服务器</h2><p>1.在File | Settings | Build, Execution, Deployment | Application Servers中添加Tomcat服务器</p><p>2.创建动态web工程，新版本的IDEA（2020.2版本）与之前的版本有所不同。步骤如下：</p><ul><li>先创建一个普通的java Module</li><li>创建好后右键Module-&gt;Add Framework Support-&gt;将Web Application勾选上即可</li></ul><img src="../images/java-web/image-20210114115752291.png" alt="image-20210114115752291" style="zoom:67%;" /><p>lib文件夹是我自己创建用来存放jar包的。</p><p>3.web工程目录介绍</p><p><img src="../images/java-web/image-20210114121331171.png" alt="image-20210114121331171"></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;梳理下javaweb，忘得差不多了。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="java web" scheme="http://example.com/categories/java-web/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>1-13</title>
     <link href="http://example.com/2021/01/13/1-13/"/>
     <id>http://example.com/2021/01/13/1-13/</id>
     <published>2021-01-13T14:57:50.000Z</published>
-    <updated>2021-01-13T16:16:59.467Z</updated>
+    <updated>2021-01-14T00:47:23.450Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>随便写点</p></blockquote><p>就很奇怪，最近拼多多疯狂暴雷，每天一条热搜，加上最近看了学校论坛还有知乎上的帖子，本来是很畅想未来的工作生活的，感觉这种幻想又被一次次击碎。</p><p>谈谈事情的缘由，开始我是对互联网企业的加班文化有所耳闻的，从去年还是前年的996.icu运动，到后面甚至9116，工作时间是运来越长，感觉时间长了社会便默许了这个准则，于是乎，加班文化兴起。但是中国人是喜欢调和的，到最后人们可能感觉996还不错？</p><p>我在网上看到了许多论调：</p><ul><li><p>”你们别光顾着看互联网企业呀，那其他各行各业辛苦的人多了去了，xx设计院每天工作都不止12个小时了，工地上底层劳动人这不都干这么长时间吗？挣的钱还没那么多呢“</p><p>先说这种思想，这。。这不就比烂吗？当我们在生活中觉得一些事情不好想吐槽时，就会有一些人跳出来说啥就这，那我们那XX不比这更加过分吗？那我想说，本质上不都是一些不好的事物，比来比去比个谁更过分，并去攻击对方的说法，这不就是压迫者想要看到的吗，两人都在受害方，却不联合起来，而去鄙视另一方的言论，本身就是一件很可笑的事。其次，每种工作的性质和强度是不一样的，脑力劳动和体力劳动是不一样的，</p><p>有的工作，看似下班了，其实处在oncall状态。。</p></li><li><p>“那你不干就是了，有的是人想做”</p><p>这句话我看了其实很扎心，好像确实是这样，即便拼多多那位员工猝死了，但还是有人前赴后继的想去做，或许是“给的太多了”。企业为什么要让一个人高强度的加班，而不去雇两个人呢，就牵扯到一个利益的问题，如果这份工作让你花两个人的工作时间去做，给你1.5倍的工资，但雇佣两个人，就需要2倍的工资，那么那个是企业更想去做的呢，还不说人多了之后在沟通、信息流通方面所需的额外资金消耗。我在学校树洞上看到一个帖子，把这两年拼多多的骚操作用日记的形式写了下来，当时看的我都愤怒了，他说他离职了才敢公开出来，要不然可能像前几天那位在陌陌匿名发帖被查出来的员工一样，被各种敷衍的理由给辞退。</p></li></ul><p>然后就心情有点乱，，看了看狂神的git视频和他的最新的开公司的视频，一个18岁辍学的人（不知道是不是我看错了）在几年内挣够了钱出资500万开了家公司，从一打工人翻身成了老板，讲了一堆他的想法，看的我是心潮澎湃，立马想撸起袖子加油干。</p><p>就晚上的时候看了一下阿里面经，人给我看傻了，这都问的啥，基本上都不会，其实不会也很正常。然后联想到前几天看到一个人写的博客，作者是双非学校的大三学生（现在应该在字节工作有1年了），他的博客里面记录了大学的学习过程，我看完觉得我连普通学校的人都比不过，给我整自卑了，当然我并不是对学历有什么歧视，最近越来越意识到人与人之间的差距远比学校与学校之间的差距要大。</p><p>好吧，虽然我可能现在还不找工作，但这些在实践的技能上我还差得远，我经常吐槽自己“先天下之忧而忧”，我知道这句话不是这样用的，但看起来还蛮有喜感。</p><p>最近脑子是被塞了好多东西，时不时就会感慨一下，这世界真的很奇怪。。</p><p>想说的太多，工作上的，学习上的，人际交往上的，过去的一些事情，未来的畅想，爱情、友情、亲情上的思考。</p><p>不过挺晚了该睡了。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>随便写点</p></blockquote><a id="more"></a><p>就很奇怪，最近拼多多疯狂暴雷，每天一条热搜，加上最近看了学校论坛还有知乎上的帖子，本来是很畅想未来的工作生活的，感觉这种幻想又被一次次击碎。</p><p>谈谈事情的缘由，开始我是对互联网企业的加班文化有所耳闻的，从去年还是前年的996.icu运动，到后面甚至9116，工作时间是运来越长，感觉时间长了社会便默许了这个准则，于是乎，加班文化兴起。但是中国人是喜欢调和的，到最后人们可能感觉996还不错？</p><p>我在网上看到了许多论调：</p><ul><li><p>”你们别光顾着看互联网企业呀，那其他各行各业辛苦的人多了去了，xx设计院每天工作都不止12个小时了，工地上底层劳动人这不都干这么长时间吗？挣的钱还没那么多呢“</p><p>先说这种思想，这。。这不就比烂吗？当我们在生活中觉得一些事情不好想吐槽时，就会有一些人跳出来说啥就这，那我们那XX不比这更加过分吗？那我想说，本质上不都是一些不好的事物，比来比去比个谁更过分，并去攻击对方的说法，这不就是压迫者想要看到的吗，两人都在受害方，却不联合起来，而去鄙视另一方的言论，本身就是一件很可笑的事。其次，每种工作的性质和强度是不一样的，脑力劳动和体力劳动是不一样的，</p><p>有的工作，看似下班了，其实处在oncall状态。。</p></li><li><p>“那你不干就是了，有的是人想做”</p><p>这句话我看了其实很扎心，好像确实是这样，即便拼多多那位员工猝死了，但还是有人前赴后继的想去做，或许是“给的太多了”。企业为什么要让一个人高强度的加班，而不去雇两个人呢，就牵扯到一个利益的问题，如果这份工作让你花两个人的工作时间去做，给你1.5倍的工资，但雇佣两个人，就需要2倍的工资，那么那个是企业更想去做的呢，还不说人多了之后在沟通、信息流通方面所需的额外资金消耗。我在学校树洞上看到一个帖子，把这两年拼多多的骚操作用日记的形式写了下来，当时看的我都愤怒了，他说他离职了才敢公开出来，要不然可能像前几天那位在陌陌匿名发帖被查出来的员工一样，被各种敷衍的理由给辞退。</p></li></ul><p>然后就心情有点乱，，看了看狂神的git视频和他的最新的开公司的视频，一个18岁辍学的人（不知道是不是我看错了）在几年内挣够了钱出资500万开了家公司，从一打工人翻身成了老板，讲了一堆他的想法，看的我是心潮澎湃，立马想撸起袖子加油干。</p><p>就晚上的时候看了一下阿里面经，人给我看蒙了，这都问的啥，基本上都不会，其实不会也很正常。然后联想到前几天看到一个人写的博客，作者是双非学校的大三学生（现在应该在字节工作有1年了），他的博客里面记录了大学的学习过程，我看完觉得我连普通学校的人都比不过，给我整自卑了，当然我并不是对学历有什么歧视，最近越来越意识到人与人之间的差距远比学校与学校之间的差距要大。</p><p>好吧，虽然我可能现在还不找工作，但这些在实践的技能上我还差得远，我经常吐槽自己“先天下之忧而忧”，我知道这句话不是这样用的，但看起来还蛮有喜感。</p><p>最近脑子是被塞了好多东西，时不时就会感慨一下，这世界真的很奇怪。。</p><p>想说的太多，工作上的，学习上的，人际交往上的，过去的一些事情，未来的畅想，爱情、友情、亲情上的思考。</p><p>不过挺晚了该睡了。</p>]]></content>
     
     
-      
-      
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;随便写点&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;就很奇怪，最近拼多多疯狂暴雷，每天一条热搜，加上最近看了学校论坛还有知乎上的帖子，本来是很畅想未来的工作生活的，感觉这种幻想又被一次次击碎。&lt;/p&gt;
-&lt;p&gt;谈谈事情的缘由，开始我是对互联网企业的加</summary>
-      
+&lt;/blockquote&gt;</summary>
     
     
     

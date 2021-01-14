@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="java web"><meta name="keywords" content="分享"><meta name="author" content="pb"><meta name="copyright" content="pb"><title>java web | pb</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.2.0'
+} </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-web-%E7%AE%80%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">java web 简述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94"><span class="toc-number">1.1.</span> <span class="toc-text">请求与响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web%E8%B5%84%E6%BA%90%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">web资源分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">常用的web服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">Tomcat服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.2.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Tomcat"><span class="toc-number">2.3.</span> <span class="toc-text">启动Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%83%A8%E6%9A%91-web-%E5%B7%A5%E7%A8%8B%E5%88%B0-Tomcat-%E4%B8%AD"><span class="toc-number">2.4.</span> <span class="toc-text">如何部暑 web 工程到 Tomcat 中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA%E6%95%B4%E5%90%88Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">IDEA整合Tomcat服务器</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">7</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">3</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">4</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">java web</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-14</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/java-web/">java web</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1k</span><span class="post-meta__separator">|</span><span>阅读时长: 3 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>梳理下javaweb，忘得差不多了。</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="java-web-简述"><a href="#java-web-简述" class="headerlink" title="java web 简述"></a>java web 简述</h2><h3 id="请求与响应"><a href="#请求与响应" class="headerlink" title="请求与响应"></a>请求与响应</h3><p>JavaWeb 是指，所有通过 Java 语言编写可以通过浏览器访问的程序的总称。 JavaWeb 是基于<strong>请求</strong>和<strong>响应</strong>。</p>
+<p><strong>请求（request）：</strong>指客户端给服务器发送数据</p>
+<p><strong>响应（response）：</strong>服务器给客户端回传数据</p>
+<p>请求和响应是成对存在的。</p>
+<h3 id="web资源分类"><a href="#web资源分类" class="headerlink" title="web资源分类"></a>web资源分类</h3><ul>
+<li><strong>静态资源</strong>： html、css、js、txt、mp4 视频 , jpg 图片</li>
+<li><strong>动态资源</strong>： jsp 页面、Servlet 程序</li>
+</ul>
+<h3 id="常用的web服务器"><a href="#常用的web服务器" class="headerlink" title="常用的web服务器"></a>常用的web服务器</h3><p><strong>Tomcat</strong>：由 <strong>Apache 组织</strong>提供的一种 Web 服务器，提供对 jsp 和 Servlet 的支持。它是一种轻量级的 javaWeb 容器（服务 器），也是当前应用最广的 JavaWeb 服务器（免费）。</p>
+<p><strong>Jboss</strong>：是一个遵从 JavaEE 规范的、开放源代码的、纯 Java 的 EJB 服务器，它支持所有的 JavaEE 规范（免费）。</p>
+<p>。。。还有一些企业级的和收费版的</p>
+<h2 id="Tomcat服务器"><a href="#Tomcat服务器" class="headerlink" title="Tomcat服务器"></a>Tomcat服务器</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>找到对应版本的安装包，解压到需要安装的目录即可</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><img src="../images/java-web/image-20210114094730750.png" alt="image-20210114094730750" style="zoom: 67%;" />
+
+<p>bin ：（binary，二进制文件）专门用来存放 Tomcat 服务器的可执行程序<br>conf ：（configuration，配置文件）专门用来存放 Tocmat 服务器的配置文件<br>lib ：（library）专门用来存放 Tomcat 服务器的 jar 包<br>logs ：专门用来存放 Tomcat 服务器运行时输出的日记信息<br>temp ：（temporary）专门用来存放 Tomcdat 运行时产生的临时数据<br>webapps ：（webapplications）专门用来存放部署的 Web 工程。<br>work ：是 Tomcat 工作时的目录，用来存放 Tomcat 运行时 jsp 翻译为 Servlet 的源码，和 Session 钝化的目录。</p>
+<h3 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h3><ul>
+<li>方法一，进入bin目录下，双击startup.bat文件启动</li>
+<li>方法二，进入bin目录下，在命令行模式下输入<code>catalina run</code></li>
+</ul>
+<p>我遇到的一个启动错误问题：</p>
+<p><img src="../images/java-web/image-20210114101447178.png" alt="image-20210114101447178"></p>
+<p><strong>错误原因</strong>：初始化失败，查找资料后发现是端口号被占用，Tomcat默认的端口号是8080，而这个端口号可能被其他进程给占用了。（如何查看端口号是否被占用？参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_47588845/article/details/108281132%EF%BC%89">https://blog.csdn.net/qq_47588845/article/details/108281132）</a></p>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li>将占用该端口的进程kill掉</li>
+<li>修改Tomcat的端口号，在<code>conf\server.xml</code>文件中修改默认端口号为其他的，重启Tomcat</li>
+</ul>
+<p><strong>测试是否成功启动：</strong></p>
+<p>打开浏览器，在浏览器地址栏中输入以下地址测试：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a> </li>
+<li><a target="_blank" rel="noopener" href="http://127.0.0.1:8080/">http://127.0.0.1:8080</a> </li>
+<li>http://本机ip:8080      （cmd中ipconfig）</li>
+</ul>
+<h3 id="如何部暑-web-工程到-Tomcat-中"><a href="#如何部暑-web-工程到-Tomcat-中" class="headerlink" title="如何部暑 web 工程到 Tomcat 中"></a>如何部暑 web 工程到 Tomcat 中</h3><p><strong>部署方式</strong>：</p>
+<ul>
+<li>方式一，把 web 工程的目录拷贝到 Tomcat 的 webapps 目录下 即可。</li>
+<li>方式二，找到 Tomcat 下的 conf 目录\Catalina\localhost\ 下,创建如下的配置文件：</li>
+</ul>
+<p><img src="../images/java-web/image-20210114112717051.png" alt="image-20210114112717051"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Context 表示一个工程上下文</span><br><span class="line">path 表示工程的访问路径:&#x2F;abc</span><br><span class="line">docBase 表示你的工程目录在哪里</span><br><span class="line">--&gt;</span><br><span class="line">&lt;Context path&#x3D;&quot;&#x2F;test&quot; docBase&#x3D;&quot;E:\book&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>访问</strong>：只需要在浏览器中输入访问地址格式如下： <a href="http://ip:port/工程名/目录下/文件名">http://ip:port/工程名/目录下/文件名</a></p>
+<p><a href="http://ip:port/就已经访问到webapps目录下了，接着输入工程项目、目录名和文件名即可访问">http://ip:port/就已经访问到webapps目录下了，接着输入工程项目、目录名和文件名即可访问</a></p>
+<p><strong>注意</strong>：有时候访问失败，是因为没有重启Tomcat。</p>
+<p><strong>默认访问</strong>：</p>
+<ul>
+<li><p>当我们在浏览器地址栏中输入访问地址如下：</p>
+<p><a href="http://ip:port/">http://ip:port/</a> ====&gt;&gt;&gt;&gt; 没有工程名的时候，默认访问的是 ROOT 工程。</p>
+</li>
+<li><p>当我们在浏览器地址栏中输入的访问地址如下：</p>
+<p><a href="http://ip:port/工程名/">http://ip:port/工程名/</a> ====&gt;&gt;&gt;&gt; 没有资源名，默认访问 index.html 页面</p>
+</li>
+</ul>
+<h2 id="IDEA整合Tomcat服务器"><a href="#IDEA整合Tomcat服务器" class="headerlink" title="IDEA整合Tomcat服务器"></a>IDEA整合Tomcat服务器</h2><p>1.在File | Settings | Build, Execution, Deployment | Application Servers中添加Tomcat服务器</p>
+<p>2.创建动态web工程，新版本的IDEA（2020.2版本）与之前的版本有所不同。步骤如下：</p>
+<ul>
+<li>先创建一个普通的java Module</li>
+<li>创建好后右键Module-&gt;Add Framework Support-&gt;将Web Application勾选上即可</li>
+</ul>
+<img src="../images/java-web/image-20210114115752291.png" alt="image-20210114115752291" style="zoom:67%;" />
+
+<p>lib文件夹是我自己创建用来存放jar包的。</p>
+<p>3.web工程目录介绍</p>
+<p><img src="../images/java-web/image-20210114121331171.png" alt="image-20210114121331171"></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/01/14/java-web/">http://example.com/2021/01/14/java-web/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%88%86%E4%BA%AB/">分享</a></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="next-post pull-right"><a href="/2021/01/13/1-13/"><span>1-13</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '52a38b388c08f769c0fe',
+  clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
+  repo: 'jiubukaiji.github.io',
+  owner: 'jiubukaiji',
+  admin: 'jiubukaiji',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By pb</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
