@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-17T04:06:21.166Z</updated>
+  <updated>2021-01-17T04:09:48.595Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,11 +21,21 @@
     <link href="http://example.com/2021/01/17/JDBC/"/>
     <id>http://example.com/2021/01/17/JDBC/</id>
     <published>2021-01-17T04:06:21.000Z</published>
-    <updated>2021-01-17T04:06:21.166Z</updated>
+    <updated>2021-01-17T04:09:48.595Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>JDBC(Java Database Connectivity)是一个独立于特定数据库管理系统、通用的SQL数据库存取和操作的公共接口（一组API），定义了用来访问数据库的标准Java类库，（java.sql,javax.sql）使用这些类库可以以一种标准的方法、方便地访问数据库资源。</p></blockquote><a id="more"></a>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;JDBC(Java Database Connectivity)是一个独立于特定数据库管理系统、通用的SQL数据库存取和操作的公共接口（一组API），定义了用来访问数据库的标准Java类库，（java.sql,javax.sql）使用这些类库可以以一种标准的方法、方便地访问数据库资源。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
+    <category term="JDBC" scheme="http://example.com/categories/JDBC/"/>
     
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
