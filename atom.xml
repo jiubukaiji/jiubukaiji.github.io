@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-21T12:52:47.444Z</updated>
+  <updated>2021-01-21T15:45:32.595Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>三种依恋类型测评</title>
+    <link href="http://example.com/2021/01/21/%E4%B8%89%E7%A7%8D%E4%BE%9D%E6%81%8B%E7%B1%BB%E5%9E%8B%E6%B5%8B%E8%AF%84/"/>
+    <id>http://example.com/2021/01/21/%E4%B8%89%E7%A7%8D%E4%BE%9D%E6%81%8B%E7%B1%BB%E5%9E%8B%E6%B5%8B%E8%AF%84/</id>
+    <published>2021-01-21T15:02:41.000Z</published>
+    <updated>2021-01-21T15:45:32.595Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>今晚看到一个帖子是关于安全型依恋类型的，就去了解了一下三种依恋类型。我向来是对这种XX测评不太相信的，直到我今天去给自己大概测试了一下。。</p></blockquote><a id="more"></a><p>从哪里说起呢？在学校的时候，寝室里有一位在心协的当副部的舍友，他在心理学方面研究挺多。有一段时间，晚上就听他讲这些关于人格分类和测评的一些东西，听起来有点意思，也有点玄乎？但没太在意。</p><p>我对待这些XX测评的看法是怎样的呢？<br>首先，很多时候我觉得这些测评都是依靠一些模糊性的词语来获取人们的认同感，人们在审视这些词语的时候就往往会把自己的经历往这些词语身上套，就会觉得：诶？好像这个测评有那么一点点像我，好像确实是这样的。有可能真实的情况并不是这样的，但这些词语会引导我们往这方面想，导致认知上的误差。</p><blockquote><p>网上查了一下，，还真有这样的理论，叫做<a href="https://baike.baidu.com/item/%E5%B7%B4%E7%BA%B3%E5%A7%86%E6%95%88%E5%BA%94/342014?fr=aladdin">巴拉姆效应</a></p><p>巴纳姆效应（Barnum effect）是指人很容易相信一个笼统的一般性的人格描述，并认为它特别适合自己并准确地揭示了自己的人格特点，即使内容空洞。</p></blockquote><p>其次，对于测评的划分结构我觉得是不清晰的，在做一些测试的时候，我们会觉得在每个划分的部分我们都包含一点，这属于划分的不严谨性。</p><p>还有就是测试本身的科学性，如果说是没有科学理论研究作为依据的测试，例如星座、</p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;今晚看到一个帖子是关于安全型依恋类型的，就去了解了一下三种依恋类型。我向来是对这种XX测评不太相信的，直到我今天去给自己大概测试了一下。。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="想法" scheme="http://example.com/categories/%E6%83%B3%E6%B3%95/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>java 反射</title>
@@ -41,8 +62,8 @@
   
   <entry>
     <title>spring概述和基于xml的IOC配置</title>
-    <link href="http://example.com/2021/01/20/spring%E6%A1%86%E6%9E%B6/"/>
-    <id>http://example.com/2021/01/20/spring%E6%A1%86%E6%9E%B6/</id>
+    <link href="http://example.com/2021/01/20/spring%E6%A6%82%E8%BF%B0%E5%92%8C%E5%9F%BA%E4%BA%8Exml%E7%9A%84IOC%E9%85%8D%E7%BD%AE/"/>
+    <id>http://example.com/2021/01/20/spring%E6%A6%82%E8%BF%B0%E5%92%8C%E5%9F%BA%E4%BA%8Exml%E7%9A%84IOC%E9%85%8D%E7%BD%AE/</id>
     <published>2021-01-20T01:22:17.000Z</published>
     <updated>2021-01-21T12:48:55.884Z</updated>
     
