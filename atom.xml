@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-22T14:34:28.829Z</updated>
+  <updated>2021-01-24T01:57:44.978Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring基于注解的ioc</title>
+    <link href="http://example.com/2021/01/24/spring%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84ioc/"/>
+    <id>http://example.com/2021/01/24/spring%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84ioc/</id>
+    <published>2021-01-24T00:22:10.000Z</published>
+    <updated>2021-01-24T01:57:44.978Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>spring用注解实现ioc</p></blockquote><a id="more"></a><p><strong>注意</strong>：直接打开别人的spring工程时，因为原工程是保留别人电脑的maven路径，需要改到自己的maven路径。</p><h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><p>使用注解之前的必要操作：</p><p>在bean.xml中更换约束（与用xml方式的不同），约束如下：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--告知spring在创建容器时要扫描的包，配置所需要的标签不是在beans的约束中，而是一个名称为</span></span><br><span class="line"><span class="comment">    context名称空间和约束中--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- base-package 是说明这个包下面可能用到注解的方式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.itheima&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure><p>曾经XML的配置：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;accountService&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.itheima.service.impl.AccountServiceImpl&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">scope</span>=<span class="string">&quot;&quot;</span>  <span class="attr">init-method</span>=<span class="string">&quot;&quot;</span> <span class="attr">destroy-method</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span>  <span class="attr">value</span>=<span class="string">&quot;&quot;</span> | <span class="attr">ref</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure><p>分别从以下四个方面来解释</p><p>1.用于创建对象的</p><p>2.用于注入数据的</p><p>3.用于改变作用范围的</p><p>4.和生命周期相关的</p><h3 id="用于创建对象的"><a href="#用于创建对象的" class="headerlink" title="用于创建对象的"></a>用于创建对象的</h3><p><code>@Component:</code></p><p>作用：用于把当前类对象存入spring容器中。</p><p>相当于xml配置中的<code>&lt;bean id = &quot;&quot; class = &quot;&quot;&gt;</code></p><p>属性：<strong>value</strong>：用于指定bean的id。当我们不写时，它的默认值是当前类名，且首字母改小写。</p><p>同样用于创建对象的：</p><p><code>@Controller</code>：一般用在表现层</p><p><code>@Service</code>：一般用在业务层</p><p><code>@Repository</code>：一般用在持久层</p><p>以上三个注解他们的作用和属性与Component是一模一样，这样做有什么好处呢？</p><p>是spring框架为我们提供明确的三层使用的注解，可以使我们的三层对象更加清晰。</p><h3 id="用于注入数据的"><a href="#用于注入数据的" class="headerlink" title="用于注入数据的"></a>用于注入数据的</h3>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;spring用注解实现ioc&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="spring" scheme="http://example.com/categories/spring/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>人与人的悲欢是不相同的</title>
@@ -34,27 +57,6 @@
 &lt;p&gt;人与人的悲欢是不相同的，这边娱乐圈的大瓜一波接着一波，那边b站up主墨茶以一种近乎卑微的方式死去。&lt;/p&gt;
 &lt;p&gt;就不说别人，我自己的情绪在一天中被新闻媒体的各种消息牵着鼻子走，被生活中的琐事所影</summary>
       
-    
-    
-    
-    <category term="想法" scheme="http://example.com/categories/%E6%83%B3%E6%B3%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>三种依恋类型测评</title>
-    <link href="http://example.com/2021/01/21/%E4%B8%89%E7%A7%8D%E4%BE%9D%E6%81%8B%E7%B1%BB%E5%9E%8B%E6%B5%8B%E8%AF%84/"/>
-    <id>http://example.com/2021/01/21/%E4%B8%89%E7%A7%8D%E4%BE%9D%E6%81%8B%E7%B1%BB%E5%9E%8B%E6%B5%8B%E8%AF%84/</id>
-    <published>2021-01-21T15:02:41.000Z</published>
-    <updated>2021-01-22T01:28:45.156Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>今晚看到一个帖子是关于安全型依恋类型的，就去了解了一下三种依恋类型。我向来是对这种XX测评不太相信的，直到我今天去给自己大概测试了一下。。</p></blockquote><a id="more"></a><p>从哪里说起呢？在学校的时候，寝室里有一位在心协的当副部的舍友，他在心理学方面研究挺多。有一段时间，晚上就听他讲这些关于人格分类和测评的一些东西，听起来有点意思，也有点玄乎？但没太在意。</p><p>我对待这些XX测评的看法是怎样的呢？<br>首先，很多时候我觉得这些测评都是依靠一些模糊性的词语来获取人们的认同感，人们在审视这些词语的时候就往往会把自己的经历往这些词语身上套，就会觉得：诶？好像这个测评有那么一点点像我，好像确实是这样的。有可能真实的情况并不是这样的，但这些词语会引导我们往这方面想，导致认知上的误差。</p><blockquote><p>网上查了一下，，还真有这样的理论，叫做<a href="https://baike.baidu.com/item/%E5%B7%B4%E7%BA%B3%E5%A7%86%E6%95%88%E5%BA%94/342014?fr=aladdin">巴拉姆效应</a></p><p>巴纳姆效应（Barnum effect）是指人很容易相信一个笼统的一般性的人格描述，并认为它特别适合自己并准确地揭示了自己的人格特点，即使内容空洞。</p></blockquote><p>还有就是测试本身的科学性，如果说是没有科学理论研究作为依据的测试，例如星座运势（我觉得没有很大的科学依据，是对各种星座的人的固化印象）、算命（由于去算命的人的内心的不确定性，会被算命大师用宽泛的词引导，所以他们会觉得有效果，还是去心理咨询较好）。但是我对于看风水、算卦持有保留态度，前者是有一定的气候、地理知识作为依据的，后者在心理暗示方面也有一定作用，不管结果如何。</p><p>回到正题。</p><p>三种依恋类型：安全型、焦虑型、回避型。</p><p>后两种都属于不安全的类型。</p><p>心理学家最早是在儿童身上发现这种依恋关系的，这种关系会稳定的延续到我们成年，直到我们有意识的纠正它。</p><h3 id="三种依恋类型概述"><a href="#三种依恋类型概述" class="headerlink" title="三种依恋类型概述"></a>三种依恋类型概述</h3><p>下面是一个简单测评，由自我评价和他人评价组成的，包含一个滑动的范围。</p><p>右下角的恐惧型是回避型和焦虑型的复合类型，这种类型的产生往往是因为童年时有过不好的回忆，往往会令人非常痛苦。</p><img src="/images/%E4%B8%89%E7%A7%8D%E4%BE%9D%E6%81%8B%E7%B1%BB%E5%9E%8B%E6%B5%8B%E8%AF%84/%E6%BB%91%E5%8A%A8%E5%88%92%E5%88%86.jpg" style="zoom: 67%;" /><p>下面是三种类型的简要概述：</p><blockquote><p><strong>安全型依恋的成人很容易和别人接近</strong>，并且不会由于对别人太过依赖或被抛弃而感到苦恼，这样的恋人也会在安全的以及忠诚的相互关系中享受性爱。而且他们会努力将关系往令人满意和持久的状态发展。</p><p><strong>回避型依恋的成人</strong>很少投入亲密关系，而且更倾向于摆脱这种关系。他们也更容易涉足没有爱情、只有性关系的一夜情。</p><p><strong>焦虑型（矛盾|反抗型）的成人缺乏信任感，因此表现出较强的占有欲和嫉妒心</strong>。他们可能会经常反复地与同一个人出现情感破裂的状况——不断的分离又复合。如果交流时出现冲突的话，他们会变得情绪激动或者易怒（Cassidy；Simpson）。</p></blockquote><h3 id="具体表现与测评"><a href="#具体表现与测评" class="headerlink" title="具体表现与测评"></a>具体表现与测评</h3><p><strong>A 组依恋风格描述</strong></p><ol><li><p>我常常担心我的伴侣不再爱我。</p></li><li><p>我害怕别人一旦了解真正的我，就会嫌弃我。</p></li><li><p>我一不恋爱就感觉焦虑，生活像缺了什么似的。</p></li><li><p>当伴侣不和我在一起时，我就担心他是不是看上了别人。</p></li><li><p>向伴侣倾诉内心感受时，我担心对方发现我不好的一面。</p></li><li><p>我经常为恋爱思绪不宁。</p></li><li><p>我很快就对伴侣产生依赖感。</p></li><li><p>我对伴侣的情绪变化很敏感。</p></li><li><p>我担心如果现在的伴侣离开我，我再也找不到爱我的人。</p></li><li><p>如果和恋人发生冲突，我有时会不假思索地说一些话，做一些事，言行偏激，过后又懊悔。</p></li><li><p>我担心自己没有魅力。</p></li><li><p>如果我发现喜欢的人不喜欢我，而喜欢别人，我会感到万分难过。</p></li><li><p>如果我的伴侣表现有些冷淡疏远，我会怀疑是自己做错了什么事。</p></li><li><p>如果我的伴侣想和我分手，我会用尽一切办法，让他知道放弃我是他的错（给对方施加心理压力）。</p></li></ol><p><strong>B 组依恋风格描述：</strong></p><ol><li><p>我容易和伴侣接近。</p></li><li><p>依赖伴侣使我感到安心。</p></li><li><p>我对自己的恋情基本满意。</p></li><li><p>我在恋爱中感到没有什么压力。</p></li><li><p>我很容易和伴侣沟通自己的需要和想法。</p></li><li><p>我相信大多数人本质上都是诚实可靠的。</p></li><li><p>我可以安心地与伴侣分享思想和感受。</p></li><li><p>即使与伴侣发生争吵，我也不会全盘否定我们的感情。</p></li><li><p>我的情感生活波澜不惊，以至于别人有时候认为我有些无趣。</p></li><li><p>和别人意见不一致的时候，我也能心平气和地表达。</p></li><li><p>如果我发现喜欢的人不喜欢我，而喜欢别人，内心不会受到很大折磨。我也许会感觉有些吃醋，不过很快这种感觉就过去了。</p></li><li><p>如果我的伴侣表现有些冷淡疏远，我会想一想原因是什么，然而我知道他的表现也许不是因为我。</p></li><li><p>如果交往了几个月的伴侣想和我分手，我一开始会感到受伤，但是也能够较快恢复</p></li><li><p>我可以和前任继续做普通朋友，毕竟我们有许多共同点。</p></li></ol><p><strong>C 组依恋风格描述：</strong></p><ol><li>我发现我分手后心情很快就平静下来。我很惊讶自己能够这么快忘记一个人。</li><li>看到伴侣伤心的时候，我感觉很难给他情感上的支持。</li><li>对我来说，独立比恋情更重要。</li><li>我不愿意和伴侣分享内心深处的感受。</li><li>我发现自己很难全身心依靠伴侣。</li><li>有时候，我会冒出一些无名火，让伴侣感到不知所措。</li><li>跟稳定的恋爱相比，我更喜欢不用承担责任的性爱</li><li>当伴侣与我过分亲近的时候，我会感到不安。</li><li>我的伴侣常常希望我更亲近一些，但是我不想那么亲近。</li><li>和伴侣分开的时候，我会想念；在一起的时候，我却想逃离。</li><li>我讨厌被人依靠的感觉。</li><li>如果我发现喜欢的人不喜欢我，而喜欢别人，我感到如释重负。这意味着他不会缠着我不放。</li><li>如果我的伴侣表现有些冷淡疏远，我会感觉无动于衷，甚至如释重负。</li><li>在如愿以偿地和追慕已久的人在一起之后，我感觉兴味索然。</li></ol><p>现在统计一下你的各组画勾数目：</p><p>在A 组依恋风格描述下画勾的总数：</p><p>在B 组依恋风格描述下画勾的总数：</p><p>在C 组依恋风格描述下画勾的总数：</p><hr><p>统计完毕A、B、C 各项的总数之后，数目最多的那一项表明你的依恋风格。</p><p>A 项最多，说明你是焦虑-矛盾型依恋风格；</p><p>B 项最多，说明你是安全型依恋风格；</p><p>C 项最多，则说明你是回避型依恋风格。</p><p>A.<strong>焦虑-矛盾型</strong></p><p>你喜欢和恋人在一起，亲密无间，渴望深层的亲密关系。然而你常常处在不确定中，担心恋人和你不够亲近。情感问题消耗了你大部分的心力，让你疲倦。你容易察觉出感情生活中的细微波动，对恋人的情绪和行为非常敏感。在许多情况下，虽然恋人的情绪和你感受的一样有波动，但不一定如你所想是你造成的。在恋情中，你经常给自己消极暗示，情绪波动严重。有时候，你很冲动的说话做事，给恋人带来伤害，也让感情受损，当你意识到自己的负面情绪时，你又会感到懊悔。要是恋人能够给你足够的抚慰和安全感，你就会感到很放松，心满意足。</p><p>B.<strong>安全型</strong></p><p>恋爱中，你会自然而然地充满温情和爱意。你喜欢和恋人亲密无间，通常不会对你们之间的关系忧心忡忡。对待恋爱中的风波，你处之泰然，不会轻易心烦意乱。你可以畅通无阻地与恋人交流自己的想法和心情，也愿意聆听恋人倾诉，理解恋人的心情，并与之合拍。你乐于和恋人分享自己的成功或失败，恋人遇到困难的时候，你会全力支持。</p><p>C.<strong>回避型</strong></p><p>你认为独立、自由比亲密的恋情更加重要。其实，你也需要亲密关系，你只是不愿意太过亲近，喜欢与恋人保持一点距离。你丝毫不担心感情问题，不怕被拒绝。你不容易向恋人袒露心迹，这使得对方感觉你有些疏远。在恋爱中，一旦恋人表现出亲密的愿望，或者逾越了你个人自由的界限，你就会警觉起来。</p><p>测评后，，我发现我是焦虑型和安全型73开的样子，具体哪些选项就不说了。</p><p>但是我为什么会觉得很准呢，好多句子都说到我心坎上了。</p><p>先暂且不管为什么这么准，焦虑产生的深层原因是什么呢？</p><p>我就去探寻了一下这个理论的背后原因</p><p>本来昨晚想了挺多点的，，睡了一觉又没那种感觉了，以后有时间再填坑吧</p><p>1.22。。。</p><hr><p>参考链接：<a href="https://zhuanlan.zhihu.com/p/55538689?utm_source=qq">https://zhuanlan.zhihu.com/p/55538689?utm_source=qq</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;今晚看到一个帖子是关于安全型依恋类型的，就去了解了一下三种依恋类型。我向来是对这种XX测评不太相信的，直到我今天去给自己大概测试了一下。。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
     
     
     
