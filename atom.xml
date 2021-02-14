@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-06T06:33:05.014Z</updated>
+  <updated>2021-02-14T07:51:56.561Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>春节见闻</title>
+    <link href="http://example.com/2021/02/14/%E6%98%A5%E8%8A%82%E8%A7%81%E9%97%BB/"/>
+    <id>http://example.com/2021/02/14/%E6%98%A5%E8%8A%82%E8%A7%81%E9%97%BB/</id>
+    <published>2021-02-14T07:50:51.000Z</published>
+    <updated>2021-02-14T07:51:56.561Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote></blockquote><a id="more"></a>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="日常" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>论一种思维方式</title>
     <link href="http://example.com/2021/02/06/%E8%AE%BA%E4%B8%80%E7%A7%8D%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F/"/>
     <id>http://example.com/2021/02/06/%E8%AE%BA%E4%B8%80%E7%A7%8D%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F/</id>
     <published>2021-02-06T06:29:46.000Z</published>
-    <updated>2021-02-06T06:33:05.014Z</updated>
+    <updated>2021-02-10T03:45:35.394Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>别说为啥没写java的文章了，休息了几天并且有其他事要做，休整好了立马写</p><p>今天要说的是一种思维方式，想摆脱却做不到，我猜可能每个人都有。</p></blockquote><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>别说为啥没写java的文章了，休息了几天并且有其他事要做，休整好了立马写</p><p>今天要说的是一种思维方式，想摆脱却做不到，我猜可能每个人都有。</p></blockquote><a id="more"></a><h2 id="自我设障"><a href="#自我设障" class="headerlink" title="自我设障"></a>自我设障</h2><h3 id="自我设障的含义和表现"><a href="#自我设障的含义和表现" class="headerlink" title="自我设障的含义和表现"></a>自我设障的含义和表现</h3><p>自我设障（self-handicapping）：为了避免失败带来的负面影响，提前给自己设置障碍。</p><p>1.行为上：个体通过“做点什么破坏性的事情”或是“什么都不做”来阻碍成功结果的出现。</p><p>拖延就是一种最常见的形式。比如用ddl来作为最大生产力驱动自己（你再骂），这样，我们便有理由有安慰自己：你看，这篇论文是因为没有时间草草完成的哦，如果我早点开始做，那结果可能就不一样了。一边怒骂自己不断生产着学术垃圾，一遍干着同样的事。</p><p>还有以下几种典型表现：</p><ul><li><p>临考前摸鱼</p><blockquote><p>“哎呀，只是昨晚通宵打游戏了，没睡好，所以考试没考好的”</p><p>“要不是我昨晚去干其他事情去了，没咋复习”</p></blockquote></li><li><p>故意设置过高的目标或者安排过难的任务。</p><blockquote><p>“不成，这么难的任务，换谁都不行，耶稣来了都没用，我说的！”</p></blockquote></li><li><p>减少努力的程度</p><blockquote><p>“要是我认真，那这件事就是小case”</p></blockquote></li></ul><p>2.言语上：个体用难辨真伪的借口<strong>公开</strong>表示自己处于不利的竞争情境，（<strong>但并不一定减少实际的努力</strong>），失败时也容易博取他人的谅解。</p><p>比如人们常在考试前不经意的提及：</p><blockquote><p>“这几天感冒了/没睡好/精神不好/学习效率太低了”</p></blockquote><p>这种言语上的自我设障会给自己一种心理暗示，而并不一定是真的存在，也许自己并不一定真的是因为没睡好，也不一定是精神状态不好，但多次的公开表示在一定程度上就将其转变成了现实。</p><p>是我们自我保护的一种典型方法，在失败后我们有理由相信别人会谅解我们的失败</p><p>万一成功，自我概念得到提升，“我不复习都那么厉害”，在一定程度上也能增强自信心，也为以后的下次失败埋下了伏笔。</p><h3 id="自我设障的原因"><a href="#自我设障的原因" class="headerlink" title="自我设障的原因"></a>自我设障的原因</h3><p>从外部和内部两个方面来解释：一是印象管理（维护自我形象），二是保护自尊（相信自己有能力）</p><p>1.印象管理</p><p>一个很现实的原因：一旦我们失败了，别人会知道，别人会觉得我无能？看不起我？</p><p>那么，我们需要维护颜面，给别人留下好的印象。</p><p>自我设障能帮助我们更好的做到印象管理。这样，我们在失败后，别人会觉得：哦，并不是他自己的问题，而是他遇到了种种困难，运气不好罢了，不涉及到能力等种种自身因素。而别人不知道的是，这种“困难”是我们自己设下的。</p><p>2.保护自尊</p><p>别人的看法仅仅是部分的原因，更重要的原因在于，如果我们拼尽全力，结果却仍不如人意，就意味着我们揭开了自己的伪装，不得不面对“能力不足”这个残忍的现实了。</p><p>所以，我们才有了这么多的借口。我们不会认为这是自身的不足，而将其归结为种种外部因素。</p><p>人们常常宁愿因为懒惰而失败而不愿因为愚笨而失败<strong>。“我成绩差是因为我没努力”是不是比“成绩差是因为我笨”听起来舒服太多了。</strong></p><p>岔个题，不过可笑的是，往往人们会在若干年后认识到自己的平庸</p><h3 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h3><p>讲讲我自己的看法，行为上的自我设障是我们需要去克服的，言语上的自我设障并不一定是真的没努力，也有可能是烟幕弹罢了。</p><p>需要控制情绪，当双方都无法去</p><p>参考文章：</p>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -431,27 +451,6 @@
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;本博客的搭建用到了git，&lt;del&gt;出于对知识的热爱&lt;/del&gt;（在家太无聊了），决定写一个git的简单使用&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    
-    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo+Typora图片插入</title>
-    <link href="http://example.com/2021/01/07/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/"/>
-    <id>http://example.com/2021/01/07/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/</id>
-    <published>2021-01-07T09:17:05.000Z</published>
-    <updated>2021-01-08T12:41:09.721Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>本文记录下hexo+Typora图片插入时遇到的问题与解决方法</p></blockquote><a id="more"></a><h2 id="简要介绍"><a href="#简要介绍" class="headerlink" title="简要介绍"></a>简要介绍</h2><p>hexo：用官网的来话，是一种快速、简洁且高效的博客框架。</p><p>Typora：一款Markdown编辑器，最大特点是所见即所得，界面十分简洁。</p><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>首先说明，所有博客文件均保存在 <code>Blog/source/_posts/</code>文件夹下。</p><p>在Typora中能够显示图片，但在博客中显示失败</p><p>如下：</p><p><img src="/images/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/Typora%E4%B8%AD%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA.png" alt="Typora中正常显示"></p><p><img src="/images/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA.png" alt="博客中无法显示"></p><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>上面的猫猫表情在Typora中采用的是绝对路径，但是hexo是要用服务器访问自己blog文件夹中的资源的，显然要用相对路径的方式放置图片，让服务器能够访问到图片。</p><h2 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h2><p>1.在<code>Blog/source</code>目录下创建一个<code>images</code>文件夹，用来存放文章中的图片</p><p>2.进入Typora-&gt;文件-&gt;偏好设置（也可直接按ctrl+逗号）-&gt;图像，按下图所示勾选选项</p><p><img src="/images/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/1.png"></p><p>解释：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..&#x2F;images&#x2F;$&#123;filename&#125;</span><br></pre></td></tr></table></figure><blockquote><p>将会在包含.md文件的目录的上一级目录（也就是是<code>source</code>目录下）的<code>images</code>目录下新建一个与文章同名的文件夹，里面放的就是本篇文章的所有图片。</p></blockquote><p>效果如下图所示：</p><p><img src="/images/hexo+Typora%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/2.png"></p><p>当然，也可自行定义图片保存位置，具体不再赘述。</p><p>3.进入Typora-&gt;格式-&gt;图像-&gt;设置图片根目录，设置<code>Blog/source</code>作为图片根目录。</p><p><strong>注意：这里的图片根目录是与上一步的图片保存位置相对应的。</strong></p><p><strong>若将图片保存到了<code>Blog/source</code>路径下的其他位置，这里的图片根目录也要随之改变。</strong></p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这里涉及到的主要是资源的访问问题，注意相对路径和绝对路径。</p><p>参考文章：<a href="https://www.cnblogs.com/yinyoupoet/p/13287385.html">https://www.cnblogs.com/yinyoupoet/p/13287385.html</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;本文记录下hexo+Typora图片插入时遇到的问题与解决方法&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
