@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-19T10:34:15.099Z</updated>
+  <updated>2021-02-21T01:45:40.177Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>操作系统学习</title>
+    <link href="http://example.com/2021/02/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://example.com/2021/02/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-02-21T01:21:18.000Z</published>
+    <updated>2021-02-21T01:45:40.177Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>标题是在一个月前建的，由于<del>各种不可抗因素</del>（中间玩了一两周），拖到现在，能写多少是多少吧</p><p>内容参照王道考研书</p></blockquote><a id="more"></a><h2 id="第一章-计算机系统概述"><a href="#第一章-计算机系统概述" class="headerlink" title="第一章 计算机系统概述"></a>第一章 计算机系统概述</h2>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;标题是在一个月前建的，由于&lt;del&gt;各种不可抗因素&lt;/del&gt;（中间玩了一两周），拖到现在，能写多少是多少吧&lt;/p&gt;
+&lt;p&gt;内容参照王道考研书&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="操作系统" scheme="http://example.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="基础课程" scheme="http://example.com/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2.19</title>
     <link href="http://example.com/2021/02/19/2-19/"/>
     <id>http://example.com/2021/02/19/2-19/</id>
     <published>2021-02-19T09:58:31.000Z</published>
-    <updated>2021-02-19T10:34:15.099Z</updated>
+    <updated>2021-02-20T01:02:43.959Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>唧唧歪歪唧唧歪歪</p></blockquote><a id="more"></a><p>知乎话题</p><h1 id="年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？"><a href="#年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？" class="headerlink" title="年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？"></a>年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？</h1><p>当然不是我被催婚，而是目睹了身边几个大龄亲戚被催婚时有感</p><p>中国父母责任的结束是子女的婚礼?</p><ul><li>父母，有人可以赡养自己，关系孩子孤独，多点老年乐趣</li><li>国家，国家经济发展需要新生劳动力所维系</li><li>社会行业，许许多多相关行业的需要，举个例子：房地产行业、新生儿所拉动的社会经济发展。。。</li></ul><p>还看到几个角度，在人与人的交往方面，哪壶不开提哪壶是人与人不熟时尬聊永远优先选择的主题，因为聊这个能戳到你痛点嘛，你肯定最差要反驳几句对不对。你不好说车轱辘话嗯嗯啊啊来敷衍我了。（那意思是并不是别人有意想要催婚，而只是将其当做一个拉近关系聊天的方式。）</p><hr><p>屁股决定脑袋</p><p>出处：</p><blockquote><p>贾雨村断案时想：原来当官没别的诀窍，无非是看脑袋指挥屁股，还是屁股决定脑袋。</p><p>如此权衡一番得失，贾雨村的屁股就移位了，脑袋全听了屁股的指挥，结果便是“徇情枉法，胡乱判断了此案”。</p><p>​                                                        ——《红楼梦》</p></blockquote><p>屁股决定脑袋，网络用语，出自《红楼梦》。用文明一点的说法叫做“位置决定想法”。<strong>一个人坐什么位置，往往决定了他思考的角度和范围</strong></p><p>屁股决定脑袋有两种意思。</p><ul><li>一种是说一个人看问题的角度和立场受到他所处的位置限制，他的位置限制了他的视野，使他只能看到问题的某一方面，能力受限，他是被动的。</li><li>另一种是说一个人会选择对自己的位置有利的立场和角度论述一件利益相关的事，他是主动的</li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>唧唧歪歪唧唧歪歪</p></blockquote><a id="more"></a><p>知乎话题</p><h1 id="年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？"><a href="#年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？" class="headerlink" title="年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？"></a>年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？</h1><p>倒不是我被催婚，而是目睹了身边几个大龄亲戚被催婚有感</p><p>中国父母责任的结束是子女的婚礼?</p><ul><li>父母，有人可以赡养自己，关系孩子孤独，多点老年乐趣</li><li>国家，国家经济发展需要新生劳动力所维系</li><li>社会行业，许许多多相关行业的需要，举个例子：房地产行业、新生儿所拉动的社会经济发展。。。</li></ul><p>还看到几个角度，在人与人的交往方面，哪壶不开提哪壶是人与人不熟时尬聊永远优先选择的主题，因为聊这个能戳到你痛点嘛，你肯定最差要反驳几句对不对。你不好说车轱辘话嗯嗯啊啊来敷衍我了。（那意思是并不是别人有意想要催婚，而只是将其当做一个拉近关系聊天的方式。）</p><hr><p>屁股决定脑袋</p><p>出处：</p><blockquote><p>贾雨村断案时想：原来当官没别的诀窍，无非是看脑袋指挥屁股，还是屁股决定脑袋。</p><p>如此权衡一番得失，贾雨村的屁股就移位了，脑袋全听了屁股的指挥，结果便是“徇情枉法，胡乱判断了此案”。</p><p>​                                                        ——《红楼梦》</p></blockquote><p>屁股决定脑袋，网络用语，出自《红楼梦》。用文明一点的说法叫做“位置决定想法”。<strong>一个人坐什么位置，往往决定了他思考的角度和范围</strong></p><p>屁股决定脑袋有两种意思。</p><ul><li>一种是说一个人看问题的角度和立场受到他所处的位置限制，他的位置限制了他的视野，使他只能看到问题的某一方面，能力受限，他是被动的。</li><li>另一种是说一个人会选择对自己的位置有利的立场和角度论述一件利益相关的事，他是主动的</li></ul>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -232,29 +256,6 @@
     
     
     <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统学习</title>
-    <link href="http://example.com/2021/01/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://example.com/2021/01/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-01-20T01:21:18.000Z</published>
-    <updated>2021-01-20T01:24:32.442Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>开个坑，了解一下操作系统的相关原理</p></blockquote><a id="more"></a>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;开个坑，了解一下操作系统的相关原理&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="操作系统" scheme="http://example.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="基础课程" scheme="http://example.com/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/"/>
     
   </entry>
   
