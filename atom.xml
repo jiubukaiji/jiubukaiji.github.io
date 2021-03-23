@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-10T12:19:32.004Z</updated>
+  <updated>2021-03-23T14:17:13.619Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>爬取bilibili视频</title>
+    <link href="http://example.com/2021/03/23/%E7%88%AC%E5%8F%96bilibili%E8%A7%86%E9%A2%91/"/>
+    <id>http://example.com/2021/03/23/%E7%88%AC%E5%8F%96bilibili%E8%A7%86%E9%A2%91/</id>
+    <published>2021-03-23T14:09:29.000Z</published>
+    <updated>2021-03-23T14:17:13.619Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>任意给bilibili视频链接下载视频到本地</p></blockquote><p>直接贴代码，如下：</p><p>b站的视频和音频是分开的，所以请求的时候分开请求，最后再合并即可</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">validateTitle</span>(<span class="params">title</span>):</span></span><br><span class="line">    rstr = <span class="string">r&quot;[\/\\\:\*\?\&quot;\&lt;\&gt;\|]&quot;</span>  <span class="comment"># &#x27;/ \ : * ? &quot; &lt; &gt; |&#x27;</span></span><br><span class="line">    new_title = re.sub(rstr, <span class="string">&quot;_&quot;</span>, title)  <span class="comment"># 替换为下划线</span></span><br><span class="line">    <span class="keyword">return</span> new_title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bilibili_video_download</span>(<span class="params">url</span>):</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: url</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># response_1代表每个视频具体的信息</span></span><br><span class="line">    response = requests.get(url, headers=headers)</span><br><span class="line"></span><br><span class="line">    soup = BeautifulSoup(response.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">    video_title = <span class="built_in">str</span>(soup.title.text).split(<span class="string">&#x27;_哔哩哔哩&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># 将数据转换成py格式的数据</span></span><br><span class="line">    py_data1 = etree.HTML(response.text)</span><br><span class="line"></span><br><span class="line">    url_str = py_data1.xpath(<span class="string">&#x27;//script[contains(text(),&quot;window.__playinfo__&quot;)]/text()&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    video_download_url = re.findall(<span class="string">&#x27;&quot;video&quot;:\[&#123;&quot;id&quot;:\d+,&quot;baseUrl&quot;:&quot;(.*?)&quot;,&#x27;</span>, url_str)[<span class="number">0</span>]  <span class="comment"># 提取真正的视频下载链接</span></span><br><span class="line">    audio_download_url = re.findall(<span class="string">&#x27;&quot;audio&quot;:\[&#123;&quot;id&quot;:\d+,&quot;baseUrl&quot;:&quot;(.*?)&quot;,&#x27;</span>, url_str)[<span class="number">0</span>]  <span class="comment"># 提取真正的音频下载链接</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 请求得到视频和音频内容</span></span><br><span class="line">    response_video = requests.get(video_download_url, headers=headers)</span><br><span class="line">    response_audio = requests.get(audio_download_url, headers=headers)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 给视频起一个新名称，避免名称不合规范或者有重名现象</span></span><br><span class="line">    new_title = validateTitle(video_title)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下载音频</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(new_title + <span class="string">&#x27;.mp3&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">        f.write(response_audio.content)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下载视频</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(new_title + <span class="string">&#x27;.mp4&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">        f.write(response_video.content)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将音频和视频合成</span></span><br><span class="line">    os.system(<span class="string">f&#x27;ffmpeg -i &quot;<span class="subst">&#123;new_title&#125;</span>.mp3&quot; -i &quot;<span class="subst">&#123;new_title&#125;</span>.mp4&quot; -c copy &quot;<span class="subst">&#123;new_title&#125;</span>merge.mp4&quot; -loglevel quiet&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    url = <span class="string">&#x27;https://www.bilibili.com/video/BV1xx411c7yK&#x27;</span></span><br><span class="line">    bilibili_video_download(url)</span><br></pre></td></tr></table></figure><p>注意点：</p><ul><li><p>若运行不成功，看是否下载了ffmpeg，参考<a href="https://blog.csdn.net/pythonlaodi/article/details/109222790?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&amp;dist_request_id=1328689.95.16165087717508347&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control">https://blog.csdn.net/pythonlaodi/article/details/109222790?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&amp;dist_request_id=1328689.95.16165087717508347&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control</a></p></li><li><p>不要尝试去下载番剧和电影（要是能成功，版权费你出？）格式为这样的可以下载成功<a href="https://www.bilibili.com/video/xxxxxxx">https://www.bilibili.com/video/xxxxxxx</a></p></li><li><p>下载后会生成三个文件（纯视频、纯音频、视频和音频合并后的视频）</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;任意给bilibili视频链接下载视频到本地&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;直接贴代码，如下：&lt;/p&gt;
+&lt;p&gt;b站的视频和音频是分开的，所以请求的时候分开请求，最后再合并即可&lt;/p&gt;
+&lt;figure class=&quot;highlight p</summary>
+      
+    
+    
+    
+    <category term="python" scheme="http://example.com/categories/python/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>python selenium学习</title>
@@ -434,27 +461,6 @@
     
     
     <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>鲁豫问答法</title>
-    <link href="http://example.com/2021/01/15/%E9%B2%81%E8%B1%AB%E9%97%AE%E7%AD%94%E6%B3%95/"/>
-    <id>http://example.com/2021/01/15/%E9%B2%81%E8%B1%AB%E9%97%AE%E7%AD%94%E6%B3%95/</id>
-    <published>2021-01-15T07:56:38.000Z</published>
-    <updated>2021-01-15T08:05:49.707Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>真的吗？我不信</p></blockquote><a id="more"></a>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;真的吗？我不信&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="日常" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
     
   </entry>
   
