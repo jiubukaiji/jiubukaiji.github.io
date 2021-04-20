@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-04-15T01:15:46.034Z</updated>
+  <updated>2021-04-20T02:42:32.266Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,23 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>机器学习笔记</title>
-    <link href="http://example.com/2021/04/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://example.com/2021/04/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2021-04-14T13:54:14.000Z</published>
-    <updated>2021-04-15T01:15:46.034Z</updated>
+    <title>4.2</title>
+    <link href="http://example.com/2021/04/20/4-20/"/>
+    <id>http://example.com/2021/04/20/4-20/</id>
+    <published>2021-04-20T02:36:36.000Z</published>
+    <updated>2021-04-20T02:42:32.266Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>上学期的机器学习全忘了，人在江湖飘，不会点机器学习都找不着导师了</p><p>只写一些不太记得的地方和重点</p></blockquote><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>1.机器学习分类</p><ul><li>监督学习</li><li>无监督学习</li><li>半监督学习</li><li>强化学习</li></ul><h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h2><p>1.<strong>线性可分定义</strong></p><p>直观上：一条<strong>直线</strong>将一堆点和一堆圈分成两部分</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210414220001685.png"></p><p>数学上：yi = +1 或 -1是两种分类的结果，想象一下点在直线上方和点在直线下方分别代表大于0和小于0情况</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210414215757889.png"></p><hr><p><strong>2</strong>.<strong>怎样找到一条直线使得划分平面效果最优？</strong></p><p>若有很多种分类方法，找到其中<strong>最大间隔</strong>的一种分类方式</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210414220909703.png"></p><p>得出下面结论：</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210414221050814.png"></p><hr><p><strong>3.如何用数学证明将寻找最优化超平面的过程写成一个最优化问题？</strong>（未解决？）</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210415083407475.png">凸优化问题，采用梯度下降法不断寻找极值点</p><hr><p><strong>4.在线性不可分的情况下采用最优化算法</strong></p><p>但是这里采用的仍然是线性函数，在某些情况下并不能进行很好的分类</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210415084431459.png"></p><hr><p><strong>5.当线性不可分时，因为直接在特征空间上采用最优化算法效果并不好，将特征空间由低纬到高纬的变换，使得可以线性可分</strong></p><p>下面有一个定理，说明了这个问题，可知当维度增加时，使得训练样本线性可分的概率增大了，无穷大时趋近于0</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210415085218205.png"></p><p>回到问题四上面，将xi改成**φ(xi)**，同时使Ω的维度与φ(xi)相同，那么这个问题就类似于低纬问题的凸优化解法</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210415085451183.png"></p><hr><p><strong>6.具体探究φ(xi)的形式</strong></p><p>核函数（kernel function）是一个实数</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>如果生活中的事情能够多线程互不干扰就好了</p></blockquote><p>单线程阻塞了不能影响主进程的运行</p>]]></content>
     
     
       
       
     <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;如果生活中的事情能够多线程互不干扰就好了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;单线程阻塞了不能影响主进程的运行&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习笔记</title>
+    <link href="http://example.com/2021/04/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://example.com/2021/04/14/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2021-04-14T13:54:14.000Z</published>
+    <updated>2021-04-16T03:32:07.132Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>上学期的机器学习全忘了，人在江湖飘，不会点机器学习都找不着导师了</p><p>只写一些不太记得的地方和重点</p></blockquote><a id="more"></a><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>1.机器学习分类</p><ul><li>监督学习</li><li>无监督学习</li><li>半监督学习</li><li>强化学习</li></ul><h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h2><p>1.<strong>线性可分定义</strong></p><p>直观上：一条<strong>直线</strong>将一堆点和一堆圈分成两部分</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210414220001685.png"></p><p>数学上：yi = +1 或 -1是两种分类的结果，想象一下点在直线上方和点在直线下方分别代表大于0和小于0情况</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210414215757889.png"></p><hr><p><strong>2</strong>.<strong>怎样找到一条直线使得划分平面效果最优？</strong></p><p>若有很多种分类方法，找到其中<strong>最大间隔</strong>的一种分类方式</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210414220909703.png"></p><p>得出下面结论：</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210414221050814.png"></p><hr><p><strong>3.如何用数学证明将寻找最优化超平面的过程写成一个最优化问题？</strong>（未解决？）</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210415083407475.png">凸优化问题，采用梯度下降法不断寻找极值点</p><hr><p><strong>4.在线性不可分的情况下采用最优化算法</strong></p><p>但是这里采用的仍然是线性函数，在某些情况下并不能进行很好的分类</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210415084431459.png"></p><hr><p><strong>5.当线性不可分时，因为直接在特征空间上采用最优化算法效果并不好，将特征空间由低纬到高纬的变换，使得可以线性可分</strong></p><p>下面有一个定理，说明了这个问题，可知当维度增加时，使得训练样本线性可分的概率增大了，无穷大时趋近于0</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210415085218205.png"></p><p>回到问题四上面，将xi改成**φ(xi)**，同时使Ω的维度与φ(xi)相同，那么这个问题就类似于低纬问题的凸优化解法</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210415085451183.png"></p><hr><p><strong>6.具体探究φ(xi)的形式</strong></p><p>核函数（kernel function）是一个实数，如下：</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416105818055.png"></p><hr><p>下面介绍核函数与映射φ(x)之间的关系，</p><p>例子1：已知映射关系，求核函数</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416110202133.png" alt="image-20210416110202133"></p><p>K（x1，x2）结果如下，是一个常数。</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416110303215.png" alt="image-20210416110303215"></p><p>例子2，已知核函数，求映射φ(x)</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416110535259.png" alt="image-20210416110535259"></p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416110628633.png" alt="image-20210416110628633"></p><p>7.原问题与对偶问题</p><p>原问题：<br><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416110845884.png" alt="image-20210416110845884"></p><p>对偶问题：</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416110928482.png" alt="image-20210416110928482"></p><p>9.支持向量机总体算法流程</p><h2 id="人工神经网络"><a href="#人工神经网络" class="headerlink" title="人工神经网络"></a>人工神经网络</h2><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416111930608.png" alt="image-20210416111930608"></p><p>感知器算法：</p><p><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210416112441104.png" alt="image-20210416112441104"></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;上学期的机器学习全忘了，人在江湖飘，不会点机器学习都找不着导师了&lt;/p&gt;
 &lt;p&gt;只写一些不太记得的地方和重点&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=</summary>
-      
+&lt;/blockquote&gt;</summary>
     
     
     
@@ -429,29 +449,6 @@
     
     <category term="想法" scheme="http://example.com/categories/%E6%83%B3%E6%B3%95/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>java 反射</title>
-    <link href="http://example.com/2021/01/21/java-%E5%8F%8D%E5%B0%84/"/>
-    <id>http://example.com/2021/01/21/java-%E5%8F%8D%E5%B0%84/</id>
-    <published>2021-01-21T12:50:55.000Z</published>
-    <updated>2021-01-21T12:52:47.444Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>在jdbc和spring框架中有用到反射，记录一下反射的用法</p></blockquote><a id="more"></a>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;在jdbc和spring框架中有用到反射，记录一下反射的用法&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="java基础" scheme="http://example.com/categories/java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
