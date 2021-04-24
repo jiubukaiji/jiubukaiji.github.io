@@ -42,21 +42,14 @@
     <link href="http://example.com/2021/04/20/4-20/"/>
     <id>http://example.com/2021/04/20/4-20/</id>
     <published>2021-04-20T02:36:36.000Z</published>
-    <updated>2021-04-22T02:44:54.981Z</updated>
+    <updated>2021-04-24T07:56:49.227Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>如果生活中的事情能够多线程互不干扰就好了</p></blockquote><p>单线程阻塞了不能影响主进程的运行，选择挂起</p><hr><p>现在的策略是：</p><p>将事务扔进沙箱，心情是主线，即便事务不再进行了，也不会影响主线。</p><p>希望如此。。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>如果生活中的事情能够多线程互不干扰就好了</p></blockquote><a id="more"></a><p>单线程阻塞了不能影响主进程的运行，选择挂起</p><hr><p>现在的策略是：</p><p>将事务扔进沙箱，心情是主线，即便事务不再进行了，也不会影响主线。</p><p>希望如此。。</p>]]></content>
     
     
-      
-      
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;如果生活中的事情能够多线程互不干扰就好了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;单线程阻塞了不能影响主进程的运行，选择挂起&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;现在的策略是：&lt;/p&gt;
-&lt;p&gt;将事务扔进沙箱，心情是主线，即便事务不再进行了，也不会影响主线。&lt;</summary>
-      
+&lt;/blockquote&gt;</summary>
     
     
     
