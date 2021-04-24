@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-04-22T02:44:54.981Z</updated>
+  <updated>2021-04-24T07:37:04.600Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>怎么查美赛成绩</title>
+    <link href="http://example.com/2021/04/24/%E6%80%8E%E4%B9%88%E6%9F%A5%E7%BE%8E%E8%B5%9B%E6%88%90%E7%BB%A9/"/>
+    <id>http://example.com/2021/04/24/%E6%80%8E%E4%B9%88%E6%9F%A5%E7%BE%8E%E8%B5%9B%E6%88%90%E7%BB%A9/</id>
+    <published>2021-04-24T07:21:46.000Z</published>
+    <updated>2021-04-24T07:37:04.600Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>等待是最煎熬的过程，本人闲得无聊，写了个程序，美赛成绩一出将自动下载获奖证书发送到QQ邮箱，就不用每隔一段时间就去查成绩出了没</p></blockquote><a id="more"></a><p>准备工作：</p><ul><li>语言：python</li><li>下载第三方库 ：requests、yagmail</li><li><a href="https://blog.csdn.net/qq_41622603/article/details/106801525">配置qq邮箱</a></li></ul><p>python 代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> yagmail</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要配置的信息</span></span><br><span class="line">team_num = <span class="string">&#x27;xxxxxxx&#x27;</span>   <span class="comment"># 队伍号码</span></span><br><span class="line">certificate_name = team_num + <span class="string">&#x27;.pdf&#x27;</span>  <span class="comment"># 获奖证书命名</span></span><br><span class="line"></span><br><span class="line">imap = <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span>  <span class="comment"># qq邮箱授权码</span></span><br><span class="line">qq_mail_send = <span class="string">&#x27;12345678@qq.com&#x27;</span>  <span class="comment"># 发件邮箱</span></span><br><span class="line">qq_mail_receive = <span class="string">&#x27;12345678@qq.com&#x27;</span>  <span class="comment"># 收件邮箱</span></span><br><span class="line"><span class="comment"># 若需要群发给队友， qq_mail_receive = [&#x27;12345678@qq.com&#x27;, &#x27;87654321@qq.com&#x27;]</span></span><br><span class="line">subject = <span class="string">&#x27;&#x27;</span>  <span class="comment"># 邮件主题</span></span><br><span class="line">contents = <span class="string">&#x27;&#x27;</span>  <span class="comment"># 邮件正文</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    url = <span class="string">&#x27;https://www.comap-math.com/mcm/2021Certs/&#123;&#125;.pdf&#x27;</span>.<span class="built_in">format</span>(team_num)</span><br><span class="line">    response = requests.get(url)</span><br><span class="line">    time.sleep(<span class="number">10</span>)  <span class="comment"># 每隔10s查询一次</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 若已出成绩，返回请求成功代码200</span></span><br><span class="line">    print(response.status_code)</span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="comment"># 打印当前时间</span></span><br><span class="line">        localtime = time.asctime(time.localtime(time.time()))</span><br><span class="line">        print(<span class="string">&quot;呜呜呜终于出成绩啦！时间是:&quot;</span>, localtime)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 将获奖证书以pdf格式下载到本地</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(certificate_name, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(response.content)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 连接邮件服务器</span></span><br><span class="line">        yag = yagmail.SMTP(user=qq_mail_send, password=imap, host=<span class="string">&quot;smtp.qq.com&quot;</span>)</span><br><span class="line">        <span class="comment"># 发送邮件</span></span><br><span class="line">        yag.send(to=qq_mail_receive,  <span class="comment"># 接收邮箱</span></span><br><span class="line">                 subject=subject,  <span class="comment"># 标题</span></span><br><span class="line">                 contents=contents,  <span class="comment"># 正文</span></span><br><span class="line">                 attachments=certificate_name  <span class="comment"># 附件</span></span><br><span class="line">                 )</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;等待是最煎熬的过程，本人闲得无聊，写了个程序，美赛成绩一出将自动下载获奖证书发送到QQ邮箱，就不用每隔一段时间就去查成绩出了没&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="分享" scheme="http://example.com/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>4.2</title>
@@ -430,27 +451,6 @@
     
     
     <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人与人的悲欢是不相同的</title>
-    <link href="http://example.com/2021/01/22/%E4%BA%BA%E4%B8%8E%E4%BA%BA%E7%9A%84%E6%82%B2%E6%AC%A2%E6%98%AF%E4%B8%8D%E7%9B%B8%E5%90%8C%E7%9A%84/"/>
-    <id>http://example.com/2021/01/22/%E4%BA%BA%E4%B8%8E%E4%BA%BA%E7%9A%84%E6%82%B2%E6%AC%A2%E6%98%AF%E4%B8%8D%E7%9B%B8%E5%90%8C%E7%9A%84/</id>
-    <published>2021-01-22T13:56:29.000Z</published>
-    <updated>2021-01-29T12:30:18.173Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>权当划水</p></blockquote><a id="more"></a><p>人与人的悲欢是不相同的，这边娱乐圈的大瓜一波接着一波，那边b站up主墨茶以一种近乎卑微的方式死去。</p><p>就不说别人，我自己的情绪在一天中被新闻媒体的各种消息牵着鼻子走，被生活中的琐事所影响（好吧，这就是我今天划水的原因了）。</p><p>大明星的瓜我只是会心一笑，小人物之死却让我灵魂震颤。</p><p>看完那位up主的动态，直接给我整破防了。</p><p>不知道为什么变得有点多愁善感。</p><p>可能是年龄大了。</p><p>我尝试用科学的理论去探究这个原因。</p><p>却发现并不是什么事情都能用完美的科学理论来解释的。</p><p>扯远了又聊到了人类的进化过程。</p><p>往近了聊就是各种资本化的过程。</p><p>又在乱七八糟的尝试写点什么东西。</p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;权当划水&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="想法" scheme="http://example.com/categories/%E6%83%B3%E6%B3%95/"/>
-    
     
   </entry>
   
