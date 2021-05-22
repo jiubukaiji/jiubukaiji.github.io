@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-05T03:38:11.059Z</updated>
+  <updated>2021-05-22T02:48:43.634Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>5.22</title>
+    <link href="http://example.com/2021/05/22/5-22/"/>
+    <id>http://example.com/2021/05/22/5-22/</id>
+    <published>2021-05-22T02:14:00.000Z</published>
+    <updated>2021-05-22T02:48:43.634Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>咕咕咕咕</p></blockquote><a id="more"></a><p>先说说几天前的事，没想到第一次牵小周的手竟然是这样的。。</p><p>呜呜即便在出门前我脑子里这场景已经排练好n次，但是最后一刻我又怂了。。</p><p>你在怕什么呢？</p><p>怕这样太轻浮了？怕这样会惹她不开心？</p><p>醒醒pb，你们都认识半年了~不对真要算起来初中就认识了，你是男生？你好怂！怂包！</p><p>估计这场面我会永生难忘，哈哈感觉接触的那一刻身体被电了一下，走在路上人都是酥麻酥麻的~</p><p>呼，不想了要不然我人又得麻</p><p>总之吧，希望你不只是为了你自己，还要为了你的家人，你喜欢的人，这样更能有动力前行</p><hr><p>今天呢，和实验室研三学长聊了聊，探讨了下实验室情况和未来几年个人成长。</p><p>结论就是：实验室很好，老师很好，学长也很好</p><p>当一切外部环境都变得十分友好时，接下来的路就要靠你自己来走</p><hr><p>跌跌撞撞走来，一切都很神奇，我这个向来不相信神学各种玄学的人也会觉得这是命运的安排</p><p>几年前你不会觉得你还有机会再次遇到她</p><p>一个月前你也不会觉得你会来到这个实验室</p><p>我向来是坚信你朝着哪个方向努力了，就会有相应结果</p><p>但是这些事情你不曾料到过，这该如何解释呢？</p><p>可能这就是缘分吧~</p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;咕咕咕咕&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="日常" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>5-5</title>
@@ -415,27 +436,6 @@
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;别说为啥没写java的文章了，休息了几天并且有其他事要做，休整好了立马写&lt;/p&gt;
 &lt;p&gt;今天要说的是一种思维方式，想摆脱却做不到，我猜可能每个人都有。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="日常" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>华尔街韭菜</title>
-    <link href="http://example.com/2021/02/02/%E5%8D%8E%E5%B0%94%E8%A1%97%E9%9F%AD%E8%8F%9C/"/>
-    <id>http://example.com/2021/02/02/%E5%8D%8E%E5%B0%94%E8%A1%97%E9%9F%AD%E8%8F%9C/</id>
-    <published>2021-02-02T12:01:55.000Z</published>
-    <updated>2021-02-16T06:50:09.324Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>b站视频</p></blockquote><a id="more"></a><p>电影：华尔街之狼</p><p>做空</p><p>做多</p><p>爆仓</p><p>券商：帮你买卖股票的中介</p><p>机构</p><p>杠杆：</p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;b站视频&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
