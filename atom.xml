@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-26T03:22:41.106Z</updated>
+  <updated>2021-05-27T08:45:16.869Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向github学习</title>
+    <link href="http://example.com/2021/05/27/%E9%9D%A2%E5%90%91github%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://example.com/2021/05/27/%E9%9D%A2%E5%90%91github%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-05-27T08:43:05.000Z</published>
+    <updated>2021-05-27T08:45:16.869Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>面向github学习</p></blockquote><a id="more"></a>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;面向github学习&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>数据结构</title>
@@ -417,26 +436,6 @@
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;今天小周同学要去玩剧本杀，and我被无情嫌弃了Ծ‸Ծ&lt;/p&gt;
 &lt;p&gt;这里做一点笔上功夫&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="日常" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>春节见闻</title>
-    <link href="http://example.com/2021/02/14/%E6%98%A5%E8%8A%82%E8%A7%81%E9%97%BB/"/>
-    <id>http://example.com/2021/02/14/%E6%98%A5%E8%8A%82%E8%A7%81%E9%97%BB/</id>
-    <published>2021-02-14T07:50:51.000Z</published>
-    <updated>2021-02-15T07:43:46.378Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote></blockquote><a id="more"></a><p>交流，以为大家过得很好，其实大家都很普通。</p><p>关于学习方面：多与精英交流，大局观，能侃，系统层级分析，不要过分注重眼前利益。</p><p>提高自己各方面素养（很多方面）。</p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
 &lt;/blockquote&gt;</summary>
     
     
