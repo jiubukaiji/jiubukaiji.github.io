@@ -11,32 +11,7 @@
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
 </head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">43</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">6</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">pb</div><div id="site-sub-title"></div><div id="site-social-icons"><a class="social-icon" href="https://github.com/jiubukaiji" target="_blank" rel="noreferrer noopener nofollow"><i class="fa-github fa"></i></a></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2021/05/29/5-29%E5%AD%A6%E4%B9%A0/">5.29学习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-05-29</time><div class="content"><blockquote>
 <p>以后的学习会尽可能的根据面经的知识点来记录，知识点有点零碎，标题不知道咋取，就暂且定位xx日学习吧，有时间了就把相关的知识点再总结一下</p>
-</blockquote>
-<h2 id="JVM-、JRE、JDK解释"><a href="#JVM-、JRE、JDK解释" class="headerlink" title="JVM 、JRE、JDK解释"></a>JVM 、JRE、JDK解释</h2><p><img src="/images/5-29%E5%AD%A6%E4%B9%A0/image-20210529111102517.png" alt="image-20210529111102517"></p>
-<p>1.JVM - java virtual machine</p>
-<p>jvm是运行java字节码的虚拟机，jvm针对不同系统（Linux、Windows、macOS）都有特定的实现，它是保证针对不同字节码都会给出相同的结果</p>
-<p>2.JRE - java runtime environment</p>
-<p>JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟机 （JVM），Java 类库，java 命令和其他的⼀些基础构件。但是，它不能用于创建新程序。</p>
-<p>如果我们只是为了运行一下java程序的话，只需要装jre就行了，但并不是绝对的</p>
-<p>3.JDK - java development kit (java 开发工具包)</p>
-<p>它拥有 JRE 所拥有的⼀切，还有编译器（javac）和⼯具（如 javadoc 和 jdb）。它能够创建和编译程序。</p>
-<p>所以包含关系： JDK &gt; JRE &gt; JVM</p>
-<blockquote>
-<p>解释型语言和编译型语言区别？</p>
-<p><strong>编译型语言</strong>：</p>
-<p>使用专门的编译器，针对特定的平台，将高级语言源代码一次性的编译成可被该平台硬件执行的机器码，并包装成该平台所能识别的可执行性程序（如exe文件）的格式。</p>
-<p>特点：以后要运行，直接运行exe文件即可。因为只需编译一次，以后运行时不需要编译，所以编译型语言执行<strong>效率高</strong>、<strong>速度快。</strong></p>
-<p>如：C、C++、golang等</p>
-<p><strong>解释型语言</strong>：</p>
-<p>使用专门的解释器对源程序逐行<strong>解释成特定平台的机器码</strong>并立即执行。是代码在执行时才被解释器一行行动态翻译和执行，而不是在执行之前就完成翻译。</p>
-<p>特点：解释型语言<strong>不需要事先编译</strong>，其直接将源代码解释成机器码并立即执行，所以只要某一平台提供了相应的解释器即可运行该程序。<strong>移植性好。</strong></p>
-<p>如：python、javaScript、basic等</p>
-<p><strong>对于java语言：</strong></p>
-<p>类似于半编译、半解释型语言</p>
-<p>现在的JVM为了效率，都有一些JIT优化。它又会把.class的二进制代码编译为本地的代码直接运行</p>
-<p>个人认为，java是解释型的语言，因为虽然java也需要编译，编译成.class文件，但是并不是机器可以识别的语言，而是字节码，最终还是需要 jvm的解释，才能在各个平台执行，这同时也是java跨平台的原因。</p>
-</blockquote>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/05/27/%E9%9D%A2%E5%90%91github%E5%AD%A6%E4%B9%A0/">面向github学习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-05-27</time><div class="content"><blockquote>
+</blockquote></div><a class="more" href="/2021/05/29/5-29%E5%AD%A6%E4%B9%A0/#more">阅读更多</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/05/27/%E9%9D%A2%E5%90%91github%E5%AD%A6%E4%B9%A0/">面向github学习</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-05-27</time><div class="content"><blockquote>
 <p>面向github学习</p>
 </blockquote></div><a class="more" href="/2021/05/27/%E9%9D%A2%E5%90%91github%E5%AD%A6%E4%B9%A0/#more">阅读更多</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/05/27/%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E4%B8%8E%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%AB/">静态变量与成员变量区别</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-05-27</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></span><div class="content"><blockquote>
 <p>java中静态变量</p>
