@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-27T08:45:16.869Z</updated>
+  <updated>2021-05-29T03:42:53.034Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>5.29学习</title>
+    <link href="http://example.com/2021/05/29/5-29%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://example.com/2021/05/29/5-29%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-05-29T02:24:13.000Z</published>
+    <updated>2021-05-29T03:42:53.034Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>以后的学习会尽可能的根据面经的知识点来记录，知识点有点零碎，标题不知道咋取，就暂且定位xx日学习吧，有时间了就把相关的知识点再总结一下</p></blockquote><h2 id="JVM-、JRE、JDK解释"><a href="#JVM-、JRE、JDK解释" class="headerlink" title="JVM 、JRE、JDK解释"></a>JVM 、JRE、JDK解释</h2><p><img src="/images/5-29%E5%AD%A6%E4%B9%A0/image-20210529111102517.png" alt="image-20210529111102517"></p><p>1.JVM - java virtual machine</p><p>jvm是运行java字节码的虚拟机，jvm针对不同系统（Linux、Windows、macOS）都有特定的实现，它是保证针对不同字节码都会给出相同的结果</p><p>2.JRE - java runtime environment</p><p>JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟机 （JVM），Java 类库，java 命令和其他的⼀些基础构件。但是，它不能用于创建新程序。</p><p>如果我们只是为了运行一下java程序的话，只需要装jre就行了，但并不是绝对的</p><p>3.JDK - java development kit (java 开发工具包)</p><p>它拥有 JRE 所拥有的⼀切，还有编译器（javac）和⼯具（如 javadoc 和 jdb）。它能够创建和编译程序。</p><p>所以包含关系： JDK &gt; JRE &gt; JVM</p><blockquote><p>解释型语言和编译型语言区别？</p><p><strong>编译型语言</strong>：</p><p>使用专门的编译器，针对特定的平台，将高级语言源代码一次性的编译成可被该平台硬件执行的机器码，并包装成该平台所能识别的可执行性程序（如exe文件）的格式。</p><p>特点：以后要运行，直接运行exe文件即可。因为只需编译一次，以后运行时不需要编译，所以编译型语言执行<strong>效率高</strong>、<strong>速度快。</strong></p><p>如：C、C++、golang等</p><p><strong>解释型语言</strong>：</p><p>使用专门的解释器对源程序逐行<strong>解释成特定平台的机器码</strong>并立即执行。是代码在执行时才被解释器一行行动态翻译和执行，而不是在执行之前就完成翻译。</p><p>特点：解释型语言<strong>不需要事先编译</strong>，其直接将源代码解释成机器码并立即执行，所以只要某一平台提供了相应的解释器即可运行该程序。<strong>移植性好。</strong></p><p>如：python、javaScript、basic等</p><p><strong>对于java语言：</strong></p><p>类似于半编译、半解释型语言</p><p>现在的JVM为了效率，都有一些JIT优化。它又会把.class的二进制代码编译为本地的代码直接运行</p><p>个人认为，java是解释型的语言，因为虽然java也需要编译，编译成.class文件，但是并不是机器可以识别的语言，而是字节码，最终还是需要 jvm的解释，才能在各个平台执行，这同时也是java跨平台的原因。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;以后的学习会尽可能的根据面经的知识点来记录，知识点有点零碎，标题不知道咋取，就暂且定位xx日学习吧，有时间了就把相关的知识点再总结一下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;JVM-、JRE、JDK解释&quot;&gt;&lt;a href=&quot;#JVM-</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>面向github学习</title>
@@ -418,29 +441,6 @@
     
     
     <category term="基础课程" scheme="http://example.com/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2.19</title>
-    <link href="http://example.com/2021/02/19/2-19/"/>
-    <id>http://example.com/2021/02/19/2-19/</id>
-    <published>2021-02-19T09:58:31.000Z</published>
-    <updated>2021-02-20T01:02:43.959Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>唧唧歪歪唧唧歪歪</p></blockquote><a id="more"></a><p>知乎话题</p><h1 id="年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？"><a href="#年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？" class="headerlink" title="年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？"></a>年轻人不结婚到底侵犯了谁的利益？为啥全社会都在逼婚？</h1><p>倒不是我被催婚，而是目睹了身边几个大龄亲戚被催婚有感</p><p>中国父母责任的结束是子女的婚礼?</p><ul><li>父母，有人可以赡养自己，关系孩子孤独，多点老年乐趣</li><li>国家，国家经济发展需要新生劳动力所维系</li><li>社会行业，许许多多相关行业的需要，举个例子：房地产行业、新生儿所拉动的社会经济发展。。。</li></ul><p>还看到几个角度，在人与人的交往方面，哪壶不开提哪壶是人与人不熟时尬聊永远优先选择的主题，因为聊这个能戳到你痛点嘛，你肯定最差要反驳几句对不对。你不好说车轱辘话嗯嗯啊啊来敷衍我了。（那意思是并不是别人有意想要催婚，而只是将其当做一个拉近关系聊天的方式。）</p><hr><p>屁股决定脑袋</p><p>出处：</p><blockquote><p>贾雨村断案时想：原来当官没别的诀窍，无非是看脑袋指挥屁股，还是屁股决定脑袋。</p><p>如此权衡一番得失，贾雨村的屁股就移位了，脑袋全听了屁股的指挥，结果便是“徇情枉法，胡乱判断了此案”。</p><p>​                                                        ——《红楼梦》</p></blockquote><p>屁股决定脑袋，网络用语，出自《红楼梦》。用文明一点的说法叫做“位置决定想法”。<strong>一个人坐什么位置，往往决定了他思考的角度和范围</strong></p><p>屁股决定脑袋有两种意思。</p><ul><li>一种是说一个人看问题的角度和立场受到他所处的位置限制，他的位置限制了他的视野，使他只能看到问题的某一方面，能力受限，他是被动的。</li><li>另一种是说一个人会选择对自己的位置有利的立场和角度论述一件利益相关的事，他是主动的</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;唧唧歪歪唧唧歪歪&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="想法" scheme="http://example.com/categories/%E6%83%B3%E6%B3%95/"/>
-    
-    
-    <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
