@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-29T13:18:50.326Z</updated>
+  <updated>2021-05-30T03:45:01.617Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>java多线程</title>
+    <link href="http://example.com/2021/05/30/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://example.com/2021/05/30/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</id>
+    <published>2021-05-30T03:40:21.000Z</published>
+    <updated>2021-05-30T03:45:01.617Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>虽然今早起来很甜，感觉空气都是甜的~</p><p>但是学习还是不能停的</p></blockquote><a id="more"></a>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;虽然今早起来很甜，感觉空气都是甜的~&lt;/p&gt;
+&lt;p&gt;但是学习还是不能停的&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="多线程" scheme="http://example.com/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>5.29学习</title>
     <link href="http://example.com/2021/05/29/5-29%E5%AD%A6%E4%B9%A0/"/>
     <id>http://example.com/2021/05/29/5-29%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-05-29T02:24:13.000Z</published>
-    <updated>2021-05-29T13:18:50.326Z</updated>
+    <updated>2021-05-30T03:16:41.307Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>以后的学习会尽可能的根据面经的知识点来记录，知识点有点零碎，标题不知道咋取，就暂且定位xx日学习吧，有时间了就把相关的知识点再总结一下</p></blockquote><a id="more"></a><h2 id="JVM-、JRE、JDK解释"><a href="#JVM-、JRE、JDK解释" class="headerlink" title="JVM 、JRE、JDK解释"></a>JVM 、JRE、JDK解释</h2><p><img src="/images/5-29%E5%AD%A6%E4%B9%A0/image-20210529111102517.png" alt="java程序从源码到运行过程"></p><p>1.JVM - java virtual machine</p><p>jvm是运行java字节码的虚拟机，jvm针对不同系统（Linux、Windows、macOS）都有特定的实现，它是保证针对不同字节码都会给出相同的结果</p><p>2.JRE - java runtime environment</p><p>JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟机 （JVM），Java 类库，java 命令和其他的⼀些基础构件。但是，它不能用于创建新程序。</p><p>如果我们只是为了运行一下java程序的话，只需要装jre就行了，但并不是绝对的</p><p>3.JDK - java development kit (java 开发工具包)</p><p>它拥有 JRE 所拥有的⼀切，还有编译器（javac）和⼯具（如 javadoc 和 jdb）。它能够创建和编译程序。</p><p>所以包含关系： JDK &gt; JRE &gt; JVM</p><blockquote><p>解释型语言和编译型语言区别？</p><p><strong>编译型语言</strong>：</p><p>使用专门的编译器，针对特定的平台，将高级语言源代码一次性的编译成可被该平台硬件执行的机器码，并包装成该平台所能识别的可执行性程序（如exe文件）的格式。</p><p>特点：以后要运行，直接运行exe文件即可。因为只需编译一次，以后运行时不需要编译，所以编译型语言执行<strong>效率高</strong>、<strong>速度快。</strong></p><p>如：C、C++、golang等</p><p><strong>解释型语言</strong>：</p><p>使用专门的解释器对源程序逐行<strong>解释成特定平台的机器码</strong>并立即执行。是代码在执行时才被解释器一行行动态翻译和执行，而不是在执行之前就完成翻译。</p><p>特点：解释型语言<strong>不需要事先编译</strong>，其直接将源代码解释成机器码并立即执行，所以只要某一平台提供了相应的解释器即可运行该程序。<strong>移植性好。</strong></p><p>如：python、javaScript、basic等</p><p><strong>对于java语言：</strong></p><p>类似于半编译、半解释型语言</p><p>现在的JVM为了效率，都有一些JIT优化。它又会把.class的二进制代码编译为本地的代码直接运行</p><p>个人认为，java是解释型的语言，因为虽然java也需要编译，编译成.class文件，但是并不是机器可以识别的语言，而是字节码，最终还是需要 jvm的解释，才能在各个平台执行，这同时也是java跨平台的原因。</p></blockquote><h2 id="java中所占字节数"><a href="#java中所占字节数" class="headerlink" title="java中所占字节数"></a>java中所占字节数</h2><p><strong>Java基本类型占用的字节数：</strong><br>1字节： byte , boolean<br>2字节： short , char<br>4字节： int , float<br>8字节： long , double<br>注：1字节(byte)=8位(bits)</p><p>Java编译器默认使用<strong>Unicode编码</strong></p><h2 id="重写与重载区别"><a href="#重写与重载区别" class="headerlink" title="重写与重载区别"></a>重写与重载区别</h2><blockquote><p>重载：就是同一个类中多个同名方法根据不同的传参来执行不同的逻辑处理。相当于是同名方法参数表不一样</p><p>方法名：相同<br>参数表：不同<br>访问限制符：无所谓<br>返回值类型：无所谓<br>抛出异常：无所谓</p><p>重写：就是当子类<strong>继承自父类</strong>的相同方法，输⼊数据⼀样，但要做出有别于父类的响应时，你就要覆盖父类方法</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>以后的学习会尽可能的根据面经的知识点来记录，知识点有点零碎，标题不知道咋取，就暂且定位xx日学习吧，有时间了就把相关的知识点再总结一下</p></blockquote><a id="more"></a><h2 id="JVM-、JRE、JDK解释"><a href="#JVM-、JRE、JDK解释" class="headerlink" title="JVM 、JRE、JDK解释"></a>JVM 、JRE、JDK解释</h2><p><img src="/images/5-29%E5%AD%A6%E4%B9%A0/image-20210529111102517.png" alt="java程序从源码到运行过程"></p><p>1.JVM - java virtual machine</p><p>jvm是运行java字节码的虚拟机，jvm针对不同系统（Linux、Windows、macOS）都有特定的实现，它是保证针对不同字节码都会给出相同的结果</p><p>2.JRE - java runtime environment</p><p>JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟机 （JVM），Java 类库，java 命令和其他的⼀些基础构件。但是，它不能用于创建新程序。</p><p>如果我们只是为了运行一下java程序的话，只需要装jre就行了，但并不是绝对的</p><p>3.JDK - java development kit (java 开发工具包)</p><p>它拥有 JRE 所拥有的⼀切，还有编译器（javac）和⼯具（如 javadoc 和 jdb）。它能够创建和编译程序。</p><p>所以包含关系： JDK &gt; JRE &gt; JVM</p><blockquote><p>解释型语言和编译型语言区别？</p><p><strong>编译型语言</strong>：</p><p>使用专门的编译器，针对特定的平台，将高级语言源代码一次性的编译成可被该平台硬件执行的机器码，并包装成该平台所能识别的可执行性程序（如exe文件）的格式。</p><p>特点：以后要运行，直接运行exe文件即可。因为只需编译一次，以后运行时不需要编译，所以编译型语言执行<strong>效率高</strong>、<strong>速度快。</strong></p><p>如：C、C++、golang等</p><p><strong>解释型语言</strong>：</p><p>使用专门的解释器对源程序逐行<strong>解释成特定平台的机器码</strong>并立即执行。是代码在执行时才被解释器一行行动态翻译和执行，而不是在执行之前就完成翻译。</p><p>特点：解释型语言<strong>不需要事先编译</strong>，其直接将源代码解释成机器码并立即执行，所以只要某一平台提供了相应的解释器即可运行该程序。<strong>移植性好。</strong></p><p>如：python、javaScript、basic等</p><p><strong>对于java语言：</strong></p><p>类似于半编译、半解释型语言</p><p>现在的JVM为了效率，都有一些JIT优化。它又会把.class的二进制代码编译为本地的代码直接运行</p><p>个人认为，java是解释型的语言，因为虽然java也需要编译，编译成.class文件，但是并不是机器可以识别的语言，而是字节码，最终还是需要 jvm的解释，才能在各个平台执行，这同时也是java跨平台的原因。</p></blockquote><h2 id="java中所占字节数"><a href="#java中所占字节数" class="headerlink" title="java中所占字节数"></a>java中所占字节数</h2><p><strong>Java基本类型占用的字节数：</strong><br>1字节： byte , boolean<br>2字节： short , char<br>4字节： int , float<br>8字节： long , double<br>注：1字节(byte)=8位(bits)</p><p>Java编译器默认使用<strong>Unicode编码</strong></p><h2 id="重写与重载区别"><a href="#重写与重载区别" class="headerlink" title="重写与重载区别"></a>重写与重载区别</h2><blockquote><p>重载：就是同一个类中多个同名方法根据不同的传参来执行不同的逻辑处理。相当于是同名方法参数表不一样</p><p>方法名：相同<br>参数表：不同<br>访问限制符：无所谓<br>返回值类型：无所谓<br>抛出异常：无所谓</p><p>重写：就是当子类<strong>继承自父类</strong>的相同方法，输⼊数据⼀样，但要做出有别于父类的响应时，你就要覆盖父类方法</p></blockquote><h2 id="String、StringBuffer、StringBuilder三者区别"><a href="#String、StringBuffer、StringBuilder三者区别" class="headerlink" title="String、StringBuffer、StringBuilder三者区别"></a>String、StringBuffer、StringBuilder三者区别</h2><ol><li> 操作少量的数据: 适用 String ，对象不可变</li><li> 单线程操作字符串缓冲区下操作大量数据: 适⽤ StringBuilder ，线程不安全，对象可变</li><li> 多线程操作字符串缓冲区下操作大量数据: 适⽤ StringBuffer，线程安全，对象可变</li></ol><p>tips ：从源码分析很容易得出是否线程安全、对象是否可变的结论</p><h2 id="关于super（）的使用"><a href="#关于super（）的使用" class="headerlink" title="关于super（）的使用"></a>关于super（）的使用</h2><p>详细可参考这篇文章<a href="https://blog.csdn.net/yongbutingxide/article/details/82669054#1.super%28%29%E7%9A%84%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B%20%E4%B8%80%E4%B8%80%E4%B8%80%E5%AD%90%E7%B1%BB%E9%87%8D%E5%86%99%E7%88%B6%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95">Java中super()的使用</a></p><ul><li>子类重写父类的方法，比如说父类中有A方法，子类重写A方法，</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span>()</span>&#123;</span><br><span class="line">    A()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">son</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    A()&#123;</span><br><span class="line">        <span class="keyword">super</span>.A();  <span class="comment">//此处调用的就是父类的中的A方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>子类重写父类的变量</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span>()</span>&#123;</span><br><span class="line">    a = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">son</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a = <span class="number">2</span>;   <span class="comment">//子类和父类中都有a变量</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">shou</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;子类&quot;</span>+a);   <span class="comment">//2   不加super，优先调用本类中的变量</span></span><br><span class="line">System.out.println(<span class="string">&quot;父类&quot;</span>+<span class="keyword">super</span>.a);   <span class="comment">// 1   调用父类中的变量</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>super在子类构造函数中的使用</li></ul><p><strong>编译器会自动在子类构造函数的第一句加上 super();</strong> 来调用父类的无参构造器；此时可以省略不写。如果想写上的话必须在子类构造函数的第一句</p><p>可以通过super来调用父类其他重载的构造方法，只要相应的把参数传过去就好。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span>()</span>&#123;</span><br><span class="line">    father()&#123;</span><br><span class="line">         System.out.println(<span class="string">&quot;父类&quot;</span>);   </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">son</span><span class="params">()</span></span>&#123;</span><br><span class="line">  son()&#123;   </span><br><span class="line">  &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       son a = <span class="keyword">new</span> son();   <span class="comment">//父类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结论：在子类的构造方法中，只要里面没有显示的通过super去调用父类相应的构造方法，默认都是调用super()，即无参构造方法，因此要确保父类有相应的构造方法</p>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -413,30 +437,6 @@
     
     <category term="日常" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统学习</title>
-    <link href="http://example.com/2021/02/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://example.com/2021/02/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-02-21T01:21:18.000Z</published>
-    <updated>2021-02-21T01:45:40.177Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>标题是在一个月前建的，由于<del>各种不可抗因素</del>（中间玩了一两周），拖到现在，能写多少是多少吧</p><p>内容参照王道考研书</p></blockquote><a id="more"></a><h2 id="第一章-计算机系统概述"><a href="#第一章-计算机系统概述" class="headerlink" title="第一章 计算机系统概述"></a>第一章 计算机系统概述</h2>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;标题是在一个月前建的，由于&lt;del&gt;各种不可抗因素&lt;/del&gt;（中间玩了一两周），拖到现在，能写多少是多少吧&lt;/p&gt;
-&lt;p&gt;内容参照王道考研书&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="操作系统" scheme="http://example.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="基础课程" scheme="http://example.com/tags/%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B/"/>
     
   </entry>
   
