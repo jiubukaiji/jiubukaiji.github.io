@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-06-07T07:38:07.173Z</updated>
+  <updated>2021-07-10T14:39:09.857Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Arrays.asList使用注意</title>
+    <link href="http://example.com/2021/07/10/Arrays.asList%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F/"/>
+    <id>http://example.com/2021/07/10/Arrays.asList%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F/</id>
+    <published>2021-07-10T14:36:26.000Z</published>
+    <updated>2021-07-10T14:39:09.857Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestList</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 正常的创建的集合</span></span><br><span class="line">        List&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list1.add(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        list1.add(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;list1 = &quot;</span> + list1.size());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 数组转的集合</span></span><br><span class="line">        String[] st1 = &#123;<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>&#125;;</span><br><span class="line">        List&lt;String&gt; list2 = Arrays.asList(st1);</span><br><span class="line">        list2.add(<span class="string">&quot;4&quot;</span>);   <span class="comment">// 此处会抛出异常，不能使用add方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;list2 = &quot;</span> + list2.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译时不报错，运行时报错，原因是：虽然返回的List的都继承了AbstractList<E>，</p><p>但new ArrayList&lt;&gt;对某些方法做了重写，而Arrays.asList(st1)只做了继承，没有重写，</p><p>因而不能执行add和remove操作</p><p><img src="/images/%E2%80%98Arrays-asList%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E2%80%99/1583027-20200902113344541-1662617028.png" alt="img"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/sp</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>java集合</title>
+    <link href="http://example.com/2021/06/11/java%E9%9B%86%E5%90%88/"/>
+    <id>http://example.com/2021/06/11/java%E9%9B%86%E5%90%88/</id>
+    <published>2021-06-11T04:19:16.000Z</published>
+    <updated>2021-06-12T01:43:13.504Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>java集合的一些总结，理清框架结构</p></blockquote><a id="more"></a><h2 id="集合概述"><a href="#集合概述" class="headerlink" title="集合概述"></a>集合概述</h2><h2 id="Collection子接口List"><a href="#Collection子接口List" class="headerlink" title="Collection子接口List"></a>Collection子接口List</h2><h2 id="Collection子接口Set"><a href="#Collection子接口Set" class="headerlink" title="Collection子接口Set"></a>Collection子接口Set</h2><h2 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h2><h2 id="Connections工具类"><a href="#Connections工具类" class="headerlink" title="Connections工具类"></a>Connections工具类</h2>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;java集合的一些总结，理清框架结构&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="java基础" scheme="http://example.com/categories/java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>java多线程</title>
@@ -36,25 +81,6 @@
     
     
     <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>5.29学习</title>
-    <link href="http://example.com/2021/05/29/5-29%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://example.com/2021/05/29/5-29%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-05-29T02:24:13.000Z</published>
-    <updated>2021-05-30T03:16:41.307Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>以后的学习会尽可能的根据面经的知识点来记录，知识点有点零碎，标题不知道咋取，就暂且定位xx日学习吧，有时间了就把相关的知识点再总结一下</p></blockquote><a id="more"></a><h2 id="JVM-、JRE、JDK解释"><a href="#JVM-、JRE、JDK解释" class="headerlink" title="JVM 、JRE、JDK解释"></a>JVM 、JRE、JDK解释</h2><p><img src="/images/5-29%E5%AD%A6%E4%B9%A0/image-20210529111102517.png" alt="java程序从源码到运行过程"></p><p>1.JVM - java virtual machine</p><p>jvm是运行java字节码的虚拟机，jvm针对不同系统（Linux、Windows、macOS）都有特定的实现，它是保证针对不同字节码都会给出相同的结果</p><p>2.JRE - java runtime environment</p><p>JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟机 （JVM），Java 类库，java 命令和其他的⼀些基础构件。但是，它不能用于创建新程序。</p><p>如果我们只是为了运行一下java程序的话，只需要装jre就行了，但并不是绝对的</p><p>3.JDK - java development kit (java 开发工具包)</p><p>它拥有 JRE 所拥有的⼀切，还有编译器（javac）和⼯具（如 javadoc 和 jdb）。它能够创建和编译程序。</p><p>所以包含关系： JDK &gt; JRE &gt; JVM</p><blockquote><p>解释型语言和编译型语言区别？</p><p><strong>编译型语言</strong>：</p><p>使用专门的编译器，针对特定的平台，将高级语言源代码一次性的编译成可被该平台硬件执行的机器码，并包装成该平台所能识别的可执行性程序（如exe文件）的格式。</p><p>特点：以后要运行，直接运行exe文件即可。因为只需编译一次，以后运行时不需要编译，所以编译型语言执行<strong>效率高</strong>、<strong>速度快。</strong></p><p>如：C、C++、golang等</p><p><strong>解释型语言</strong>：</p><p>使用专门的解释器对源程序逐行<strong>解释成特定平台的机器码</strong>并立即执行。是代码在执行时才被解释器一行行动态翻译和执行，而不是在执行之前就完成翻译。</p><p>特点：解释型语言<strong>不需要事先编译</strong>，其直接将源代码解释成机器码并立即执行，所以只要某一平台提供了相应的解释器即可运行该程序。<strong>移植性好。</strong></p><p>如：python、javaScript、basic等</p><p><strong>对于java语言：</strong></p><p>类似于半编译、半解释型语言</p><p>现在的JVM为了效率，都有一些JIT优化。它又会把.class的二进制代码编译为本地的代码直接运行</p><p>个人认为，java是解释型的语言，因为虽然java也需要编译，编译成.class文件，但是并不是机器可以识别的语言，而是字节码，最终还是需要 jvm的解释，才能在各个平台执行，这同时也是java跨平台的原因。</p></blockquote><h2 id="java中所占字节数"><a href="#java中所占字节数" class="headerlink" title="java中所占字节数"></a>java中所占字节数</h2><p><strong>Java基本类型占用的字节数：</strong><br>1字节： byte , boolean<br>2字节： short , char<br>4字节： int , float<br>8字节： long , double<br>注：1字节(byte)=8位(bits)</p><p>Java编译器默认使用<strong>Unicode编码</strong></p><h2 id="重写与重载区别"><a href="#重写与重载区别" class="headerlink" title="重写与重载区别"></a>重写与重载区别</h2><blockquote><p>重载：就是同一个类中多个同名方法根据不同的传参来执行不同的逻辑处理。相当于是同名方法参数表不一样</p><p>方法名：相同<br>参数表：不同<br>访问限制符：无所谓<br>返回值类型：无所谓<br>抛出异常：无所谓</p><p>重写：就是当子类<strong>继承自父类</strong>的相同方法，输⼊数据⼀样，但要做出有别于父类的响应时，你就要覆盖父类方法</p></blockquote><h2 id="String、StringBuffer、StringBuilder三者区别"><a href="#String、StringBuffer、StringBuilder三者区别" class="headerlink" title="String、StringBuffer、StringBuilder三者区别"></a>String、StringBuffer、StringBuilder三者区别</h2><ol><li> 操作少量的数据: 适用 String ，对象不可变</li><li> 单线程操作字符串缓冲区下操作大量数据: 适⽤ StringBuilder ，线程不安全，对象可变</li><li> 多线程操作字符串缓冲区下操作大量数据: 适⽤ StringBuffer，线程安全，对象可变</li></ol><p>tips ：从源码分析很容易得出是否线程安全、对象是否可变的结论</p><h2 id="关于super（）的使用"><a href="#关于super（）的使用" class="headerlink" title="关于super（）的使用"></a>关于super（）的使用</h2><p>详细可参考这篇文章<a href="https://blog.csdn.net/yongbutingxide/article/details/82669054#1.super%28%29%E7%9A%84%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B%20%E4%B8%80%E4%B8%80%E4%B8%80%E5%AD%90%E7%B1%BB%E9%87%8D%E5%86%99%E7%88%B6%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95">Java中super()的使用</a></p><ul><li>子类重写父类的方法，比如说父类中有A方法，子类重写A方法，</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span>()</span>&#123;</span><br><span class="line">    A()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">son</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    A()&#123;</span><br><span class="line">        <span class="keyword">super</span>.A();  <span class="comment">//此处调用的就是父类的中的A方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>子类重写父类的变量</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span>()</span>&#123;</span><br><span class="line">    a = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">son</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a = <span class="number">2</span>;   <span class="comment">//子类和父类中都有a变量</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">shou</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;子类&quot;</span>+a);   <span class="comment">//2   不加super，优先调用本类中的变量</span></span><br><span class="line">System.out.println(<span class="string">&quot;父类&quot;</span>+<span class="keyword">super</span>.a);   <span class="comment">// 1   调用父类中的变量</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>super在子类构造函数中的使用</li></ul><p><strong>编译器会自动在子类构造函数的第一句加上 super();</strong> 来调用父类的无参构造器；此时可以省略不写。如果想写上的话必须在子类构造函数的第一句</p><p>可以通过super来调用父类其他重载的构造方法，只要相应的把参数传过去就好。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span>()</span>&#123;</span><br><span class="line">    father()&#123;</span><br><span class="line">         System.out.println(<span class="string">&quot;父类&quot;</span>);   </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">son</span><span class="params">()</span></span>&#123;</span><br><span class="line">  son()&#123;   </span><br><span class="line">  &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       son a = <span class="keyword">new</span> son();   <span class="comment">//父类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结论：在子类的构造方法中，只要里面没有显示的通过super去调用父类相应的构造方法，默认都是调用super()，即无参构造方法，因此要确保父类有相应的构造方法</p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;以后的学习会尽可能的根据面经的知识点来记录，知识点有点零碎，标题不知道咋取，就暂且定位xx日学习吧，有时间了就把相关的知识点再总结一下&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
     
   </entry>
   
@@ -415,27 +441,6 @@
     
     
     <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手机摄影技巧</title>
-    <link href="http://example.com/2021/02/22/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/"/>
-    <id>http://example.com/2021/02/22/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/</id>
-    <published>2021-02-22T12:35:42.000Z</published>
-    <updated>2021-05-25T08:32:29.653Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>今日整活        </p></blockquote><a id="more"></a><h2 id="第一期-自拍"><a href="#第一期-自拍" class="headerlink" title="第一期 自拍"></a>第一期 自拍</h2><p>1.面对顶光如何处理光线不均匀</p><p>场景：头顶有灯光，中午太阳直射</p><ul><li>帽子遮挡</li><li>避开</li></ul><p>2.室内光线</p><ul><li>脸朝向光线</li><li>避免侧光和逆着光线（一面明一面暗，或者全暗）</li></ul><p>3.道具遮挡显脸小（好像雨我无瓜）</p><p>4.全身照拥有大长腿</p><ul><li>不能俯拍</li><li>仰拍，脚部留白，要有地面，但地面要少</li></ul><p>下图，左边显矮，留白过多</p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222205607138.png"></p><h2 id="第二期-构图"><a href="#第二期-构图" class="headerlink" title="第二期 构图"></a>第二期 构图</h2><p><strong>1.黄金分割法</strong></p><p>近似用三分法，九宫格 ，四个交叉点就是黄金分割点 ，用来拍人像是比较稳妥的构图法</p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222205854053.png"  /><p><strong>2.点构图</strong></p><p>适合环境人像   场景通常视野开阔  画面干净   没有太多杂物  强调环境和人物和谐统一<br>通常大环境 小人物<br>人物只<strong>有一个点</strong>   有可能不好找到人物  所以也被称为“找你妹”构图</p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222210126388.png"></p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222210149536.png"></p><p><strong>3.对角线构图</strong></p><p>适用于拍摄景物或者风光<br>拍摄植物和花朵 百试不爽  画面更饱满<br>仔细寻找大自然本身就有的对角线</p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222210339840.png"></p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222210359426.png"></p><p><strong>4.中心构图</strong></p><p>并不是所有人像用三分法都好看<br>有倒影的时候   一片平平 中间有突出的树的时候就适合中心构图  追求中心对称<br>适用于任务特写 突出神态 饱满构图<br><strong>中心构图突出画面中心</strong>  </p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222210620887.png"></p><p><strong>5.三角形构图</strong></p><p>拍摄物品，排在三个角，构成三角形</p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222210738383.png"></p><p>拍摄人物，利用躯体构成</p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222210943918.png"></p><p><strong>6.引导线构图</strong></p><p>公路场景中 道路可以作为引导线，给人纵深感</p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222211112389.png"></p><p><strong>7.开放式构图</strong></p><p>开放式构图 主体不一定在画中心 注重主体与画外的联系  在意画面周围留下被切割不完整的形象  引导观众突破画面限制 产生空间联想<br>并不是每张照片都追求构图工整 主体完整<br>特写之类可以拍局部<br>美食可以只拍部分  引导观众思考</p><p>引发想象，拍一部分</p><p>下面这张将美食放在桌角进行拍摄</p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222211358170.png"></p><p><strong>8.前景虚化构图</strong></p><p>利用镜头前花花草草  来大光圈虚化，即青草树叶遮挡，营造梦幻感</p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222211649766.png"></p><p><img src="/images/%E6%89%8B%E6%9C%BA%E6%91%84%E5%BD%B1%E6%8A%80%E5%B7%A7/image-20210222211719680.png"></p><h2 id="第三期"><a href="#第三期" class="headerlink" title="第三期"></a>第三期</h2><h2 id="第四期"><a href="#第四期" class="headerlink" title="第四期"></a>第四期</h2><p>参考链接：<a href="https://www.bilibili.com/video/BV1Gb411S7wC">https://www.bilibili.com/video/BV1Gb411S7wC</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;今日整活        &lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="日常" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
     
   </entry>
   
