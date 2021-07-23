@@ -9,11 +9,94 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">53</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">6</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">14</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">7.23java基础学习</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-07-23</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">3</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD%EF%BC%88overload%EF%BC%89%E5%92%8C%E9%87%8D%E5%86%99%EF%BC%88override%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">重载（overload）和重写（override）的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%AD%E8%A8%80%E6%9D%A5%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81"><span class="toc-number">2.</span> <span class="toc-text">用简单的语言来介绍一下封装、继承、多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9String%E7%B1%BB%E5%AF%B9%E8%B1%A1%E4%BB%A5%E5%8F%8AString%E5%AF%B9%E8%B1%A1%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="toc-number">3.</span> <span class="toc-text">对String类对象以及String对象不可变的解释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EString%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">关于String类的对象的一些解释：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-%E3%80%81StringBuffer%E3%80%81StringBuilder-%E4%B8%89%E8%80%85%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">String 、StringBuffer、StringBuilder 三者区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E6%8B%86%E7%AE%B1%E6%9C%BA%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text">自动装箱和拆箱机制</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">53</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">6</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">14</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">7.23java基础学习</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-07-23</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.9k</span><span class="post-meta__separator">|</span><span>阅读时长: 5 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>滴滴滴</p>
 </blockquote>
 <a id="more"></a>
 
+<h2 id="重载（overload）和重写（override）的区别"><a href="#重载（overload）和重写（override）的区别" class="headerlink" title="重载（overload）和重写（override）的区别"></a>重载（overload）和重写（override）的区别</h2><p><strong>重载</strong></p>
+<p>重载就是同一个类中多个同名方法根据不同的的传参来执行不同的逻辑处理</p>
+<p><strong>重写</strong></p>
+<p>重写就是子类对父类方法的重新改造，外部样子不能改变，内部逻辑可以改变</p>
+<p><strong>具体介绍</strong>：</p>
+<p>重载：发生在同一个类中，方法名必须相同，参数类型、个数、顺序不同，返回值类型和访问修饰符可以不同。</p>
+<blockquote>
+<p>编译器必须挑选出具体执行哪个方法，它通过用各个方法给出的参数类型与特定方法调用所使用的值类型进行匹配来挑选出相应的方法。如果<strong>编译器找不到匹配的参数</strong>，就会产生<strong>编译时错误</strong>，因为根本不存在匹配，或者没有一个比其他的更好。（这个过程被称为<strong>重载解析</strong>（overloading resolution））</p>
+</blockquote>
+<p>重写：</p>
+<ul>
+<li>如果父类方法访问修饰符为 private、final、static，则子类就不能重写该方法</li>
+<li>构造方法无法被重写</li>
+</ul>
+<p><strong>方法的重写要遵循“两同两小一大”</strong></p>
+<ul>
+<li>“两同”即方法名相同、形参列表相同；</li>
+<li>“两小”指的是子类方法返回值类型应比父类方法返回值类型更小或相等，子类方法声明抛出的异常类应比父类方法声明抛出的异常类更小或相等；</li>
+<li>“一大”指的是子类方法的访问权限应比父类方法的访问权限更大或相等。</li>
+</ul>
+<blockquote>
+<p>关于<strong>重写方法的返回值类型</strong></p>
+<p>如果方法的返回类型是<strong>void和基本数据类型</strong>，则返回值重写时不可修改。但是如果方法的返回值是<strong>引用类型</strong>，重写时是可以返回该引用类型的子类的。</p>
+</blockquote>
+<p><img src="/images/7-23java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/image-20210723093657151.png" alt="重载重写对比"></p>
+<h2 id="用简单的语言来介绍一下封装、继承、多态"><a href="#用简单的语言来介绍一下封装、继承、多态" class="headerlink" title="用简单的语言来介绍一下封装、继承、多态"></a>用简单的语言来介绍一下封装、继承、多态</h2><p><strong>封装</strong>： 它将一个对象的属性私有化，同时提供一些可以供外界访问的属性的方法。也就是说用户是无需知道对象内部的细节，但可以通过该对象对外的提供的接口来访问该对象。</p>
+<p><strong>继承</strong>：继承是使用已存在的类作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。通过使用继承我们能够非常方便地复用以前的代码。</p>
+<blockquote>
+<p>“但不能选择性地继承父类”:</p>
+<p>即子类一旦与某个类发生继承关系.<br>这个子类必须继承它的父类的所<strong>有数据成员和方法</strong>,不能说只拿自己所需要的一部分属性和方法继承下来</p>
+</blockquote>
+<p><strong>多态</strong>：</p>
+<p>（未搞懂？？今天有精力了找个时间再看一下）</p>
+<h2 id="对String类对象以及String对象不可变的解释"><a href="#对String类对象以及String对象不可变的解释" class="headerlink" title="对String类对象以及String对象不可变的解释"></a>对String类对象以及String对象不可变的解释</h2><p>详细参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/leskang/p/6110631.html#autoid-0-0-0">这篇文章</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> hash; <span class="comment">// Default to 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">6849794470754667710L</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ObjectStreamField[] serialPersistentFields =</span><br><span class="line">    <span class="keyword">new</span> ObjectStreamField[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，在String类的源码中，类中定义的变量都是private的，且没有定义setter方法，所以在String类的外部无法修改String。也就是说这些变量一旦初始化就不能修改， 并且在String类的外部不能访问。</p>
+<blockquote>
+<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串 ： <code>private final byte[] value</code></p>
+</blockquote>
+<h3 id="关于String类的对象的一些解释："><a href="#关于String类的对象的一些解释：" class="headerlink" title="关于String类的对象的一些解释："></a><strong>关于String类的对象的一些解释：</strong></h3><p><strong>对象是如何存储的？</strong></p>
+<p>我们知道，在jdk8中，使用value数组存储，它也只是一个引用，它指向一个真正的数组对象。其实执行了String s = “ABCabc”; 这句代码之后，真正的内存布局应该是这样的</p>
+<p><img src="/images/7-23java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/image-20210723112201366.png"></p>
+<p><strong>String内部方法并没有改变对象</strong></p>
+<p>这些方法包括substring， replace， replaceAll， toLowerCase等，但是他们都是在方法内部重新创建新的String对象，并且返回这个新的对象。</p>
+<img src="/images/7-23java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/image-20210723113053762.png" alt="replace方法源码" style="zoom:50%;" />
+
+
+
+<p><strong>String对象真的不可变吗？</strong></p>
+<p>(简单来说就是不改变value的指向，但是改变value指向对象的值)</p>
+<p>从上文可知String的成员变量是private final 的，也就是初始化之后不可改变。那么在这几个成员中， value比较特殊，因为<strong>他是一个引用变量，而不是真正的对象</strong>。value是final修饰的，也就是说<strong>final不能再指向其他数组对象，那么我能改变value指向的数组吗</strong>？ 比如将数组中的某个位置上的字符变为下划线“_”。 至少在我们自己写的普通代码中不能够做到，因为我们根本不能够访问到这个value引用，更不能通过这个引用去修改数组。 那么用什么方式可以访问私有成员呢？ 没错，用<strong>反射</strong>， 可以反射出String对象中的value属性， 进而改变通过获得的value引用改变数组的结构。下面是实例代码： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testReflection</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">//创建字符串&quot;Hello World&quot;， 并赋给引用s</span></span><br><span class="line">    String s = <span class="string">&quot;Hello World&quot;</span>; </span><br><span class="line">     </span><br><span class="line">    System.out.println(<span class="string">&quot;s = &quot;</span> + s); <span class="comment">//Hello World</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">//获取String类中的value字段</span></span><br><span class="line">    Field valueFieldOfString = String.class.getDeclaredField(<span class="string">&quot;value&quot;</span>);</span><br><span class="line">     </span><br><span class="line">    <span class="comment">//改变value属性的访问权限</span></span><br><span class="line">    valueFieldOfString.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">     </span><br><span class="line">    <span class="comment">//获取s对象上的value属性的值</span></span><br><span class="line">    <span class="keyword">char</span>[] value = (<span class="keyword">char</span>[]) valueFieldOfString.get(s);</span><br><span class="line">     </span><br><span class="line">    <span class="comment">//改变value所引用的数组中的第5个字符</span></span><br><span class="line">    value[<span class="number">5</span>] = <span class="string">&#x27;_&#x27;</span>;</span><br><span class="line">     </span><br><span class="line">    System.out.println(<span class="string">&quot;s = &quot;</span> + s);  <span class="comment">//Hello_World</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打印结果为： s = Hello World</p>
+<p>s = Hello_World</p>
+<h2 id="String-、StringBuffer、StringBuilder-三者区别？"><a href="#String-、StringBuffer、StringBuilder-三者区别？" class="headerlink" title="String 、StringBuffer、StringBuilder 三者区别？"></a>String 、StringBuffer、StringBuilder 三者区别？</h2><p><strong>可变性：</strong></p>
+<p>String对象不可变，理由见上</p>
+<p>StringBuffer 和 StringBuilder 可变，他们都继承于 AbstractStringBuilder 类，调用的是父类的构造方法，虽然父类的构造方法也是用 <code>char[] value</code>保存字符串的，但是没有用 final 来修饰，因此是可变的。</p>
+<img src="/images/7-23java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/image-20210723114338124.png" style="zoom:50%;" />
+
+
+
+<p><strong>线程安全性：</strong></p>
+<p>String 、StringBuilder 类是<strong>线程安全</strong>的  ，前者是不可变的相当于常量，后者对方法加了同步锁（在方法前面加了Synchronized修饰符）或者对调用的方法加了同步锁，所以是线程安全的</p>
+<p>StringBuffer是<strong>线程不安全</strong>的 ，没有加同步锁</p>
+<p><img src="/images/7-23java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/image-20210723115142680.png" alt="StringBuffer类中append方法是线程安全的"></p>
+<p><strong>性能：</strong></p>
+<p>每次对String类型进行改变的时候，都会生成一个新的String对象，然后将指针指向新的String对象。</p>
+<p>StringBuffer每次都会对StringBuffer对象本身进行操作，而不是生成新的对象并改变对象引用。</p>
+<p>相同情况下使用StringBuilder相比使用StringBuffer仅能获得10%~15%左右的性能提升，但却要冒多线程不安全的风险。</p>
+<p><strong>总结：</strong><br>1、操作<strong>少量的数据</strong>：适用String<br>2、<strong>单线程操作</strong>字符串缓冲区下操作大量数据：适用StringBuilder<br>3、<strong>多线程操作</strong>字符串缓冲区下操作大量数据：适用StringBuffer</p>
+<h2 id="自动装箱和拆箱机制"><a href="#自动装箱和拆箱机制" class="headerlink" title="自动装箱和拆箱机制"></a>自动装箱和拆箱机制</h2><p>（详细请看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/dolphin0520/p/3780005.html">这篇文章</a>，里面的面试题很有意思。）</p>
+<p><strong>装箱</strong>就是 自动将基本数据类型转换为包装器类型；</p>
+<p><strong>拆箱</strong>就是 自动将包装器类型转换为基本数据类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="number">10</span>; <span class="comment">//装箱 ，将基本数据类型转换为包装类</span></span><br><span class="line"><span class="keyword">int</span> n = i;  <span class="comment">//拆箱  ， 将包装类转换为基本数据类型</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>装箱和拆箱的过程是如何实现的呢？</strong></p>
+<p>装箱过程是通过调用包装器的 valueOf 方法实现的</p>
+<p>而拆箱过程是通过调用包装器的 xxxValue 方法实现的。（xxx代表对应的基本数据类型，比如 intValue）。</p>
+<blockquote>
+<p>为什么要使用包装类型？</p>
+</blockquote>
 </div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/07/23/7-23java基础学习/">http://example.com/2021/07/23/7-23java基础学习/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="next-post pull-right"><a href="/2021/07/22/%E4%B8%89%E7%A7%8D%E5%B8%B8%E8%A7%81%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E7%AE%80%E4%BB%8B-ASCII%E3%80%81Unicode%E5%92%8CUTF-8/"><span>三种常见字符编码简介: ASCII、Unicode和UTF-8</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
   clientID: '52a38b388c08f769c0fe',
   clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
