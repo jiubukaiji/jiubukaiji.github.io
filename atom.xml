@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-22T13:38:58.861Z</updated>
+  <updated>2021-07-23T01:28:47.392Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>7.23java基础学习</title>
+    <link href="http://example.com/2021/07/23/7-23java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://example.com/2021/07/23/7-23java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-07-23T01:28:06.000Z</published>
+    <updated>2021-07-23T01:28:47.392Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>滴滴滴</p></blockquote><a id="more"></a>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;滴滴滴&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="面试学习系列" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>三种常见字符编码简介: ASCII、Unicode和UTF-8</title>
@@ -40,9 +61,9 @@
     <link href="http://example.com/2021/07/22/7-22java%E5%9F%BA%E7%A1%80/"/>
     <id>http://example.com/2021/07/22/7-22java%E5%9F%BA%E7%A1%80/</id>
     <published>2021-07-22T10:55:01.000Z</published>
-    <updated>2021-07-22T12:53:07.257Z</updated>
+    <updated>2021-07-23T01:28:28.531Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>下面是面试系列的总结，今天的是java基础知识，不求一下子全部记住，希望能理解，</p><p>基于github  javaGuide</p></blockquote><a id="more"></a><h2 id="面向过程与面向对象的区别？"><a href="#面向过程与面向对象的区别？" class="headerlink" title="面向过程与面向对象的区别？"></a>面向过程与面向对象的区别？</h2><table><thead><tr><th align="center"></th><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td align="center">面向过程</td><td>性能高</td><td>相比，没有面向对象易维护、易复用、易扩展</td></tr><tr><td align="center">面向对象</td><td>易维护、易复用、易扩展，因为向对象有封装、继承、多态性的特 性，所以可以设计出低耦合的系统</td><td>性能比面向对象低</td></tr></tbody></table><h2 id="JVM、JRE、JDK"><a href="#JVM、JRE、JDK" class="headerlink" title="JVM、JRE、JDK"></a>JVM、JRE、JDK</h2><p><img src="/images/7-22java%E5%9F%BA%E7%A1%80/image-20210722194350127.png"></p><p>例如 ： 有 hello.java 文件，在cmd中</p><blockquote><p>javac hello.java  生成 hello.class文件</p><p>java hello            对字节码文件解释和运行（<strong>注意</strong>： 不是 java hello.class）</p></blockquote><h2 id="java和C-的区别"><a href="#java和C-的区别" class="headerlink" title="java和C++的区别"></a>java和C++的区别</h2><ul><li>都是面向对象，都有继承、封装、多态性</li><li>java不提供指针，访问内存更安全</li><li>java是单继承（一次只能继承一个类，不能同时继承多个类），C++是多继承的，但是java的接口可以多继承</li><li>java内存自动管理机制</li></ul><h2 id="字符型常量和字符串常量的区别"><a href="#字符型常量和字符串常量的区别" class="headerlink" title="字符型常量和字符串常量的区别"></a>字符型常量和字符串常量的区别</h2><ul><li>形式上</li><li>含义上</li><li>占用内存大小上</li></ul><p><strong>引申</strong>java中的8种基本数据类型： </p><blockquote><p>1字节 = 8位</p><p>关于它们的包装类， 除了 char &lt;=&gt; Character  , int &lt;=&gt; Integer , 其他的都是首字母改成大写</p><p>关于取值范围，都是 -2^（位数 - 1） ~ 2^（位数 - 1）-1  ，</p><p>比如：byte 的取值范围：-128～127（-2的7次方到2的7次方-1）</p><p>short 的取值范围：-32768～32767（-2的15次方到2的15次方-1）</p></blockquote><p>各种字符</p><blockquote><p>Unicode可同时包含65536个字符，ASCII/ANSI只包含255个字符，实际上是Unicode的一个子集。Unicode字符通常用十六进制编码方案表示，范围在’\u0000’到’\uFFFF’之间。\u0000到\u00FF表示ASCII/ANSI字符</p></blockquote><p><strong>1、整型</strong></p><p>byte（1字节） 、short（2字节） 、int （4字节）、long（8字节）</p><p><strong>2、浮点型</strong></p><p>float （4字节）、 double（8字节）</p><p><strong>3、字符型</strong></p><p>char（2字节）    char 类型是一个单一的16位的<strong>Unicode</strong>字符</p><p><strong>4、布尔型</strong></p><p>boolean</p><p><img src="/images/7-22java%E5%9F%BA%E7%A1%80/image-20210722200839365.png"></p><p><img src="/images/7-22java%E5%9F%BA%E7%A1%80/image-20210722203530543.png"></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>下面是面试系列的总结，今天的是java基础知识，不求一下子全部记住，希望能理解，</p><p>基于github  javaGuide</p></blockquote><a id="more"></a><h2 id="面向过程与面向对象的区别？"><a href="#面向过程与面向对象的区别？" class="headerlink" title="面向过程与面向对象的区别？"></a>面向过程与面向对象的区别？</h2><table><thead><tr><th align="center"></th><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td align="center">面向过程</td><td>性能高</td><td>相比，没有面向对象易维护、易复用、易扩展</td></tr><tr><td align="center">面向对象</td><td>易维护、易复用、易扩展，因为向对象有封装、继承、多态性的特 性，所以可以设计出低耦合的系统</td><td>性能比面向对象低</td></tr></tbody></table><h2 id="JVM、JRE、JDK"><a href="#JVM、JRE、JDK" class="headerlink" title="JVM、JRE、JDK"></a>JVM、JRE、JDK</h2><p><img src="/images/7-22java%E5%9F%BA%E7%A1%80/image-20210722194350127.png"></p><p>例如 ： 有 hello.java 文件，在cmd中</p><blockquote><p>javac hello.java  生成 hello.class文件</p><p>java hello            对字节码文件解释和运行（<strong>注意</strong>： 不是 java hello.class）</p></blockquote><h2 id="java和C-的区别"><a href="#java和C-的区别" class="headerlink" title="java和C++的区别"></a>java和C++的区别</h2><ul><li>都是面向对象，都有继承、封装、多态性</li><li>java不提供指针，访问内存更安全</li><li>java是单继承（一次只能继承一个类，不能同时继承多个类），C++是多继承的，但是java的接口可以多继承</li><li>java内存自动管理机制</li></ul><h2 id="字符型常量和字符串常量的区别"><a href="#字符型常量和字符串常量的区别" class="headerlink" title="字符型常量和字符串常量的区别"></a>字符型常量和字符串常量的区别</h2><ul><li>形式上</li><li>含义上</li><li>占用内存大小上</li></ul><p><strong>java中的8种基本数据类型：</strong> </p><blockquote><p>1字节 = 8位</p><p>关于它们的包装类， 除了 char &lt;=&gt; Character  , int &lt;=&gt; Integer , 其他的都是首字母改成大写</p><p>关于取值范围，都是 -2^（位数 - 1） ~ 2^（位数 - 1）-1  ，</p><p>比如：byte 的取值范围：-128～127（-2的7次方到2的7次方-1）</p><p>short 的取值范围：-32768～32767（-2的15次方到2的15次方-1）</p><p>并且，我们还可以调用包装类.MAX_VALUE 来查看最大值  ，如：Integer.MAX_VALUE</p></blockquote><p><strong>各种字符</strong></p><blockquote><p>Unicode可同时包含65536个字符，ASCII/ANSI只包含255个字符，实际上是Unicode的一个子集。Unicode字符通常用十六进制编码方案表示，范围在’\u0000’到’\uFFFF’之间。\u0000到\u00FF表示ASCII/ANSI字符</p></blockquote><p><strong>1、整型</strong></p><p>byte（1字节） 、short（2字节） 、int （4字节）、long（8字节）</p><p><strong>2、浮点型</strong></p><p>float （4字节）、 double（8字节）</p><p><strong>3、字符型</strong></p><p>char（2字节）    char 类型是一个单一的16位的<strong>Unicode</strong>字符 ，unicode 可见 <a href="D:\Blog\source_posts\三种常见字符编码简介-ASCII、Unicode和UTF-8.md">ASCII、Unicode 和 UTF-8 介绍</a></p><p><strong>4、布尔型</strong></p><p>boolean</p><p><img src="/images/7-22java%E5%9F%BA%E7%A1%80/image-20210722200839365.png"></p><p><img src="/images/7-22java%E5%9F%BA%E7%A1%80/image-20210722203530543.png"></p><h2 id="类的成员变量和局部变量初始化的问题"><a href="#类的成员变量和局部变量初始化的问题" class="headerlink" title="类的成员变量和局部变量初始化的问题"></a>类的成员变量和局部变量初始化的问题</h2><p><strong>对于类的成员变量</strong></p><p>不管程序有没有显示的初始化，Java  虚拟机都会先自动给它初始化为默认值</p><p><strong>对于局部变量</strong></p><p>局部变量声明以后，Java 虚拟机<strong>不会</strong>自动的为它初始化为默认值。</p><p>因此对于局部变量，<strong>必须先经过显示的初始化</strong>，才能使用它。</p><p>如果编译器确认一个局部变量在使用之前可能没有被初始化，编译器将<strong>报错</strong>。</p>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -52,7 +73,7 @@
     
     
     
-    <category term="面试系列" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E7%B3%BB%E5%88%97/"/>
+    <category term="面试学习系列" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
     
     
   </entry>
@@ -413,29 +434,6 @@
     
     <category term="机器学习" scheme="http://example.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>4-2</title>
-    <link href="http://example.com/2021/04/02/4-2/"/>
-    <id>http://example.com/2021/04/02/4-2/</id>
-    <published>2021-04-02T02:29:02.000Z</published>
-    <updated>2021-04-02T04:04:46.720Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>歪歪唧唧歪歪唧唧</p></blockquote><a id="more"></a><p>恰逢近些天找导师找的有些烦闷，集体出游计划也泡汤了，看到论坛上几句话分享一下：</p><p>看到一个感情贴：</p><blockquote><p>不论男女，都可以表达自己不开心的情绪，但请一定明白，每一次的矛盾，都是双方相互试探底线的过程，甩脸子要有意义和价值，要知道自己的诉求到底是什么，传达出对方以后不能xxx的信号，而不是一味的发泄情绪，这样才不会消耗感情，才能长久                                                                                                                                    ——论坛老哥A</p></blockquote><p>人在不开心的时候一定要表达自己的诉求，而不是单纯的对别人发泄情绪。这样做的后果往往是别人被训斥了一顿，一头雾水还不知道自己哪里错了，到头来就算再犯也不知道，这对别人而言是很无辜的，对自己而言也会被这种错误再次伤害到。</p><p>形象的表示：  </p><p>发泄情绪-&gt;我反正生气了我不管你一定要哄着我（就算我不说你也要明白你哪里错了，你自己品）     （x）</p><p>发泄情绪-&gt;提出诉求-&gt;说清楚自己的底线是什么-&gt;达成共识                 （√）</p><p>这里其实对于 生气 其实还蛮那啥的，成年人一定要控制好自己的情绪，是真的，绝对没错，<strong>所以请千万不要随便发脾气！</strong>但是为什么讲有时候要发脾气呢，如上面所言，是一个试探的过程，需要用合适的方式传达自己的情绪。</p><p>其实谈到为什么要发脾气，人在发脾气的时候激素（肾上腺素、甲状腺素）水平会升高，会屏蔽掉外界的一切观点，当复盘后会发现往往有以下几个原因：</p><ul><li>stereotype（固有印象）或者说 Inherent thinking（固有思维），有这样的场景：我，想法<strong>一直</strong>是这样的，你，这种想法与之不符，所以，你错了，我要生气。遵循这种闭环的思维方式，就会有以上场景发生。无法包容无法接受新观点，把某件事想成是理所当然的，这种因素需要自己去改变。</li><li>见识少，比如我们在生活中常说：你为什么会这样想？为什么要这样做？这是两种思维方式抵触的过程。这种因素往往会随着阅历增加而减弱。</li></ul><p>至于怎么做，我以前经常看到这样的论调：每当你要生气的时候，就先心里默念不要生气，这样持续一段时间后就没那么生气了。从生理的角度来分析有一定道理，让激素水平下降了来控制情绪。缺点是什么？只是从生理上强制解决了，并没有从心理上来认同这件事，可能你以后想起来依然会心有芥蒂。</p><p>我认为有一种较为合理的方式：换位思考和共情。当对方有什么事让你觉得很生气了。从上帝视角来看，别人并不知道这样会让你生气，也不知道这样做到底有什么错（当然，排除掉故意让你生气的这种情况，所占比例极小，如果是这样的话，那更简单，那又何必顺遂他意让自己生气呢？），此时我们可能会这样想：为什么他要这样做，明明这样做是错的，他为什么会这样想，他难道不知道这样做会xxx吗？但这时你要反问自己，对呀，为什么别人就一定知道呢？为什么你会觉得别人就一定会这样想呢？要是我是对方的话，我样说会不会真表达其他意思呢？可能思维链不是很连贯，但或多或少能解决自己的一点迷惑，等到过一段日子再去回顾的时候，你会发现，还真是思维的差异罢了，这种思维的差异并没有说谁对说错，仅仅就是差异。所以别人这样想也是很正常的，自己的生气或者情绪死不是就能避免掉了呢？这种非强制性的思考会让我们心理上更好的接受这件事</p><hr><p>另一个话题：</p><blockquote><p>天，感同身受<br>电动牙刷那段真的几乎一样。<br>后来真的想明白了，爱家人不是让他们按照我们觉得的方式生活，其实包括对所有人都是，自己觉得好的东西，不一定非得让别人都接受都用上。<br>我爸糖尿病 心脏不好，之前总因为戒烟戒酒的事说他，后来看他真的努力戒了，但是真的戒不掉，看到他偷偷抽烟，心理真的难受。<br>后来觉得，这么大年纪了，想抽点抽点，想喝点喝点吧，活得开心就好，反正医院定期复查就好。回家的时候也喜欢配他喝上两杯。现在就是后悔，非常后悔，自己没有及早醒悟。<br><strong>人呐，有时候就是很可笑，明明自己天天熬夜，却让别人早睡，明明自己天天喝可乐，却让别人多喝热水。</strong><br><strong>用自己心中理想的爱人方式爱着别人，到头来不爱自己也不是真正的爱别人。</strong>害</p><p>​                                                                                                                            ——论坛网友B</p></blockquote><p>​                                                            </p><p>算了不写了，太多想法了。</p><p>总结一下，抛开极端想法不谈，人与人之间的思维差异是固有存在的，我们要做的不是去强迫别人顺从自己的想法，而是去包容，对家人、对爱人、对朋友都是如此。</p><p>记得初中数学老师的一句话：你以为你以为就是你以为的，其他什么都不是。</p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;歪歪唧唧歪歪唧唧&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="想法" scheme="http://example.com/categories/%E6%83%B3%E6%B3%95/"/>
-    
-    
-    <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
