@@ -9,7 +9,7 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E8%AF%AD%E8%A8%80%E7%9A%84%E5%80%BC%E4%BC%A0%E9%80%92"><span class="toc-number">1.</span> <span class="toc-text">java语言的值传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Efinal%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text">关于final关键字的总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">3.</span> <span class="toc-text">浅拷贝和深拷贝</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">54</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">6</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">14</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">7.24java基础学习</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-07-24</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.1k</span><span class="post-meta__separator">|</span><span>阅读时长: 3 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E8%AF%AD%E8%A8%80%E7%9A%84%E5%80%BC%E4%BC%A0%E9%80%92"><span class="toc-number">1.</span> <span class="toc-text">java语言的值传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Efinal%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text">关于final关键字的总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">3.</span> <span class="toc-text">浅拷贝和深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">java中的异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Exception%E7%B1%BB"><span class="toc-number">4.0.1.</span> <span class="toc-text">Exception类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Error%E7%B1%BB"><span class="toc-number">4.0.2.</span> <span class="toc-text">Error类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Throwable%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">4.0.3.</span> <span class="toc-text">Throwable类的常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">4.0.4.</span> <span class="toc-text">异常处理的关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#throw%E5%92%8Cthrows%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.0.5.</span> <span class="toc-text">throw和throws的区别</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">54</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">6</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">14</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">7.24java基础学习</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-07-24</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.2k</span><span class="post-meta__separator">|</span><span>阅读时长: 7 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>笑死，根本看不完</p>
 </blockquote>
 <a id="more"></a>
@@ -34,7 +34,7 @@
 <li>一个方法不能让对象参数引用一个新的对象。（即不会修改这个对象的引用，只会拷贝这个引用，然后修改引用指向的对象的内容，但是原先的这个引用还是指向这个地址）</li>
 </ul>
 <h2 id="关于final关键字的总结"><a href="#关于final关键字的总结" class="headerlink" title="关于final关键字的总结"></a>关于final关键字的总结</h2><p>final关键字主要用在三个地方：<strong>变量</strong>、<strong>方法</strong>、<strong>类</strong>。</p>
-<p>1.修饰一个变量</p>
+<p><strong>1.修饰一个变量</strong></p>
 <ul>
 <li>若变量为基本数据类型，则该变量在初始化之后就不能修改</li>
 <li>若变量为引用类型，比如对象、数组，则该对象、数组<strong>本身的内容可以修改</strong>，但指向该对象或数组的<strong>地址的引用不能修改。</strong>  （指向不能改，指向的对象的内容可以改）</li>
@@ -44,9 +44,9 @@
 <ul>
 <li>如果变量为成员变量（在类中的变量），则必须<strong>当场初始化</strong>，不能先声明，然后再赋值（上面两种情况都可以只声明不初始化）</li>
 </ul>
-<p>2.修饰一个方法</p>
+<p><strong>2.修饰一个方法</strong></p>
 <p>当使用final修饰方法时，这个方法将成为最终方法，<strong>无法被子类重写</strong>。但是，该方法<strong>仍然可以被继承</strong>。</p>
-<p>3.修饰一个类</p>
+<p><strong>3.修饰一个类</strong></p>
 <p>当用final修改类时，该类成为最终类，<strong>无法被继承</strong>。</p>
 <h2 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h2><p>具体参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ysocean/p/8482979.html">Java的深拷贝和浅拷贝</a></p>
 <p><img src="/images/7-24java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/image-20210724120944934.png" alt="浅拷贝和深拷贝的对比"></p>
@@ -63,6 +63,51 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39792935/article/details/85703570">Java对象-深拷贝(实现Serializable, Cloneable两种方式)</a></p>
 <p>1.实现Cloneable接口并重写Object类中的clone()方法；</p>
 <p>2.实现Serializable接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆。</p>
+<h2 id="java中的异常处理"><a href="#java中的异常处理" class="headerlink" title="java中的异常处理"></a>java中的异常处理</h2><p>Throwable</p>
+<p>​        – Error</p>
+<p>​        – Exception</p>
+<p>​                    – RuntimeException</p>
+<p>​                    – Non-RuntimeException</p>
+<p><img src="/images/7-24java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/image-20210724165814446.png"></p>
+<p>Java通过API中“<strong>Throwable类的众多子类</strong>”，来描述各种不同的异常。</p>
+<p>Throwable类有两个子类：<strong>Exception</strong>（异常）类和<strong>Error</strong>（错误）类。</p>
+<h4 id="Exception类"><a href="#Exception类" class="headerlink" title="Exception类"></a>Exception类</h4><p><strong>可以被捕获并且可能恢复的异常类</strong>，用户程序也可以通过继承Exception类，自定义异常类</p>
+<p>分为运行时异常和非运行时异常</p>
+<p>（1）<strong>运行时异常</strong>： 都是RuntimeException类及其子类异常，如NullPointerExceotion、IndexOutOfBoundsException等，这些异常是<strong>不检查异常</strong>，程序可以选择捕获处理，<strong>也可以不处理</strong>。<br>（2）<strong>非运行时异常</strong>： 是RuntimeException以外的异常，类型上都属于Exception类及其子类。如IOException、SQLException等以及用户自定义的Exception异常。</p>
+<h4 id="Error类"><a href="#Error类" class="headerlink" title="Error类"></a>Error类</h4><p>属于程序无法处理的错误，没有办法捕捉。用户不需要处理这些异常</p>
+<p>这些错误发生时，Java虚拟机（JVM）一般会选择线程终止。</p>
+<h4 id="Throwable类的常用方法"><a href="#Throwable类的常用方法" class="headerlink" title="Throwable类的常用方法"></a>Throwable类的常用方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> string <span class="title">getMessage</span><span class="params">()</span> ：返回异常发生时的简要描述</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> string <span class="title">toString</span><span class="params">()</span>：返回异常发生时的详细信息</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">()</span> ：在控制台上打印Throwable对象封装的异常信息</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> string <span class="title">getLocalizedMessage</span><span class="params">()</span> ：返回异常对象的本地化信息。使用Throwable的子类覆</span></span><br><span class="line"><span class="function">盖这个方法，可以生成本地化信息。如果子类没有覆盖该方法，则该方法返回的信息与</span></span><br><span class="line"><span class="function"><span class="title">getMessage</span><span class="params">()</span> 返回的结果相同</span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="异常处理的关键字"><a href="#异常处理的关键字" class="headerlink" title="异常处理的关键字"></a>异常处理的关键字</h4><p>Java 的异常处理通过 5 个关键字来实现：<strong>try、catch、throw、throws 和 finally。</strong></p>
+<p>作用如下图：</p>
+<p><img src="/images/7-24java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/image-20210724172048270.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">格式如下所示：  <span class="keyword">catch</span> -- 捕获异常  <span class="keyword">throw</span> -- 抛出异常</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>&#123;  </span><br><span class="line">  代码块；</span><br><span class="line">  &#125; <span class="keyword">catch</span>(异常类名 异常形式参数名) &#123;    </span><br><span class="line">  异常处理代码块；</span><br><span class="line">  &#125; <span class="keyword">catch</span>(异常类名 异常形式参数名) &#123;  </span><br><span class="line">    异常处理代码块； </span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;    </span><br><span class="line">    无条件执行的代码块；</span><br><span class="line">  &#125;       <span class="comment">//catch语句可以0至多个，可以没有finally语句。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>过程：</strong></p>
+<p>1.如果try语句块中<strong>发生异常</strong>，相应的异常对象就会被抛出，catch就会依据所拋出异常对象的类型<strong>进行捕获</strong>，并处理。处理之后，程序会跳过 try 语句块中剩余的语句，开始执行finally语句块。</p>
+<p>2.如果 try 语句块中<strong>没有发生异常</strong>，那么 try 块正常结束，后面的 <strong>catch 语句块被跳过</strong>，程序开始执行finally语句块。</p>
+<blockquote>
+<p>当有多个catch存在时，注意catch捕获异常的顺序：</p>
+<p>捕获的多个异常类之间存在父子关系时，捕获异常时一般<strong>先捕获子类</strong>，<strong>再捕获父类。</strong>所以<strong>子类异常必须在父类异常的前面</strong>，否则全部给父类异常捕获到了，子类捕获不到。</p>
+</blockquote>
+<h4 id="throw和throws的区别"><a href="#throw和throws的区别" class="headerlink" title="throw和throws的区别"></a>throw和throws的区别</h4><p><strong>throw（抛出异常）</strong></p>
+<p>抛出的异常为Throwable类及其子类或者为自定义类</p>
+<p><strong>throws（声明异常）</strong></p>
+<p>当一个方法产生一个它不处理的异常时，那么就需要在该方法的头部声明这个异常，以便将该异常传递到方法的外部进行处理。所以，<strong>使用 throws 声明的方法表示此方法不处理异常。</strong></p>
+<ul>
+<li>子类方法声明的异常必须<strong>小于等于父类</strong>方法声明的异常</li>
+<li>一个方法可以声明多个异常，用逗号隔开</li>
+<li>声明有这些异常，但不一定会发生</li>
+</ul>
+<p><strong>throws 关键字和 throw 关键字在使用上的几点区别如下：</strong></p>
+<ul>
+<li>throws 用来声明一个方法<strong>可能抛出</strong>的所有异常信息，表示出现异常的一种可能性，但并不一定会发生这些异常；throw则是指拋出的一个具体的异常类型，执行 throw 则一定抛出了某种异常对象。</li>
+<li>通常在一个方法（类）的声明处通过 throws 声明方法（类）可能拋出的异常信息，而在方法（类）内部通过 throw声明一个具体的异常信息。</li>
+<li>throws 通常不用显示地捕获异常，可由系统自动将所有捕获的异常信息抛给上级方法； throw则需要用户自己捕获相关的异常，而后再对其进行相关包装，最后将包装后的异常信息抛出。</li>
+</ul>
+<p>（具体是怎么解决这些异常的可以参照 <a href="D:\Blog\source_posts\java-异常处理.md">前面java异常处理的笔记</a>）</p>
 </div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/07/24/7-24java基础学习/">http://example.com/2021/07/24/7-24java基础学习/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="next-post pull-right"><a href="/2021/07/23/7-23java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"><span>7.23java基础学习</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
   clientID: '52a38b388c08f769c0fe',
   clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
