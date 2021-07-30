@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="cpu、寄存器、缓存、内存概念"><meta name="keywords" content=""><meta name="author" content="pb"><meta name="copyright" content="pb"><title>cpu、寄存器、缓存、内存概念 | pb</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.2.0'
+} </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">59</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">5</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">cpu、寄存器、缓存、内存概念</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-07-28</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">624</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>在看内存结构的时候，经常会出现这些词，来看看他们的概念</p>
+</blockquote>
+<a id="more"></a>
+
+<img src="/images/cpu%E3%80%81%E5%AF%84%E5%AD%98%E5%99%A8%E3%80%81%E7%BC%93%E5%AD%98%E3%80%81%E5%86%85%E5%AD%98%E6%A6%82%E5%BF%B5/image-20210728154648631.png" alt="image-20210728154648631" style="zoom: 80%;" />
+
+<p>ROM(read-only memory):</p>
+<p>RAM(read access memory):</p>
+<p><strong>那么cache是属于cpu还是属于内存的呢？</strong>（待解决）</p>
+<p><strong>CPU</strong></p>
+<p>​    CPU是<strong>中央处理器</strong>的简称，它可以从<strong>内存</strong>和<strong>缓存</strong>中读取指令，放入<strong>指令寄存器</strong>，并能够发出控制指令来完成一条指令的执行。<strong>但是CPU并不能直接从硬盘中读取程序或数据。</strong></p>
+<p><strong>内存</strong></p>
+<p>​    内存作为与CPU直接进行沟通的部件，所有的程序都是在内存中运行的。其作用是暂时存放CPU的运算数据，以及与硬盘交换的数据。也是相当于CPU与硬盘沟通的桥梁。只要计算机在运行，CPU就会把需要运算的数据调到内存中进行运算，运算完成后CPU再将结果传出来。    </p>
+<p><strong>缓存</strong></p>
+<p>​    缓存是CPU的一部分，存在于CPU里。由于CPU的存取速度很快，而内存的速度很慢，为了不让CPU每次都在运行相对缓慢的内存中操作，缓存就作为一个<strong>中间者</strong>出现了。有些常用的数据或是地址，就直接存在缓存中，这样，下一次调用的时候就不需要再去内存中去找了。因此，CPU每次回先到自己的缓存中寻找想要的东西（一般80%的东西都可以找到），找不到的时候再去内存中获取。</p>
+<p>​    最初的缓存生产成本很高，价格昂贵，所以为了存储更多的数据，又不希望成本过高，就出现了二级缓存的概念，他们采用的并不是一级缓存的SRAM（静态RAM），而是采用了性能比SRAM稍差一些，但是比内存更快的DRAM（动态RAM）</p>
+<p><strong>硬盘</strong></p>
+<p>​      我们都知道内存是掉电之后数据就消失的部件，所以，长期的数据存储更多的还是依靠硬盘这种本地磁盘作为存储工具。</p>
+<p><strong>简单的概括：</strong></p>
+<p>CPU运行时首先会去自身的缓存中寻找，如果没有再去内存中找。</p>
+<p>硬盘中的数据会先写入内存才能被CPU使用。</p>
+<p>缓存会记录一些常用的数据等信息，以免每次都要到内存中，节省了时间，提高了效率。</p>
+<p>内存+缓存 -&gt; 内存储空间 </p>
+<p>硬盘 -&gt; 外存储空间</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/07/28/cpu、寄存器、缓存、内存概念/">http://example.com/2021/07/28/cpu、寄存器、缓存、内存概念/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/07/30/7-30%E5%AD%A6%E4%B9%A0/"><i class="fa fa-chevron-left">  </i><span>7.30学习</span></a></div><div class="next-post pull-right"><a href="/2021/07/28/7-28java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0/"><span>7.28java多线程学习</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '52a38b388c08f769c0fe',
+  clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
+  repo: 'jiubukaiji.github.io',
+  owner: 'jiubukaiji',
+  admin: 'jiubukaiji',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By pb</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
