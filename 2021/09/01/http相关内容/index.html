@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="http相关内容"><meta name="keywords" content="http"><meta name="author" content="pb"><meta name="copyright" content="pb"><title>http相关内容 | pb</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.2.0'
+} </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%BE%93%E5%85%A5url%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">在浏览器中输入url到显示页面的过程中发生了什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">HTTP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">概述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84-HTTP-%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">常用的 HTTP 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get%E4%B8%8EPost%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.</span> <span class="toc-text">Get与Post的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Http%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">Http状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-HTTP-%E5%8D%8F%E8%AE%AE%E6%97%A0%E7%8A%B6%E6%80%81%E5%8D%8F%E8%AE%AE%EF%BC%9F%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3Http%E5%8D%8F%E8%AE%AE%E6%97%A0%E7%8A%B6%E6%80%81%E5%8D%8F%E8%AE%AE"><span class="toc-number">6.</span> <span class="toc-text">什么是 HTTP 协议无状态协议？怎么解决Http协议无状态协议?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie%E5%92%8CSession%E6%8A%80%E6%9C%AF"><span class="toc-number">7.</span> <span class="toc-text">Cookie和Session技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%92%8CHTTPS%E5%8C%BA%E5%88%AB"><span class="toc-number">8.</span> <span class="toc-text">HTTP和HTTPS区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E9%95%BF%E8%BF%9E%E6%8E%A5-%E7%9F%AD%E8%BF%9E%E6%8E%A5"><span class="toc-number">9.</span> <span class="toc-text">HTTP长连接,短连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E9%95%BF%E8%BF%9E%E6%8E%A5%EF%BC%8C%E7%9F%AD%E8%BF%9E%E6%8E%A5%EF%BC%9F"><span class="toc-number">9.1.</span> <span class="toc-text">什么时候用长连接，短连接？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E8%BF%9E%E6%8E%A5%E4%B8%8E%E7%9F%AD%E8%BF%9E%E6%8E%A5%E5%8C%BA%E5%88%AB"><span class="toc-number">9.2.</span> <span class="toc-text">长连接与短连接区别:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Http1-0-%E5%92%8C-Http1-1-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">Http1.0 和 Http1.1 有什么区别？</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">69</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">10</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">http相关内容</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-09-01</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.5k</span><span class="post-meta__separator">|</span><span>阅读时长: 7 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><a id="more"></a>
+
+<h2 id="在浏览器中输入url到显示页面的过程中发生了什么？"><a href="#在浏览器中输入url到显示页面的过程中发生了什么？" class="headerlink" title="在浏览器中输入url到显示页面的过程中发生了什么？"></a>在浏览器中输入url到显示页面的过程中发生了什么？</h2><p>1、通过DNS解析<strong>由域名找到对应的IP地址</strong> 寻找IP地址的过程依次经过了浏览器缓存、系统缓存、hosts文件、路由器缓存、 递 归搜索根域名服务器。  （DNS解析过程）</p>
+<p>2、解析出 IP 地址后，根据该 IP 地址和默认端口 80，和服务器建立TCP连接;（三次握手具体过程） </p>
+<p>3、由浏览器发送一个HTTP请求 ，经过路由器的转发到达，通过服务器的防火墙，到达了服务器 </p>
+<p>4、服务器处理该HTTP请求，返回一个HTML文件 </p>
+<p>5、浏览器解析该HTML文件，并且显示在浏览器端</p>
+<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>超文本传输协议（<strong>H</strong>yper <strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol），属于应用层，端口号80</p>
+<p>HTTP协议定义Web客户端如何向Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。</p>
+<p>HTTP协议采用了<strong>请求/响应模型</strong>。<strong>客户端向服务器发送一个请求报文</strong>，请求报文包含请求的方法、URL、协议版本、请求头部和请求数据。<strong>服务器以一个状态行作为响应</strong>，响应的内容包括协议的版本、成功或者错误代码、服务器信息、响应头部和响应数据。</p>
+<p>请求报文结构</p>
+<ul>
+<li>HTTP请求体由：请求行 、请求头、请求内容实体组成的</li>
+</ul>
+<p><img src="/images/http%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/image-20210901204224623.png" alt="请求报文结构"></p>
+<p>响应报文结构：</p>
+<ul>
+<li>响应报文包含三部分 状态行、响应首部字段、响应内容实体实现</li>
+</ul>
+<p><img src="/images/http%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/image-20210901204401019.png" alt="响应报文结构"></p>
+<h2 id="常用的-HTTP-方法"><a href="#常用的-HTTP-方法" class="headerlink" title="常用的 HTTP 方法"></a>常用的 HTTP 方法</h2><ul>
+<li>GET：GET方法用来请求URL指定的资源。指定的资源经服务器端解析后返回响应内容 </li>
+<li>POST：用于传输信息给服务器，主要功能与GET方法类似，但一般推荐使用POST方式。 </li>
+<li>PUT：传输文件，报文主体中包含文件内容，保存到对应URI位置。 </li>
+<li>HEAD：获得报文首部，与GET方法类似，只是不返回报文主体</li>
+<li>DELETE：删除文件，与PUT方法相反，删除对应URI位置的文件。 </li>
+<li>OPTIONS：查询相应URI支持的HTTP方法。</li>
+</ul>
+<p><img src="/images/http%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/image-20210901200949347.png" alt="option方法作用"></p>
+<h2 id="Get与Post的区别"><a href="#Get与Post的区别" class="headerlink" title="Get与Post的区别"></a>Get与Post的区别</h2><p>1、 从功能上讲，GET一般用来从服务器上获取资源，POST一般用来更新服务器上的资源</p>
+<p>2、GET是<strong>幂等的，即读取同一个资源，总是得到相同的数据</strong>，而POST不是幂等 的，因为每次请求对资源的改变并不是相同的</p>
+<p>3、就安全性而言，<strong>POST的安全性要比GET的安全性高</strong>，因为GET请求提交的数据将<strong>明文</strong>出现在URL上， 而且POST请求参数则被包装到<strong>请求体</strong>中，相对更安全。</p>
+<p>4、从请求的大小看，<strong>GET请求的长度受限于浏览器或服务器对URL长度的限制</strong>，允许发送的数据量比较小，而POST请求则是没有大小限制的。</p>
+<h2 id="Http状态码"><a href="#Http状态码" class="headerlink" title="Http状态码"></a>Http状态码</h2><p><img src="/images/http%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/image-20210901201650517.png" alt="状态码"></p>
+<p>一些常见状态码的含义：</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>含义</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>100</td>
+<td>继续</td>
+<td>初始的请求已经接受，请客户端继续发送剩余部分</td>
+</tr>
+<tr>
+<td>200</td>
+<td>成功</td>
+<td>服务器已成功处理了请求</td>
+</tr>
+<tr>
+<td>301</td>
+<td>永久移动</td>
+<td>请求的页面已永久跳转到新的url</td>
+</tr>
+<tr>
+<td>401</td>
+<td>未授权</td>
+<td>请求要求用户进行身份演验证</td>
+</tr>
+<tr>
+<td>403</td>
+<td>禁止</td>
+<td>服务器拒绝请求</td>
+</tr>
+<tr>
+<td>404</td>
+<td>未找到</td>
+<td>服务器找不到请求的页面</td>
+</tr>
+<tr>
+<td>502</td>
+<td>错误网关</td>
+<td>服务器作为网关或代理出现错误</td>
+</tr>
+<tr>
+<td>503</td>
+<td>服务不可用</td>
+<td>服务器目前无法使用</td>
+</tr>
+</tbody></table>
+<h2 id="什么是-HTTP-协议无状态协议？怎么解决Http协议无状态协议"><a href="#什么是-HTTP-协议无状态协议？怎么解决Http协议无状态协议" class="headerlink" title="什么是 HTTP 协议无状态协议？怎么解决Http协议无状态协议?"></a>什么是 HTTP 协议无状态协议？怎么解决Http协议无状态协议?</h2><p><strong>概念</strong>：是指每一次的请求都是独立的，客户端第一次向服务器发送请求完成之后，再一次向服务器发送请求，服务器并不知道该客户端是刚才那个。</p>
+<p><strong>解决方法</strong>：</p>
+<p>使用Cookie和Session技术（引出这两个知识点）</p>
+<h2 id="Cookie和Session技术"><a href="#Cookie和Session技术" class="headerlink" title="Cookie和Session技术"></a>Cookie和Session技术</h2><h2 id="HTTP和HTTPS区别"><a href="#HTTP和HTTPS区别" class="headerlink" title="HTTP和HTTPS区别"></a>HTTP和HTTPS区别</h2><p>1、端口：HTTP的URL由”http://起始且默认使用端口80，而HTTPS的URL由”https:/起始且默认使用端口443.</p>
+<p>2、安全性和资源消耗：</p>
+<p>HTTP协议运行在TCP之上，所有传输的内容都是<strong>明文</strong>，客户端和服务器端都无法验证对方的身份。</p>
+<p>HTTPS是运行在<strong>SSL</strong>之上的HTTP协议，SSL运行在TCP之上。所有传输的内容都经过加密，<strong>加密采用对称加密</strong>，但对<strong>称加密的密钥用服务器方的证书进行了非对称加密</strong>。所以说，<strong>HTTP安全性没有HTTPS高，但是HTTPS比HTTP耗费更多服务器资源。</strong></p>
+<p>通过使用 SSL，HTTPS 具有了加密（防窃听）、认证（防伪装）和完整性保护（防篡改）。</p>
+<blockquote>
+<p>对称加密：密钥只有一个，加密解密为同一个密钥，且加解密速度快，典型的对称加密算法有DES、AES等；</p>
+<p>非对称加密：公钥所有人都可以获得，通信发送方获得接收方的公钥之后，就可以使用公钥进行加密，接收方收到通信内容后使用私钥解密。相对对称加密速度较慢。</p>
+<p>SSL：安全套接层（Secure Sockets Layer ）</p>
+<p><img src="/images/http%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/image-20210901215413693.png"></p>
+</blockquote>
+<h2 id="HTTP长连接-短连接"><a href="#HTTP长连接-短连接" class="headerlink" title="HTTP长连接,短连接"></a>HTTP长连接,短连接</h2><p>HTTP的长连接和短连接<strong>本质上是TCP长连接和短连接</strong>。</p>
+<p>在HTTP/1.0中默认使用短连接。也就是说，客户端和服务器每进行一次HTTP操作，就建立一次连接，任务结束就中断连接。当客户端浏览器访问的某个HTML或其他类型的Web页中包含有其他的Web资源（如JavaScript文件、图像文件、CSS文件等），每遇到这样一个Web资源，浏览器就会重新建立一个HTTP会话。</p>
+<p>而从HTTP/1.1起，默认使用长连接，用以保持连接特性。使用长连接的HTTP协议，会在响应头加入这行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection:keep-alive</span><br></pre></td></tr></table></figure>
+
+<p>在使用长连接的情况下，当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，客户端再次访问这个服务器时，会继续使用这一条已经建立的连接。</p>
+<p>Keep-Alive不会永久保持连接，它有一个<strong>保持时间</strong>，可以在header当中进行设置的。实现长连接需要客户端和服务端都支持长连接。</p>
+<h3 id="什么时候用长连接，短连接？"><a href="#什么时候用长连接，短连接？" class="headerlink" title="什么时候用长连接，短连接？"></a><strong>什么时候用长连接，短连接？</strong></h3><ol>
+<li>长连接多用于<strong>操作频繁，点对点的通讯，而且连接数不能太多情况</strong>，。每个TCP连接都需要三步握手，这需要时间，如果每个操作都是先连接，再操作的话那么处理速度会降低很多，所以每个操作完后都不断开，次处理时直接发送数据包就OK了，不用建立TCP连接。例如：数据库的连接用长连接， 如果用短连接频繁的通信会造成socket错误，而且频繁的socket 创建也是对资源的浪费。</li>
+<li>而像WEB网站的http服务一般都用短链接，因为长连接对于服务端来说会耗费一定的资源，而像WEB网站这么频繁的成千上万甚至上亿客户端的连接用短连接会更省一些资源，如果用长连接，而且同时有成千上万的用户，如果每个用户都占用一个连接的话，那可想而知吧。<strong>所以并发量大，但每个用户无需频繁操作情况下需用短连好。</strong></li>
+</ol>
+<h3 id="长连接与短连接区别"><a href="#长连接与短连接区别" class="headerlink" title="长连接与短连接区别:"></a>长连接与短连接区别:</h3><p>**长连接:**连接→数据传输→保持连接(心跳)→数据传输→保持连接(心跳)→……→关闭连接（一个TCP连接通道多个读写通信）； </p>
+<p>**短连接:**连接→数据传输→关闭连接；</p>
+<h2 id="Http1-0-和-Http1-1-有什么区别？"><a href="#Http1-0-和-Http1-1-有什么区别？" class="headerlink" title="Http1.0 和 Http1.1 有什么区别？"></a>Http1.0 和 Http1.1 有什么区别？</h2><p>HTTP1.0出现早，主要用于一些较为简单的网页上和网络请求上，而HTTP1.1则在1999年才开始广泛应用于现在的各大浏览器网络请求中，同时HTTP1.1也是当前使用最为广泛的HTTP协议。 主要区别主要体现在：</p>
+<ul>
+<li>长连接 : <strong>在HTTP/1.0中，默认使用的是短连接</strong>，也就是说每次请求都要重新建立一次连接。HTTP 是基于TCP/IP协议的,每一次建立或者断开连接都需要三次握手四次挥手的开销，如果每次请求都要这样的话，开销会比较大。因此最好能维持一个长连接，可以用个长连接来发多个请求。<strong>HTTP 1.1起，默认使用长连接</strong> ,默认开启Connection： keep-alive。 HTTP/1.1的持续连接有非流水线方式和流水线方式 。流水线方式是客户在收到HTTP的响应报文之前就能接着发送新的请求报文。与之相对应的非流水线方式是客户在收到前一个响应后才能发送下一个请求。</li>
+<li>错误状态响应码 :<strong>在HTTP1.1中新增了24个错误状态响应码</strong>，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。</li>
+<li><strong>缓存处理</strong> :在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</li>
+<li><strong>带宽优化及网络连接的使用</strong> :HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/09/01/http相关内容/">http://example.com/2021/09/01/http相关内容/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/http/">http</a></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="next-post pull-right"><a href="/2021/09/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E5%BA%94%E7%94%A8%E5%B1%82/"><span>计算机网络——应用层</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '52a38b388c08f769c0fe',
+  clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
+  repo: 'jiubukaiji.github.io',
+  owner: 'jiubukaiji',
+  admin: 'jiubukaiji',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By pb</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
