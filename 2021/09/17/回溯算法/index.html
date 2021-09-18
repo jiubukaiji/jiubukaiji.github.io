@@ -31,8 +31,8 @@
 <p>都知道组合问题可以抽象为树形结构，那么“使用过”在这个树形结构上是有两个维度的，<strong>一个维度是同一树枝上使用过，一个维度是同一树层上使用过。没有理解这两个层面上的“使用过” 是造成大家没有彻底理解去重的根本原因。</strong></p>
 <p><strong>两种去重方式比较</strong>：</p>
 <p>如果要对树层中前一位去重，就用<code>used[i - 1] == false</code>，如果要对树枝前一位去重用<code>used[i - 1] == true</code>。</p>
-<p><img src="../images/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/image-20210917161342246.png" alt="树层上去重"></p>
-<p><img src="../images/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/image-20210917161411436.png" alt="树枝上去重"></p>
+<p><img src="/images/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/image-20210917161342246.png" alt="树层上去重"></p>
+<p><img src="/images/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/image-20210917161411436.png" alt="树枝上去重"></p>
 <p><strong>树层上对前一位去重非常彻底，效率很高</strong>，树枝上对前一位去重虽然最后可以得到答案，但是做了很多无用搜索。</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2><blockquote>
 <p>这两句话说的真好，我们都是在两个维度上面进行去重的，一个是同一层上，一个是一个树枝上。</p>
