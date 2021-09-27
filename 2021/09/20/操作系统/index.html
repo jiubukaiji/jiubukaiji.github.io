@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="操作系统"><meta name="keywords" content="操作系统"><meta name="author" content="pb"><meta name="copyright" content="pb"><title>操作系统 | pb</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.2.0'
+} </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">进程管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">死锁的相关知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">什么是死锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9F"><span class="toc-number">3.2.</span> <span class="toc-text">死锁产生的原因？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6%EF%BC%9F%EF%BC%884%E4%B8%AA%EF%BC%8C%E7%BC%BA%E4%B8%80%E4%B8%8D%E5%8F%AF%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">死锁的必要条件？（4个，缺一不可）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">3.4.</span> <span class="toc-text">如何解决死锁问题？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">内存管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">文件管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O%E7%AE%A1%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">I&#x2F;O管理</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">76</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">操作系统</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-09-20</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">3.1k</span><span class="post-meta__separator">|</span><span>阅读时长: 9 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>操作系统简要提纲</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>操作系统知识模块主要分为：操作系统概述、进程管理、内存管理、文件管理、输入/输出(I/O)管理。</p>
+<p>操作系统（Operating System，OS）是计算机系统中最重要的系统软件，控制和管理整个计算机系统的硬件和软件资源。它位于硬件和其他系统软件之间。</p>
+<p>操作系统的功能：</p>
+<p>进程管理、内存管理、文件管理、输入/输出(I/O)管理、用户接口管理</p>
+<p>操作系统的基本特征：<strong>并发、共享、虚拟和异步</strong>。</p>
+<ul>
+<li><p>并发是指两个或多个事件在<strong>同一时间间隔内</strong>发生。</p>
+</li>
+<li><p>共享是系统资源供多个并发执行的进程共同使用。</p>
+</li>
+<li><p>虚拟是指<strong>把一个物理上的实体变为若干个逻辑上的对应物</strong>。操作系统的虚拟技术可归纳为：时分复用技术，如处理器的分时共享；空分复用技术，如<strong>虚拟存储器。</strong></p>
+</li>
+<li><p>异步是指在多道程序环境下，允许多个程序并发执行，但由于自由有限，进程的执行不是一贯到底，而是走走停停，<strong>以不可知的速度向前推进，这就是进程的异步性</strong></p>
+</li>
+</ul>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><p>进程是系统进行资源分配和调度的一个独立单位。</p>
+<p>用进程控制块（PCB）来动态地描述进程，PCB是进程存在的唯一标志。</p>
+<p><strong>进程状态：</strong></p>
+<p>五状态模型</p>
+<ul>
+<li>新建状态：进程正在被创建，尚未转到就绪状态</li>
+<li>就绪状态：进程已获得除处理机之外的一切所需资源</li>
+<li>运行状态：进程正在处理机上运行</li>
+<li>阻塞状态：进程正在等待某一事件而暂停运行</li>
+<li>终止状态：进程正从系统中消失，分为正常结束和异常退出</li>
+</ul>
+<p><strong>线程</strong>：</p>
+<p>引入线程，是为了减小程序在并发执行时所付出的时空开销，提高操作系统的并发性能。</p>
+<p>线程最直接的理解就是“轻量级进程”，它是一个基本的CPU执行单元，也是程序执行流的最小单元。</p>
+<p>线程共享进程拥有的全部资源。</p>
+<p>线程不拥有系统资源，但是它可以访问进程所拥有的系统资源。</p>
+<p>线程没有自己独立的地址空间，他共享他所属的进程的空间。</p>
+<p>线程自己并不拥有资源，而是与进程中的其他线程共享资源。也叫轻量级进程</p>
+<p><strong>调度层次：</strong></p>
+<ul>
+<li>作业调度（高级调度）：选择处于后备状态的作业分配资源，发送频率低</li>
+<li>内存调度（中级调度）：选择暂时不能允许的进程调出内存，发送频率中等</li>
+<li>进程调度（低级调度）：选择就绪队列中合适的进程分配处理机，发生频率高</li>
+</ul>
+<p>**进程调度方式 **</p>
+<ol>
+<li>非剥夺调度方式 ：有更为重要或紧迫的进程需要使用处理机，仍让当前进程继续执行</li>
+<li>剥夺调度方式 ：有更为重要或紧迫的进程需要使用处理机，立即分配</li>
+</ol>
+<p><strong>调度算法</strong></p>
+<p>1.<strong>先来先服务调度算法（FCFS）</strong>，顾名思义，先到先得</p>
+<p>2.<strong>短作业优先（SJF）调度算法</strong></p>
+<p>从后备队列中选择一个或若干个估计运行时间最短的作业，将他们调入内存运行。</p>
+<p>3.<strong>优先级调度算法</strong></p>
+<p>根据能否抢占进程，可将调度算法分为：</p>
+<ol>
+<li>非剥夺式优先级调度算法</li>
+<li>剥夺式优先级调度算法</li>
+</ol>
+<p>根据进程创建后其优先级是否可以改变，分为：</p>
+<ol>
+<li>静态优先级。优先级在创建进程时确定，且在进程的整个运行期间保持不变。</li>
+<li>动态优先级。可动态调整优先级。</li>
+</ol>
+<p>4.<strong>高响应比优先调度算法</strong>：是对FCFS和SJF算法的综合平衡</p>
+<p>5.<strong>时间片轮转调度算法</strong>：为每一个进程分配一个时间片，用完后进程循环轮流运行</p>
+<p><strong>进程同步</strong></p>
+<p>临界资源</p>
+<p>我们把<strong>一次仅允许一个进程使用的资源</strong>称为临界资源。</p>
+<p><strong>死锁</strong></p>
+<h2 id="死锁的相关知识"><a href="#死锁的相关知识" class="headerlink" title="死锁的相关知识"></a>死锁的相关知识</h2><h3 id="什么是死锁？"><a href="#什么是死锁？" class="headerlink" title="什么是死锁？"></a>什么是死锁？</h3><p>是指多个线程在运行过程中因争夺资源而造成的一种僵局，它们中的一个或者多个都在等待某个资源被释放。</p>
+<p>我们举一个例子：比如说，线程A持有资源2，线程B持有资源1，他们同时都想申请对方的资源，都在等待对方释放自己所需要的资源，那么这时候两个线程就会互相等待而进入死锁状态。</p>
+<img src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20210727212453831.png" alt="死锁的例子" style="zoom:67%;" />
+
+
+
+
+
+
+
+<h3 id="死锁产生的原因？"><a href="#死锁产生的原因？" class="headerlink" title="死锁产生的原因？"></a>死锁产生的原因？</h3><p>我们知道系统中的资源可以分为两类，一类是可剥夺资源，是指某进程在获得这类资源后，该资源可以再被其他进程或系统剥夺。另一类资源是不可剥夺资源，当系统把这类资源分配给某进程后，再不能强行收回，只能在进程用完后自行释放。</p>
+<p>第一个原因，因为多个进程之间<strong>竞争不可剥夺资源</strong>，比如说有一个进程抢占了打印机，其他进程只能等这个进程使用完成后才能使用。（举个例子假定进程PI已占用了打印机R1，进程P2已占用了磁带机R2，若P2继续要求打印机R1，P2将阻塞；P1若又要求磁带机，P1也将阻塞。于是，在P1和P2之间就形成了僵局）</p>
+<p>第二个原因，竞争临时资源（临时资源包括硬件中断、信号、消息、缓冲区内的消息等），通常消息通信顺序进行不当，则会产生死锁</p>
+<p>第三个原因，进程间推进顺序非法</p>
+<p>若P1保持了资源R1,P2保持了资源R2，系统处于不安全状态，因为这两个进程再向前推进，便可能发生死锁。</p>
+<h3 id="死锁的必要条件？（4个，缺一不可）"><a href="#死锁的必要条件？（4个，缺一不可）" class="headerlink" title="死锁的必要条件？（4个，缺一不可）"></a>死锁的必要条件？（4个，缺一不可）</h3><p>1.<strong>互斥条件</strong>：进程要求对所分配的资源进行排它性控制，即一个资源每次只能被一个进程使用。</p>
+<p>2.<strong>请求和保持条件</strong>：当进程因请求资源而阻塞时，对已获得的资源保持不放。</p>
+<p>3.<strong>不剥夺条件</strong>：进程已获得的资源在未使用完之前，不能剥夺，只能在使用完时由自己释放。</p>
+<p>4.<strong>环路等待条件</strong>：在发生死锁时，必然存在一个进程–资源的环形链。（即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。）</p>
+<h3 id="如何解决死锁问题？"><a href="#如何解决死锁问题？" class="headerlink" title="如何解决死锁问题？"></a>如何解决死锁问题？</h3><p>包括预防死锁、避免死锁、检测死锁、解除死锁四种方式</p>
+<p><strong>预防死锁</strong></p>
+<p>我们只要破坏产生死锁的四个条件中的其中一个就可以了。现在我们来挨个分析一下：</p>
+<p>1.<strong>破坏互斥条件</strong>（无法实现）：这个条件我们没有办法破坏，因为我们用锁本来就是想让他们互斥的，如果互斥性被破坏的话，以打印机为例，多个进程共享使用打印机，则打印出来的结果就不正确了（临界资源需要互斥访问</p>
+<p>2.<strong>破坏请求与保持条件</strong>：一次性申请所有的资源，该进程就可以顺利执行完毕（优点简单易于实现，缺点严重地降低了资源的利用率，有的资源在进程的后期才会使用，而其他进程要用这个资源的话就必须等待）</p>
+<p>3.<strong>破坏不剥夺条件</strong>：占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源。</p>
+<p>4.<strong>破坏循环等待条件</strong>：靠按序申请资源来预防。按某一顺序申请资源，释放资源则反序释放。<br>破坏循环等待条件。（不足：1.需要知道资源的请求顺序、2.要请求某个序号比较大的资源时，需要先请求序号比较小的资源，占用了序号比较小的资源，使其利用率变低）</p>
+<p><strong>避免死锁</strong></p>
+<p>避免死锁可以采用判断<strong>系统是否会处于安全状态</strong>的方法</p>
+<p>在进行系统资源分配之前，先计算此次资源分配的安全性。若此次分配不会导致系统进入不安全状态，则将资源分配给<strong>进程； 否则，让进程</strong>等待。这是一种保证系统不进入死锁状态的动态策略</p>
+<blockquote>
+<p>系统的安全状态</p>
+<p>对于每一个进程Pi(1≤i≤n），它以后尚需要的资源量不超过系统当前剩余资源量与所有进程Pj (j &lt; i )当前占有资源量之和。</p>
+</blockquote>
+<p><strong>银行家算法</strong>（一个避免死锁的著名算法）</p>
+<p>我们可以把操作系统看作是银行家，系统资源看做资金，客户看做进程。</p>
+<p>算法要求：</p>
+<p>1、申请的贷款额度不能超过银行现有的资金总额</p>
+<p>2、分批次向银行提款，但是贷款额度不能超过一开始最大需求量的总额</p>
+<p>3、如果银行暂时不能满足客户申请的资金额度时，可推迟放款并在有限时间内给予贷款</p>
+<p>4、客户要在规定的时间内还款</p>
+<p><strong>检测死锁</strong></p>
+<p>这种方法并不需要事先采取任何限制性措施，即允许产生死锁，若检测到死锁则采取相应的方法解除死锁</p>
+<p><strong>解除死锁</strong></p>
+<p>如果利用死锁检测算法检测出系统已经出现了死锁 ，那么，此时就需要对系统采取相应的措施。常用的解除死锁的方法：<br>1、抢占资源：从一个或多个进程中抢占足够数量的资源分配给死锁进程，以解除死锁状态。<br>2、终止（或撤销）进程：终止或撤销系统中的一个或多个死锁进程，直至打破死锁状态。<br>    a、终止所有的死锁进程。这种方式简单粗暴，但是代价很大，很有可能会导致一些已经运行了很久的进程前功尽弃。<br>     b、逐个终止进程，直至死锁状态解除。该方法的代价也很大，因为每终止一个进程就需要使用死锁检测来检测系统当前是否处于死锁状态。另外，每次终止进程的时候终止那个进程呢？每次都应该采用最优策略来选择一个“代价最小”的进程来解除死锁状态。一般根据如下几个方面来决定终止哪个进程：<br>    进程的优先级<br>    进程已运行时间以及运行完成还需要的时间<br>    进程已占用系统资源<br>    进程运行完成还需要的资源<br>    终止进程数目<br>    进程是交互还是批处理</p>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p><code>地址空间</code>：</p>
+<ul>
+<li>逻辑地址空间：是指一个源程序的相对地址的空间；</li>
+<li>物理地址空间：内存中物理地址</li>
+</ul>
+<p><code>地址重定位</code>：将逻辑地址转换为物理地址。</p>
+<p>页面更新算法就是用来确定淘汰哪些页面的算法，</p>
+<p>内存抖动：刚销毁不久的页面不久后又要使用，又要将其调入内存中，反反复复，导致大部分时间开销都花费在反复调度页面上。</p>
+<p>最优更新算法：淘汰以后永远不会使用，或未来很长一段时间内不会使用的页面，无法实现</p>
+<p>先进先出更新算法（FIFO）：淘汰最先进入内存的页面</p>
+<p>最近最久未使用更新算法（LRU）：淘汰最近最久没有使用的页面</p>
+<p>页式内存管理、内存抖动、页面更新算法</p>
+<p>段式内存管理</p>
+<p>虚拟内存</p>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h2 id="I-O管理"><a href="#I-O管理" class="headerlink" title="I/O管理"></a>I/O管理</h2></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/09/20/操作系统/">http://example.com/2021/09/20/操作系统/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/09/24/%E5%8C%97%E9%82%AE%E4%BA%BA%E8%AE%BA%E5%9D%9B%E5%B8%96%E5%AD%90mark/"><i class="fa fa-chevron-left">  </i><span>秋招帖子markmark</span></a></div><div class="next-post pull-right"><a href="/2021/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E6%A6%82%E8%BF%B0/"><span>计算机网络——概述</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '52a38b388c08f769c0fe',
+  clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
+  repo: 'jiubukaiji.github.io',
+  owner: 'jiubukaiji',
+  admin: 'jiubukaiji',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By pb</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
