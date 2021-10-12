@@ -9,7 +9,7 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFJVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1. 什么是JVM内存结构？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AFJVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2. 什么是JVM内存模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-heap-%E5%92%8Cstack-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">3. heap 和stack 有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E5%8F%91%E7%94%9F%E6%A0%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">4. 什么情况下会发生栈内存溢出？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B0%88%E8%B0%88%E5%AF%B9-OOM-%E7%9A%84%E8%AE%A4%E8%AF%86%EF%BC%9F%E5%A6%82%E4%BD%95%E6%8E%92%E6%9F%A5-OOM-%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">5. 谈谈对 OOM 的认识？如何排查 OOM 的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%B0%88%E8%B0%88-JVM-%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">6. 谈谈 JVM 中的常量池？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">7. 如何判断一个对象是否存活？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%BC%BA%E5%BC%95%E7%94%A8%E3%80%81%E8%BD%AF%E5%BC%95%E7%94%A8%E3%80%81%E5%BC%B1%E5%BC%95%E7%94%A8%E3%80%81%E8%99%9A%E5%BC%95%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">8. 强引用、软引用、弱引用、虚引用是什么，有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E8%A2%AB%E5%BC%95%E7%94%A8%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%B0%B1%E4%B8%80%E5%AE%9A%E8%83%BD%E5%AD%98%E6%B4%BB%E5%90%97%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">9. 被引用的对象就一定能存活吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Java%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">10. Java中的垃圾回收算法有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%8C%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">11. 有哪几种垃圾回收器，各自的优缺点是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E8%AF%A6%E7%BB%86%E8%AF%B4%E4%B8%80%E4%B8%8BCMS%E7%9A%84%E5%9B%9E%E6%94%B6%E8%BF%87%E7%A8%8B%EF%BC%9FCMS%E7%9A%84%E9%97%AE%E9%A2%98%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">12.</span> <span class="toc-text">12. 详细说一下CMS的回收过程？CMS的问题是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E8%AF%A6%E7%BB%86%E8%AF%B4%E4%B8%80%E4%B8%8BG1%E7%9A%84%E5%9B%9E%E6%94%B6%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">13. 详细说一下G1的回收过程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-JVM%E4%B8%AD%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84GC%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E5%AD%90%E7%9A%84%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">14. JVM中一次完整的GC是什么样子的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-Minor-GC-%E5%92%8C-Full-GC-%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E5%91%A2%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">15. Minor GC 和 Full GC 有什么不同呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E4%BB%8B%E7%BB%8D%E4%B8%8B%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D%E5%8E%9F%E5%88%99%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">16. 介绍下空间分配担保原则？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%9F%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">17. 什么是类加载？类加载的过程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">18.</span> <span class="toc-text">18. 什么是类加载器，常见的类加载器有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">19.</span> <span class="toc-text">19. 什么是双亲委派模型？为什么需要双亲委派模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-%E5%88%97%E4%B8%BE%E4%B8%80%E4%BA%9B%E4%BD%A0%E7%9F%A5%E9%81%93%E7%9A%84%E6%89%93%E7%A0%B4%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%89%93%E7%A0%B4%EF%BC%9F"><span class="toc-number">20.</span> <span class="toc-text">20. 列举一些你知道的打破双亲委派机制的例子，为什么要打破？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-%E8%AF%B4%E4%B8%80%E4%B8%8B-JVM-%E8%B0%83%E4%BC%98%E7%9A%84%E5%91%BD%E4%BB%A4%EF%BC%9F"><span class="toc-number">21.</span> <span class="toc-text">21.说一下 JVM 调优的命令？</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">78</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">7.30jvm学习</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-07-30</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">9.7k</span><span class="post-meta__separator">|</span><span>阅读时长: 29 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFJVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1. 什么是JVM内存结构？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AFJVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2. 什么是JVM内存模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-heap-%E5%92%8Cstack-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">3. heap 和stack 有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E5%8F%91%E7%94%9F%E6%A0%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">4. 什么情况下会发生栈内存溢出？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B0%88%E8%B0%88%E5%AF%B9-OOM-%E7%9A%84%E8%AE%A4%E8%AF%86%EF%BC%9F%E5%A6%82%E4%BD%95%E6%8E%92%E6%9F%A5-OOM-%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">5. 谈谈对 OOM 的认识？如何排查 OOM 的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%B0%88%E8%B0%88-JVM-%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">6. 谈谈 JVM 中的常量池？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">java对象的创建过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB%EF%BC%9F%EF%BC%88GC%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%A4%E5%AE%9A%E6%96%B9%E6%B3%95%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">7. 如何判断一个对象是否存活？（GC对象的判定方法）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%BC%BA%E5%BC%95%E7%94%A8%E3%80%81%E8%BD%AF%E5%BC%95%E7%94%A8%E3%80%81%E5%BC%B1%E5%BC%95%E7%94%A8%E3%80%81%E8%99%9A%E5%BC%95%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">8. 强引用、软引用、弱引用、虚引用是什么，有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E8%A2%AB%E5%BC%95%E7%94%A8%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%B0%B1%E4%B8%80%E5%AE%9A%E8%83%BD%E5%AD%98%E6%B4%BB%E5%90%97%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">9. 被引用的对象就一定能存活吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Java%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">10. Java中的垃圾回收算法有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%8C%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">12.</span> <span class="toc-text">11. 有哪几种垃圾回收器，各自的优缺点是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E8%AF%A6%E7%BB%86%E8%AF%B4%E4%B8%80%E4%B8%8BCMS%E7%9A%84%E5%9B%9E%E6%94%B6%E8%BF%87%E7%A8%8B%EF%BC%9FCMS%E7%9A%84%E9%97%AE%E9%A2%98%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">12. 详细说一下CMS的回收过程？CMS的问题是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E8%AF%A6%E7%BB%86%E8%AF%B4%E4%B8%80%E4%B8%8BG1%E7%9A%84%E5%9B%9E%E6%94%B6%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">13. 详细说一下G1的回收过程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-JVM%E4%B8%AD%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84GC%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E5%AD%90%E7%9A%84%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">14. JVM中一次完整的GC是什么样子的？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E4%B8%83%EF%BC%89%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5"><span class="toc-number">15.0.1.</span> <span class="toc-text">（七）内存分配与回收策略</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-Minor-GC-%E5%92%8C-Full-GC-%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E5%91%A2%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">15. Minor GC 和 Full GC 有什么不同呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E4%BB%8B%E7%BB%8D%E4%B8%8B%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D%E5%8E%9F%E5%88%99%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">16. 介绍下空间分配担保原则？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%9F%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-number">18.</span> <span class="toc-text">17. 什么是类加载？类加载的过程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">19.</span> <span class="toc-text">18. 什么是类加载器，常见的类加载器有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">20.</span> <span class="toc-text">19. 什么是双亲委派模型？为什么需要双亲委派模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-%E5%88%97%E4%B8%BE%E4%B8%80%E4%BA%9B%E4%BD%A0%E7%9F%A5%E9%81%93%E7%9A%84%E6%89%93%E7%A0%B4%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%89%93%E7%A0%B4%EF%BC%9F"><span class="toc-number">21.</span> <span class="toc-text">20. 列举一些你知道的打破双亲委派机制的例子，为什么要打破？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-%E8%AF%B4%E4%B8%80%E4%B8%8B-JVM-%E8%B0%83%E4%BC%98%E7%9A%84%E5%91%BD%E4%BB%A4%EF%BC%9F"><span class="toc-number">22.</span> <span class="toc-text">21.说一下 JVM 调优的命令？</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">79</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">7.30jvm学习</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-07-30</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">13.6k</span><span class="post-meta__separator">|</span><span>阅读时长: 41 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>jvm就硬背吧 （这10000字咋背呀^&gt;_&lt;^）</p>
 </blockquote>
 <a id="more"></a>
@@ -29,8 +29,8 @@
 <p>这个并不一定所有公司都会问到，但为了确保万无一失，最好还是提前做好准备。这里分享一篇牛客大佬的<a href="https://link.zhihu.com/?target=https://www.nowcoder.com/discuss/627413">《面试小抄》之JVM篇21问与答</a>，帮助大家快速掌握JVM常考面试题。</p>
 <p>本文包含了JVM中内存结构、垃圾回收算法、垃圾回收器、类加载、双亲委派模型、和JVM调优的常见面试题。</p>
 <p>这是本期的 JVM面试题目录，不会的快快查漏补缺~</p>
-<p><img src="https://pic2.zhimg.com/v2-3ef1f1697eac6bcbb6bd02dbf3a1b3b0_b.jpg" alt="img"><img src="https://pic2.zhimg.com/80/v2-3ef1f1697eac6bcbb6bd02dbf3a1b3b0_1440w.jpg" alt="img"></p>
-<h2 id="1-什么是JVM内存结构？"><a href="#1-什么是JVM内存结构？" class="headerlink" title="1. 什么是JVM内存结构？"></a>1. 什么是JVM内存结构？</h2><p><img src="https://pica.zhimg.com/v2-1b82e0a874152d3a2903b6453507ca28_b.jpg" alt="img"><img src="https://pica.zhimg.com/80/v2-1b82e0a874152d3a2903b6453507ca28_1440w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-3ef1f1697eac6bcbb6bd02dbf3a1b3b0_1440w.jpg" alt="img"></p>
+<h2 id="1-什么是JVM内存结构？"><a href="#1-什么是JVM内存结构？" class="headerlink" title="1. 什么是JVM内存结构？"></a>1. 什么是JVM内存结构？</h2><p><img src="https://pica.zhimg.com/80/v2-1b82e0a874152d3a2903b6453507ca28_1440w.jpg" alt="img"></p>
 <p> jvm将虚拟机分为5大区域，程序计数器、虚拟机栈、本地方法栈、java堆、方法区； </p>
 <ul>
 <li><p>程序计数器：线程私有的，是一块很小的内存空间，作为当前线程的行号指示器，用于记录当前虚拟机正在执行的线程指令地址； </p>
@@ -61,7 +61,7 @@
 </li>
 </ul>
 <p>怎么理解 happens-before 呢？如果按字面意思，比如第二个规则，线程（不管是不是同一个）的解锁动作发生在锁定之前？这明显不对。happens-before 也是为了保证可见性，比如那个解锁和加锁的动作，可以这样理解，线程1释放锁退出同步块，线程2加锁进入同步块，那么线程2就能看见线程1对共享对象修改的结果。 </p>
-<p><img src="https://pic3.zhimg.com/v2-482730855daadfef126758bb03353f9f_b.jpg" alt="img"><img src="https://pic3.zhimg.com/80/v2-482730855daadfef126758bb03353f9f_1440w.jpg" alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-482730855daadfef126758bb03353f9f_1440w.jpg" alt="img"></p>
 <p> Java 提供了几种语言结构，包括 <em>volatile</em>, <em>final</em> 和 <em>synchronized</em>, 它们旨在帮助程序员向<strong>编译器</strong>描述程序的并发要求，其中： </p>
 <ul>
 <li><p><strong>volatile</strong> - 保证<strong>可见性</strong>和<strong>有序性</strong> </p>
@@ -91,6 +91,11 @@
 <p>当本次函数调用结束后，局部变量先出栈，然后是参数，最后栈顶指针指向最开始存的地址，也就是主函数中的下一条指令，程序由该点继续运行。 </p>
 <p>heap：一般是在堆的头部用一个字节存放堆的大小。堆中的具体内容有程序员安排。</p>
 <h2 id="4-什么情况下会发生栈内存溢出？"><a href="#4-什么情况下会发生栈内存溢出？" class="headerlink" title="4. 什么情况下会发生栈内存溢出？"></a>4. 什么情况下会发生栈内存溢出？</h2><p>1、栈是线程私有的，栈的生命周期和线程一样，每个方法在执行的时候就会创建一个栈帧，它包含局部变量表、操作数栈、动态链接、方法出口等信息，局部变量表又包括基本数据类型和对象的引用； 2、当线程请求的栈深度超过了虚拟机允许的最大深度时，会抛出StackOverFlowError异常，方法递归调用肯可能会出现该问题； 3、调整参数-xss去调整jvm栈的大小 </p>
+<blockquote>
+<p> StackOverFlow:</p>
+<p><strong>内存溢出</strong>(OOM) OutOfMemory，指程序在申请内存时，没有足够的内存空间供其使用。 </p>
+<p> <strong>内存泄露</strong> Memory Leak，指程序在申请内存后，无法释放已申请的内存空间，内存泄漏最终将导致内存溢出。</p>
+</blockquote>
 <h2 id="5-谈谈对-OOM-的认识？如何排查-OOM-的问题？"><a href="#5-谈谈对-OOM-的认识？如何排查-OOM-的问题？" class="headerlink" title="5. 谈谈对 OOM 的认识？如何排查 OOM 的问题？"></a>5. 谈谈对 OOM 的认识？如何排查 OOM 的问题？</h2><p>除了程序计数器，其他内存区域都有 OOM 的风险。 </p>
 <ul>
 <li><p>栈一般经常会发生 StackOverflowError，比如 32 位的 windows 系统单进程限制 2G 内存，无限创建线程就会发生栈的 OOM </p>
@@ -106,12 +111,9 @@
 </ul>
 <p>排查 OOM 的方法： </p>
 <ul>
-<li><p>增加两个参数 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/heapdump.hprof，当 OOM 发生时自动 dump 堆内存信息到指定目录； </p>
-</li>
-<li><p>同时 jstat 查看监控 JVM 的内存和 GC 情况，先观察问题大概出在什么区域； </p>
-</li>
-<li><p>使用 MAT 工具载入到 dump 文件，分析大对象的占用情况，比如 HashMap 做缓存未清理，时间长了就会内存溢出，可以把改为弱引用 。</p>
-</li>
+<li>增加两个参数 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/heapdump.hprof，当 OOM 发生时自动 dump 堆内存信息到指定目录； </li>
+<li>同时 jstat 查看监控 JVM 的内存和 GC 情况，先观察问题大概出在什么区域； </li>
+<li>使用 MAT 工具载入到 dump 文件，分析大对象的占用情况，比如 HashMap 做缓存未清理，时间长了就会内存溢出，可以把改为弱引用 。</li>
 </ul>
 <h2 id="6-谈谈-JVM-中的常量池？"><a href="#6-谈谈-JVM-中的常量池？" class="headerlink" title="6. 谈谈 JVM 中的常量池？"></a>6. 谈谈 JVM 中的常量池？</h2><p>JVM常量池主要分为<strong>Class文件常量池、运行时常量池，全局字符串常量池，以及基本类型包装类对象常量池</strong>。 </p>
 <ul>
@@ -124,9 +126,26 @@
 <li><p>基本类型包装类对象常量池：java中基本类型的包装类的大部分都实现了常量池技术，这些类是Byte,Short,Integer,Long,Character,Boolean,另外两种浮点数类型的包装类则没有实现。另外上面这5种整型的包装类也只是在对应值小于等于127时才可使用对象池，也即对象不负责创建和管理大于127的这些类的对象。 </p>
 </li>
 </ul>
-<h2 id="7-如何判断一个对象是否存活？"><a href="#7-如何判断一个对象是否存活？" class="headerlink" title="7. 如何判断一个对象是否存活？"></a>7. 如何判断一个对象是否存活？</h2><p>判断一个对象是否存活，分为两种算法1：引用计数法；2：可达性分析算法； </p>
-<p><strong>引用计数法</strong>： 给每一个对象设置一个引用计数器，当有一个地方引用该对象的时候，引用计数器就+1，引用失效时，引用计数器就-1；当引用计数器为0的时候，就说明这个对象没有被引用，也就是垃圾对象，等待回收； 缺点：无法解决循环引用的问题，当A引用B，B也引用A的时候，此时AB对象的引用都不为0，此时也就无法垃圾回收，所以一般主流虚拟机都不采用这个方法； </p>
-<p><strong>可达性分析法</strong> 从一个被称为GC Roots的对象向下搜索，如果一个对象到GC Roots没有任何引用链相连接时，说明此对象不可用，在java中可以作为GC Roots的对象有以下几种： </p>
+<h2 id="java对象的创建过程"><a href="#java对象的创建过程" class="headerlink" title="java对象的创建过程"></a>java对象的创建过程</h2><p>大家都知道，java使用new 关键字进行对象的创建，但这只是从语言层次上理解了对象的创建，下边我们从jvm的角度来看看，对象是怎么被创建出来的，即对象的创建过程。</p>
+<p>对象的创建大概分为以下几步：</p>
+<p>1：检查类是否已经被加载；</p>
+<p>2：为对象分配内存空间；</p>
+<p>3：为对象字段设置零值；</p>
+<p>4：设置对象头；</p>
+<p>5：执行构造方法。</p>
+<p>第一步，当程序遇到new 关键字时，首先会去运行时常量池中查找该引用所指向的类有没有被虚拟机加载，如果没有被加载，那么会进行类的加载过程，如果已经被加载，那么进行下一步，为对象分配内存空间；</p>
+<p>第二步，加载完类之后，需要在堆内存中为该对象分配一定的空间，该空间的大小在类加载完成时就已经确定下来了，这里多说一点，为对象分配内存空间有两种方式：</p>
+<p>（1）第一种是jvm将堆区抽象为两块区域，一块是已经被其他对象占用的区域，另一块是空白区域，中间通过一个指针进行标注，这时只需要将指针向空白区域移动相应大小空间，就完成了内存的分配，当然这种划分的方式要求虚拟机的对内存是地址连续的，且虚拟机带有内存压缩机制，可以在内存分配完成时压缩内存，形成连续地址空间，这种分配内存方式成为“指针碰撞”，但是很明显，这种方式也存在一个比较严重的问题，那就是多线程创建对象时，会导致指针划分不一致的问题，例如A线程刚刚将指针移动到新位置，但是B线程之前读取到的是指针之前的位置，这样划分内存时就出现不一致的问题，解决这种问题，虚拟机采用了循环CAS操作来保证内存的正确划分；</p>
+<p>（2）第二种也是为了解决第一种分配方式的不足而创建的方式，多线程分配内存时，虚拟机为每个线程分配了不同的空间，这样每个线程在分配内存时只是在自己的空间中操作，从而避免了上述问题，不需要同步。当然，当线程自己的空间用完了才需要需申请空间，这时候需要进行同步锁定。为每个线程分配的空间称为“本地线程分配缓冲（TLAB）”,是否启用TLAB需要通过 -XX:+/-UseTLAB参数来设定。</p>
+<p>第三步，分配完内存后，需要对对象的字段进行零值初始化，对象头除外，零值初始化意思就是对对象的字段赋0值，或者null值，这也就解释了为什么这些字段在不需要进程初始化时候就能直接使用；</p>
+<p>第四步，这里，虚拟机需要对这个将要创建出来的对象，进行信息标记，包括是否为新生代/老年代，对象的哈希码，元数据信息，这些标记存放在对象头信息中，对象头非常复杂，这里不作解释，可以另行百度；</p>
+<p>第五步，也就是最后一步，执行对象的构造方法，这里做的操作才是程序员真正想做的操作，例如初始化其他对象啊等等操作，至此，对象创建成功。</p>
+<h2 id="7-如何判断一个对象是否存活？（GC对象的判定方法）"><a href="#7-如何判断一个对象是否存活？（GC对象的判定方法）" class="headerlink" title="7. 如何判断一个对象是否存活？（GC对象的判定方法）"></a>7. 如何判断一个对象是否存活？（GC对象的判定方法）</h2><p>判断一个对象是否存活，分为两种算法1：引用计数法；2：可达性分析法； </p>
+<p><strong>引用计数法</strong>： 给每一个对象设置一个引用计数器，当有一个地方引用该对象的时候，引用计数器就+1，引用失效时，引用计数器就-1；当引用计数器为0的时候，就说明这个对象没有被引用，也就是垃圾对象，等待回收； </p>
+<p>缺点：无法解决<strong>循环引用</strong>的问题，当A引用B，B也引用A的时候，此时A、B对象的引用都不为0，此时也就无法垃圾回收，所以一般主流虚拟机都不采用这个方法； </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//循环引用的例子</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	B b;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">    A a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buidDog</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A a = <span class="keyword">new</span> A();</span><br><span class="line">    B b = <span class="keyword">new</span> B();</span><br><span class="line">    a.b = b;</span><br><span class="line">    b.a = a;    <span class="comment">//a、b相互引用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>可达性分析法</strong>： 从一个被称为GC Roots的对象向下搜索，如果一个对象到GC Roots没有任何引用链相连接时，说明此对象不可用，在java中可以作为GC Roots的对象有以下几种： </p>
 <ul>
 <li><p>虚拟机栈中引用的对象 </p>
 </li>
@@ -137,73 +156,110 @@
 <li><p>本地方法栈JNI引用的对象 </p>
 </li>
 </ul>
-<p>但一个对象满足上述条件的时候，不会马上被回收，还需要进行两次标记；第一次标记：判断当前对象是否有finalize()方法并且该方法没有被执行过，若不存在则标记为垃圾对象，等待回收；若有的话，则进行第二次标记；第二次标记将当前对象放入F-Queue队列，并生成一个finalize线程去执行该方法，虚拟机不保证该方法一定会被执行，这是因为如果线程执行缓慢或进入了死锁，会导致回收系统的崩溃；如果执行了finalize方法之后仍然没有与GC Roots有直接或者间接的引用，则该对象会被回收；</p>
+<p>被判定为不可达的对象不一定就会被回收，还需要进行两次标记过程；如果在这两次标记过程中仍然没有成为可达对象，则基本上就要被回收了。</p>
 <h2 id="8-强引用、软引用、弱引用、虚引用是什么，有什么区别？"><a href="#8-强引用、软引用、弱引用、虚引用是什么，有什么区别？" class="headerlink" title="8. 强引用、软引用、弱引用、虚引用是什么，有什么区别？"></a>8. 强引用、软引用、弱引用、虚引用是什么，有什么区别？</h2><ul>
-<li><p>强引用，就是普通的对象引用关系，如 String s = new String(“ConstXiong”) </p>
+<li><p>强引用，最常见的引用，例如使用 new 创建对象。只要对象有强引用指向且 GC Roots 可达，即使濒将要内存耗尽也不会回收。</p>
 </li>
-<li><p>软引用，用于维护一些可有可无的对象。只有在内存不足时，系统则会回收软引用对象，如果回收了软引用对象之后仍然没有足够的内存，才会抛出内存溢出异常。SoftReference 实现 </p>
+<li><p>软引用，弱于强引用，用于维护一些可有可无的对象。只有在内存不足时，系统则会回收软引用对象。SoftReference 实现 </p>
 </li>
-<li><p>弱引用，相比软引用来说，要更加无用一些，它拥有更短的生命周期，当 JVM 进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象。WeakReference 实现 </p>
+<li><p>弱引用，相比软引用来说，要更加无用一些，它拥有更短的生命周期，当 JVM 进行垃圾回收时，无论内存是否充足，都会被回收。WeakReference 实现 </p>
 </li>
-<li><p>虚引用是一种形同虚设的引用，在现实场景中用的不是很多，它主要用来跟踪对象被垃圾回收的活动。PhantomReference 实现 </p>
+<li><p>虚引用，最弱的引用，无法通过引用获取对象。唯一目的是在对象被回收时收到一个系统通知，必须与引用队列配合。PhantomReference 实现 </p>
 </li>
 </ul>
-<h2 id="9-被引用的对象就一定能存活吗？"><a href="#9-被引用的对象就一定能存活吗？" class="headerlink" title="9. 被引用的对象就一定能存活吗？"></a>9. 被引用的对象就一定能存活吗？</h2><blockquote>
-<p>  不一定，看 Reference 类型，弱引用在 GC 时会被回收，软引用在内存不足的时候，即 OOM 前会被回收，但如果没有在 Reference Chain 中的对象就一定会被回收。 </p>
+<h2 id="9-被引用的对象就一定能存活吗？"><a href="#9-被引用的对象就一定能存活吗？" class="headerlink" title="9. 被引用的对象就一定能存活吗？"></a>9. 被引用的对象就一定能存活吗？</h2><p>不一定，看 Reference 类型，弱引用在 GC 时会被回收，软引用在内存不足的时候，即 OOM 前会被回收，但如果没有在 Reference Chain 中的对象就一定会被回收。 </p>
+<h2 id="10-Java中的垃圾回收算法有哪些？"><a href="#10-Java中的垃圾回收算法有哪些？" class="headerlink" title="10. Java中的垃圾回收算法有哪些？"></a>10. Java中的垃圾回收算法有哪些？</h2><p>二、典型的垃圾收集算法<br>在确定了哪些垃圾可以被回收后，垃圾收集器要做的事情就是开始进行垃圾回收，但是这里面涉及到一个问题是：如何高效地进行垃圾回收。由于Java虚拟机规范并没有对如何实现垃圾收集器做出明确的规定，因此各个厂商的虚拟机可以采用不同的方式来实现垃圾收集器，所以在此只讨论几种常见的垃圾收集算法的核心思想。</p>
+<p>1.<strong>Mark-Sweep（标记-清除）算法</strong></p>
+<p>这是最基础的垃圾回收算法，之所以说它是最基础的是因为它最容易实现，思想也是最简单的。</p>
+<p>标记-清除算法分为两个阶段：标记阶段和清除阶段。在标记阶段标记出所有需要被回收的对象，在清除阶段回收被标记的对象。具体过程如下图所示：</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/image-20211010222847683.png" alt="标记-清除算法"></p>
+<p>标记-清除算法容易实现，缺点是容易产生内存碎片，当碎片太多时，如果后续过程中需要为大对象分配空间，就无法找到足够的空间，会提前触发新的一轮垃圾回收。</p>
+<p>2.<strong>Copying（复制）算法</strong></p>
+<p>　　为了解决Mark-Sweep算法的缺陷，Copying算法就被提了出来。它将可用内存划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用的内存空间一次清理掉，这样一来就不容易出现内存碎片的问题。具体过程如下图所示：</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/image-20211010222858465.png" alt="复制算法"></p>
+<p>这种算法虽然实现简单，不容易产生内存碎片；但是我们能使用的内存是原来的一半，并且复制算法的效率跟存活对象的数目多少有很大的关系，如果存活对象很多，我们需要复制的操作次数就很多，那么Copying算法的效率将会大大降低</p>
+<p>3.<strong>Mark-Compact（标记-整理）算法（压缩法）</strong></p>
+<p>为了解决Copying算法的缺陷，充分利用内存空间，提出了Mark-Compact算法。该算法标记阶段和标记-清除法一样，但是在完成标记之后，它不是直接清理可回收对象，而是将存活对象都向一端移动，然后清理掉端边界以外的内存。具体过程如下图所示：</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/image-20211010222911142.png" alt="标记-整理算法"></p>
+<p>4.<strong>Generational Collection（分代收集）算法</strong></p>
+<p>分代收集算法是目前大部分JVM的垃圾收集器采用的算法。它的核心思想是根据对象存活周期的不同将内存划分为几块。一般是把Java堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适合的收集算法。在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，因为只需要付出少量存活对象的复制成本就可以完成。而老年代中因为对象存活率高、没有额外空间对他进行分配担保，就必须使用“标记-清理”或者“标记-整理”算法来进行回收。</p>
+<p>在Java虚拟机分代垃圾回收机制中，应用程序的堆空间可以分为年轻代与老年代，然后年轻代有被分为Eden区，From区与To区。</p>
+<p>目前大部分垃圾收集器对于新生代都采取复制算法，因为新生代中每次垃圾回收都要回收大部分对象，也就是说需要复制的操作次数较少，但是实际中并不是按照1：1的比例（默认比例为8：1）来划分新生代的空间的，一般来说是将新生代划分为一块较大的Eden空间和两块较小的Survivor空间，每次使用Eden空间和其中的一块Survivor空间，当进行回收时，将Eden和Survivor中还存活的对象复制到另一块Survivor空间中，然后清理掉Eden和刚才使用过的Survivor空间。</p>
+<hr>
+<p><strong>分代收集算法的具体步骤：</strong></p>
+<p>在Java虚拟机分代垃圾回收机制中，应用程序可用的堆空间可以分为*<strong>年轻代*</strong>与*<strong>老年代*</strong>，然后年轻代有被分为*<strong>Eden区，From区与To区*</strong>。</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/20161101200335693.png" alt="这里写图片描述"></p>
+<p>当系统创建一个对象的时候，总是在Eden区操作，当这个区满了，那么就会触发一次*<strong>YoungGC*</strong>，也就是*<strong>年轻代的垃圾回收*</strong>。</p>
+<p>一般来说这时候不是所有的对象都没用了，所以就会把还能用的对象复制到From区。</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/20161101200530361.png" alt="这里写图片描述"></p>
+<p>这样整个Eden区就被清理干净了，可以继续创建新的对象，当Eden区再次被用完，就再触发一次YoungGC，然后呢，注意，这个时候跟刚才稍稍有点区别。这次触发YoungGC后，*<strong>会将Eden区与From区还在被使用的对象复制到To区*</strong>，</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/20161101200709299.png" alt="这里写图片描述"></p>
+<p>再下一次YoungGC的时候，则是将*<strong>Eden区与To区中的还在被使用的对象复制到From区*</strong>。</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/20161101200920951.png" alt="这里写图片描述"></p>
+<p>经过若干次YoungGC后，有些对象在From与To之间来回游荡，这时候From区与To区亮出了底线（阈值），这些家伙要是到现在还没挂掉，对不起，一起滚到（复制）老年代吧。</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/20161101201239084.png" alt="这里写图片描述"></p>
+<p>老年代经过这么几次折腾，也就扛不住了（空间被用完），好，那就来次集体大扫除（*<strong>Full GC*</strong>），也就是全量回收，一起滚蛋吧。</p>
+<p>全量回收呢，就好比我们刚才比作的大扫除，毕竟动做比较大，成本高，不能跟平时的小型值日（Young GC）相比，所以如果Full GC使用太频繁的话，无疑会对系统性能产生很大的影响。</p>
+<p>所以要合理设置年轻代与老年代的大小，尽量减少Full GC的操作</p>
+<p>而由于老年代的特点是每次回收都只回收少量对象，一般使用的是标记-整理算法（压缩法）。</p>
+<hr>
+<blockquote>
+<p><strong>为什么要将java 堆分为新生代和老年代？</strong></p>
+<p>对堆空间分代的目的就是优化GC性能。</p>
+<p>不分代同样可以完成GC，如果没有分代，那我们所有的对象都在一块，GC的时候我们会对堆的所有区域进行扫描，找到哪些对象没用。但是我们的很多对象生命周期都比较短，如果分代的话，我们把这些新创建的对象放到某一块区域，当GC的时候先把这块区域进行回收，能优化GC性能</p>
 </blockquote>
-<h2 id="10-Java中的垃圾回收算法有哪些？"><a href="#10-Java中的垃圾回收算法有哪些？" class="headerlink" title="10. Java中的垃圾回收算法有哪些？"></a>10. Java中的垃圾回收算法有哪些？</h2><p>java中有四种垃圾回收算法，分别是标记清除法、标记整理法、复制算法、分代收集算法； <strong>标记清除法</strong>： 第一步：利用可达性去遍历内存，把存活对象和垃圾对象进行标记； 第二步：在遍历一遍，将所有标记的对象回收掉； 特点：效率不行，标记和清除的效率都不高；标记和清除后会产生大量的不连续的空间分片，可能会导致之后程序运行的时候需分配大对象而找不到连续分片而不得不触发一次GC； </p>
-<p><img src="https://pic4.zhimg.com/v2-f2311a4ca9e5ba6b9aa344214e9000c1_b.jpg" alt="img"><img src="https://pic4.zhimg.com/80/v2-f2311a4ca9e5ba6b9aa344214e9000c1_1440w.jpg" alt="img"></p>
-<p><strong>标记整理法</strong>： 第一步：利用可达性去遍历内存，把存活对象和垃圾对象进行标记； 第二步：将所有的存活的对象向一段移动，将端边界以外的对象都回收掉； 特点：适用于存活对象多，垃圾少的情况；需要整理的过程，无空间碎片产生； </p>
-<p><img src="https://pic2.zhimg.com/v2-64b3f99125a72f9ca238a736a46bdff7_b.jpg" alt="img"><img src="https://pic2.zhimg.com/80/v2-64b3f99125a72f9ca238a736a46bdff7_1440w.jpg" alt="img"></p>
-<p><strong>复制算法</strong>： 将内存按照容量大小分为大小相等的两块，每次只使用一块，当一块使用完了，就将还存活的对象移到另一块上，然后在把使用过的内存空间移除； 特点：不会产生空间碎片；内存使用率极低； </p>
-<p><strong>分代收集算法</strong>： 根据内存对象的存活周期不同，将内存划分成几块，java虚拟机一般将内存分成新生代和老生代，在新生代中，有大量对象死去和少量对象存活，所以采用复制算法，只需要付出少量存活对象的复制成本就可以完成收集；老年代中因为对象的存活率极高，没有额外的空间对他进行分配担保，所以采用标记清理或者标记整理算法进行回收； </p>
 <p><strong>对比</strong> </p>
-<p><img src="https://pic2.zhimg.com/v2-8608f268f11f6220b43676e8009c22cd_b.jpg" alt="img"><img src="https://pic2.zhimg.com/80/v2-8608f268f11f6220b43676e8009c22cd_1440w.jpg" alt="img"></p>
-<h2 id="11-有哪几种垃圾回收器，各自的优缺点是什么？"><a href="#11-有哪几种垃圾回收器，各自的优缺点是什么？" class="headerlink" title="11. 有哪几种垃圾回收器，各自的优缺点是什么？"></a>11. 有哪几种垃圾回收器，各自的优缺点是什么？</h2><p>垃圾回收器主要分为以下几种：Serial、ParNew、Parallel Scavenge、Serial Old、Parallel Old、CMS、G1； </p>
+<p><img src="https://pic2.zhimg.com/80/v2-8608f268f11f6220b43676e8009c22cd_1440w.jpg" alt="img"></p>
+<h2 id="11-有哪几种垃圾回收器，各自的优缺点是什么？"><a href="#11-有哪几种垃圾回收器，各自的优缺点是什么？" class="headerlink" title="11. 有哪几种垃圾回收器，各自的优缺点是什么？"></a>11. 有哪几种垃圾回收器，各自的优缺点是什么？</h2><p>垃圾收集算法是 内存回收的理论基础，而垃圾收集器就是内存回收的具体实现。下面介绍一下HotSpot（JDK 7)虚拟机提供的几种垃圾收集器，用户可以根据自己的需求组合出各个年代使用的收集器。</p>
+<p>1.Serial/Serial Old收集器 是最基本最古老的收集器，它是一个单线程收集器，并且在它进行垃圾收集时，必须暂停所有用户线程。Serial收集器是针对新生代的收集器，采用的是Copying算法，Serial Old收集器是针对老年代的收集器，采用的是Mark-Compact算法。它的优点是实现简单高效，但是缺点是会给用户带来停顿。</p>
+<p>2.ParNew收集器 是Serial收集器的多线程版本，也会暂停正在执行的线程，使用多个线程进行垃圾收集。</p>
+<p>3.Parallel Scavenge收集器 是一个新生代的多线程收集器（并行收集器），它在回收期间不需要暂停其他用户线程，其采用的是Copying算法，该收集器与前两个收集器有所不同，它主要是为了达到一个可控的吞吐量。</p>
+<p>4.Parallel Old收集器 是Parallel Scavenge收集器的老年代版本（并行收集器），使用多线程和Mark-Compact算法。</p>
+<p>5.CMS（Concurrent Mark Sweep）收集器 是一种<strong>以获取最短回收停顿时间为目标</strong>的收集器，它是一种并发收集器，采用的是标记清除算法。</p>
+<p>6.G1收集器 是当今收集器技术发展最前沿的成果，它是一款面向服务端应用的收集器，它能充分利用多CPU、多核环境。因此它是一款并行与并发收集器，并且它能建立可预测的停顿时间模型。</p>
+<p><strong>垃圾回收器间的配合使用图：</strong> </p>
+<p><img src="https://pic4.zhimg.com/80/v2-25cb5804757e48387305cb1501739623_1440w.jpg" alt="img"></p>
+<p><strong>各个垃圾回收器对比</strong>： </p>
+<p><img src="https://pic3.zhimg.com/80/v2-4579a5210bc3767590eb428bf5509b7a_1440w.jpg" alt="img"></p>
+<h2 id="12-详细说一下CMS的回收过程？CMS的问题是什么？"><a href="#12-详细说一下CMS的回收过程？CMS的问题是什么？" class="headerlink" title="12. 详细说一下CMS的回收过程？CMS的问题是什么？"></a>12. 详细说一下CMS的回收过程？CMS的问题是什么？</h2><p>CMS(Concurrent Mark Sweep，并发标记清除) 收集器是<strong>以获取最短回收停顿时间为目标</strong>的垃圾回收器（追求低停顿），对于要求服务器响应速度的应用上，这种垃圾回收器非常适合。因为CMS在垃圾收集时使得用户线程和 GC 线程并发执行，因此在垃圾收集过程中用户也不会感到明显的卡顿。 </p>
+<blockquote>
+<p> 注意：“标记”是指将存活的对象和要回收的对象都给标记出来，而“清除”是指清除掉将要回收的对象。</p>
+</blockquote>
+<p>从名字就可以知道，CMS是基于“标记-清除”算法实现的。CMS 回收过程分为以下六步： </p>
 <ul>
-<li><p>Serial:单线程的收集器，收集垃圾时，必须stop the world，使用复制算法。它的最大特点是在进行垃圾回收时，需要对所有正在执行的线程暂停（stop the world），对于有些应用是难以接受的，但是如果应用的实时性要求不是那么高，只要停顿的时间控制在N毫秒之内，大多数应用还是可以接受的，是client级别的默认GC方式。 </p>
+<li><p>初始标记 ：这个阶段主要是标记 GC Root 直接相关联的下一级对象，这个过程会停顿正在执行的任务 （简称STW），但是跟 GC Root 直接关联的下级对象不会很多，因此这个过程其实很快。</p>
 </li>
-<li><p>ParNew:Serial收集器的多线程版本，也需要stop the world，复制算 </p>
+<li><p>并发标记 ：这个阶段紧随初始标记阶段，在初始标记的基础上继续向下追溯标记。并发标记阶段，应用程序的线程和并发标记的线程并发执行，没有STW</p>
 </li>
-<li><p>Parallel Scavenge:新生代收集器，复制算法的收集器，并发的多线程收集器，目标是达到一个可控的吞吐量，和ParNew的最大区别是GC自动调节策略；虚拟机会根据系统的运行状态收集性能监控信息，动态设置这些参数，以提供最优停顿时间和最高的吞吐量； </p>
+<li><p>并发预清理 ：在这个阶段，虚拟机查找在执行并发标记阶段新进入老年代的对象(可能会有一些对象从新生代晋升到老年代， 或者有一些对象被分配到老年代)。<strong>通过重新扫描，减少下一个阶段”重新标记”的工作，因为下一个阶段会Stop The World。</strong></p>
 </li>
-<li><p>Serial Old:Serial收集器的老年代版本，单线程收集器，使用标记整理算法。 </p>
+<li><p>重新标记 ：这个阶段会STW。扫描从”跟对象”开始向下追溯，并处理对象关联。因为在第二步并发标记阶段并没有阻塞其它工作线程，因此在标记的过程中，很有可能会产生新的垃圾。</p>
 </li>
-<li><p>Parallel Old：是Parallel Scavenge收集器的老年代版本，使用多线程，标记-整理算法。 </p>
+<li><p>并发清理 ：清理垃圾对象，这个阶段收集器线程和应用程序线程并发执行。</p>
 </li>
-<li><p>CMS:是一种以获得最短回收停顿时间为目标的收集器，标记清除算法，运作过程：初始标记，并发标记，重新标记，并发清除，收集结束会产生大量空间碎片； </p>
-</li>
-<li><p>G1:标记整理算法实现，运作流程主要包括以下：初始标记，并发标记，最终标记，筛选回收。不会产生空间碎片，可以精确地控制停顿；G1将整个堆分为大小相等的多个Region（区域），G1跟踪每个区域的垃圾大小，在后台维护一个优先级列表，每次根据允许的收集时间，优先回收价值最大的区域，已达到在有限时间内获取尽可能高的回收效率； </p>
+<li><p>并发重置 ：这个阶段，重置CMS收集器的数据结构，等待下一次垃圾回收。</p>
 </li>
 </ul>
-<p><strong>垃圾回收器间的配合使用图：</strong> </p>
-<p><img src="https://pic4.zhimg.com/v2-25cb5804757e48387305cb1501739623_b.jpg" alt="img"><img src="https://pic4.zhimg.com/80/v2-25cb5804757e48387305cb1501739623_1440w.jpg" alt="img"></p>
-<p><strong>各个垃圾回收器对比</strong>： </p>
-<p><img src="https://pic3.zhimg.com/v2-4579a5210bc3767590eb428bf5509b7a_b.jpg" alt="img"><img src="https://pic3.zhimg.com/80/v2-4579a5210bc3767590eb428bf5509b7a_1440w.jpg" alt="img"></p>
-<h2 id="12-详细说一下CMS的回收过程？CMS的问题是什么？"><a href="#12-详细说一下CMS的回收过程？CMS的问题是什么？" class="headerlink" title="12. 详细说一下CMS的回收过程？CMS的问题是什么？"></a>12. 详细说一下CMS的回收过程？CMS的问题是什么？</h2><p>CMS(Concurrent Mark Sweep，并发标记清除) 收集器是以获取最短回收停顿时间为目标的收集器（追求低停顿），它在垃圾收集时使得用户线程和 GC 线程并发执行，因此在垃圾收集过程中用户也不会感到明显的卡顿。 </p>
-<p>从名字就可以知道，CMS是基于“标记-清除”算法实现的。CMS 回收过程分为以下四步： </p>
-<ol>
-<li><p>初始标记 （CMS initial mark)：主要是标记 GC Root 开始的下级（注：仅下一级）对象，这个过程会 STW，但是跟 GC Root 直接关联的下级对象不会很多，因此这个过程其实很快。 </p>
-</li>
-<li><p>并发标记 (CMS concurrent mark)：根据上一步的结果，继续向下标识所有关联的对象，直到这条链上的最尽头。这个过程是多线程的，虽然耗时理论上会比较长，但是其它工作线程并不会阻塞，没有 STW。 </p>
-</li>
-<li><p>重新标记（CMS remark）：顾名思义，就是要再标记一次。为啥还要再标记一次？因为第 2 步并没有阻塞其它工作线程，其它线程在标识过程中，很有可能会产生新的垃圾。 </p>
-</li>
-<li><p>并发清除（CMS concurrent sweep）：清除阶段是清理删除掉标记阶段判断的已经死亡的对象，由于不需要移动存活对象，所以这个阶段也是可以与用户线程同时并发进行的。</p>
-</li>
-</ol>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/2b525609-ce63-3a42-bf19-b2fbcd42f26c.png" alt="CMS回收过程"></p>
 <p><strong>CMS 的问题：</strong> </p>
 <p><strong>1. 并发回收导致CPU资源紧张：</strong> </p>
 <p>在并发阶段，它虽然不会导致用户线程停顿，但却会因为占用了一部分线程而导致应用程序变慢，降低程序总吞吐量。CMS默认启动的回收线程数是：（CPU核数 + 3）/ 4，当CPU核数不足四个时，CMS对用户程序的影响就可能变得很大。 </p>
 <p><strong>2. 无法清理浮动垃圾：</strong> </p>
-<p>在CMS的并发标记和并发清理阶段，用户线程还在继续运行，就还会伴随有新的垃圾对象不断产生，但这一部分垃圾对象是出现在标记过程结束以后，CMS无法在当次收集中处理掉它们，只好留到下一次垃圾收集时再清理掉。这一部分垃圾称为“浮动垃圾”。 </p>
+<p>在CMS的并发标记和并发清理阶段，用户线程还在继续运行，在这个过程中，一些对象开始被判定为非垃圾，但之后变成了垃圾，CMS无法在当次收集中处理掉它们，只好留到下一次垃圾收集时再清理掉。这一部分垃圾称为“浮动垃圾”。 </p>
 <p><strong>3. 并发失败（Concurrent Mode Failure）：</strong> </p>
 <p>由于在垃圾回收阶段用户线程还在并发运行，那就还需要预留足够的内存空间提供给用户线程使用，因此CMS不能像其他回收器那样等到老年代几乎完全被填满了再进行回收，必须预留一部分空间供并发回收时的程序运行使用。默认情况下，当老年代使用了 92% 的空间后就会触发 CMS 垃圾回收，这个值可以通过 -XX**:** CMSInitiatingOccupancyFraction 参数来设置。 </p>
 <p>这里会有一个风险：要是CMS运行期间预留的内存无法满足程序分配新对象的需要，就会出现一次“并发失败”（Concurrent Mode Failure），这时候虚拟机将不得不启动后备预案：Stop The World，临时启用 Serial Old 来重新进行老年代的垃圾回收，这样一来停顿时间就很长了。 </p>
 <p><strong>4.内存碎片问题：</strong> </p>
-<p>CMS是一款基于“标记-清除”算法实现的回收器，这意味着回收结束时会有内存碎片产生。内存碎片过多时，将会给大对象分配带来麻烦，往往会出现老年代还有很多剩余空间，但就是无法找到足够大的连续空间来分配当前对象，而不得不提前触发一次 Full GC 的情况。 </p>
+<p>CMS是一款基于“标记-清除”算法实现的回收器，这意味着回收结束时会有内存碎片产生。内存碎片过多时，将会给大对象分配带来麻烦。</p>
+<p>往往会出现老年代还有很多剩余空间，但就是无法找到足够大的连续空间来分配当前对象，而不得不提前触发一次 Full GC 的情况。 </p>
 <p>为了解决这个问题，CMS收集器提供了一个 -XX**:<strong>+UseCMSCompactAtFullCollection 开关参数（默认开启），用于在 Full GC 时开启内存碎片的合并整理过程，由于这个内存整理必须移动存活对象，是无法并发的，这样停顿时间就会变长。还有另外一个参数 -XX</strong>:**CMSFullGCsBeforeCompaction，这个参数的作用是要求CMS在执行过若干次不整理空间的 Full GC 之后，下一次进入 Full GC 前会先进行碎片整理（默认值为0，表示每次进入 Full GC 时都进行碎片整理）。</p>
-<h2 id="13-详细说一下G1的回收过程？"><a href="#13-详细说一下G1的回收过程？" class="headerlink" title="13. 详细说一下G1的回收过程？"></a>13. 详细说一下G1的回收过程？</h2><p>G1（Garbage First）回收器采用面向局部收集的设计思路和基于Region的内存布局形式，是一款主要面向服务端应用的垃圾回收器。G1设计初衷就是替换 CMS，成为一种全功能收集器。G1 在JDK9 之后成为服务端模式下的默认垃圾回收器，取代了 Parallel Scavenge 加 Parallel Old 的默认组合，而 CMS 被声明为不推荐使用的垃圾回收器。G1从整体来看是基于 标记-整理算法实现的回收器，但从局部（两个Region之间）上看又是基于 标记-复制算法实现的。 </p>
+<h2 id="13-详细说一下G1的回收过程？"><a href="#13-详细说一下G1的回收过程？" class="headerlink" title="13. 详细说一下G1的回收过程？"></a>13. 详细说一下G1的回收过程？</h2><p>G1（Garbage First）回收器采用面向局部收集的设计思路和基于Region的内存布局形式，是一款主要面向服务端应用的垃圾回收器。G1设计初衷就是替换 CMS，成为一种全功能收集器。G1 在JDK9 之后成为服务端模式下的默认垃圾回收器，取代了 Parallel Scavenge 加 Parallel Old 的默认组合，而 CMS 被声明为不推荐使用的垃圾回收器。G1从整体来看是基于标记-整理算法实现的回收器，但从局部（两个Region之间）上看又是基于 标记-复制算法实现的。 </p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/image-20211011160511149.png" alt="image-20211011160511149"></p>
+<blockquote>
+<p>基于Region的内存布局形式：</p>
+<p>传统的收集器问题都是基于分代理论,将堆内存划分成固定大小的连续内存区域。而G1开创了一套新的堆内存布局方案,虽然仍然是遵守分代理论的，但它把堆内存划分为多个大小想等的独立区域即Region。每一个Region都可以根据需要去扮演Eden区，Survivor区，Old区，Humongous区。(注：Humongous区是一类特殊区域专门存放大对象)</p>
+</blockquote>
+<p>在回收时以Region作为最小的回收单位，G1会预测出每个Region的回收时间，回收后得到的内存大小以此计算出的该Region回收的”价值”，根据用户设置的期望GC停顿时间，每次回收优先处理回收价值最大的Region，这也是G1(Garabage First)名字的由来原因。</p>
 <p><strong>G1 回收过程</strong>，G1 回收器的运作过程大致可分为四个步骤： </p>
 <ol>
 <li><p>初始标记（会STW）：仅仅只是标记一下 GC Roots 能直接关联到的对象，并且修改TAMS指针的值，让下一阶段用户线程并发运行时，能正确地在可用的Region中分配新对象。这个阶段需要停顿线程，但耗时很短，而且是借用进行Minor GC的时候同步完成的，所以G1收集器在这个阶段实际并没有额外的停顿。 </p>
@@ -219,31 +275,36 @@
 <p>在 Java 中，堆被划分成两个不同的区域：新生代 ( Young )、老年代 ( Old )，新生代默认占总空间的 1/3，老年代默认占 2/3。 新生代有 3 个分区：Eden、To Survivor、From Survivor，它们的默认占比是 8:1:1。 </p>
 <p>新生代的垃圾回收（又称Minor GC）后只有少量对象存活，所以选用复制算法，只需要少量的复制成本就可以完成回收。 </p>
 <p>老年代的垃圾回收（又称Major GC）通常使用“标记-清理”或“标记-整理”算法。 </p>
-<p><img src="https://pic2.zhimg.com/v2-f2a086e09f8bb950b63381145f6f16c2_b.jpg" alt="img"><img src="https://pic2.zhimg.com/80/v2-f2a086e09f8bb950b63381145f6f16c2_1440w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-f2a086e09f8bb950b63381145f6f16c2_1440w.jpg" alt="img"></p>
 <p>再描述它们之间转化流程。 </p>
 <ul>
-<li><p>对象优先在Eden分配。当 eden 区没有足够空间进行分配时，虚拟机将发起一次 Minor GC。 </p>
-</li>
-<li><ul>
-<li><p>在 Eden 区执行了第一次 GC 之后，存活的对象会被移动到其中一个 Survivor 分区； </p>
-</li>
-<li><p>  Eden 区再次 GC，这时会采用复制算法，将 Eden 和 from 区一起清理，存活的对象会被复制到 to 区； </p>
-</li>
-<li><p>  移动一次，对象年龄加 1，对象年龄大于一定阀值会直接移动到老年代。GC年龄的阀值可以通过参数 -XX:MaxTenuringThreshold 设置，默认为 15； </p>
-</li>
-<li><p>  动态对象年龄判定：Survivor 区相同年龄所有对象大小的总和 &gt; (Survivor 区内存大小 * 这个目标使用率)时，大于或等于该年龄的对象直接进入老年代。其中这个使用率通过 -XX:TargetSurvivorRatio 指定，默认为 50%； </p>
-</li>
-<li><p>  Survivor 区内存不足会发生担保分配，超过指定大小的对象可以直接进入老年代。 </p>
-</li>
+<li>对象优先在Eden分配。当 Eden 区没有足够空间进行分配时，虚拟机将发起一次 Minor GC。<ul>
+<li>在 Eden 区执行了第一次 GC 之后，存活的对象会被移动到其中一个 Survivor 分区；</li>
+<li>Eden 区再次 GC，这时会采用复制算法，将 Eden 和 from 区一起清理，存活的对象会被复制 到 to 区； </li>
+<li>移动一次，对象年龄加 1，对象年龄大于一定阀值会直接移动到老年代。GC年龄的阀值可以 通过参数 -XX:MaxTenuringThreshold 设置，默认为 15；</li>
+<li>动态对象年龄判定：Survivor 区相同年龄所有对象大小的总和 &gt; (Survivor 区内存大小 * 这个 目标使用率)时，大于或等于该年龄的对象直接进入老年代。其中这个使用率通过 - XX:TargetSurvivorRatio 指定，默认为 50%； </li>
+<li>Survivor 区内存不足会发生担保分配，超过指定大小的对象可以直接进入老年代。 </li>
 </ul>
 </li>
-<li><p>  大对象直接进入老年代，大对象就是需要大量连续内存空间的对象（比如：字符串、数组），为了避免为大对象分配内存时由于分配担保机制带来的复制而降低效率。 </p>
-</li>
-<li><p>  老年代满了而<strong>无法容纳更多的对象</strong>，Minor GC 之后通常就会进行Full GC，Full GC 清理整个内存堆 – <strong>包括年轻代和老年代</strong>。</p>
-</li>
+<li>大对象直接进入老年代，大对象就是需要大量连续内存空间的对象（比如：字符串、数组），为了避免为大对象分配内存时由于分配担保机制带来的复制而降低效率。 </li>
+<li>老年代满了而<strong>无法容纳更多的对象</strong>，Minor GC 之后通常就会进行Full GC，Full GC 清理整个内存堆 – <strong>包括年轻代和老年代</strong>。</li>
 </ul>
-<h2 id="15-Minor-GC-和-Full-GC-有什么不同呢？"><a href="#15-Minor-GC-和-Full-GC-有什么不同呢？" class="headerlink" title="15. Minor GC 和 Full GC 有什么不同呢？"></a>15. Minor GC 和 Full GC 有什么不同呢？</h2><p>Minor GC：只收集新生代的GC。 </p>
-<p>Full GC: 收集整个堆，包括 新生代，老年代，永久代(在 JDK 1.8及以后，永久代被移除，换为metaspace 元空间)等所有部分的模式。 </p>
+<p>作者：擎宇要努力努力再努力<br>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/595546?type=post&amp;order=time&amp;pos=&amp;page=1&amp;ncTraceId=&amp;channel=-1&amp;source_id=search_post_nctrack">https://www.nowcoder.com/discuss/595546?type=post&amp;order=time&amp;pos=&amp;page=1&amp;ncTraceId=&amp;channel=-1&amp;source_id=search_post_nctrack</a><br>来源：牛客网</p>
+<h4 id="（七）内存分配与回收策略"><a href="#（七）内存分配与回收策略" class="headerlink" title="（七）内存分配与回收策略"></a>（七）内存分配与回收策略</h4><p> <strong>对象优先在 Eden 区分配</strong> </p>
+<p> 大多数情况下对象在新生代 Eden 区分配，当 Eden 没有足够空间时将发起一次 Minor GC。 </p>
+<p> <strong>大对象直接进入老年代</strong> </p>
+<p> 大对象指需要大量连续内存空间的对象，例如很长的字符串或大数组，容易导致内存还有不少空间就提前触发 GC 以获得足够连续空间。 </p>
+<p> HotSpot 提供了 -XX:PretenureSizeThreshold 参数，大于该值的对象直接在老年代分配，避免在 Eden 和 Survivor 间来回复制。 </p>
+<p> <strong>长期存活对象进入老年代</strong> </p>
+<p> 虚拟机给每个对象定义了一个对象年龄计数器，存储在对象头。如果经历过第一次 Minor GC 仍然存活且能被 Survivor 容纳，该对象就会被移动到 Survivor 中并将年龄设置为 1。对象在 Survivor 中每熬过一次 Minor GC 年龄就加 1 ，当增加到一定程度（默认15）就会被晋升到老年代。对象晋升老年代的阈值可通过 -XX:MaxTenuringThreshold 设置。 </p>
+<p> <strong>动态对象年龄判定</strong> </p>
+<p> 为了适应不同内存状况，虚拟机不要求对象年龄达到阈值才能晋升老年代，如果在 Survivor 中相同年龄所有对象大小的总和大于 Survivor 的一半，年龄不小于该年龄的对象就可以直接进入老年代。 </p>
+<p> <strong>空间分配担保</strong> </p>
+<p> MinorGC 前虚拟机必须检查老年代最大可用连续空间是否大于新生代对象总空间，如果满足则说明这次 Minor GC 确定安全。 </p>
+<p> 如果不满足，虚拟机会查看 -XX:HandlePromotionFailure 参数是否允许担保失败，如果允许会继续检查老年代最大可用连续空间是否大于历次晋升老年代对象的平均大小，如果满足将冒险尝试一次 Minor GC，否则改成一次 FullGC。 </p>
+<p> 冒险是因为新生代使用复制<a href="">算法</a>，只用一个 Survivor，大量对象在 Minor GC 后仍然存活时需要老年代接收 Survivor 无法容纳的对象。</p>
+<h2 id="15-Minor-GC-和-Full-GC-有什么不同呢？"><a href="#15-Minor-GC-和-Full-GC-有什么不同呢？" class="headerlink" title="15. Minor GC 和 Full GC 有什么不同呢？"></a>15. Minor GC 和 Full GC 有什么不同呢？</h2><p>Minor GC：只回收新生代的GC。 </p>
+<p>Full GC: 回收整个堆，包括 新生代，老年代，永久代(在 JDK 1.8及以后，永久代被移除，换为metaspace 元空间)等所有部分的模式。 </p>
 <p><strong>Minor GC触发条件：</strong>当Eden区满时，触发Minor GC。 </p>
 <p><strong>Full GC触发条件</strong>： </p>
 <ul>
@@ -268,39 +329,65 @@
 </li>
 </ul>
 <p>通过下图来了解空间分配担保原则： </p>
-<p><img src="https://pic2.zhimg.com/v2-230afbe3d56d81be16ec7cd9b4d126d9_b.jpg" alt="img"><img src="https://pic2.zhimg.com/80/v2-230afbe3d56d81be16ec7cd9b4d126d9_1440w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-230afbe3d56d81be16ec7cd9b4d126d9_1440w.jpg" alt="img"></p>
 <h2 id="17-什么是类加载？类加载的过程？"><a href="#17-什么是类加载？类加载的过程？" class="headerlink" title="17. 什么是类加载？类加载的过程？"></a>17. 什么是类加载？类加载的过程？</h2><p>虚拟机把描述类的数据加载到内存里面，并对数据进行校验、解析和初始化，最终变成可以被虚拟机直接使用的class对象； </p>
-<p>类的整个生命周期包括：加载（Loading）、验证（Verification）、准备(Preparation)、解析(Resolution)、初始化(Initialization)、使用(Using)和卸载(Unloading)7个阶段。其中准备、验证、解析3个部分统称为连接（Linking）。如图所示： </p>
-<p><img src="https://pica.zhimg.com/v2-428183fb231daeaf4571dabf2a19af8c_b.jpg" alt="img"><img src="https://pica.zhimg.com/80/v2-428183fb231daeaf4571dabf2a19af8c_1440w.jpg" alt="img"></p>
-<p>加载、验证、准备、初始化和卸载这5个阶段的顺序是确定的，类的加载过程必须按照这种顺序按部就班地开始，而解析阶段则不一定：它在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的运行时绑定（也称为动态绑定或晚期绑定） </p>
-<p>类加载过程如下： </p>
+<p>类加载的五个过程：加载、验证、准备、解析、初始化、使用、卸载，</p>
+<p>为支持运行时绑定，解析过程在某些情况下可在初始化之后再开始，除解析过程外的其他加载过程必须按照如图顺序开始。如图所示：</p>
+<p><img src="https://pica.zhimg.com/v2-428183fb231daeaf4571dabf2a19af8c_b.jpg" alt="img"></p>
+<p><strong>加载</strong><br>在加载阶段，虚拟机主要完成三件事：</p>
 <ul>
-<li><p>加载，加载分为三步： 1、通过类的全限定性类名获取该类的二进制流； 2、将该二进制流的静态存储结构转为方法区的运行时数据结构； 3、在堆中为该类生成一个class对象； </p>
+<li><p>通过一个类的全限定名来获取定义此类的二进制字节流。</p>
 </li>
-<li><p>验证：验证该class文件中的字节流信息复合虚拟机的要求，不会威胁到jvm的安全； </p>
-</li>
-<li><p>准备：为class对象的静态变量分配内存，初始化其初始值； </p>
-</li>
-<li><p>解析：该阶段主要完成符号引用转化成直接引用； </p>
-</li>
-<li><p>初始化：到了初始化阶段，才开始执行类中定义的java代码；初始化阶段是调用类构造器的过程； </p>
+<li><p>将这个字节流所代表的静态存储结构转化为方法区域的运行时数据结构。</p>
 </li>
 </ul>
-<h2 id="18-什么是类加载器，常见的类加载器有哪些？"><a href="#18-什么是类加载器，常见的类加载器有哪些？" class="headerlink" title="18. 什么是类加载器，常见的类加载器有哪些？"></a>18. 什么是类加载器，常见的类加载器有哪些？</h2><p>类加载器是指：通过一个类的全限定性类名获取该类的二进制字节流叫做类加载器；类加载器分为以下四种： </p>
 <ul>
-<li><p>启动类加载器（BootStrapClassLoader）：用来加载java核心类库，无法被java程序直接引用； </p>
+<li>在Java堆中生成一个代表这个类的java.lang.Class对象，作为方法区域数据的访问入口。</li>
+</ul>
+<p><strong>验证</strong><br>验证阶段作用是保证Class文件的字节流包含的信息符合JVM规范，不会给JVM造成危害。如果验证失败，就会抛出一个java.lang.VerifyError异常或其子类异常。验证过程分为四个阶段：</p>
+<ul>
+<li><p>文件格式验证：验证字节流文件是否符合Class文件格式的规范，并且能被当前虚拟机正确的处理。</p>
 </li>
-<li><p>扩展类加载器（Extension ClassLoader）：用来加载java的扩展库，java的虚拟机实现会提供一个扩展库目录，该类加载器在扩展库目录里面查找并加载java类； </p>
+<li><p>元数据验证：是对字节码描述的信息进行语义分析，以保证其描述的信息符合Java语言的规范要求</p>
 </li>
-<li><p>系统类加载器（AppClassLoader）：它根据java的类路径来加载类，一般来说，java应用的类都是通过它来加载的； </p>
+<li><p>字节码验证：主要是进行数据流和控制流的分析，保证被校验类的方法在运行时不会危害虚拟机。</p>
 </li>
-<li><p>自定义类加载器：由java语言实现，继承自ClassLoader； </p>
+<li><p>符号引用验证：符号引用验证发生在虚拟机将符号引用转化为直接引用的时候，这个转化动作将在解析阶段中发生。</p>
 </li>
 </ul>
-<p><img src="https://pic4.zhimg.com/v2-64c33143d2d28029df7e6ea37659dce0_b.jpg" alt="img"><img src="https://pic4.zhimg.com/80/v2-64c33143d2d28029df7e6ea37659dce0_1440w.jpg" alt="img"></p>
-<h2 id="19-什么是双亲委派模型？为什么需要双亲委派模型？"><a href="#19-什么是双亲委派模型？为什么需要双亲委派模型？" class="headerlink" title="19. 什么是双亲委派模型？为什么需要双亲委派模型？"></a>19. 什么是双亲委派模型？为什么需要双亲委派模型？</h2><p>当一个类加载器收到一个类加载的请求，他首先不会尝试自己去加载，而是将这个请求委派给父类加载器去加载，只有父类加载器在自己的搜索范围类查找不到给类时，子加载器才会尝试自己去加载该类； </p>
+<p><strong>准备</strong><br>准备阶段为变量分配内存并设置类变量的初始化。在这个阶段分配的仅为类的变量（static修饰的变量），而不包括类的实例变量。对已非final的变量，JVM会将其设置成“零值”，而不是其赋值语句的值：pirvate static int size = 12; 那么在这个阶段，size的值为0，而不是12。但final修饰的类变量将会赋值成真实的值。</p>
+<p><strong>解析</strong><br>解析过程是将常量池内的符号引用替换成直接引用。主要包括四种类型引用的解析。类或接口的解析、字段解析、方法解析、接口方法解析。</p>
+<p><strong>初始化</strong><br>在准备阶段，类变量已经经过一次初始化了，在这个阶段，则是通过程序制定的计划去初始化类的变量和其他资源。这些资源有static{}块，构造函数，父类的初始化等。</p>
+<p>至于使用和卸载阶段阶段，这里不再过多说明，使用过程就是根据程序定义的行为执行，卸载由GC完成。</p>
+<h2 id="18-什么是类加载器，常见的类加载器有哪些？"><a href="#18-什么是类加载器，常见的类加载器有哪些？" class="headerlink" title="18. 什么是类加载器，常见的类加载器有哪些？"></a>18. 什么是类加载器，常见的类加载器有哪些？</h2><p>类加载器：把实现类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作的代码模块称为“类加载器”。</p>
+<p>从 Java 虚拟机的角度来讲，只存在以下两种不同的类加载器：</p>
+<ul>
+<li>启动类加载器（Bootstrap ClassLoader），使用 C++ 实现，是虚拟机自身的一部分</li>
+<li>所有其它类的加载器，使用 Java 实现，独立于虚拟机，并且全部继承自抽象类 java.lang.ClassLoader。</li>
+</ul>
+<p><strong>类加载器分为以下四种：</strong> </p>
+<ul>
+<li>启动类加载器（BootStrapClassLoader）：用来加载java核心类库，无法被java程序直接引用； </li>
+<li>扩展类加载器（Extension ClassLoader）：用来加载java的扩展库，java的虚拟机实现会提供一个扩展库目录，该类加载器在扩展库目录里面查找并加载java类； </li>
+<li>应用程序类加载器（AppClassLoader）：它根据java的类路径来加载类，一般来说，java应用的类都是通过它来加载的； </li>
+<li>自定义类加载器：由java语言实现，继承自ClassLoader； </li>
+</ul>
+<p>类加载器按照层次，从顶层到底层的顺序（<strong>如图只是类加载的层次顺序，和类继承无关</strong>）：</p>
+<img src="https://pic4.zhimg.com/v2-64c33143d2d28029df7e6ea37659dce0_b.jpg" alt="img" style="zoom: 80%;" />
+
+<h2 id="19-什么是双亲委派模型？为什么需要双亲委派模型？"><a href="#19-什么是双亲委派模型？为什么需要双亲委派模型？" class="headerlink" title="19. 什么是双亲委派模型？为什么需要双亲委派模型？"></a>19. 什么是双亲委派模型？为什么需要双亲委派模型？</h2><p><strong>运行流程：</strong></p>
+<p>当一个类加载器收到一个类加载的请求，他首先不会尝试自己去加载，而是将这个请求委派给父类加载器去加载，一层一层向上，请求最终到达顶层的启动类加载器，只如果父类加载器可以完成类加载任务，就<strong>成功返回</strong>，倘若父类加载器无法完成此加载任务，<strong>子加载器才会尝试自己去加载</strong>，如果都没找到则会抛出ClassNotFound异常，这就是双亲委派模型。</p>
+<p><img src="/images/7-30jvm%E5%AD%A6%E4%B9%A0/src=http%253A%252F%252Fwww.west.cn%252Finfo%252Fupload%252F20191016%252F4wjcrsxfmj0.jpg&refer=http%253A%252F%252Fwww.west.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg" alt="双亲委派模型"></p>
 <p>为了防止内存中出现多个相同的字节码；因为如果没有双亲委派的话，用户就可以自己定义一个java.lang.String类，那么就无法保证类的唯一性。 </p>
-<p>补充：<strong>那怎么打破双亲委派模型</strong>？ </p>
+<p><strong>类的唯一性：</strong></p>
+<p>对于任意一个类，都需要由加载它的类加载器和这个类本身一同确定其在JVM中的唯一性。</p>
+<p>即使两个类来源于同一个 Class 文件，被同一个虚拟机加载，只要加载它们的类加载器不同，那这两个类也不相等。</p>
+<p><strong>双亲委派模型的好处（为什么需要双亲委派模型）</strong>：</p>
+<ul>
+<li>Java类随着它的类加载器一起具备了一种<strong>带有优先级的层次关系</strong>，通过这种层级关可以<strong>避免类的重复加载</strong>，当父亲已经加载了该类时，就没有必要子ClassLoader再加载一次。</li>
+<li>其次是考虑到安全因素，<strong>防止核心API库被随意篡改</strong>。假设通过网络传递一个名java.lang.Integer的类，通过双亲委托模式传递到启动类加载器，而启动类加载器在核心Java API发现这个名字的类，发现该类已被加载，并不会重新加载网络传递的过来的java.lang.Integer，而直接返回已加载过的Integer.class，这样便可以<strong>防止核心API库被随意篡改</strong>。</li>
+</ul>
+<p><strong>怎么打破双亲委派模型</strong>？ </p>
 <p>自定义类加载器，继承ClassLoader类，重写loadClass方法和findClass方法。 </p>
 <h2 id="20-列举一些你知道的打破双亲委派机制的例子，为什么要打破？"><a href="#20-列举一些你知道的打破双亲委派机制的例子，为什么要打破？" class="headerlink" title="20. 列举一些你知道的打破双亲委派机制的例子，为什么要打破？"></a>20. 列举一些你知道的打破双亲委派机制的例子，为什么要打破？</h2><ul>
 <li><p>JNDI 通过引入线程上下文类加载器，可以在 Thread.setContextClassLoader 方法设置，默认是应用程序类加载器，来加载 SPI 的代码。有了线程上下文类加载器，就可以完成父类加载器请求子类加载器完成类加载的行为。打破的原因，是为了 JNDI 服务的类加载器是启动器类加载，为了完成高级类加载器请求子类加载器（即上文中的线程上下文加载器）加载类。 </p>
@@ -320,7 +407,7 @@
 </li>
 </ul>
 <p>tomcat类加载器如下图： </p>
-<p><img src="https://pic2.zhimg.com/v2-0f8b46ab0eef7d30938798eebb401dbb_b.jpg" alt="img"><img src="https://pic2.zhimg.com/80/v2-0f8b46ab0eef7d30938798eebb401dbb_1440w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-0f8b46ab0eef7d30938798eebb401dbb_1440w.jpg" alt="img"></p>
 <ul>
 <li><p>OSGi，实现模块化热部署，为每个模块都自定义了类加载器，需要更换模块时，模块与类加载器一起更换。其类加载的过程中，有平级的类加载器加载行为。打破的原因是为了实现模块热替换。 </p>
 </li>

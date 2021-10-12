@@ -9,35 +9,151 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">78</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">学习SpringBoot疑惑记录</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-03</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">269</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
-<p>看到的帖子先留下来</p>
-</blockquote>
-<blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">79</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">学习SpringBoot疑惑记录</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-03</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.4k</span><span class="post-meta__separator">|</span><span>阅读时长: 8 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>咕叽咕叽</p>
 </blockquote>
 <a id="more"></a>
 
-<p>controller和service区别</p>
 <p>mapper   ORM框架    </p>
 <p>IOC容器控制反转      AOP面向切片编程</p>
 <p>ORM</p>
+<p><strong>spring有哪些模块？</strong></p>
+<p>截止到目前Spring 框架已集成了 20 多个模块 。 这些模块主要被分如下图所示的核心容器 、 数据访问 / 集成 、Web、AOP （面向切面编程） 、 工具 、 消息和测试模块 。</p>
+<img src="/images/%E5%AD%A6%E4%B9%A0SpringBoot%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/image-20211010164940116.png" style="zoom: 67%;" />
+
+
+
+
+
+<p><strong>spring框架用了哪些设计模式？</strong></p>
+<blockquote>
+<p>了解一下设计模式</p>
+</blockquote>
+<p><strong>对IOC和AOP的理解：</strong></p>
+<p><strong>IOC：</strong></p>
+<p>IOC是inverse of control <strong>控制反转</strong>的缩写，是一种设计思想，就是将原本在程序中手动创建对象的控制权，交由Spring框架来管理，目的是降低类与类之间的耦合度。loc容器是Spring用来实现loC的载体，loc容器实际上就是个Map（key，value），Map中存放的是各种对象。</p>
+<p>我们用lOC容器完成对象的注入。loC容器的本质是一个”生产Bean的工厂”，当我们的bean注册到容器中后，在程序的运行过程中，我们可以直接向loC容器索取我们想要的bean实例，而不是使用传统的new 这种方式。</p>
+<p>控制反转是目的，依赖注入是实现控制反转的手段。</p>
+<p>控制反转是为了降低类与类之间的耦合度。</p>
+<p><strong>AOP：</strong></p>
+<p>AOP（Aspect-Oriented Programming：<strong>面向切面编程</strong>）能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，即插即用。<br>Spring AOP就是基于<strong>动态代理</strong>的，</p>
+<blockquote>
+<p>什么是动态代理？</p>
+<p>要搞清楚静态代理和动态代理的区别</p>
+</blockquote>
+<p><strong>DI：</strong></p>
+<p>DI是<strong>依赖注入</strong>的意思。</p>
+<ul>
+<li>构造函数注入</li>
+<li> setter 注入 </li>
+<li>接口注入 </li>
+</ul>
+<p>在 Spring Framework 中，我们通常使用构造函数和 setter 注入。</p>
+<p><strong>DAO层、Service层、Controller层的区别：</strong></p>
+<p>DAO层：<br>DAO层叫数据访问层，全称为data access object，属于一种比较底层，比较基础的操作，具体到对于某个表的增删改查，也就是说<strong>某个DAO一定是和数据库的某一张表一一对应的</strong>，其中封装了增删改查基本操作，建议<strong>DAO只做原子操作，增删改查。</strong></p>
+<p>Service层：<br>Service层叫服务层，被称为服务，粗略的理解就是<strong>对一个或多个DAO进行的再次封装</strong>，封装成一个服务，所以这里也就不会是一个原子操作了，<strong>需要事物控制。</strong></p>
+<p>Controller层：<br>Controller负责<strong>请求转发，接受页面过来的参数，传给Service处理，接到返回值，再传给页面。</strong></p>
+<p>总结：<br>个人理解DAO面向表，Service面向业务。后端开发时先数据库设计出所有表，然后对每一张表设计出DAO层，然后根据具体的业务逻辑进一步封装DAO层成一个Service层，对外提供成一个服务。</p>
 <p>反射+工厂模式</p>
 <p>springbean作用域默认是单例的，即每次从容器中获得的都是同一个对象</p>
 <p><img src="/images/%E5%AD%A6%E4%B9%A0SpringBoot%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/image-20211003154931318.png"></p>
 <p>就是一般开发下，有哪些包结构组成，应该是关于MVC方面的架构</p>
-<p>记录一些不懂的注解：</p>
-<p>@Autowired：自动注入？</p>
-<p>@Component</p>
-<p>@Repository</p>
-<p>@Service：放在 ServiceImpl类的上面</p>
+<p><strong>Spring帮助我们管理Bean分为两个部分，一个是注册Bean，一个装配Bean。</strong></p>
+<p>@Autowired：自动装配bean</p>
+<blockquote>
+<p> @Autowired注解就相当于从Spring容器中通过类型，实例化了当前对象，可以直接调用它的方法。</p>
+<p>通过@Autowired注解，如果在容器中有对应的bean，就可以通过@Autowired自动装载，也就是赋值。装载之后自动的按照类型在spring容器中查找相同类型，然后为该字段其注入那个类型的bean实例。</p>
+<p>其实就是一种依赖注入的方式，此方式必须确保加注解的类在spring中有对应的bean（怎样加进去不管），并且字段的类型需要在spring容器中有相同类型的bean，才能创建bean实例，为其注入。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相当于执行了实例化 private UserService userService = new UserServiceImpl();</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> UserService userService;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>将⼀个类声明为Spring的 bean 的注解有哪些?（注册bean）</strong></p>
+<p>@Component：</p>
+<p>@Controller：</p>
+<p>@Repository：</p>
+<p>@Service：</p>
+<p>简而言之，两个作用：</p>
+<ul>
+<li>说明这个类是一个spring IOC容器管理的类，之后可以通过@Autowired 实例化该类</li>
+<li>当然也有语义化的作用，即代表该类是充当Controller的作用</li>
+</ul>
+<blockquote>
+<p>Spring的一个核心功能是IOC，就是将Bean初始化加载到容器中， Bean加载到容器中可以使用 Spring注解方式或者 Spring XML配置方式。(通过注解将java中的一些类，加载到容器中) </p>
+<p>在annotaion配置注解中用@Component来表示一个通用注释用于说明一个类是一个spring容器管理的类。即就是该类已经拉入到spring的管理中了。而@Controller,@Service, @Repository是@Component的细化，这三个注解比@Component带有更多的语义，它们分别对应了控制层、服务层、持久层的类。</p>
+<ul>
+<li><code>@Repository</code>：持久层，用于标注数据访问组件，即DAO组件。</li>
+<li><code>@Service</code>：业务层，用于标注业务逻辑层主键。</li>
+<li><code>@Controller</code>：控制层，用于标注控制层组件。</li>
+<li><code>@Component</code>：当你不确定是属于哪一层的时候使用。</li>
+</ul>
+<p>之所以区分开几种类型，一是spring想在以后的版本中为它们添加特殊技能，二是这种分层的做法使web架构更清晰，易读性与维护性更好。</p>
+</blockquote>
+<p><strong>@component和@bean的区别和联系？</strong></p>
+<p>这两个注解都是用来注册bean到spring容器中。</p>
+<ul>
+<li>@Component 注解作用于类，而 @Bean 注解作用于方法上</li>
+<li>@Component 通常是通过类路径扫描来自动装配到Spring容器中。<br>@Bean注解通常与@Configuration配合，在配置类中的方法中返回bean对象</li>
+<li>如果想要将第三方库中的组件装配到你的应用中，使用@component是不能实现自动装配的，可以使用@bean</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Person <span class="title">person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Person(<span class="string">&quot;SJL01&quot;</span>, <span class="number">20</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>那为什么有了@Component,还需要@Bean呢？</strong><br>如果你想要将第三方库中的组件装配到你的应用中，在这种情况下，@Component不能实现自动装配的，因此就不能使用自动化装配的方案了，但是我们可以使用@Bean,当然也可以使用XML配置。</p>
 <p><img src="/images/%E5%AD%A6%E4%B9%A0SpringBoot%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/image-20211005225450261.png" alt="image-20211005225450261"></p>
 <p>@Transactional：</p>
-<p>@Controller：</p>
+<blockquote>
+<p>与springboot事务管理有关系，暂时看不懂</p>
+</blockquote>
+<p>@ResponseBody：</p>
+<blockquote>
+<p>使用在控制层（controller）的方法上。</p>
+<p>@RestController = @ResponseBody + @Controller</p>
+<p>@ResponseBody的作用其实是将java对象转为json格式的数据。</p>
+<p>json格式便于数据交互</p>
+</blockquote>
+<p>@Qualifier</p>
+<blockquote>
+<p>当一个接口有多个实现的时候，为了指名具体调用哪个类的实现;通常与@Autowired搭配使用</p>
+</blockquote>
+<p><img src="/images/%E5%AD%A6%E4%B9%A0SpringBoot%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/image-20211009093317850.png" alt="image-20211009093317850"></p>
 <p>下面三个的区别：用错了程序会报错</p>
 <p>@GetMapping：控制跳转网页映射</p>
 <p>@RequestMapping：</p>
 <p>@PostMapping:</p>
-<p>@SpringBootApplication :放在springboot的启动程序上</p>
+<blockquote>
+<p> Spring4.3中引进了@GetMapping、@PostMapping 来帮助简化常用的HTTP方法的映射 并更好地表达被注解方法的语义</p>
+<p>@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。</p>
+<p>@PostMapping是一个组合注解，是@RequestMapping(method = RequestMethod.POST)的缩写。</p>
+</blockquote>
+<blockquote>
+<p>什么时候用post 什么时候用 get？</p>
+<p>1.当方法中的参数为@RequestParam、@PathVaiable、无参的情况下使用@GetMapping</p>
+<p>2.当方法中的参数为@RequestBody、多参、对象参数的情况下使用@PostMapping</p>
+<p>没看懂，但是暂且这样先用着吧</p>
+</blockquote>
+<p>@RequestParam</p>
+<blockquote>
+<ul>
+<li>@RequestParam默认要求必须传参，可以通过设置<code>required = false</code>来关闭</li>
+<li>如果为@RequestParam设置参数名，以他为准，不设置的话默认为其后的类型参数名</li>
+<li></li>
+</ul>
+</blockquote>
+<p><strong>不加的时候</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/request&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> String <span class="title">test01</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">     String returnValue = <span class="string">&quot;返回的字符串为：&quot;</span>+name;</span><br><span class="line">     <span class="keyword">return</span> returnValue;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>请求端可以不带参数，比如：localhost:8080/request</p>
+<p><strong>加上@RequestParam的时候</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/request&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">test01</span><span class="params">(<span class="meta">@RequestParam(value = &quot;haha&quot;)</span> String name)</span></span>&#123;</span><br><span class="line">    String returnValue = <span class="string">&quot;返回的字符串为：&quot;</span>+name;</span><br><span class="line">    <span class="keyword">return</span> returnValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请求端必须带参数(当然我们可以设置false来关闭)，并且以设置的value值为准，如: localhost:8080/request?haha=www</p>
+<p>@SpringBootApplication :放在springboot的启动程序上，标明这是一个启动类</p>
+<p><strong>对spring bean生命周期的理解：</strong></p>
+<p>实例化对象bean-》设置对象属性-》处理Aware接口-》BeanPostProcessor前置初始化方法-》调用bean自身的init方法-》调用BeanPostProcess的后置初始化方法-》使用bean-》销毁bean</p>
+<p><strong>对SpringMVC的理解：</strong></p>
 <p>弄清application.yml中mybatis两个属性的作用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mybatis配置</span><br><span class="line">mybatis:</span><br><span class="line">  mapper-locations: classpath:&#x2F;com&#x2F;baizhi&#x2F;mapper&#x2F;*.xml</span><br><span class="line">  type-aliases-package: com.baizhi.ems_thymeleaf.entity</span><br></pre></td></tr></table></figure>
 
@@ -47,7 +163,16 @@
 <p><img src="/images/%E5%AD%A6%E4%B9%A0SpringBoot%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/image-20211005213034158.png" alt="image-20211005213034158"></p>
 <p>这里面的Model model 是什么意思？</p>
 <p>开发功能的顺序：  entity包创建实体类  -》dao包创建持久层接口 -》mapper包中写sql语句 -》service包中写业务实现（一个service接口和service接口实现类） - 》controller包中写页面跳转</p>
-</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/03/学习SpringBoot疑惑记录/">http://example.com/2021/10/03/学习SpringBoot疑惑记录/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="next-post pull-right"><a href="/2021/10/02/%E6%97%A5%E5%B8%B8%E5%AE%9E%E4%B9%A0%E5%A6%82%E4%BD%95%E5%87%86%E5%A4%87mark/"><span>日常实习如何准备mark</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+<hr>
+<p>mybatis：<br>mapper-locations：classpath:mybatis/mapper/<em>.xml               <strong>//对应每个实体类的mapper.xml文件的的位置</strong><br>type-aliases-package：cn.qqcn.</em>.entity               <strong>//存放实体类的包名</strong><br>configuration：<br>map-underscore-to-camel-case：true#驼峰转换    </p>
+<p>数据库里面的字段用下划线，实体类用驼峰，那么之后怎么对应起来</p>
+<p>HttpServletRequest  </p>
+<p>HttpServletResponse    </p>
+<blockquote>
+<p>客户端浏览器发出的请求被封装成为一个HttpServletRequest对象。所有的信息包括请求的地址，请求的参数，提交的数据，上传的文件客户端的ip甚至客户端操作系统都包含在其内。</p>
+<p>HttpServletResponse对象代表服务器的响应。这个对象中封装了向客户端发送数据、发送响应头，发送响应状态码的方法</p>
+</blockquote>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/03/学习SpringBoot疑惑记录/">http://example.com/2021/10/03/学习SpringBoot疑惑记录/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/10/08/%E5%91%98%E5%B7%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%96%91%E9%9A%BE%E7%82%B9/"><i class="fa fa-chevron-left">  </i><span>员工管理系统的疑难点</span></a></div><div class="next-post pull-right"><a href="/2021/10/02/%E6%97%A5%E5%B8%B8%E5%AE%9E%E4%B9%A0%E5%A6%82%E4%BD%95%E5%87%86%E5%A4%87mark/"><span>日常实习如何准备mark</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
   clientID: '52a38b388c08f769c0fe',
   clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
   repo: 'jiubukaiji.github.io',
