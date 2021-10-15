@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="synchronized深入理解"><meta name="keywords" content=""><meta name="author" content="pb"><meta name="copyright" content="pb"><title>synchronized深入理解 | pb</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.2.0'
+} </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是线程池？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">为什么要使用线程池？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">线程池有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">4.</span> <span class="toc-text">说说几种常见的线程池及使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E9%87%8D%E8%A6%81%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">线程池中的几种重要的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%B8%B8%E7%94%A8%E7%9A%84%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%EF%BC%88%E6%B2%A1%E6%9C%89%E5%BE%88%E7%90%86%E8%A7%A3%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">线程池常用的阻塞队列（没有很理解）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5"><span class="toc-number">7.</span> <span class="toc-text">线程池的拒绝策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%85%B3%E9%97%AD"><span class="toc-number">8.</span> <span class="toc-text">线程池的执行任务和关闭</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">83</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">synchronized深入理解</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-15</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.7k</span><span class="post-meta__separator">|</span><span>阅读时长: 8 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>线程池相关</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="什么是线程池？"><a href="#什么是线程池？" class="headerlink" title="什么是线程池？"></a><strong>什么是线程池？</strong></h2><p>线程池是一种多线程处理形式，处理过程中将任务提交到线程池，任务的执行交由线程池来管理。</p>
+<p>假如我们要处理多线程的任务，如果每个请求都创建一个线程去处理，然后执行完任务后要销毁线程，我们可以使用线程池减少创建和销毁线程的次数，提高服务器的性能</p>
+<h2 id="为什么要使用线程池？"><a href="#为什么要使用线程池？" class="headerlink" title="为什么要使用线程池？"></a><strong>为什么要使用线程池？</strong></h2><p>创建线程和销毁线程的花销是比较大的，这些时间有可能比处理业务的时间还要长。这样频繁的创建线程和销毁线程太耗费性能，于是我们可以使用线程池技术把创建和销毁的线程的过程去掉，直接从线程池中取出线程</p>
+<h2 id="线程池有什么作用？"><a href="#线程池有什么作用？" class="headerlink" title="线程池有什么作用？"></a><strong>线程池有什么作用？</strong></h2><p>线程池作用就是限制系统中执行线程的数量。</p>
+<p>1、提高效率 创建好一定数量的线程放在池中，等需要使用的时候就从池中拿一个，这要比需要的时候创建一个线程对象要快的多。</p>
+<p>2、方便管理 可以编写线程池管理代码对池中的线程同一进行管理，比如说启动时有该程序创建100个线程，每当有请求的时候，就分配一个线程去工作，如果刚好并发有101个请求，那多出的这一个请求可以排队等候，避免因无休止的创建线程导致系统崩溃。</p>
+<h2 id="说说几种常见的线程池及使用场景"><a href="#说说几种常见的线程池及使用场景" class="headerlink" title="说说几种常见的线程池及使用场景"></a><strong>说说几种常见的线程池及使用场景</strong></h2><p><strong>java.util.concurrent.Executors类为我们提供了创建线程池的简便方法。</strong></p>
+<p>使用Executors可以创建我们常用的四种线程池：</p>
+<p>（1）newCachedThreadPool 创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。不设上限，提交的任务将立即执行。</p>
+<p>（2）newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</p>
+<p>（3）newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行。</p>
+<p>（4）newSingleThreadExecutor 创建一个单线程化的线程池执行任务。</p>
+<blockquote>
+<p>这几种线程池的源码都调用了ThreadPoolExecutor的构造函数</p>
+</blockquote>
+<p><strong>Executors的坏处</strong></p>
+<p>正常来说，我们<strong>不应该使用这种方式创建线程池</strong>，应该使用<strong>ThreadPoolExecutor</strong>来创建线程池。Executors创建的线程池也是调用的ThreadPoolExcutor的构造函数。通过源码可以看出：</p>
+<p><img src="/images/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9B%B8%E5%85%B3/image-20211015164333196.png" alt="newFixedThreadPool"></p>
+<p>我们也看到了这里面的LinkedBlockingQueue并没有指定队列的大小，是一个无界队列，是可以不断的向队列中加入任务的，这种情况下就有可能因为任务过多而导致OOM。所以我们一般要使用ThreadPoolExecutor这种方式来创建线程池。</p>
+<p><strong>创建线程池的正确姿势：</strong></p>
+<p>避免使用Executors创建线程池，主要是避免使用其中的默认实现，那么我们可以自己直接调用ThreadPoolExecutor的构造函数来自己创建线程池。在创建的同时，给BlockQueue指定容量就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> ExecutorService executor = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">10</span>, <span class="number">10</span>,</span><br><span class="line">        <span class="number">60L</span>, TimeUnit.SECONDS,</span><br><span class="line">        <span class="keyword">new</span> ArrayBlockingQueue(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+
+<p>或者是使用开源类库：开源类库，如apache和guava等。</p>
+<p><strong>五种线程池的使用场景</strong></p>
+<p>newSingleThreadExecutor：一个单线程的线程池，可以用于需要保证顺序执行的场景，并且只有一个线程在执行。</p>
+<p>newFixedThreadPool：一个固定大小的线程池，可以用于已知并发压力的情况下，对线程数做限制。</p>
+<p>newCachedThreadPool：一个可以无限扩大的线程池，比较适合处理执行时间比较小的任务。</p>
+<p>newScheduledThreadPool：可以延时启动，定时启动的线程池，适用于需要多个后台线程执行周期任务的场景。</p>
+<h2 id="线程池中的几种重要的参数"><a href="#线程池中的几种重要的参数" class="headerlink" title="线程池中的几种重要的参数"></a><strong>线程池中的几种重要的参数</strong></h2><p><strong>ThreadPoolExecutors构造函数中7个重要的参数：</strong></p>
+<ul>
+<li><p>corePoolSize就是线程池中的核心线程数量，即使这些线程处理空闲状态，他们也不会被销毁</p>
+</li>
+<li><p>maximumPoolSize就是线程池中可以容纳的最大线程的数量</p>
+</li>
+<li><p>keepAliveTime，非核心线程可以保留的最长的空闲时间，就是线程池中除了核心线程之外的线程在空闲状态下最长能存活的时间，超过这个时间就会被销毁</p>
+</li>
+<li><p>util，表示最长存活时间的单位。</p>
+</li>
+<li><p>workQueue，就是等待队列，当核心线程数满了后其他请求就储存在任务队列中，等待被执行，按照FIFIO原则（先进先出）。</p>
+</li>
+<li><p>threadFactory，就是创建线程的线程工厂。</p>
+</li>
+<li><p>handler,是一种拒绝策略，当线程池中线程数量满了后，拒绝执行某些任务。</p>
+</li>
+</ul>
+<p><strong>线程池提交任务时的执行流程：</strong></p>
+<p>当我们创建好线程池后，要向线程池提交任务时：</p>
+<p>会首先判断线程池中的线程数是否大于设置的核心线程数，如果不大于，就创建一个核心线程来执行任务。</p>
+<p>如果大于核心线程数，就会判断缓冲队列是否满了，如果没有满，则放入队列，等待线程空闲时执行任务。</p>
+<p>如果队列已经满了，则判断是否达到了线程池设置的最大线程数，如果没有达到，就创建新线程来执行任务。</p>
+<p>如果已经达到了最大线程数，则执行指定的拒绝策略。</p>
+<p><strong>所以，任务提交时，判断的顺序为 corePoolSize –&gt; workQueue –&gt; maximumPoolSize。</strong></p>
+<p><img src="/images/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9B%B8%E5%85%B3/image-20211015180107031.png" alt="线程池提交任务时的执行流程"></p>
+<p>举个例子：corePoolSize为2，maximumPoolSize为6，workQueue大小为5；</p>
+<p><strong>第一步</strong>，任务0、1提交时，创建核心线程并执行<br><strong>第二步</strong>，任务2、3、4、5、6提交时，将其放在工作队列（工作队列能容纳5个线程）<br><strong>第三步</strong>，任务7、8、9、10提交时，创建线程并执行，直到池子满了（工作队列也满了，多一个线程就创建一个新线程，但总线程数不能大于maximumPoolSize）<br><strong>第四步</strong>，任务11、12、13、14、15被拒绝策略拒绝（什么时候被拒绝策略拒绝呢？当请求线程数&gt;工作队列容量+ maximumPoolSize时）<br><strong>第五步</strong>，执行缓存队列中的任务2、3、4、5、6</p>
+<h2 id="线程池常用的阻塞队列（没有很理解）"><a href="#线程池常用的阻塞队列（没有很理解）" class="headerlink" title="线程池常用的阻塞队列（没有很理解）"></a>线程池常用的阻塞队列（没有很理解）</h2><ol>
+<li><p><strong>LinkedBlockingQueue</strong></p>
+<p>LinkedBlockingQueue，它的容量是 Integer.MAX_VALUE，为 2^31 -1 ，是一个非常大的值，可以认为是无界队列。</p>
+<p>这里需要注意，FixedThreadPool 和 SingleThreadExecutor 线程池的线程数是固定的，其中maximumPoolSize这个参数是没有用的，因为阻塞队列根本就放不满，所以线程池只会创建核心线程数量的线程</p>
+</li>
+<li><p><strong>SynchronousQueue</strong><br>第二种阻塞队列是 SynchronousQueue，对应的线程池是 CachedThreadPool。线程池 CachedThreadPool 的最大线程数是 Integer 的最大值，可以理解为线程数是可以无限扩展的。CachedThreadPool 和上一种线程池 FixedThreadPool 的情况恰恰相反，FixedThreadPool 的情况是阻塞队列的容量是无限的，而这里 CachedThreadPool 是线程数可以无限扩展，所以 CachedThreadPool 线程池并不需要一个任务队列来存储任务，因为一旦有任务被提交就直接转发给线程或者创建新线程来执行，而不需要另外保存它们。<br>我们自己创建使用 SynchronousQueue 的线程池时，如果不希望任务被拒绝，那么就需要注意设置最大线程数要尽可能大一些，以免发生任务数大于最大线程数时，没办法把任务放到队列中也没有足够线程来执行任务的情况。</p>
+</li>
+<li><p><strong>DelayedWorkQueue</strong><br>第三种阻塞队列是DelayedWorkQueue，它对应的线程池分别是 ScheduledThreadPool 和 SingleThreadScheduledExecutor，这两种线程池的最大特点就是可以延迟执行任务，比如说一定时间后执行任务或是每隔一定的时间执行一次任务。DelayedWorkQueue 的特点是内部元素并不是按照放入的时间排序，而是会按照延迟的时间长短对任务进行排序，内部采用的是“堆”的数据结构。之所以线程池 ScheduledThreadPool 和 SingleThreadScheduledExecutor 选择 DelayedWorkQueue，是因为它们本身正是基于时间执行任务的，而延迟队列正好可以把任务按时间进行排序，方便任务的执行。</p>
+</li>
+</ol>
+<p>下面是四种线程池对应的阻塞队列：</p>
+<p><img src="/images/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9B%B8%E5%85%B3/image-20211015181738391.png" alt="image-20211015181738391"></p>
+<h2 id="线程池的拒绝策略"><a href="#线程池的拒绝策略" class="headerlink" title="线程池的拒绝策略"></a><strong>线程池的拒绝策略</strong></h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当线程池中最大线程数满了后，我们需要采取拒绝策略。</span><br><span class="line">在ThreadPoolExecutor中已经包含四种处理策略，默认为AbortPolicy策略，即丢弃任务并抛出异常。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>AbortPolicy策略：丢弃任务并抛出RejectedExecutionException异常。</p>
+</li>
+<li><p>DiscardPolicy策略：丢弃任务，但是不抛出异常。</p>
+</li>
+<li><p>DiscardOlddestPolicy策略： 该策略将丢弃最老的一个请求，也就是工作队列中最前面的一个请求，并再次提交当前任务。</p>
+</li>
+<li><p>CallerRunsPolicy 策略：如果线程池未关闭，由调用线程（即提交任务的线程）执行此该请求</p>
+</li>
+</ul>
+<p><strong>自定义拒绝策略</strong>：除了JDK默认提供的四种拒绝策略，我们可以根据自己的业务需求去自定义拒绝策略，只需实现RejectedExecutionHandler接口即可。</p>
+<h2 id="线程池的执行任务和关闭"><a href="#线程池的执行任务和关闭" class="headerlink" title="线程池的执行任务和关闭"></a>线程池的执行任务和关闭</h2><p><strong>execute和submit用来执行线程池中的任务</strong></p>
+<ul>
+<li>execute（）方法用于不需要提交返回值的任务</li>
+<li>submit（）方法用于需要提交返回值的任务。</li>
+</ul>
+<p><strong>线程池的关闭</strong></p>
+<p>关闭线程池可以调用shutdownNow和shutdown两个方法来实现</p>
+<ul>
+<li><p>shutdownNow（）方法的解释是：线程池拒接收新提交的任务，同时立马关闭线程池，线程池里的任务不再执行。</p>
+</li>
+<li><p>shutdown（）方法的解释是：线程池拒接收新提交的任务，同时等待线程池里的任务执行完毕后关闭线程池。</p>
+</li>
+</ul>
+<p><strong>初始化线程池时线程数的选择</strong></p>
+<p>如果任务是IO密集型，一般线程数需要设置2倍CPU数以上，以此来尽量利用CPU资源。</p>
+<p>如果任务是CPU密集型，一般线程数量只需要设置CPU数加1即可，更多的线程数也只能增加上下文切换，不能增加CPU利用率。</p>
+<p>上述只是一个基本思想，如果真的需要精确的控制，还是需要上线以后观察线程池中线程数量跟队列的情况来定。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/15/java线程池相关/">http://example.com/2021/10/15/java线程池相关/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/10/15/Untitled/"><i class="fa fa-chevron-left">  </i><span></span></a></div><div class="next-post pull-right"><a href="/2021/10/13/synchronized%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/"><span>synchronized深入理解</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '52a38b388c08f769c0fe',
+  clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
+  repo: 'jiubukaiji.github.io',
+  owner: 'jiubukaiji',
+  admin: 'jiubukaiji',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By pb</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

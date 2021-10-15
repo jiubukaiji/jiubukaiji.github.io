@@ -9,7 +9,7 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E5%92%8C%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">线程安全问题和线程同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized%E7%94%A8%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">synchronized用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8JVM%E4%B8%ADjava%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">在JVM中java对象的构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">synchronized底层原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK6%E5%90%8E%E5%AF%B9synchronized%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">5.</span> <span class="toc-text">JDK6后对synchronized的优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#volatile"><span class="toc-number">6.</span> <span class="toc-text">volatile</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">81</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">synchronized深入理解</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-13</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">599</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E5%92%8C%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">线程安全问题和线程同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized%E7%94%A8%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">synchronized用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E5%AF%B9%E8%B1%A1%E5%9C%A8JVM%E4%B8%AD%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">java对象在JVM中的构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">synchronized底层原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MarkWord%E4%B8%AD%E8%AE%B0%E5%BD%95%E4%BA%86%E5%AF%B9%E8%B1%A1%E4%B8%AD%E9%94%81%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="toc-number">4.1.</span> <span class="toc-text">MarkWord中记录了对象中锁相关信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81%E7%9A%84%E5%BA%95%E9%83%A8%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%9AMonitor"><span class="toc-number">4.2.</span> <span class="toc-text">重量级锁的底部实现原理：Monitor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E5%92%8C%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">JVM指令分析同步代码块和同步方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK6%E5%90%8E%E5%AF%B9synchronized%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88%E8%BF%98%E6%9C%89%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%89%BE%E6%97%B6%E9%97%B4%E7%9C%8B%E7%9C%8B%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">JDK6后对synchronized的优化（还有一篇文章找时间看看）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-number">5.1.</span> <span class="toc-text">为什么要优化？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E6%97%8B%E9%94%81"><span class="toc-number">5.2.</span> <span class="toc-text">自旋锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E5%BA%94%E8%87%AA%E6%97%8B%E9%94%81"><span class="toc-number">5.3.</span> <span class="toc-text">适应自旋锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E6%B6%88%E9%99%A4"><span class="toc-number">5.4.</span> <span class="toc-text">锁消除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E7%B2%97%E5%8C%96"><span class="toc-number">5.5.</span> <span class="toc-text">锁粗化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%8F%E5%90%91%E9%94%81"><span class="toc-number">5.6.</span> <span class="toc-text">偏向锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81%EF%BC%88%E6%9C%89%E7%82%B9%E6%B2%A1%E5%BC%84%E6%87%82%E5%92%8C%E5%81%8F%E5%90%91%E9%94%81%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%89"><span class="toc-number">5.7.</span> <span class="toc-text">轻量级锁（有点没弄懂和偏向锁的关系）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81"><span class="toc-number">5.8.</span> <span class="toc-text">重量级锁</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">83</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">synchronized深入理解</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-13</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">4.3k</span><span class="post-meta__separator">|</span><span>阅读时长: 13 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>synchronized </p>
 </blockquote>
 <a id="more"></a>
@@ -22,26 +22,129 @@
 </ul>
 <p><strong>具体用法：</strong></p>
 <ul>
-<li>修饰实例方法和静态方法</li>
+<li>修饰实例方法</li>
+<li>修饰静态方法</li>
 <li>修饰代码块</li>
 </ul>
-<h2 id="在JVM中java对象的构成"><a href="#在JVM中java对象的构成" class="headerlink" title="在JVM中java对象的构成"></a>在JVM中java对象的构成</h2><h2 id="synchronized底层原理"><a href="#synchronized底层原理" class="headerlink" title="synchronized底层原理"></a>synchronized底层原理</h2><p>synchronized可重入性：</p>
+<p>具体如下：</p>
+<ul>
+<li>对于普通同步方法，锁是当前<strong>实例对象。</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">methodOne</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>对于静态同步方法，锁是当前<strong>类的Class对象。</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">methodOne</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li> 对于同步方法块，锁是<strong>synchonized括号里配置的对象。</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodThree</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 对当前实例对象this加锁</span></span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodFour</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 对class对象加锁</span></span><br><span class="line">        <span class="keyword">synchronized</span> (SynchronizedDemo.class) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>synchronized修饰方法和修饰代码块的区别？</strong></p>
+<p>主要是锁不同：</p>
+<ul>
+<li><p>修饰方法时，对于静态方法，是把 class 作为锁；对于非静态方法，是把 this 对象当做锁；</p>
+</li>
+<li><p>修饰代码块时，是把任何对象作为锁，如果锁对象为空，会抛出 NullPointerException，但是修饰方法不会；</p>
+</li>
+<li><p>在锁的作用区域上，修饰方法时是整个方法体；而修饰代码块时只有对应的代码块。修饰代码块更加灵活让细粒度更小</p>
+</li>
+</ul>
+<h2 id="java对象在JVM中的构成"><a href="#java对象在JVM中的构成" class="headerlink" title="java对象在JVM中的构成"></a>java对象在JVM中的构成</h2><p>在JVM中，java对象由三部分构成：对象头、实例数据和对齐填充。如下图所示：</p>
+<p><img src="/images/synchronized%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/SouthEast.png" alt="这里写图片描述"></p>
+<p><strong>对象头：</strong></p>
+<p>HotSpot虚拟机的对象头包括两部分信息：</p>
+<ol>
+<li>Mark Word<br>会记录对象和锁的有关信息，比如：存储对象的hashCode、分代年龄和锁标记位，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32bit和64bit。</li>
+<li>klass 指针<br>它是一个指向类的数据指针，虚拟机通过这个指针来确定这个对象是哪个类的实例.</li>
+<li>数组长度（只有数组对象有）<br>如果对象是一个数组, 那在对象头中还必须有一块数据用于记录数组长度.</li>
+</ol>
+<p><strong>实例数据：</strong>对象真正存储的有效信息，比如我们在java代码中定义对象一些属性值</p>
+<p><strong>对齐填充：</strong>对齐填充并不是必然存在的，相当于是占位符的作用，JVM要求对象的大小必须是8字节的整数倍。而对象头这部分正好是8字节的倍数（1倍或者2倍），因此，当对象实例数据部分没有对齐时，就需要通过对齐填充来补全。</p>
+<h2 id="synchronized底层原理"><a href="#synchronized底层原理" class="headerlink" title="synchronized底层原理"></a>synchronized底层原理</h2><h3 id="MarkWord中记录了对象中锁相关信息"><a href="#MarkWord中记录了对象中锁相关信息" class="headerlink" title="MarkWord中记录了对象中锁相关信息"></a>MarkWord中记录了对象中锁相关信息</h3><p>在jdk1.6之前，synchronized被称为<strong>重量锁</strong>，在jdk1.6中，为了减少获得锁和释放锁带来的性能开销，引入了<strong>偏向锁和轻量级锁</strong>。</p>
+<p>前面介绍了java对象的构成，我们重点关注对象头中的MarkWord，它记录了锁相关的信息。</p>
+<p>在程序运行期间，MarkWord中存储的数据会随着锁标志位的变化而变化，在64位虚拟机中，不同状态下的组成如下：</p>
+<img src="/images/synchronized%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/image-20211014220803850.png" alt="image-20211014220803850" style="zoom:80%;" />
+
+<p>其中线程ID表示持有偏向锁线程的ID，Epoch表示偏向锁的时间戳，偏向锁和轻量级锁是在jdk1.6中引入的。</p>
+<h3 id="重量级锁的底部实现原理：Monitor"><a href="#重量级锁的底部实现原理：Monitor" class="headerlink" title="重量级锁的底部实现原理：Monitor"></a>重量级锁的底部实现原理：Monitor</h3><p><strong>synchronized底层原理 = java对象头markword + 操作系统对象monitor：</strong></p>
+<p>在jdk1.6之前，synchronized只能实现重量级锁，Java虚拟机是基于<strong>Monitor对象</strong>来实现重量级锁的，<strong>每个锁都关联一个Monitor对象</strong>，在Hotspot虚拟机中，Monitor是由ObjectMonitor实现的，其源码用C++语言编写的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//部分重要的属性</span></span><br><span class="line">ObjectMonitor() &#123;</span><br><span class="line">    _count        = <span class="number">0</span>;  <span class="comment">//锁计数器</span></span><br><span class="line">    _recursions   = <span class="number">0</span>;  <span class="comment">//锁的重入次数</span></span><br><span class="line">    _owner        = <span class="literal">NULL</span>; <span class="comment">//指向拥有该Monitor的线程地址，即哪个线程拥有Monitor</span></span><br><span class="line">    _WaitSet      = <span class="literal">NULL</span>; <span class="comment">//处于wait状态的线程，会被加入到_WaitSet</span></span><br><span class="line">    _EntryList    = <span class="literal">NULL</span> ; <span class="comment">//处于等待锁block状态的线程，会被加入到该列表</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/synchronized%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNzY0NDY4,size_16,color_FFFFFF,t_70.png" alt="在这里插入图片描述"></p>
+<p><strong>获取Monitor和释放Monitor的流程如下：</strong></p>
+<p>关键字：WaitSet、Owner、EntryList阻塞队列</p>
+<p>我们把synchronized代码中的代码称为临界区代码。</p>
+<ul>
+<li>当多个线程访问同步代码块时，线程t1要执行临界区的代码时，首先会通过synchronized括号中的obj对象的markword指向一个monitor锁对象</li>
+<li>当Thread-1线程持有monitor对象后，就会把monitor中的owner变量设置为当前线程Thread-1，同时count+1，recursions+1</li>
+<li>当另一个线程Thread-2想要执行临界区的代码时，要判断monitor对象的属性Owner是否为null，如果为null，Thread-2线程就获得了锁，可以执行临界区的代码；如果不为null，Thread-2线程就会放入monitor的EntryList阻塞队列中，并处于阻塞状态Blocked。</li>
+<li>当获取锁的线程调用wait（）方法时，则会将owner设置为null，同时count减1，recursions减1，当前线程加入到WaitSet中，等待被唤醒。</li>
+<li>当前线程执行完同步代码块时，会释放monitor(锁)并将owner置为null，同时count-1，recursions-1，当recursions = 0 时，说明当前线程已经释放完了锁，这时会通知EntryList阻塞队列中的线程，唤醒里面阻塞的线程。</li>
+</ul>
+<h3 id="JVM指令分析同步代码块和同步方法"><a href="#JVM指令分析同步代码块和同步方法" class="headerlink" title="JVM指令分析同步代码块和同步方法"></a><strong>JVM指令分析同步代码块和同步方法</strong></h3><p><strong>JVM是如何实现同步代码块和同步方法的呢？</strong></p>
+<p>Java虚拟机是通过获取和释放Monitor对象来实现代码块同步和方法同步的</p>
+<p>同步代码块是通过monitorenter（获取锁）和monitorexit（释放锁）指令来实现的；</p>
+<p>而同步方法是通过ACC_SYNCHRONIZED标识符来隐式的调用monitorenter（获取锁）和monitorexit（释放锁）来实现的。</p>
 <p>synchronized是可重入锁，内部锁对象中会有一个计数器记录线程获取几次锁啦，在执行完同步代码块时，计数器的数量会1，知道计数器的数量为0，就释放这个锁。</p>
 <p>synchronized不可中断性：</p>
 <p>一个线程获得锁后，另一个线程想要获得锁，必须处于阻塞或等待状态，如果第一个线程不释放锁，第二个线程会—直阻塞或等待，不可被中断。</p>
-<p><strong>synchronized反汇编文件分析</strong>：</p>
-<p>monitorenter：</p>
-<p>monitorexit：</p>
-<p>同步代码块发生异常时会自动释放锁</p>
-<p>同步方法在反汇编后，会增加ACC-SYNCHRONIZED修饰。会隐式调用monitorenter和monitorexit，在执行同步方法前会调用monitorenter，在执行完同步方法后会调用monitorexit</p>
-<p><strong>总结</strong>：通过javap反汇编我们看到synchronized使用编程了monitorentor和monitorexit两个指令每个锁对象都会关联一个monitor（监视器，它才是真正的锁对象），它内部有两个重要的成员变量owner会保存获得锁的线程recursions会保存线程获得锁的次数当执行到monitorexit时，recursions会1，当计数器减到0时这个线程就会释放锁</p>
-<p>无锁状态-》偏向锁-》轻量级锁-》重量级锁      自旋锁   锁消除    </p>
-<h2 id="JDK6后对synchronized的优化"><a href="#JDK6后对synchronized的优化" class="headerlink" title="JDK6后对synchronized的优化"></a>JDK6后对synchronized的优化</h2><h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>很多并发编程都使用了volatile关键字，主要的作用包括两点：</p>
+<h2 id="JDK6后对synchronized的优化（还有一篇文章找时间看看）"><a href="#JDK6后对synchronized的优化（还有一篇文章找时间看看）" class="headerlink" title="JDK6后对synchronized的优化（还有一篇文章找时间看看）"></a>JDK6后对synchronized的优化（还有一篇文章找时间看看）</h2><p>看看这篇文章对synchronized几种锁的介绍</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42764468/article/details/106603249">https://blog.csdn.net/qq_42764468/article/details/106603249</a></p>
+<h3 id="为什么要优化？"><a href="#为什么要优化？" class="headerlink" title="为什么要优化？"></a><strong>为什么要优化？</strong></h3><p>因为Java虚拟机是通过获得和释放Monitor对象来实现代码块同步和方法同步的，而这个操作会带来性能消耗</p>
+<p>因此，在JDK1.6中，为了减少获得锁和释放锁带来的性能消耗，对锁的实现进行了大量的优化，如<strong>自旋锁、适应性自旋锁、锁消除、锁粗化、偏向锁、轻量级锁</strong>等技术。锁的状态变成了四种，<strong>无锁——&gt;偏向锁——&gt;轻量级锁——&gt;重量级锁</strong>，锁的状态会随着竞争激烈逐渐升级，并且膨胀方向不可逆的</p>
+<blockquote>
+<p>获得和释放Monitor是依靠底层操作系统的Mutex Lock来实现的，操作系统实现线程之间的切换需要从用户态转换到内核态，这个切换成本比较高，对性能影响较大。</p>
+</blockquote>
+<h3 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h3><p>线程的阻塞和唤醒需要CPU从用户态转为核心态，频繁的阻塞和唤醒对CPU来说是一件负担很重的工作，势必会给系统的并发性能带来很大的压力。同时我们发现在许多应用上面，对象锁的锁状态只会持续很短一段时间，为了这一段很短的时间频繁地阻塞和唤醒线程是非常不值得的。所以引入自旋锁。<br>何谓自旋锁？<br>所谓自旋锁，就是让该线程等待一段时间，不会被立即挂起，看持有锁的线程是否会很快释放锁。怎么等待呢？执行一段无意义的循环即可（自旋）。<br>自旋等待不能替代阻塞，先不说对处理器数量的要求（多核，貌似现在没有单核的处理器了），虽然它可以避免线程切换带来的开销，但是它占用了处理器的时间。如果持有锁的线程很快就释放了锁，那么自旋的效率就非常好，反之，自旋的线程就会白白消耗掉处理的资源，它不会做任何有意义的工作，典型的占着茅坑不拉屎，这样反而会带来性能上的浪费。所以说，自旋等待的时间（自旋的次数）必须要有一个限度，如果自旋超过了定义的时间仍然没有获取到锁，则应该被挂起。<br>自旋锁在JDK 1.4.2中引入，默认关闭，但是可以使用-XX:+UseSpinning开开启，在JDK1.6中默认开启。同时自旋的默认次数为10次，可以通过参数-XX:PreBlockSpin来调整；<br>如果通过参数-XX:preBlockSpin来调整自旋锁的自旋次数，会带来诸多不便。假如我将参数调整为10，但是系统很多线程都是等你刚刚退出的时候就释放了锁（假如你多自旋一两次就可以获取锁），你是不是很尴尬。于是JDK1.6引入自适应的自旋锁，让虚拟机会变得越来越聪明。</p>
+<h3 id="适应自旋锁"><a href="#适应自旋锁" class="headerlink" title="适应自旋锁"></a>适应自旋锁</h3><p>JDK 1.6引入了更加聪明的自旋锁，即自适应自旋锁。所谓自适应就意味着自旋的次数不再是固定的，它是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定。它怎么做呢？线程如果自旋成功了，那么下次自旋的次数会更加多，因为虚拟机认为既然上次成功了，那么此次自旋也很有可能会再次成功，那么它就会允许自旋等待持续的次数更多。反之，如果对于某个锁，很少有自旋能够成功的，那么在以后要或者这个锁的时候自旋的次数会减少甚至省略掉自旋过程，以免浪费处理器资源。<br>有了自适应自旋锁，随着程序运行和性能监控信息的不断完善，虚拟机对程序锁的状况预测会越来越准确，虚拟机会变得越来越聪明。</p>
+<h3 id="锁消除"><a href="#锁消除" class="headerlink" title="锁消除"></a>锁消除</h3><p>为了保证数据的完整性，我们在进行操作时需要对这部分操作进行同步控制，但是在有些情况下，JVM检测到不可能存在共享数据竞争，这是JVM会对这些同步锁进行锁消除。锁消除的依据是逃逸分析的数据支持。<br>如果不存在竞争，为什么还需要加锁呢？所以锁消除可以节省毫无意义的请求锁的时间。变量是否逃逸，对于虚拟机来说需要使用数据流分析来确定，但是对于我们程序员来说这还不清楚么？我们会在明明知道不存在数据竞争的代码块前加上同步吗？但是有时候程序并不是我们所想的那样？我们虽然没有显示使用锁，但是我们在使用一些JDK的内置API时，如StringBuffer、Vector、HashTable等，这个时候会存在隐形的加锁操作。比如StringBuffer的append()方法，Vector的add()方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> public void vectorTest()&#123;</span><br><span class="line">        Vector&lt;String&gt; vector &#x3D; new Vector&lt;String&gt;();</span><br><span class="line">        for(int i &#x3D; 0 ; i &lt; 10 ; i++)&#123;</span><br><span class="line">            vector.add(i + &quot;&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(vector);</span><br><span class="line">    &#125;</span><br><span class="line">12345678</span><br></pre></td></tr></table></figure>
+
+<h3 id="锁粗化"><a href="#锁粗化" class="headerlink" title="锁粗化"></a>锁粗化</h3><p>我们知道在使用同步锁的时候，需要让同步块的作用范围尽可能小—仅在共享数据的实际作用域中才进行同步，这样做的目的是为了使需要同步的操作数量尽可能缩小，如果存在锁竞争，那么等待锁的线程也能尽快拿到锁。<br>在大多数的情况下，上述观点是正确的，LZ也一直坚持着这个观点。但是如果一系列的连续加锁解锁操作，可能会导致不必要的性能损耗，所以引入锁粗话的概念。<br>锁粗话概念比较好理解，就是将多个连续的加锁、解锁操作连接在一起，扩展成一个范围更大的锁。如上面实例：vector每次add的时候都需要加锁操作，JVM检测到对同一个对象（vector）连续加锁、解锁操作，会合并一个更大范围的加锁、解锁操作，即加锁解锁操作会移到for循环之外。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(string[] args)</span> </span>&#123;</span><br><span class="line">	stringBuffer sb = <span class="keyword">new</span> stringBuffer(); </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i= <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">		sb. append (<span class="string">&quot;aa&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	system. out. println(sb. tostring());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>什么是 粗化？JVM会探测到一连串细小的操作都使用同一个对象加锁，将同步代码块的范围放大，放到这串操作的外面，这样只需要加一次锁即可。</p>
+<h3 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h3><p><strong>背景：</strong></p>
+<p>在大多数情况下，锁不仅不存在多线程竞争，而且总是由同一线程多次获得，为了让线程获得锁的代价更低，引进了偏向锁。</p>
+<p><strong>概述：</strong></p>
+<p>偏向锁会在对象头MrkWord中存储锁偏向的线程ID，以后该线程进入和退出同步块时只需要检查锁标志位（01）、是否为偏向锁（1代表是偏向锁）、以及 ThreadID（代表锁偏向的线程）,就不用反复获取锁释放锁。</p>
+<p>适用于只<strong>有一个线程</strong>执行同步块时反复获得同一把锁，没有多线程竞争的情况。</p>
+<p><strong>过程：</strong></p>
+<p><strong>获取锁</strong></p>
 <ol>
-<li><strong>保证线程间变量的可见性。</strong></li>
-<li><strong>禁止CPU进行指令重排序。</strong></li>
+<li>检测Mark Word是否为可偏向状态，即是否为偏向锁1，锁标识位为01；</li>
+<li>若为可偏向状态，则测试线程ID是否为当前线程ID，如果是，则执行步骤（5），否则执行步骤（3）；</li>
+<li>如果线程ID不为当前线程ID，则通过CAS操作竞争锁，竞争成功，则将Mark Word的线程ID替换为当前线程ID，否则执行线程（4）；</li>
+<li>通过CAS竞争锁失败，证明当前存在多线程竞争情况，当到达全局安全点，获得偏向锁的线程被挂起，偏向锁升级为轻量级锁，然后被阻塞在安全点的线程继续往下执行同步代码块；</li>
+<li>执行同步代码块</li>
 </ol>
-</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/13/synchronized深入理解/">http://example.com/2021/10/13/synchronized深入理解/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="next-post pull-right"><a href="/2021/10/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span>学习SpringBoot疑惑记录</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+<p><strong>释放锁</strong><br>偏向锁的释放采用了一种只有竞争才会释放锁的机制，<strong>线程是不会主动去释放偏向锁</strong>，需要等待其他线程来竞争。偏向锁的撤销需要等待全局安全点（这个时间点是上没有正在执行的代码）。其步骤如下：</p>
+<ol>
+<li>暂停拥有偏向锁的线程，判断锁对象石是否还处于被锁定状态；</li>
+<li>撤销偏向锁，恢复到无锁状态（01）或者轻量级锁的状态；</li>
+</ol>
+<p><img src="/images/synchronized%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/image-20211015104403000.png" alt="64位markword"></p>
+<h3 id="轻量级锁（有点没弄懂和偏向锁的关系）"><a href="#轻量级锁（有点没弄懂和偏向锁的关系）" class="headerlink" title="轻量级锁（有点没弄懂和偏向锁的关系）"></a>轻量级锁（有点没弄懂和偏向锁的关系）</h3><p><strong>获取锁</strong></p>
+<ol>
+<li>判断当前对象是否处于无锁状态（hashcode、0、01），若是，则JVM首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝（官方把这份拷贝加了一个Displaced前缀，即Displaced Mark Word）；否则执行步骤（3）；</li>
+<li>JVM利用CAS操作尝试将对象的Mark Word更新为指向Lock Record的指正，如果成功表示竞争到锁，则将锁标志位变成00（表示此对象处于轻量级锁状态），执行同步操作；如果失败则执行步骤（3）；</li>
+<li>判断当前对象的Mark Word是否指向当前线程的栈帧，如果是则表示当前线程已经持有当前对象的锁，则直接执行同步代码块；否则只能说明该锁对象已经被其他线程抢占了，这时轻量级锁需要膨胀为重量级锁，锁标志位变成10，后面等待的线程将会进入阻塞状态；</li>
+</ol>
+<p><strong>释放锁</strong><br>轻量级锁的释放也是通过CAS操作来进行的，主要步骤如下：</p>
+<ol>
+<li>取出在获取轻量级锁保存在Displaced Mark Word中的数据；</li>
+<li>用CAS操作将取出的数据替换当前对象的Mark Word中，如果成功，则说明释放锁成功，否则执行（3）；</li>
+<li>如果CAS操作替换失败，说明有其他线程尝试获取该锁，则需要在释放锁的同时需要唤醒被挂起的线程。</li>
+</ol>
+<h3 id="重量级锁"><a href="#重量级锁" class="headerlink" title="重量级锁"></a>重量级锁</h3><p>见前面</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/13/synchronized深入理解/">http://example.com/2021/10/13/synchronized深入理解/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/10/15/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9B%B8%E5%85%B3/"><i class="fa fa-chevron-left">  </i><span>synchronized深入理解</span></a></div><div class="next-post pull-right"><a href="/2021/10/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span>学习SpringBoot疑惑记录</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
   clientID: '52a38b388c08f769c0fe',
   clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
   repo: 'jiubukaiji.github.io',
