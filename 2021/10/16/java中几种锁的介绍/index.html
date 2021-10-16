@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="java中几种锁的介绍"><meta name="keywords" content=""><meta name="author" content="pb"><meta name="copyright" content="pb"><title>java中几种锁的介绍 | pb</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.2.0'
+} </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81"><span class="toc-number">1.</span> <span class="toc-text">乐观锁和悲观锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E9%94%81%E5%92%8C%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="toc-number">2.</span> <span class="toc-text">公平锁和非公平锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81%E5%92%8C%E9%9D%9E%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-number">3.</span> <span class="toc-text">可重入锁和非重入锁</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">86</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">java中几种锁的介绍</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-16</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.3k</span><span class="post-meta__separator">|</span><span>阅读时长: 4 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>java中一些锁的介绍</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="乐观锁和悲观锁"><a href="#乐观锁和悲观锁" class="headerlink" title="乐观锁和悲观锁"></a>乐观锁和悲观锁</h2><p><strong>悲观锁</strong>：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样当第二个线程想拿这个数据的时候，第二个线程会一直堵塞，直到第一个释放锁，他拿到锁后才可以访问。传统的数据库里面就用到了这种锁机制，例如：行锁，表锁，读锁，写锁，都是在操作前先上锁。<strong>java中的synchronized的实现也是一种悲观锁。</strong></p>
+<p><strong>乐观锁</strong>：乐观锁概念为，每次拿数据的时候都认为别的线程不会修改这个数据，所以不会上锁，但是在更新的时候会判断一下在此期间别的线程有没有修改过数据，乐观锁适用于读操作多的场景，这样可以提高程序的吞吐量。在Java中java.util.concurrent.<strong>atomic包下面的Atomic操作类就是使用了乐观锁</strong>，<strong>而Atomic操作类的底层正是用到了“CAS机制”。</strong></p>
+<p>采用悲观锁的一些问题（采用synchronized的一些问题）：</p>
+<ul>
+<li>在多线程竞争下，多次加锁释放锁会造成性能损耗</li>
+<li>如果一个线程持有锁，其他的线程就都会阻塞，等待持有锁的线程释放锁。</li>
+</ul>
+<p>对比于悲观锁的这些问题，另一个更加有效的锁就是乐观锁。</p>
+<p>乐观锁就是：每次不加锁而是假设没有并发冲突去操作同一变量，如果有并发冲突导致失败，则重试直至成功。</p>
+<p>主要就是两个步骤：<strong>冲突检测和数据更新</strong>。其实现方式有一种比较典型的就是 Compare and Swap ( CAS )。</p>
+<h2 id="公平锁和非公平锁"><a href="#公平锁和非公平锁" class="headerlink" title="公平锁和非公平锁"></a>公平锁和非公平锁</h2><p><strong>公平锁</strong>：多个线程按照申请锁的顺序去获得锁，线程会直接进入队列去排队，先来后到。</p>
+<ul>
+<li>优点：所有的线程都能得到资源，不会饿死在队列中。</li>
+<li>缺点：吞吐量会下降很多，队列里面除了第一个线程，其他的线程都会阻塞，cpu唤醒阻塞线程的开销会很大。</li>
+</ul>
+<p><strong>非公平锁</strong>：多个线程去获取锁的时候，会直接去尝试获取，获取不到，再去进入等待队列，如果能获取到，就直接获取到锁。</p>
+<ul>
+<li>优点：可以减少CPU唤醒线程的开销，整体的吞吐效率会高点，CPU也不必取唤醒所有线程，会减少唤起线程的数量。</li>
+<li>缺点：你们可能也发现了，这样可能导致队列中间的线程一直获取不到锁或者长时间获取不到锁，导致饿死。</li>
+</ul>
+<p>简单来说就是：</p>
+<p><strong>公平锁</strong> ：是指多个线程按照申请锁的顺序来获取锁，类回排队打饭先来后到。<br><strong>非公平锁</strong> ：是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁</p>
+<p><strong>什么是饥饿？</strong></p>
+<p>优先级高的线程能够插队并优先执行，这样如果<strong>优先级高的线程一直抢占优先级低线程的资源，导致低优先级线程无法得到执行，这就是饥饿。</strong>当然还有一种饥饿的情况，一个线程一直占着一个资源不放而导致其他线程得不到执行，与死锁不同的是饥饿在以后一段时间内还是能够得到执行的，如那个占用资源的线程结束了并释放了资源。</p>
+<p>ReentrantLock中就有相关公平锁，非公平锁的实现。默认是非公平锁，如果为设置为true就是公平锁。更深入的需要探寻其中的源码实现原理</p>
+<h2 id="可重入锁和非重入锁"><a href="#可重入锁和非重入锁" class="headerlink" title="可重入锁和非重入锁"></a>可重入锁和非重入锁</h2><p>可重入锁：当前线程获取该锁后再次获取不会被阻塞。</p>
+<p>用一个简单的例子来说明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">setA</span> <span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">    setB();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">setB</span> <span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>比如说A和B都是两个synchronized修饰的方法，在方法A中调用了方法B；有一个线程获取到了锁执行方法A，然后在执行方法B的时候就自动获取锁，去执行方法B；</p>
+<p><strong>可重入锁可以避免线程死锁</strong>：</p>
+<p>假如Synchronized不是可重入锁；那么该线程获取到执行A方法所需要的锁之后开始执行A方法；但是在执行过程中遇到了方法B；由于是不可重入锁；B方法也是被Synchronized关键字修饰；所以执行B方法也需要获取锁；但是此时A方法代码还未执行完成，继续占有锁；B方法就获取不到锁，被阻塞；A方法迟迟执行不完成，所以也就一直不释放锁；因此；就产生了死锁</p>
+<p>synchronized和ReentrantLock都是可重入锁；当然ReentrantLock还可以设置成为公平锁，也就是不可重入锁；</p>
+<p>不可重入锁，即若当前线程执行某个方法已经获取了该锁，那么在方法中尝试再次获取锁时，就会获取不到被阻塞。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/16/java中几种锁的介绍/">http://example.com/2021/10/16/java中几种锁的介绍/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/10/16/ReentrantLock%E4%BB%8B%E7%BB%8D/"><i class="fa fa-chevron-left">  </i><span>ReentrantLock介绍</span></a></div><div class="next-post pull-right"><a href="/2021/10/16/JUC%E5%8C%85%E4%B8%8Batomic%E5%92%8Clocks%E7%9B%B8%E5%85%B3/"><span>JUC包下atomic和locks相关</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '52a38b388c08f769c0fe',
+  clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
+  repo: 'jiubukaiji.github.io',
+  owner: 'jiubukaiji',
+  admin: 'jiubukaiji',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By pb</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
