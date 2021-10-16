@@ -2,7 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2021/10/13/synchronized%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/10/15/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9B%B8%E5%85%B3/</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/10/16/CAS%E5%92%8CAtomic%E7%9B%B8%E5%85%B3/</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/10/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/2021/10/16/ReentrantLock%E4%BB%8B%E7%BB%8D/</loc>
+    
+    <lastmod>2021-10-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/10/15/volatile%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/</loc>
     
     <lastmod>2021-10-16</lastmod>
     
@@ -16,44 +51,9 @@
   </url>
   
   <url>
-    <loc>http://example.com/2021/10/16/JUC%E5%8C%85%E4%B8%8Batomic%E5%92%8Clocks%E7%9B%B8%E5%85%B3/</loc>
-    
-    <lastmod>2021-10-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://example.com/2021/07/30/7-30jvm%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2021-10-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/10/15/volatile%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/</loc>
-    
-    <lastmod>2021-10-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/10/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
-    
-    <lastmod>2021-10-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/10/15/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9B%B8%E5%85%B3/</loc>
-    
-    <lastmod>2021-10-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/10/13/synchronized%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/</loc>
-    
-    <lastmod>2021-10-15</lastmod>
     
   </url>
   
