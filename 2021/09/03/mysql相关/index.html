@@ -9,12 +9,26 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql%E9%87%8C%E9%9D%A2%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">mysql里面的数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql-%E9%87%8C%E9%9D%A2%E6%97%B6%E9%97%B4%E6%98%AF%E6%80%8E%E4%B9%88%E5%AD%98%E5%82%A8%E7%9A%84"><span class="toc-number">2.</span> <span class="toc-text">mysql 里面时间是怎么存储的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">什么是索引？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">索引类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">索引的数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95"><span class="toc-number">6.</span> <span class="toc-text">聚簇索引非聚簇索引</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">86</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">mysql相关</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-09-03</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">647</span><span class="post-meta__separator">|</span><span>阅读时长: 2 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
-<p>mysql一些面试题</p>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E6%9C%89%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">MySQL常用的存储引擎有什么？它们有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql%E9%87%8C%E9%9D%A2%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">mysql里面的数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql-%E9%87%8C%E9%9D%A2%E6%97%B6%E9%97%B4%E6%98%AF%E6%80%8E%E4%B9%88%E5%AD%98%E5%82%A8%E7%9A%84"><span class="toc-number">3.</span> <span class="toc-text">mysql 里面时间是怎么存储的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">什么是索引？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">索引的数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E8%80%8C%E7%94%A8B%E6%A0%91%EF%BC%9F"><span class="toc-number">5.1.</span> <span class="toc-text">为什么不用平衡二叉树而用B树？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8B-%E6%A0%91%E8%80%8C%E4%B8%8D%E6%98%AFB%E6%A0%91%EF%BC%9F"><span class="toc-number">5.2.</span> <span class="toc-text">为什么使用B+树而不是B树？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%EF%BC%885%E7%A7%8D%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">索引类型（5种）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95"><span class="toc-number">7.</span> <span class="toc-text">聚簇索引非聚簇索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%92%8C%E7%B4%A2%E5%BC%95%E8%A6%86%E7%9B%96"><span class="toc-number">8.</span> <span class="toc-text">回表查询和索引覆盖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95-%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-number">9.</span> <span class="toc-text">如何创建索引&#x2F;删除索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-number">10.</span> <span class="toc-text">什么是最左匹配原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8%E8%87%AA%E5%A2%9EID%E4%BD%9C%E4%B8%BA%E4%B8%BB%E9%94%AE%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">为什么建议使用自增ID作为主键？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E7%B4%A2%E5%BC%95%E4%BC%9A%E5%A4%B1%E6%95%88%EF%BC%9F%EF%BC%88%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E7%94%A8%E4%B8%8D%E4%BA%86%E7%B4%A2%E5%BC%95%EF%BC%9F%EF%BC%89"><span class="toc-number">12.</span> <span class="toc-text">什么情况下索引会失效？（什么情况下用不了索引？）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AF%B9%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">如何对索引优化？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%8B%E5%8A%A1%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">什么是数据库的事务？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">事务的四大特性是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%B9%B6%E5%8F%91%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98%EF%BC%884%E4%B8%AA%EF%BC%89"><span class="toc-number">16.</span> <span class="toc-text">数据库的并发一致性问题（4个）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%EF%BC%884%E4%B8%AA%EF%BC%89"><span class="toc-number">17.</span> <span class="toc-text">数据库的隔离级别（4个）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-number">18.</span> <span class="toc-text">数据库的隔离级别是如何实现的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFMVCC%EF%BC%9F"><span class="toc-number">19.</span> <span class="toc-text">什么是MVCC？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVCC%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">19.1.</span> <span class="toc-text">MVCC有什么作用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVCC%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">19.2.</span> <span class="toc-text">MVCC实现原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%94%81%EF%BC%9F"><span class="toc-number">20.</span> <span class="toc-text">什么是数据库的锁？</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">86</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">12</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">mysql相关</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-09-03</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">5k</span><span class="post-meta__separator">|</span><span>阅读时长: 15 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>MySQL是一种开源的关系型数据库，默认端口号是3306</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="mysql里面的数据类型"><a href="#mysql里面的数据类型" class="headerlink" title="mysql里面的数据类型"></a>mysql里面的数据类型</h2><p>主要有三种：<strong>数值</strong>、<strong>时间</strong>和**字符串(字符)**类型。</p>
+<p><strong>Mysql的默认端口号是3306</strong></p>
+<h2 id="MySQL常用的存储引擎有什么？它们有什么区别？"><a href="#MySQL常用的存储引擎有什么？它们有什么区别？" class="headerlink" title="MySQL常用的存储引擎有什么？它们有什么区别？"></a>MySQL常用的存储引擎有什么？它们有什么区别？</h2><p><strong>InnoDB</strong>和<strong>MyISAM</strong>  ，还有一个Memory，但是用到的比较少</p>
+<p>1、InnoDB支持事务，MyISAM不支持，对于InnoDB每一条SQL语言都默认封装成事务，自动提交，这样会影响速度，所以最好把多条SQL语言放在begin和commit之间，组成一个事务； </p>
+<p>2、InnoDB支持外键，而MyISAM不支持。对一个包含外键的InnoDB表转为MYISAM会失败； </p>
+<p>3、InnoDB支持表、行(默认)级锁，而MyISAM只支持表级锁</p>
+<p>4、InnoDB是聚集索引，使用B+Tree作为索引结构，数据文件是和（主键）索引绑在一起的（表数据文件本身就是按B+Tree组织的一个索引结构），必须要有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。</p>
+<p>MyISAM是非聚集索引，也是使用B+Tree作为索引结构，索引和数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。</p>
+<p>5、InnoDB表必须有主键（用户没有指定的话会自己找或生产一个主键），而Myisam可以没有</p>
+<p><strong>如何选择（适用场景）：</strong></p>
+<p>1、是否要支持事务，如果要请选择innodb，如果不需要可以考虑MyISAM；</p>
+<p>2、如果表中绝大多数都只是读查询，可以考虑MyISAM，如果既有读也有写，请使用InnoDB。</p>
+<p>3、系统奔溃后，MyISAM恢复起来更困难，能否接受；</p>
+<p>4、MySQL5.5版本开始Innodb已经成为Mysql的默认引擎(之前是MyISAM)，说明其优势是有目共睹的，如果你不知道用什么，那就用InnoDB，至少不会差。</p>
+<h2 id="mysql里面的数据类型"><a href="#mysql里面的数据类型" class="headerlink" title="mysql里面的数据类型"></a>mysql里面的数据类型</h2><p>主要分为四种：<strong>整数型、浮点数、字符串、时间</strong></p>
+<p>整数型分别占：1、2、3、4、8个字节</p>
 <img src="/images/mysql/image-20210903171114888.png" alt="数据类型"  />
 
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/50891083">https://zhuanlan.zhihu.com/p/50891083</a></p>
@@ -26,6 +40,8 @@
 <p><strong>YEAR(M)</strong> - 以2位或4位数字格式来存储年份。如果长度指定为2(例如YEAR(2))，年份就可以为1970至2069(70〜69)。如果长度指定为4，年份范围是1901-2155，默认长度为4。</p>
 <p><img src="/images/mysql/v2-63be71052bbe166d1d1bfdf63a0dc83a_1440w.jpg"></p>
 <h2 id="什么是索引？"><a href="#什么是索引？" class="headerlink" title="什么是索引？"></a>什么是索引？</h2><p>索引是一种数据结构,可以帮助我们<strong>快速的进行数据的查找.</strong></p>
+<p><strong>优点</strong>：大大加快数据检索的速度。</p>
+<p><strong>缺点</strong>：从空间角度考虑，建立索引需要占用磁盘物理空间<br>            从时间角度考虑，创建和维护索引都需要花费时间，例如对数据进行增删改的时候都需要维护索引。</p>
 <p>拿字典作比方，字典目录的作用是快速定位某一个汉字，而索引的作用是快速定位所需数据</p>
 <p>提出问题：为什么不用二叉搜索树？</p>
 <p>创建索引需要两个条件，这就是：我要给谁–以什么实现方式–创建什么类型的索引</p>
@@ -35,19 +51,148 @@
 <li>类型：就是索引的类型，innoDB中一共支持四种索引类型，分别是普通索引、唯一索引、主键索引、全文索引。</li>
 </ol>
 <p>创建索引的字段：可以是一个字段，也可以是多个字段，在多个字段上使用时需要满足最左匹配原则。</p>
-<h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><ul>
-<li>单值索引</li>
-<li>主键索引</li>
-<li>唯一索引</li>
-<li>复合索引</li>
+<h2 id="索引的数据结构"><a href="#索引的数据结构" class="headerlink" title="索引的数据结构"></a>索引的数据结构</h2><p>我们可以按这样一个思考方式：</p>
+<p>二叉查找树 -》平衡二叉树 -》B树 -》B+树 这样的顺序来讲解。</p>
+<p>平衡二叉树是对二叉查找树的优化，使整棵树更加平衡；</p>
+<p>索引的数据结构主要有B+树和哈希表，默认的InnoDB引擎的索引类型有<strong>B+树索引</strong>和<strong>哈希索引</strong>，默认的索引类型为B+树索引。</p>
+<h3 id="为什么不用平衡二叉树而用B树？"><a href="#为什么不用平衡二叉树而用B树？" class="headerlink" title="为什么不用平衡二叉树而用B树？"></a><strong>为什么不用平衡二叉树而用B树？</strong></h3><p>考虑内存的易失性。我们都会数据库的数据和索引存储在磁盘这种外围设备中。</p>
+<p>但是和内存相比，从磁盘中读取数据的速度会慢上百倍千倍甚至万倍，所以，我们应当尽量减少从磁盘中读取次数。</p>
+<p>另外，从磁盘中读取数据时，并不是一条条数据来读取的，而是按照磁盘块来读取的，<strong>每个磁盘块对应着B树中的一个节点</strong>，也称为一个页，InnoDB 中页的默认大小是 16KB。每个节点拥有很多的子节点，一般我们称子节点的个数为阶，每个节点存储了很多键值（key）和数据（data）。基于以上特性，B 树查找数据读取磁盘的次数将会很少，数据的查找效率也会比平衡二叉树高很多。</p>
+<h3 id="为什么使用B-树而不是B树？"><a href="#为什么使用B-树而不是B树？" class="headerlink" title="为什么使用B+树而不是B树？"></a><strong>为什么使用B+树而不是B树？</strong></h3><p>B+树相当于对B树的进一步优化。B+树的高度一般为2<del>4层，也就是说查找某个键值的行记录时最多需要1</del>3次IO，若树深度为3，只需两次IO，因为根节点的话在内存中读取</p>
+<p>1、B+ 树非叶子节点上是不存储数据的，仅存储键值，而 B 树节点中不仅存储键值，也会存储数据。</p>
+<p>之所以这么做是因为在数据库中页的大小是固定的，InnoDB 中页的默认大小是 16KB。</p>
+<p>如果不存储数据，那么就会存储更多的键值，相应的树的阶数（节点的子节点树）就会更大，树就会更矮更胖，如此一来我们查找数据进行磁盘的 IO 次数又会再次减少，数据查询的效率也会更快。</p>
+<p>2、B+树的叶子节点都是连接在一起的，所以范围查找，顺序查找更加方便</p>
+<p>3、B+树的性能更加稳定，因为在B+树中，每次查询都是从根节点到叶子节点，而在B树中，要查询的值可能不在叶子节点，在内部节点就已经找到。</p>
+<p>那在什么情况适合使用B树呢，因为B树的内部节点也可以存储值，所以可以把一些频繁访问的值放在距离根节点比较近的地方，这样就可以提高查询效率。综上所述，B+树的性能更加适合作为数据库的索引</p>
+<h2 id="索引类型（5种）"><a href="#索引类型（5种）" class="headerlink" title="索引类型（5种）"></a>索引类型（5种）</h2><ul>
+<li>主键索引：不能为NULL，一个表只能有一个主键索引，会在建表时自动创建</li>
+<li>普通（单值）索引：即一个索引只包含单个列，一个表可以有多个单值索引，可以为NULL</li>
+<li>唯一索引：可以为NULL，索引列的值必须唯一的，如果是组合索引，则列值的组合必须唯一。</li>
+<li>联合索引：即一个索引包含多个列</li>
+<li>全文索引：对文本的内容进行搜索。</li>
 </ul>
-<h2 id="索引的数据结构"><a href="#索引的数据结构" class="headerlink" title="索引的数据结构"></a>索引的数据结构</h2><p>索引的数据结构和具体存储引擎的实现有关, 在MySQL中使用较多的索引有<strong>Hash索引,B+树索引</strong>等,而我 们经常使用的<strong>InnoDB存储引擎</strong>的默认索引实现为:B+树索引.</p>
-<h2 id="聚簇索引非聚簇索引"><a href="#聚簇索引非聚簇索引" class="headerlink" title="聚簇索引非聚簇索引"></a>聚簇索引非聚簇索引</h2><p>一些关键词：</p>
-<p>InnoDB、MyISAM</p>
-<p>索引、B+树、聚簇索引、</p>
-<p>事务、并发事务、事务回滚、隔离级别</p>
-<p>mysql锁、锁算法、锁优化、</p>
-</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/09/03/mysql相关/">http://example.com/2021/09/03/mysql相关/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mysql/">mysql</a></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/09/04/%E4%B8%A4%E4%B8%AA%E5%A4%A7%E6%95%B0%E6%B1%82%E5%92%8C/"><i class="fa fa-chevron-left">  </i><span>两个大数求和</span></a></div><div class="next-post pull-right"><a href="/2021/09/01/http%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/"><span>http相关内容</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+<h2 id="聚簇索引非聚簇索引"><a href="#聚簇索引非聚簇索引" class="headerlink" title="聚簇索引非聚簇索引"></a>聚簇索引非聚簇索引</h2><p>聚簇索引和非聚簇索引最主要的区别是<strong>数据和索引是否分开存储。</strong></p>
+<ul>
+<li>聚簇索引：将数据和索引放到一起存储，索引结构的叶子节点保留了数据行。</li>
+<li>非聚簇索引：将数据进和索引分开存储，索引叶子节点存储的是指向数据行的地址。</li>
+</ul>
+<p><strong>在InnoDB存储引擎中</strong>，默认的索引为B+树索引，利用主键创建的索引为是聚簇索引，在主索引之上创建的索引为辅助索引，也是非聚簇索引。为什么说辅助索引是在主索引之上创建的呢，因为辅助索引中的叶子节点存储的是主键的值。先通过辅助索引查找主键值，再通过主键索引的聚簇方式找到行数据。</p>
+<p>举个例子，id是主键，name是非主键。我们查找id时，直接通过主键索引即可查找到所在数据行；当我们查找name时，先通过附注索引查找到对应的主键id，再根据id主键通过聚簇的方式查找得到数据行。（这个步骤叫回表查询）</p>
+<img src="/images/mysql%E7%9B%B8%E5%85%B3/image-20211017210606347.png" alt="InnoDB索引过程" style="zoom:67%;" />
+
+
+
+<p><strong>在MyISAM存储引擎中</strong>，默认的索引也是B+树索引，但主键索引和辅助索引都是非聚簇索引，只是说主键索引B+树的节点存储了主键，辅助键索引B+树存储了辅助键，而主键索引和辅助索引的B+树的叶子节点存储的都是一个指向数据行的地址。与InnoDB不同的是辅助索引检索并不是建立在主键索引之上的。</p>
+<img src="/images/mysql%E7%9B%B8%E5%85%B3/image-20211017210704977.png" alt="MyISAM索引过程" style="zoom:67%;" />
+
+
+
+
+
+<p>辅助索引的叶子结点记录的的是主键的值，而不是这条数据的地址信息。</p>
+<p>因为增删改会导致地址发生变化</p>
+<h2 id="回表查询和索引覆盖"><a href="#回表查询和索引覆盖" class="headerlink" title="回表查询和索引覆盖"></a>回表查询和索引覆盖</h2><p>上面是说了非聚簇索引的叶子节点存储的是主键，也就是说要先通过非聚簇索引找到主键，再通过聚簇索引找到主键所对应的数据，后面这个<strong>再通过聚簇索引找到主键对应的数据的过程就是回表查询</strong>，那么非聚簇索引就一定会进行回表查询吗？</p>
+<p><strong>答案是不一定的</strong>，这里涉及到一个<strong>索引覆盖</strong>的问题，如果查询的数据再辅助索引上完全能获取到便不需要回表查询。例如有一张表存储着个人信息包括id，name，age等字段。假设聚簇索引是以ID为键值构建的索引，非聚簇索引是以name为键值构建的素引，<code>select id，name from user where name = &#39;zhangsan&#39;</code>；这个查询便不需要进行回表查询。因为通过非聚簇索引已经能全部检索出数据，这就是索引覆盖的情况。</p>
+<p>如果查询语句是这样，<code>select id，name，age from user where name=&quot;zhangsan</code>；则需要进行回表查询，因为通过非聚簇索引不能检索出age的值。那应该如何解决那呢？只需要将索引覆盖即可，<strong>建立age和name的联合索引</strong>再使用select id，name，age from user where name=’zhangsan’；进行查询即可。所以通过索引覆盖能解决非聚簇索引回表查询的问题。</p>
+<h2 id="如何创建索引-删除索引"><a href="#如何创建索引-删除索引" class="headerlink" title="如何创建索引/删除索引"></a>如何创建索引/删除索引</h2><p><strong>创建索引：</strong></p>
+<ul>
+<li>在创建表的时候创建索引，但是这样不能指定索引的名字</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span></span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">CHAR</span>,</span><br><span class="line">	<span class="keyword">KEY</span> (<span class="keyword">name</span>)     //为<span class="keyword">name</span>字段创建一个普通索引，当然主键索引仍然存在</span><br><span class="line">    <span class="keyword">UNIQUE</span> (<span class="keyword">name</span>)  //为<span class="keyword">name</span>字段创建一个唯一索引</span><br><span class="line">    <span class="keyword">KEY</span> (<span class="keyword">id</span>,<span class="keyword">name</span>)  //创建复合索引</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>也可以单独用<strong>CREATE INDEX</strong>或<strong>ALTER TABLE</strong>来为表增加索引。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> index_name <span class="keyword">ON</span> table_name(column_name,column_name)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> <span class="keyword">INDEX</span> index_name (column_name);</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除索引：</strong></p>
+<p>可利用<strong>ALTER TABLE</strong>或<strong>DROP INDEX</strong>语句来删除索引。只有一个主键不用指明名字</p>
+<ul>
+<li><p>删除主键索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除其他索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> <span class="keyword">INDEX</span> index_name</span><br><span class="line">或</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> index_name <span class="keyword">ON</span> table_name</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>查看索引</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> table_name</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="什么是最左匹配原则"><a href="#什么是最左匹配原则" class="headerlink" title="什么是最左匹配原则"></a>什么是最左匹配原则</h2><p>最左匹配原则：从最左边为起点开始连续匹配，遇到范围查询（&lt;，&gt;、between，like）会停止匹配。并且mysql的优化器会自动优化查询顺序。</p>
+<p><strong>举一些例子：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#比方说我们建立了一个联合索引（a,b,c）</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> a=<span class="number">1</span> <span class="keyword">and</span> b=<span class="number">1</span> <span class="keyword">and</span> c =<span class="number">1</span>;     <span class="comment">#这样可以利用到定义的索引（a,b,c）,用上a,b,c</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> a=<span class="number">1</span> <span class="keyword">and</span> b=<span class="number">1</span>;     <span class="comment">#这样可以利用到定义的索引（a,b,c）,用上a,b</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> b=<span class="number">1</span> <span class="keyword">and</span> a=<span class="number">1</span>;     <span class="comment">#这样可以利用到定义的索引（a,b,c）,用上a,b（mysql有查询优化器）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> a=<span class="number">1</span>;     <span class="comment">#这样也可以利用到定义的索引（a,b,c）,用上a</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> b=<span class="number">1</span> <span class="keyword">and</span> c=<span class="number">1</span>;     <span class="comment">#这样不可以利用到定义的索引（a,b,c）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> a=<span class="number">1</span> <span class="keyword">and</span> c=<span class="number">1</span>;     <span class="comment">#这样可以利用到定义的索引（a,b,c），但只用上a索引，b,c索引用不到</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> a=<span class="number">1</span> <span class="keyword">and</span> b&gt;<span class="number">1</span> <span class="keyword">and</span> c =<span class="number">1</span>; <span class="comment">#这样只能用上a、b索引，c索引用不到 （遇到范围查询(&gt;、&lt;、between、like)就会停止匹配。）</span></span><br><span class="line"></span><br><span class="line">若索引是（a,c,b）</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> a=<span class="number">1</span> <span class="keyword">and</span> b&gt;<span class="number">1</span> <span class="keyword">and</span> c =<span class="number">1</span>;<span class="comment">#那么a,c,b都能匹配上，mysql优化器会改写顺序</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>底层原理：</strong></p>
+<h2 id="为什么建议使用自增ID作为主键？"><a href="#为什么建议使用自增ID作为主键？" class="headerlink" title="为什么建议使用自增ID作为主键？"></a>为什么建议使用自增ID作为主键？</h2><p><strong>InnoDB中是如何将主键作为聚簇索引的？</strong></p>
+<p>如果我们定义了主键(PRIMARY KEY)，那么InnoDB会选择主键作为聚簇索引；</p>
+<p>如果没有显式定义主键，则InnoDB会选择第一个不包含有NULL值的唯一索引作为主键索引；</p>
+<p>如果也没有这样的唯一索引，则InnoDB会选择内置的rowID作为隐含的聚簇索引，ROWID随着行记录的写入而主动递增，这个ROWID不像ORACLE的ROWID那样可引用，是隐含的。</p>
+<p><strong>自增的好处？</strong></p>
+<p>如果表使用自增主键，那么每次插入新的记录，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。</p>
+<p>如果使用非自增主键（如果学号等），由于每次插入主键的值近似于随机，因此每条新数据都要被插到索引页的中间某个位置，因为我们知道B+树的叶子结点近似于链表，这时就不得不移动数据，调整分页，增加了很多开销。</p>
+<h2 id="什么情况下索引会失效？（什么情况下用不了索引？）"><a href="#什么情况下索引会失效？（什么情况下用不了索引？）" class="headerlink" title="什么情况下索引会失效？（什么情况下用不了索引？）"></a>什么情况下索引会失效？（什么情况下用不了索引？）</h2><p>如果索引失效了，将会采用全表扫描。有以下几种情况会导致索引失效：</p>
+<ul>
+<li><p>不符合最左匹配原则</p>
+</li>
+<li><p>当or左右查询字段只有一个是索引，该索引失效，只有当or左右查询字段均为索引时，才会生效</p>
+</li>
+<li><p>使用like查询并且以%开头</p>
+</li>
+<li><p>在索引上进行计算会导致索引失效，例如 <code>select*from table_name where a+1=2</code></p>
+</li>
+<li><p>在索引中使用函数会导致索引失效，例如 <code>select*from table_name where abs(a)=1</code></p>
+</li>
+<li><p>索引上使用！、-、&lt;&gt;进行判断时会导致索引失效，例如 <code>select*from table_name where a！=1</code></p>
+</li>
+<li><p>索引上使用is null 判断时会导致索引失效，例如 <code>select*from table_name where a is nul1</code></p>
+</li>
+</ul>
+<h2 id="如何对索引优化？"><a href="#如何对索引优化？" class="headerlink" title="如何对索引优化？"></a>如何对索引优化？</h2><h2 id="什么是数据库的事务？"><a href="#什么是数据库的事务？" class="headerlink" title="什么是数据库的事务？"></a>什么是数据库的事务？</h2><p>百度百科的解释：数据库事务（transaction）是访问并可能操作各种数据项的一个数据库擦操作要么全部执行，要么全部不执行，是一个不可分割的工作单位。事务由事务开始与事务的全部数据库操作组成。</p>
+<h2 id="事务的四大特性是什么？"><a href="#事务的四大特性是什么？" class="headerlink" title="事务的四大特性是什么？"></a>事务的四大特性是什么？</h2><ul>
+<li>原子性：原子性是指包含事务的操作要么全部执行成功，要么全部失败回滚。</li>
+<li>一致性：一致性指事务在执行前后状态是一致的。</li>
+<li>隔离性：一个事务所进行的修改在最终提交之前，对其他事务是不可见的。</li>
+<li>持久性：数据一旦提交，其所作的修改将永久地保存到数据库中。</li>
+</ul>
+<h2 id="数据库的并发一致性问题（4个）"><a href="#数据库的并发一致性问题（4个）" class="headerlink" title="数据库的并发一致性问题（4个）"></a>数据库的并发一致性问题（4个）</h2><p>当多个事务并发执行时，可能会出现以下问题：</p>
+<ul>
+<li><p><strong>脏读</strong>：事务A更新了数据，但还没有提交，这时事务B读取到事务A更新后的数据，然后事务A回滚了，事务B读取到的数据就成为脏数据了。</p>
+</li>
+<li><p><strong>不可重复读</strong>：事务A对数据进行多次读取，事务B在事务A多次读取的过程中执行了更新操作并提交了，导致事务A多次读取到的数据并不一致。</p>
+</li>
+<li><p><strong>幻读</strong>：事务A在读取数据后，事务B向事务A读取的数据中插入了几条数据，事务A再次读取数据时发现多了几条数据，和之前读取的数据不一致。</p>
+</li>
+<li><p><strong>丢失修改</strong>：事务A和事务B都对同一个数据进行修改，事务A先修改，事务B随后修改，事务B的修改覆盖了事务A的修改。</p>
+</li>
+</ul>
+<p>不可重复度和幻读看起来比较像，都是读取了另一条已经提交的事务，它们主要的区别是：在不可重复读中，发现数据不一致主要是数据被更新了（内容不一样）。在幻读中，发现数据不一致主要是数据增多或者减少了（数量不一样）。</p>
+<h2 id="数据库的隔离级别（4个）"><a href="#数据库的隔离级别（4个）" class="headerlink" title="数据库的隔离级别（4个）"></a>数据库的隔离级别（4个）</h2><p>数据库的隔离级别分别可以解决数据库的脏读、不可重复读、幻读等问题。</p>
+<ul>
+<li>读未提交：一个事务在提交前，它的修改对其他事务也是可见的。</li>
+<li>读已提交：一个事务提交之后，它的修改才能被其他事务看到。可避免 <strong><em>脏读</em></strong> 的发生。</li>
+<li>可重复读：在同一个事务中多次读取到的数据是一致的。可避免 <strong><em>脏读</em></strong> 、**<em>不可重复读**</em> 的发生。</li>
+<li>串行化：需要加锁实现，会强制事务串行执行。可避免 <strong><em>脏读、不可重复读、幻读</em></strong> 的发生。</li>
+</ul>
+<p>以上四种隔离级别最高的是 <strong>Serializable</strong> 级别，最低的是 <strong>Read uncommitted</strong> 级别，当然级别越高，执行效率就越低。</p>
+<p><strong>MySQL的默认隔离级别是可重复读。</strong></p>
+<p><img src="/images/mysql%E7%9B%B8%E5%85%B3/image-20211017224521900.png" alt="隔离级别"></p>
+<h2 id="数据库的隔离级别是如何实现的？"><a href="#数据库的隔离级别是如何实现的？" class="headerlink" title="数据库的隔离级别是如何实现的？"></a>数据库的隔离级别是如何实现的？</h2><p>事务的隔离机制主要是依靠锁机制和MVC（多版本并发控制）实现的，提交读和可重复读可以通过MVCC实现，串行化可以通过锁机制实现。</p>
+<h2 id="什么是MVCC？"><a href="#什么是MVCC？" class="headerlink" title="什么是MVCC？"></a>什么是MVCC？</h2><h3 id="MVCC有什么作用？"><a href="#MVCC有什么作用？" class="headerlink" title="MVCC有什么作用？"></a>MVCC有什么作用？</h3><p>MVCC（multiple version concurrent control）是一种控制并发的方法，主要用来提高数据库的并发性能。</p>
+<p>在了解MVCC时应该先了解当前读和快照读。</p>
+<ul>
+<li>当前读：读取的是数据库的最新版本，并且在读取时要保证其他事务不会修该当前记录，所以会对读取的记录加锁。</li>
+<li>快照读：不加铁读取操作即为快照读，使用MVCC来读取快照中的数据，避免加锁带来的性能损耗。</li>
+</ul>
+<p>可以看到MVCC的作用就是在不加锁的情况下，解决数据库读写冲突问题，并且解决脏读、幻读、不可重复读等问题，但是不能解决丢失修改问题。</p>
+<h3 id="MVCC实现原理"><a href="#MVCC实现原理" class="headerlink" title="MVCC实现原理"></a>MVCC实现原理</h3><h2 id="什么是数据库的锁？"><a href="#什么是数据库的锁？" class="headerlink" title="什么是数据库的锁？"></a>什么是数据库的锁？</h2></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/09/03/mysql相关/">http://example.com/2021/09/03/mysql相关/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mysql/">mysql</a></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/09/04/%E4%B8%A4%E4%B8%AA%E5%A4%A7%E6%95%B0%E6%B1%82%E5%92%8C/"><i class="fa fa-chevron-left">  </i><span>两个大数求和</span></a></div><div class="next-post pull-right"><a href="/2021/09/01/http%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/"><span>http相关内容</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
   clientID: '52a38b388c08f769c0fe',
   clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
   repo: 'jiubukaiji.github.io',
