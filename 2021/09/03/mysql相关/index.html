@@ -14,19 +14,20 @@
 </blockquote>
 <a id="more"></a>
 
-<p>记录一下砸碎的知识点</p>
+<p>未掌握的知识</p>
 <p>limit分页  <strong>间隙锁</strong>和MVCC？行级锁和表级锁</p>
 <p>索引调优相关。</p>
 <p>慢查询</p>
+<p>基本语法的使用，写几道代码题</p>
 <p><strong>Mysql的默认端口号是3306</strong></p>
 <h2 id="MySQL常用的存储引擎有什么？它们有什么区别？（5个区别）"><a href="#MySQL常用的存储引擎有什么？它们有什么区别？（5个区别）" class="headerlink" title="MySQL常用的存储引擎有什么？它们有什么区别？（5个区别）"></a>MySQL常用的存储引擎有什么？它们有什么区别？（5个区别）</h2><p><strong>InnoDB</strong>和<strong>MyISAM</strong>  ，还有一个Memory，但是用到的比较少</p>
 <p>从事务、主键、外键、锁、聚簇索引</p>
-<p>1、InnoDB支持事务，MyISAM不支持，对于InnoDB每一条SQL语言都默认封装成事务，自动提交，这样会影响速度，所以最好把多条SQL语言放在begin和commit之间，组成一个事务； </p>
-<p>2、InnoDB表必须有主键（用户没有指定的话会自己找或生产一个主键），而MyIsam可以没2</p>
-<p>3、InnoDB支持外键，而MyISAM不支持。对一个包含外键的InnoDB表转为MYISAM会失败； </p>
-<p>4、InnoDB支持表、行(默认)级锁，而MyISAM只支持表级锁</p>
+<p>1、InnoDB支持事务，MyISAM不支持 </p>
+<p>2、InnoDB表必须有主键（用户没有指定的话会自己找或生产一个主键？），而MyIsam可以没有（没说清楚）</p>
+<p>3、InnoDB支持外键，而MyISAM不支持</p>
+<p>4、InnoDB支持表级锁、行级锁(默认)，而MyISAM只支持表级锁</p>
 <p>5、InnoDB是聚集索引，使用B+Tree作为索引结构，数据文件是和（主键）索引绑在一起的（表数据文件本身就是按B+Tree组织的一个索引结构），必须要有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。</p>
-<p>MyISAM是非聚集索引，也是使用B+Tree作为索引结构，索引和数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。</p>
+<p>MyISAM是非聚集索引，也是使用B+Tree作为索引结构，索引和数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。（修改一下措辞）</p>
 <blockquote>
 <p><strong>主键：</strong>是唯一标识一条记录，不能有重复的，不允许为空</p>
 <p><strong>外键：</strong>是另一表的主键, 外键可以有重复的, 可以是空值，用来和其他表建立联系用的。所以说，如果谈到了外键，一定是至少涉及到两张表。例如下面这两张表：</p>
@@ -37,11 +38,14 @@
 <p>2、如果表中绝大多数都只是读查询，可以考虑MyISAM，如果既有读也有写，请使用InnoDB。</p>
 <p>3、系统奔溃后，MyISAM恢复起来更困难，能否接受；</p>
 <p>4、MySQL5.5版本开始Innodb已经成为Mysql的默认引擎(之前是MyISAM)，说明其优势是有目共睹的，如果你不知道用什么，那就用InnoDB，至少不会差。</p>
-<h2 id="mysql里面的数据类型"><a href="#mysql里面的数据类型" class="headerlink" title="mysql里面的数据类型"></a>mysql里面的数据类型</h2><p>主要分为四种：<strong>整数型、浮点数、字符串、时间</strong></p>
+<h2 id="mysql里面的数据类型"><a href="#mysql里面的数据类型" class="headerlink" title="mysql里面的数据类型"></a>mysql里面的数据类型</h2><p>主要分为四种：<strong>整数型、小数、字符串、时间</strong></p>
 <p>整数型分别占：1、2、3、4、8个字节</p>
 <img src="/images/mysql/image-20210903171114888.png" alt="数据类型"  />
 
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/50891083">https://zhuanlan.zhihu.com/p/50891083</a></p>
+<p>decimal 和 float、Double区别？</p>
+<p>decimal 定点型、float单精度、double双精度</p>
+<p>结论：decimal型比浮点型计算精度要高，推荐使用这个。</p>
 <h2 id="mysql-里面时间是怎么存储的"><a href="#mysql-里面时间是怎么存储的" class="headerlink" title="mysql 里面时间是怎么存储的"></a>mysql 里面时间是怎么存储的</h2><p>存储时间的类型：year、date、time、datetime、timestamp</p>
 <p><strong>DATE</strong> - 以YYYY-MM-DD格式的日期，在1000-01-01和9999-12-31之间。 例如，1973年12月30日将被存储为1973-12-30。</p>
 <p><strong>DATETIME</strong> - 日期和时间组合以YYYY-MM-DD HH:MM:SS格式，在1000-01-01 00:00:00 到9999-12-31 23:59:59之间。例如，1973年12月30日下午3:30，会被存储为1973-12-30 15:30:00。</p>
