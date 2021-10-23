@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="linux常用指令"><meta name="keywords" content=""><meta name="author" content="pb"><meta name="copyright" content="pb"><title>linux常用指令 | pb</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.2.0'
+} </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">目录操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B"><span class="toc-number">3.</span> <span class="toc-text">压缩解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">查找命令</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">88</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">linux常用指令</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-23</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">442</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>一些linux常用指令</p>
+</blockquote>
+<a id="more"></a>
+
+<p><strong>查看运行的进程</strong>： ps    </p>
+<ul>
+<li><p>ps -ef  查看所有进程信息</p>
+<p>-e 显示所有进程。<br>-f 全格式。</p>
+</li>
+<li><p>ps -ef | grep java    查看java进程信息</p>
+</li>
+</ul>
+<p><strong>结束进程</strong>：kill   pid     </p>
+<ul>
+<li><p>kill -9 pid 强制结束进程   </p>
+</li>
+<li><p>kill -15 pid 默认方式，正常结束进程</p>
+</li>
+</ul>
+<p>kill原理：kill 命令会向操作系统发送一个信号（多是终止信号）和目标进程的 PID，然后系统根据收到的信号类型，对指定进程进行相应的操作。我们的 -9 -15 都是信号类型</p>
+<p><strong>查看与某台机器的连接情况</strong> ：ping</p>
+<p>命令：ping ip</p>
+<p><strong>查看每个进程的运行情况</strong>：top</p>
+<p>类似于windows的资源管理器</p>
+<h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><p>目录切换：cd       cd / 切换到根目录    、  cd ../ 切换到上一级目录 或者  cd ..</p>
+<p>目录查看：ls        ls -a查看当前目录下的所有目录和文件（包括隐藏的文件）</p>
+<p>创建目录：mkdir     mkdir   aaa 在当前目录下创建一个名为aaa的目录</p>
+<p>删除目录：rm     rm 文件名   删除当前目录下的文件  、   rm -r aaa   递归删除当前目录下的aaa目录   </p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>新建文件：touch       touch  aa.txt   在当前目录创建一个名为aa.txt的文件    </p>
+<p>删除文件：rm</p>
+<p>修改文件：vi  进入文件    按 i 进入编辑模式   按wq保存并退出</p>
+<p>查看文件：more</p>
+<h2 id="压缩解压"><a href="#压缩解压" class="headerlink" title="压缩解压"></a>压缩解压</h2><p>命令：tar -zcvf  打包压缩后的文件名  要打包的文件</p>
+<p>例子：打包并压缩/usr/tmp 下的所有文件 压缩后的压缩包指定名称为xxx.tar</p>
+<p>tar -zcvf ab.tar  *</p>
+<h2 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h2><p>grep：匹配文件中的文本</p>
+<p> grep  ‘test’  file    匹配file文件中 含有 text 的文本</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/23/linux常用指令/">http://example.com/2021/10/23/linux常用指令/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/10/23/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"><i class="fa fa-chevron-left">  </i><span>mysql常用命令</span></a></div><div class="next-post pull-right"><a href="/2021/10/21/%E5%AE%9E%E4%B9%A0%E6%8A%95%E9%80%92%E8%AE%B0%E5%BD%95/"><span></span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '52a38b388c08f769c0fe',
+  clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
+  repo: 'jiubukaiji.github.io',
+  owner: 'jiubukaiji',
+  admin: 'jiubukaiji',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By pb</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
