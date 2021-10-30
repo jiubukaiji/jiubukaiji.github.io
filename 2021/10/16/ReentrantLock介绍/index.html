@@ -9,30 +9,69 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#synchronized%E4%B8%8EReentrantLock%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%885%E7%82%B9%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">synchronized与ReentrantLock的区别（5点）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized%E7%94%A8%E8%BF%87%E5%90%97%EF%BC%9F%E5%92%8CLock%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">synchronized用过吗？和Lock的区别？</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">88</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">ReentrantLock介绍</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-16</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">487</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#synchronized%E4%B8%8EReentrantLock%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%885%E7%82%B9%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">synchronized与ReentrantLock的区别（5点）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reentrantlock%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.</span> <span class="toc-text">Reentrantlock的底层实现</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">94</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">ReentrantLock介绍</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-16</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.6k</span><span class="post-meta__separator">|</span><span>阅读时长: 4 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>Reentrantlock是并发包中一个可重入的锁，位于java.util.concurrent.locks包下</p>
 </blockquote>
 <a id="more"></a>
 
-<p>Reentranlock 中有一个内部抽象类 Sync 继承自 AbstractQueuedSynchronized （AQS抽象队列同步器），主要是它来实现锁的功能。</p>
-<p> Sync 在 ReentrantLock 中有两种实现类：NonfairSync、FairSync，正好对应了ReentrantLock的非公平锁、公平锁两大类型。Reentranlock 默认实现为非公平锁，在高竞争的条件下有更好的性能。</p>
-<h1 id="synchronized与ReentrantLock的区别（5点）"><a href="#synchronized与ReentrantLock的区别（5点）" class="headerlink" title="synchronized与ReentrantLock的区别（5点）"></a>synchronized与ReentrantLock的区别（5点）</h1><p>共同点：都是可重入锁、用来保证线程同步。</p>
+<p>Lock是一个接口，Reentrantlock是Lock的一个主要实现类。</p>
+<p><strong>ReentrantLock</strong> 类内部总共存在<strong>Sync</strong>、<strong>NonfairSync</strong>、<strong>FairSync</strong>三个类，<strong>NonfairSync</strong>与 <strong>FairSync</strong>类继承自 <strong>Sync</strong>类，<strong>Sync</strong>类继承自 <strong>AbstractQueuedSynchronizer</strong>抽象类</p>
+<h1 id="synchronized与ReentrantLock的区别（5点）"><a href="#synchronized与ReentrantLock的区别（5点）" class="headerlink" title="synchronized与ReentrantLock的区别（5点）"></a>synchronized与ReentrantLock的区别（5点）</h1><p>共同点：都是可重入锁、都是排它锁。</p>
+<p>可重入锁：当前线程获取该锁后还可以再次获取，不会发生阻塞。</p>
+<p>独占锁：一个锁只能被一个线程所占有。</p>
+<p>在性能上ReentrantLock和synchronized差不多，但ReentrantLock相比synchronized而言<strong>功能更加丰富，使用起来更为灵活。</strong></p>
 <p>① <strong>底层实现上来说</strong></p>
 <p>​    synchronized 是<strong>JVM</strong>层面的锁，是<strong>Java关键字</strong>，通过monitor对象来实现</p>
 <p>​    ReentrantLock 是JUC.lock包下的一个类，是<strong>API层面</strong>的锁。</p>
 <p>② <strong>是否可手动释放：</strong></p>
 <p>​    synchronized 不需要用户去手动释放锁，synchronized 代码执行完后系统会自动让线程释放对锁的占用；</p>
 <p>​    ReentrantLock则需要用户去手动释放锁，如果没有手动释放锁，就可能导致死锁现象。一般通过lock()和unlock()方法配合try/finally语句块来完成，使用释放更加灵活。</p>
-<p>③ <strong>是否可中断</strong></p>
-<p>​    synchronized是不可中断类型的锁，除非加锁的代码中出现异常或正常执行完成；</p>
-<p>​    ReentrantLock可以中断，可通过trylock(long timeout,TimeUnit unit)设置超时方法（超时没有获得锁就中断）或者将lockInterruptibly()放到代码块中，调用interrupt方法进行中断。</p>
-<p>④ <strong>是否公平锁</strong></p>
+<p>③ <strong>是否公平锁</strong></p>
+<p>​    公平锁介绍：多个线程等待同一个锁时，必须按照申请锁的时间顺序获得锁</p>
 <p>​    synchronized为非公平锁 </p>
-<p>​    ReentrantLock则即可以选公平锁也可以选非公平锁，通过构造方法new ReentrantLock时传入boolean值进行选择，为空默认false非公平锁，true为公平锁。</p>
+<p>​    ReentrantLock则即可以选公平锁也可以选非公平锁，通过构造方法new ReentrantLock时传入boolean值进行选择，为空<strong>默认false非公平锁</strong>，true为公平锁。</p>
+<p>④ <strong>是否可中断</strong></p>
+<p>​    可中断介绍：</p>
+<p>​    线程A和B都要获取对象O的锁定，假设A获取了对象O锁，B将等待A释放对O的锁定，</p>
+<p>   如果使用 synchronized ，如果A不释放，B将一直等下去，不能被中断</p>
+<p>   如果 使用ReentrantLock，如果A不释放，可以使B在等待了足够长的时间以后，中断等待，而干别的事情</p>
+<p>​    synchronized是不可中断类型的锁。</p>
+<p>​    ReentrantLock可以中断，可通过<strong>tryLock</strong>(long timeout,TimeUnit unit)设置超时方法（超时没有获得锁就中断）或者将<strong>lockInterruptibly</strong>()放到代码块中，调用<strong>interrupt</strong>方法进行中断。</p>
 <p>⑤ <strong>锁是否可绑定条件Condition</strong></p>
 <p>​    synchronized不能绑定；     </p>
 <p>​    ReentrantLock通过绑定Condition结合await()/singal()方法实现线程的<strong>精确唤醒</strong>，而不是像synchronized通过Object类的wait()/notify()/notifyAll()方法要么随机唤醒一个线程要么唤醒全部线程。</p>
-<h2 id="synchronized用过吗？和Lock的区别？"><a href="#synchronized用过吗？和Lock的区别？" class="headerlink" title="synchronized用过吗？和Lock的区别？"></a>synchronized用过吗？和Lock的区别？</h2></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/16/ReentrantLock介绍/">http://example.com/2021/10/16/ReentrantLock介绍/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/10/18/10-18/"><i class="fa fa-chevron-left">  </i><span>10.18</span></a></div><div class="next-post pull-right"><a href="/2021/10/16/java%E4%B8%AD%E5%87%A0%E7%A7%8D%E9%94%81%E7%9A%84%E4%BB%8B%E7%BB%8D/"><span>java中几种锁的介绍</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+<h2 id="Reentrantlock的底层实现"><a href="#Reentrantlock的底层实现" class="headerlink" title="Reentrantlock的底层实现"></a>Reentrantlock的底层实现</h2><p><strong>ReentrantLock</strong> 类内部总共存在<strong>Sync</strong>、<strong>NonfairSync</strong>、<strong>FairSync</strong>三个类，<strong>NonfairSync</strong>与 <strong>FairSync</strong>类继承自 <strong>Sync</strong>类，<strong>Sync</strong>类继承自 <strong>AbstractQueuedSynchronizer</strong>抽象类</p>
+<p><strong>底层主要是AQS+CAS操作，AQS=双向链表+volatile类型的state状态量</strong></p>
+<p>先讲一下AQS，AQS（AbstractQueuedSynchronizer）抽象队列同步器，是一个双向链表+volatile类型的state状态量所构成。</p>
+<p>双向链表是由一个个Node组成的，没有抢到锁的线程被封装成Node节点放入队列中，每个Node节点有两个指针，叫做分别指向前驱结点和后继结点，同时还存有一个Thread的变量，代表封装的线程，需要注意的是，这些变量也都是Volatile类型的，主要是为了保证对其他线程课件。</p>
+<p>state主要是表示是否有线程获取到锁了，当有线程获取到锁时，state=1，如果获取到锁的线程再次加锁，state加一；同理当释放锁时，state减一。当state=0时，会唤醒队列中的下一个节点。</p>
+<p><strong>底层排队过程如下：</strong></p>
+<p>主要分为抢到锁的线程，和没有抢到锁在队列里面排队的线程</p>
+<p>首先A抢到锁了，state=1，当前线程改为A线程。</p>
+<p>如果B线程再来抢锁，通过CAS操作先去判断state的值，发现state!=0; 去队列里面排队，排队之前并不会直接用头指针指向B线程所在的节点，而是先创建一个空节点，我们称这个空间点叫做哨兵节点，在哨兵节点创建完毕后，再把自己连接在哨兵结点之后。即先设置哨兵节点，再设置B节点</p>
+<p>如果C再来抢锁，通过CAS，发现state!=0;去队列里面排队，发现头结点已经指向了一个哨兵节点，就不用再设置哨兵节点了，去B节点后面排队。</p>
+<p>（排队的过程还涉及再次抢锁，如果没有进入park状态，等待A线程释放锁唤醒）</p>
+<p>接着A线程释放锁，将state设为0，将B线程唤醒，同时受理窗口改为B线程，队列中的B节点Thread设置为null，并用头结点指向，那么开始的哨兵节点由于没有对象指向就变成了垃圾被GC掉。</p>
+<p><img src="/images/ReentrantLock%E4%BB%8B%E7%BB%8D/image-20211026103743409.png" alt="image-20211026103743409"></p>
+<p><img src="/images/ReentrantLock%E4%BB%8B%E7%BB%8D/image-20211026104027910.png" alt="image-20211026104027910"></p>
+<p><img src="/images/ReentrantLock%E4%BB%8B%E7%BB%8D/image-20211026104154035.png" alt="image-20211026104154035"></p>
+<p><img src="/images/ReentrantLock%E4%BB%8B%E7%BB%8D/image-20211026104257380.png" alt="image-20211026104257380"></p>
+<p>第一次排队的节点是一个空节点</p>
+<p><img src="/images/ReentrantLock%E4%BB%8B%E7%BB%8D/image-20211026110225172.png" alt="image-20211026110225172"></p>
+<p>如果队列中再来一个节点</p>
+<p><img src="/images/ReentrantLock%E4%BB%8B%E7%BB%8D/image-20211026110508921.png" alt="image-20211026110508921">    </p>
+<p>B节点出队后，设置成了null，相当于是新的哨兵节点。而原来得哨兵节点没有任何引用指向它，就被GC掉</p>
+<p><img src="/images/ReentrantLock%E4%BB%8B%E7%BB%8D/image-20211026112122771.png" alt="image-20211026112122771"></p>
+<p>按照自己理解的Reentrantlock的加锁和解锁过程：</p>
+<p><strong>底层主要是AQS+CAS操作，AQS=双向链表+state状态量</strong></p>
+<p>主要分为抢到锁的线程，和没有抢到锁在队列里面排队的线程</p>
+<p>首先A抢到锁了，state=1，受理窗口改为A线程。</p>
+<p>如果B线程再来抢锁，通过CAS，发现state!=0;去队列里面排队，排队之前先设置哨兵节点，在设置B节点</p>
+<p>如果C再来抢锁，通过CAS，发现state!=0;去队列里面排队，发现头结点已经指向了一个哨兵节点，就不用再设置哨兵节点了，去B节点后面排队。</p>
+<p>（排队的过程还涉及再次抢锁，如果没有进入park状态，等待A线程释放锁唤醒）</p>
+<p>接着A线程释放锁，将state设为0，将B线程唤醒，同时受理窗口改为B线程，队列中的B节点Thread设置为null，并用头结点指向，那么开始的哨兵节点由于没有对象指向就变成了垃圾被GC掉。</p>
+<p>。。。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/16/ReentrantLock介绍/">http://example.com/2021/10/16/ReentrantLock介绍/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/10/18/10-18/"><i class="fa fa-chevron-left">  </i><span>10.18</span></a></div><div class="next-post pull-right"><a href="/2021/10/16/java%E4%B8%AD%E5%87%A0%E7%A7%8D%E9%94%81%E7%9A%84%E4%BB%8B%E7%BB%8D/"><span>java中几种锁的介绍</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
   clientID: '52a38b388c08f769c0fe',
   clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
   repo: 'jiubukaiji.github.io',
