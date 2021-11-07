@@ -9,13 +9,13 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">94</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">学习SpringBoot疑惑记录</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-03</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.6k</span><span class="post-meta__separator">|</span><span>阅读时长: 8 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">96</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">学习SpringBoot疑惑记录</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-03</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.7k</span><span class="post-meta__separator">|</span><span>阅读时长: 8 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>咕叽咕叽</p>
 </blockquote>
 <a id="more"></a>
 
 <p>mapper   ORM框架    </p>
-<p>IOC容器控制反转      AOP面向切片编程</p>
+<p>IOC容器控制反转       AOP面向切片编程</p>
 <p>ORM</p>
 <p><strong>spring有哪些模块？</strong></p>
 <p>截止到目前Spring 框架已集成了 20 多个模块 。 这些模块主要被分如下图所示的核心容器 、 数据访问 / 集成 、Web、AOP （面向切面编程） 、 工具 、 消息和测试模块 。</p>
@@ -68,6 +68,13 @@
 <p>springbean作用域默认是单例的，即每次从容器中获得的都是同一个对象</p>
 <p><img src="/images/%E5%AD%A6%E4%B9%A0SpringBoot%E7%96%91%E6%83%91%E8%AE%B0%E5%BD%95/image-20211003154931318.png"></p>
 <p>就是一般开发下，有哪些包结构组成，应该是关于MVC方面的架构</p>
+<p>一些常用注解：</p>
+<p>@component @service @controller @Repository @Autowired </p>
+<p>@GetMapping @PostMapping</p>
+<p>@responseBody 用json格式返回数据</p>
+<p>@qualified ：当一个接口有多个实现类的时候，指明是哪个实现类，一般与@autowired搭配，属性为value=“类名”</p>
+<p>@SpringbootApplication</p>
+<p>@</p>
 <p><strong>Spring帮助我们管理Bean分为两个部分，一个是注册Bean，一个装配Bean。</strong></p>
 <p>@Autowired：自动装配bean</p>
 <blockquote>
@@ -175,6 +182,9 @@
 <p>开发功能的顺序：  entity包创建实体类  -》dao包创建持久层接口 -》mapper包中写sql语句 -》service包中写业务实现（一个service接口和service接口实现类） - 》controller包中写页面跳转</p>
 <hr>
 <p>mybatis：<br>mapper-locations：classpath:mybatis/mapper/<em>.xml               <strong>//对应每个实体类的mapper.xml文件的的位置</strong><br>type-aliases-package：cn.qqcn.</em>.entity               <strong>//存放实体类的包名</strong><br>configuration：<br>map-underscore-to-camel-case：true#驼峰转换    </p>
+<p>mybatis 的 $ 和 # 都是传入参数。</p>
+<p>#{}是<strong>预编译处理</strong>，${}是<strong>字符串替换</strong>。</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>$</p>
 <p>数据库里面的字段用下划线，实体类用驼峰，那么之后怎么对应起来</p>
 <p>HttpServletRequest  </p>
 <p>HttpServletResponse    </p>
