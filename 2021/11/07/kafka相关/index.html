@@ -9,14 +9,225 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">96</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">kafka相关</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-07</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">103</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="toc-number">1.</span> <span class="toc-text">消息队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">消息队列的两种模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%EF%BC%9F%EF%BC%88%E4%BC%98%E7%82%B9%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">为什么要使用消息队列？（优点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MQ%E7%BC%BA%E7%82%B9"><span class="toc-number">1.3.</span> <span class="toc-text">MQ缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%91%A2%EF%BC%9F"><span class="toc-number">1.4.</span> <span class="toc-text">有哪些消息中间件呢？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.</span> <span class="toc-text">Kafka是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%85%A5%E9%97%A8"><span class="toc-number">3.</span> <span class="toc-text">Kafka消息队列入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zookeeper%E5%9C%A8Kafka%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">Zookeeper在Kafka中的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E7%9A%84%E6%9C%89%E5%BA%8F%E6%80%A7%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">如何保证消息的有序性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">如何保证消息不丢失？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="toc-number">7.</span> <span class="toc-text">如何保证消息队列高可用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">如何保证消息不被重复消费？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zookeeper%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">Zookeeper是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#znode%E7%9A%844%E7%A7%8D%E7%B1%BB%E5%9E%8B"><span class="toc-number">9.1.</span> <span class="toc-text">znode的4种类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#znode%E8%8A%82%E7%82%B9%E4%B8%8A%E7%9A%84%E7%9B%91%E5%90%AC%E6%9C%BA%E5%88%B6"><span class="toc-number">9.2.</span> <span class="toc-text">znode节点上的监听机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAP%E5%AE%9A%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">CAP定理是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">11.</span> <span class="toc-text">分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql"><span class="toc-number">11.1.</span> <span class="toc-text">mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis"><span class="toc-number">11.2.</span> <span class="toc-text">Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zookeeper"><span class="toc-number">11.3.</span> <span class="toc-text">Zookeeper</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%94%81%E8%BF%87%E7%A8%8B"><span class="toc-number">11.3.1.</span> <span class="toc-text">获取锁过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8A%E6%94%BE%E9%94%81"><span class="toc-number">11.3.2.</span> <span class="toc-text">释放锁</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">98</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">kafka相关</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-07</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">5.7k</span><span class="post-meta__separator">|</span><span>阅读时长: 17 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>记录一点kafka相关面试题</p>
 <p>guide哥、3y哥，敖丙哥，入门必看，接着再看其他文章深入理解</p>
 </blockquote>
 <a id="more"></a>
 
-<p>kafka起初的角色是一个消息系统，由LinkedIn公司开发，现在已经捐献给Apache软件基金会，目前的定位应该是一个分布式的流处理平台，不过最流行的还是作为一个消息系统的角色，</p>
-</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/11/07/kafka相关/">http://example.com/2021/11/07/kafka相关/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="next-post pull-right"><a href="/2021/11/01/11-01/"><span>11.01</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><h3 id="消息队列的两种模型"><a href="#消息队列的两种模型" class="headerlink" title="消息队列的两种模型"></a>消息队列的两种模型</h3><p>消息队列有两种模型：<strong>队列模型</strong>和<strong>发布/订阅模型</strong>。</p>
+<p><strong>队列模型</strong></p>
+<p>生产者往某个队列里面发送消息，一个队列可以存储多个生产者的消息，一个队列也可以有多个消费者， 但是每条消息只能被一个消费者消费。如果我们想要一条消息被多个消费者消费，就需要用到发布-订阅模型</p>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/640.webp" alt="图片"></p>
+<p><strong>发布/订阅模型</strong></p>
+<p><strong>为了解决一条消息能被多个消费者消费的问题</strong>，就出现了发布/订阅模型。该模型是将消息发往一个<code>Topic</code>即主题中，所有订阅了这个 <code>Topic</code> 的消费者都能消费这条消息。</p>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/image-20211107224113649.png" alt="image-20211107224113649"></p>
+<p>消息队列的应用场景：<strong>解耦、异步、削峰</strong></p>
+<h3 id="为什么要使用消息队列？（优点）"><a href="#为什么要使用消息队列？（优点）" class="headerlink" title="为什么要使用消息队列？（优点）"></a><strong>为什么要使用消息队列？</strong>（优点）</h3><p>主要从消息队列的使用场景来分析，比如说在哪些场景下消息队列会带来好处</p>
+<p><strong>解耦</strong></p>
+<p>A 系统发送数据到 BCD 三个系统，如果之后不需要发送数据给C系统，或者说还需要发送数据给新的系统，那么就需要反复调整架构，修改代码，因为他们的耦合性很高。</p>
+<p>我们现在使用MQ，A 系统产生一条数据，发送到 MQ 里面去，哪个系统需要数据自己去 MQ 里面消费。如果新系统需要数据，直接从 MQ 里消费即可；如果某个系统不需要这条数据了，就取消对 MQ 消息的消费即可。这样下来，A 系统就不需要去考虑要给谁发送数据，不需要维护这个代码，也不需要考虑人家是否调用成功、失败超时等情况。</p>
+<p>通过一个 MQ，Pub/Sub 发布订阅消息这么一个模型，A 系统就跟其它系统彻底解耦了。</p>
+<p><strong>异步</strong></p>
+<p>以商品下单作为例子，比如说我们下单买下商品后，还需要通过优惠券系统花时间扣除优惠券，通过积分系统花时间扣除积分，还需要花时间给用户发短信等等流程。但如果按照这个链路的话用户花的时间很长。</p>
+<p>我们可以采用MQ，当用户支付成功后，采用异步的方式，扣除优惠券的同时增减积分啊，还可以同时发个短信，这样的话花的时间就少很多了。而这些步骤用多线程的方式，我们需要调用这些操作的接口，耦合性很高，出了问题也不好排查</p>
+<p>所以通常使用MQ的方式来解决问题。你下单了，你就把你<strong>支付成功的消息告诉别的系统</strong>，他们收到了去处理就好了，你只用走完自己的流程，把自己的消息发出去，那后面要接入什么系统简单，直接订阅你发送的支付成功消息，你支付成功了我<strong>监听就好了</strong>。</p>
+<p><strong>那你的流程走完了，你不用管别人是否成功么？比如你下单了积分没加，优惠券没扣怎么办？</strong></p>
+<p>问题是个好问题，但是没必要考虑，业务系统本身就是自己的开发人员维护的，你积分扣失败关我下单的什么事情？你管好自己下单系统的就好了。</p>
+<p><strong>削峰</strong></p>
+<p>比如说在一个系统中数据库平常只能处理1k条请求，但是遇到秒杀的情况请求会暴增，这时候数据库一下子处理不了这么多请求就会导致系统崩溃。</p>
+<p>我们可以将请求写入MQ中，然后系统按照能够承载的负荷拉取请求，虽然这样处理的方式可能慢一些，但是系统至少不会崩溃，可以在请求高峰期过后慢慢消化掉MQ中的请求。</p>
+<h3 id="MQ缺点"><a href="#MQ缺点" class="headerlink" title="MQ缺点"></a>MQ缺点</h3><p><strong>高可用</strong>、消息<strong>重复消费</strong>、<strong>消息丢失</strong>、<strong>消息的顺序消费</strong>、数据一致性（消费者消费完后是否成功了？）</p>
+<p>缺点有以下几个：</p>
+<ul>
+<li><strong>系统可用性降低</strong><br>系统引入的外部依赖越多，越容易挂掉。本来你就是 A 系统调用 BCD 三个系统的接口就好了，人 ABCD 四个系统好好的，没啥问题，你偏加个 MQ 进来，万一 MQ 挂了咋整，MQ 一挂，整套系统崩溃的，你不就完了？如何保证消息队列的高可用，可以<a target="_blank" rel="noopener" href="https://github.com/heqiyoujing/advanced-java/blob/master/docs/high-concurrency/how-to-ensure-high-availability-of-message-queues.md">点击这里查看</a>。</li>
+<li><strong>系统复杂度提高</strong><br>硬生生加个 MQ 进来，你怎么<a target="_blank" rel="noopener" href="https://github.com/heqiyoujing/advanced-java/blob/master/docs/high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed.md">保证消息没有重复消费</a>？怎么<a target="_blank" rel="noopener" href="https://github.com/heqiyoujing/advanced-java/blob/master/docs/high-concurrency/how-to-ensure-the-reliable-transmission-of-messages.md">处理消息丢失的情况</a>？怎么保证消息传递的顺序性？头大头大，问题一大堆，痛苦不已。</li>
+<li><strong>一致性问题</strong><br>A 系统处理完了直接返回成功了，人都以为你这个请求就成功了；但是问题是，要是 BCD 三个系统那里，BD 两个系统写库成功了，结果 C 系统写库失败了，咋整？你这数据就不一致了。</li>
+</ul>
+<h3 id="有哪些消息中间件呢？"><a href="#有哪些消息中间件呢？" class="headerlink" title="有哪些消息中间件呢？"></a><strong>有哪些消息中间件呢？</strong></h3><p><strong>Kafka、ActiveMQ、RabbitMQ、RocketMQ</strong></p>
+<p>如果是大数据领域的实时计算、日志采集等场景，用 Kafka </p>
+<p>RocketMQ是ali研发的具有高吞吐量的MQ</p>
+<h2 id="Kafka是什么"><a href="#Kafka是什么" class="headerlink" title="Kafka是什么"></a>Kafka是什么</h2><p>Kafka是一个分布式的流处理平台。</p>
+<p>主要功能：（官网上对它有介绍）</p>
+<p>1.消息队列：发布和订阅消息</p>
+<p>2.将消息流存储下来：Kaka会把消息持久化到磁盘，有效避免了消息丢失的风限。</p>
+<p>3.流式处理平台：在消息发布的时候进行处理，Kafka提供了一个完整的流式处理类库。</p>
+<p>总的来说就是传输数据，处理数据的功能</p>
+<h2 id="Kafka消息队列入门"><a href="#Kafka消息队列入门" class="headerlink" title="Kafka消息队列入门"></a>Kafka消息队列入门</h2><p>生产者、消费者、消费者群组、broker、topic、partition、leader、follwer。</p>
+<p>把消息放到队列里边的叫<strong>生产者</strong>，从队列里边消费的叫<strong>消费者</strong>。</p>
+<p><strong>Broker</strong>：我们把kafka集群中一个kafka服务器实例叫做Broker</p>
+<p><strong>Topic</strong>：简单理解为存储不同类型消息的队列，一种类型消息队列就是一个topic。生产者将消息发送到特定的topic，消费者通过订阅特定的topic来消费消息</p>
+<p><strong>Partition</strong>：为了提高系统的吞吐量，我们会对topic进行分区，分为一个个的partition。Partition属于 Topic的一部分。一个 Topic有多个 Partition，并且同一 Topic下的 Partition可以分布在不同的 Broker上。</p>
+<p>kafka的<strong>多副本机制</strong>-》引出<strong>leader</strong>和<strong>follwer。</strong></p>
+<p>每个partition在不同broker中有备份，我们称为follwer，而主partion称为leader。生产者和消费者只和leader进行交互，如果leader所在的broker出现了故障，就会从follwer中推选出一个作为leader。</p>
+<p><strong>问题：Kafka的多分区（Partition）以及多副本（Replica）机制有什么好处呢？</strong><br>1.Kafka通过给特定Topic指定多个 Partition，而各个 Partition可以分布在不同的 Broker上，这样便能提供比较好的并发能力（<strong>负载均衡</strong>）。<br>2.Partition可以指定对应的 Replica数，这也极大地提高了消息存储的安全性，提高了容灾能力，不过也相应的增加了所需要的存储空间。（<strong>数据备用</strong>）</p>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/image-20211107225518472.png" alt="image-20211107225518472"></p>
+<p>一台Kafka服务器叫做<strong>Broker</strong>，Kafka集群就是多台Kafka服务器：</p>
+<img src="/images/kafka%E7%9B%B8%E5%85%B3/image-20211107225558077.png" alt="image-20211107225558077" style="zoom: 50%;" />
+
+
+
+<p>一个topic会分为多个partition，实际上partition会<strong>分布</strong>在不同的broker中：</p>
+<img src="/images/kafka%E7%9B%B8%E5%85%B3/image-20211107225658286.png" alt="image-20211107225658286" style="zoom:50%;" />
+
+<p>现在我们已经知道了往topic里边丢数据，实际上这些数据会分到不同的partition上，这些partition存在不同的broker上。分布式肯定会带来问题：“万一其中一台broker(Kafka服务器)出现了故障怎么办？”</p>
+<p>每个partition在不同broker中有备份，我们称为follwer，而主partion称为leader。生产者和消费者只和leader进行交互，如果leader所在的broker出现了故障，就会从follwer中推选出一个作为leader。</p>
+<p>现在我们有三个partition，分别存在三台broker上。每个partition都会备份，这些备份散落在<strong>不同</strong>的broker上。</p>
+<p>在一个消费者组中，<strong>每个消费者去消费一个分区</strong>（也是为了提高吞吐量）</p>
+<ul>
+<li>如果消费者组中的某个消费者挂了，那么其中一个消费者可能就要消费两个partition了</li>
+<li>如果只有三个partition，而消费者组有4个消费者，那么一个消费者会空闲</li>
+</ul>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/image-20211107230812009.png" alt="image-20211107230812009"></p>
+<p>如果一个消费者组中的某个消费者挂了，那挂掉的消费者所消费的分区可能就由消费组中存活的消费者消费。那<strong>存活的消费者是如何知道挂掉的消费者消费到哪了？</strong></p>
+<p>这里要引出<code>offset</code>了，Kafka就是用<code>offset</code>来表示消费者的消费进度到哪了，每个消费者会都有自己的<code>offset</code>。说白了<code>offset</code>就是表示消费者的<strong>消费进度</strong>。</p>
+<p>在以前版本的Kafka，这个<code>offset</code>是由Zookeeper来管理的，后来Kafka开发者认为Zookeeper不合适大量的删改操作，于是把<code>offset</code>在broker以内部topic(<code>__consumer_offsets</code>)的方式来保存起来。</p>
+<p>每次消费者消费的时候，都会提交这个<code>offset</code>，Kafka可以让你选择是自动提交还是手动提交。</p>
+<p>既然提到了Zookeeper，那就多说一句。Zookeeper虽然在新版的Kafka中没有用作于保存客户端的<code>offset</code>，但是Zookeeper是Kafka一个重要的依赖。</p>
+<ul>
+<li>探测broker和consumer的添加或移除。</li>
+<li>负责维护所有partition的领导者/从属者关系（主分区和备份分区），如果主分区挂了，需要选举出备份分区作为主分区。</li>
+<li>维护topic、partition等元配置信息</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/heqiyoujing/p/10926087.html">https://www.cnblogs.com/heqiyoujing/p/10926087.html</a>  写得有点详细关于如何处理消息队列的问题</p>
+<h2 id="Zookeeper在Kafka中的作用"><a href="#Zookeeper在Kafka中的作用" class="headerlink" title="Zookeeper在Kafka中的作用"></a>Zookeeper在Kafka中的作用</h2><p>Zookeeper为分布式消息队列框架提供开源的分布式<strong>配置服务、同步服务和命名注册。</strong></p>
+<p>ZooKeeper主要为 Kafka提供 <strong>Broker和 Topic的注册</strong>以及<strong>多个 Partition的负载均衡</strong>等功能</p>
+<p>1.<strong>Broker注册</strong>：在 Zookeeper上会有一个专门用来进行 Broker服务器列表记录的节点。每个 Broker在启动时，都会到 Zookeeper上进行注册，即到/brokers/ids下创建属于自己的节点。每个 Broker就会将自己的P地址和端口等信息记录到该节点中去</p>
+<p>2.<strong>Topic注册</strong>：在Kaka中，同一个 Topic的消息会被分成多个分区并将其分布在多个Broker上，这些分区信息及与 Broker的对应关系也都是由 Zookeeper在维护。比如我创建了一个名字为 my-topic的主题并且它有两个分区，对应到z0 keeper中会创建这些文件XE：<code>/brokers/topics/my-topic/Partitions/0</code>、<code>/brokers/topics/my-topic/Partitions/1</code></p>
+<p>3.<strong>负载均衡</strong>：上面也说过了 Kafka通过给特定 Topic指定多个 Partition，而各个 Partition可以分布在不同的 Broker上，这样便能提供比较好的并发能力。对于同一个 Topic的不同Partition，Kafka会尽力将这些 Partition分布到不同的 Broker服务器上。当生产者产生消息后也会尽量投递到不同 Broker的 Partition里面。当 <strong>Consumer消费的时候，Zookeeper可以根据当前的 Partition数量以及 Consumer数量来实现动态负载均衡。</strong></p>
+<h2 id="如何保证消息的有序性？"><a href="#如何保证消息的有序性？" class="headerlink" title="如何保证消息的有序性？"></a>如何保证消息的有序性？</h2><p>我们的消息都是发送给topic，而topic由多个partition组成并分散到不同的broker中。</p>
+<p>kafka每次添加消息到 Partition的时候都会采用尾加法，即每次添加到partition的尾部。这样能保证Partition中的消息有序，而不能保证Topic中不同的 Partition的有序。</p>
+<blockquote>
+<p>消息在被追加到 Partition（分区）的时候都会分配一个特定的偏移量（offset）。Kafka通过偏移量（offset）来保证消息在分区内的顺序性。 </p>
+</blockquote>
+<ul>
+<li><p>因此我们可以用一种简单的方式：1个Topic只对应一个 Partition，就不用担心topic中不同partition的顺序问题。</p>
+</li>
+<li><p>还可以这样：将要求有序的消息发送到指定的partition，这样消费者每次从指定的partition中取也可以保证消息的有序性。</p>
+</li>
+</ul>
+<h2 id="如何保证消息不丢失？"><a href="#如何保证消息不丢失？" class="headerlink" title="如何保证消息不丢失？"></a>如何保证消息不丢失？</h2><p><strong>生产者丢失消息</strong></p>
+<p><strong>kafka丢失消息</strong></p>
+<p><strong>消费者丢失消息</strong></p>
+<h2 id="如何保证消息队列高可用"><a href="#如何保证消息队列高可用" class="headerlink" title="如何保证消息队列高可用"></a>如何保证消息队列高可用</h2><p>​    将partition备份到多个broker中</p>
+<h2 id="如何保证消息不被重复消费？"><a href="#如何保证消息不被重复消费？" class="headerlink" title="如何保证消息不被重复消费？"></a><strong>如何保证消息不被重复消费？</strong></h2><h2 id="Zookeeper是什么？"><a href="#Zookeeper是什么？" class="headerlink" title="Zookeeper是什么？"></a>Zookeeper是什么？</h2><p>有使用过的，使用ZooKeeper作为<strong>dubbo的注册中心</strong>，使用ZooKeeper实现<strong>分布式锁</strong>。</p>
+<p>ZooKeeper，它是一个开放源码的<strong>分布式协调服务</strong>，它是一个集群的管理者，它将简单易用的接口提供给用户。</p>
+<p><strong>可以基于Zookeeper 实现数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master 选举、分布式锁和分布式队列等功能</strong></p>
+<p>Zookeeper的<strong>用途</strong>：命名服务、配置管理、集群管理、分布式锁、队列管理</p>
+<p><strong>Zookeeper 一个最常用的使用场景就是用于担任服务生产者和服务消费者的注册中心。</strong> 服务生产者将自己提供的服务注册到Zookeeper中心，服务的消费者在进行服务调用的时候先到Zookeeper中查找服务，获取到服务生产者的详细信息之后，再去调用服务生产者的内容与数据。</p>
+<p>ZooKeeper的视图数据结构，很像Unix文件系统，也是树状的，这样可以确定每个路径都是唯一的。zookeeper的节点统一叫做<strong>znode</strong>，它是可以通过<strong>路径来标识</strong>，结构图如下： <img src="/images/kafka%E7%9B%B8%E5%85%B3/8d7058978e614f7f8ee4832cb3b9c7cbtplv-k3u1fbpfcp-watermark.awebp" alt="img"></p>
+<h3 id="znode的4种类型"><a href="#znode的4种类型" class="headerlink" title="znode的4种类型"></a>znode的4种类型</h3><p>根据节点的生命周期，znode可以分为4种类型，分别是持久节点（PERSISTENT）、持久顺序节点（PERSISTENT_SEQUENTIAL）、临时节点（EPHEMERAL）、临时顺序节点（EPHEMERAL_SEQUENTIAL）</p>
+<ul>
+<li><strong>持久节点</strong>（PERSISTENT）</li>
+</ul>
+<blockquote>
+<p>这类节点被创建后，就会一直存在于Zk服务器上。直到手动删除。</p>
+</blockquote>
+<ul>
+<li><strong>持久顺序节点</strong>（PERSISTENT_SEQUENTIAL）</li>
+</ul>
+<blockquote>
+<p>它的基本特性同持久节点，不同在于增加了顺序性。父节点会维护一个自增整性数字，用于子节点的创建的先后顺序。</p>
+</blockquote>
+<ul>
+<li><strong>临时节点</strong>（EPHEMERAL）</li>
+</ul>
+<blockquote>
+<p>临时节点的生命周期与客户端的会话绑定，一旦客户端会话失效（非TCP连接断开），那么这个节点就会被自动清理掉。zk规定临时节点只能作为叶子节点。</p>
+</blockquote>
+<ul>
+<li><strong>临时顺序节点</strong>（EPHEMERAL_SEQUENTIAL）</li>
+</ul>
+<blockquote>
+<p>基本特性同临时节点，添加了顺序的特性。</p>
+</blockquote>
+<h3 id="znode节点上的监听机制"><a href="#znode节点上的监听机制" class="headerlink" title="znode节点上的监听机制"></a>znode节点上的监听机制</h3><p>Zookeeper 允许客户端向服务端的某个Znode注册一个Watcher监听，可以理解为Watcher就是客户端注册在某个Znode上的触发器，当这个Znode节点发生变化时（增删改查），就会触发Znode对应的注册事件，注册的客户端就会收到通知，然后做出业务的改变。</p>
+<p><strong>监听触发流程：</strong></p>
+<ul>
+<li><p>ZooKeeper的Watcher机制主要包括客户端线程、客户端 WatcherManager、Zookeeper服务器三部分。</p>
+</li>
+<li><p>客户端向ZooKeeper服务器注册Watcher的同时，会将Watcher对象存储在客户端的WatchManager中。</p>
+</li>
+<li><p>当zookeeper服务器触发watcher事件后，会向客户端发送通知， 客户端线程从 WatcherManager 中取出对应的 Watcher 对象来执行回调逻辑</p>
+</li>
+</ul>
+<h2 id="CAP定理是什么？"><a href="#CAP定理是什么？" class="headerlink" title="CAP定理是什么？"></a>CAP定理是什么？</h2><p>指的是在一个分布式系统中，Consistency（一致性）、</p>
+<p>Availability（可用性）、Partitiontolerance（分区容错性），三者不可兼得，最多只可以同时实现两个。</p>
+<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p><strong>实现分布式锁的三种方法</strong>：mysql、redis、Zookeeper</p>
+<p>应用在单机部署的情况下，要保证资源在同一时刻只能被一个线程战友，可以使用Java并发处理相关的API(如ReentrantLock或Synchronized)进行互斥控制。但是，随着业务发展的需要，原单体单机部署的系统被演化成<strong>分布式集群系统</strong>后，由于分布式系统多线程、多进程并且分布在不同机器上，这将使原单机部署情况下的并发控制锁策略失效，单纯的Java API并不能提供分布式锁的能力。为了解决这个问题就<strong>需要一种跨机器的互斥机制来控制共享资源的访问</strong>，这就是分布式锁要解决的问题！</p>
+<p><strong>分布式锁一般有如下的特点</strong>：</p>
+<ul>
+<li><strong>互斥性</strong>： 同一时刻只能有一个线程持有锁</li>
+<li><strong>可重入性</strong>： 同一节点上的同一个线程如果获取了锁之后能够再次获取锁</li>
+<li><strong>锁超时</strong>：和J.U.C中的锁一样支持锁超时，防止死锁</li>
+<li><strong>高性能和高可用</strong>： 加锁和解锁需要高效，同时也需要保证高可用，防止分布式锁失效</li>
+<li><strong>具备阻塞和非阻塞性</strong>：能够及时从阻塞状态中被唤醒</li>
+</ul>
+<h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h3><p><strong>获取锁</strong>：（假设共享资源是某个方法）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> methodLock(method_name,<span class="keyword">desc</span>) <span class="keyword">values</span> (‘method_name’,‘<span class="keyword">desc</span>’)</span><br></pre></td></tr></table></figure>
+
+<p>因为我们对method_name做了唯一性约束，这里如果有多个请求同时提交到数据库的话，数据库会保证只有一个操作可以成功。</p>
+<p><strong>释放锁</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> methodLock <span class="keyword">where</span> method_name =<span class="string">&#x27;method_name&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>存在问题</strong>：</p>
+<p>1、这把锁强依赖数据库的可用性，数据库是一个单点，一旦数据库挂掉，会导致业务系统不可用。<br>2、这把锁没有失效时间，一旦解锁操作失败，就会导致锁记录一直在数据库中，其他线程无法再获得到锁。<br>3、这把锁只能是非阻塞的，因为数据的insert操作，一旦插入失败就会直接报错。没有获得锁的线程并不会进入排队队列，要想再次获得锁就要再次触发获得锁操作。<br>4、这把锁是非重入的，同一个线程在没有释放锁之前无法再次获得该锁。因为数据中数据已经存在了。</p>
+<p><strong>解决方案</strong>：<br>     1、数据库是单点？搞两个数据库，数据之前双向同步。一旦挂掉快速切换到备库上。<br>     2、没有失效时间？只要做一个定时任务，每隔一定时间把数据库中的超时数据清理一遍。<br>     3、非阻塞的？搞一个while循环，直到insert成功再返回成功。<br>     4、非重入的？在数据库表中加个字段，记录当前获得锁的机器的主机信息和线程信息，那么下次再获取锁的时候先查询数据库，如果当前机器的主机信息和线程信息在数据库可以查到的话，直接把锁分配给他就可以了。</p>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a><strong>Redis</strong></h3><p>谈起redis锁，下面三个，算是出现最多的高频词汇：</p>
+<ul>
+<li><strong>setnx</strong></li>
+<li><strong>redLock</strong></li>
+<li><strong>redisson</strong></li>
+</ul>
+<p><strong>setnx</strong></p>
+<p>推荐使用set命令，后面跟上ex 和 nx 参数，即要设定过期时间，防止客户端还没释放锁就挂掉了，其他的客户端就抢不到锁了。</p>
+<p>可以直接通过 <code>set key value px milliseconds nx</code> 命令实现加锁， 通过Lua脚本实现解锁</p>
+<p>解释：ex：多少秒过期 ；px：多少毫秒过期 ； nx：如果键不存在则创建成功，否则失败</p>
+<p><strong>redLock</strong></p>
+<p>源码中<strong>加锁/释放锁</strong>操作都是用<strong>lua</strong>脚本完成的，封装的非常完善，开箱即用。</p>
+<p>这个场景是假设有一个 redis cluster，有 5 个 redis master 实例。然后执行如下步骤获取一把锁：</p>
+<ol>
+<li>获取当前时间戳，单位是毫秒；</li>
+<li>跟上面类似，轮流尝试在每个 master 节点上创建锁，过期时间较短，一般就几十毫秒；</li>
+<li>尝试在大多数节点上建立一个锁，比如 5 个节点就要求是 3 个节点 n / 2 + 1；</li>
+<li>客户端计算建立好锁的时间，如果建立锁的时间小于超时时间，就算建立成功了；</li>
+<li>要是锁建立失败了，那么就依次之前建立过的锁删除；</li>
+<li>只要别人建立了一把分布式锁，你就得不断轮询去尝试获取锁。</li>
+</ol>
+<p><strong>redisson</strong></p>
+<h3 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a><strong>Zookeeper</strong></h3><p>Zookeeper使用<strong>临时顺序节点</strong>特性实现分布式锁的。</p>
+<ul>
+<li>获取锁过程 （创建临时节点，检查序号最小，其他的节点监听前一个节点）</li>
+<li>释放锁 （删除临时节点，监听通知）</li>
+</ul>
+<h4 id="获取锁过程"><a href="#获取锁过程" class="headerlink" title="获取锁过程"></a>获取锁过程</h4><ul>
+<li>当第一个客户端请求过来时，Zookeeper客户端会创建一个持久节点/locks。如果它（Client1）想获得锁，需要在locks节点下创建一个顺序节点lock1.如图</li>
+</ul>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/39e5ee84f901453fb894600c331693d6tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p>
+<ul>
+<li>接着，客户端Client1会查找locks下面的所有临时顺序子节点，判断自己的节点lock1是不是排序最小的那一个，如果是，则成功获得锁。</li>
+</ul>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/e958178a196742b480a20dff85dfef4ftplv-k3u1fbpfcp-watermark.awebp" alt="img"></p>
+<ul>
+<li>这时候如果又来一个客户端client2前来尝试获得锁，它会在locks下再创建一个临时节点lock2</li>
+</ul>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/34a3a0f7221b4de79e1ed5595d7c177ctplv-k3u1fbpfcp-watermark.awebp" alt="img"></p>
+<ul>
+<li>客户端client2一样也会查找locks下面的所有临时顺序子节点，判断自己的节点lock2是不是最小的，此时，发现lock1才是最小的，于是获取锁失败。获取锁失败，它是不会甘心的，client2向它排序靠前的节点lock1注册Watcher事件，用来监听lock1是否存在，也就是说client2抢锁失败进入等待状态。</li>
+</ul>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/a17880856e1546bba4f2571dbf8b3b38tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p>
+<ul>
+<li>此时，如果再来一个客户端Client3来尝试获取锁，它会在locks下再创建一个临时节点lock3</li>
+</ul>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/abda17df527b4dbe8faa7e3a3a9e859etplv-k3u1fbpfcp-watermark.awebp" alt="img"></p>
+<ul>
+<li>同样的，client3一样也会查找locks下面的所有临时顺序子节点，判断自己的节点lock3是不是最小的，发现自己不是最小的，就获取锁失败。它也是不会甘心的，它会向在它前面的节点lock2注册Watcher事件，以监听lock2节点是否存在。</li>
+</ul>
+<p><img src="/images/kafka%E7%9B%B8%E5%85%B3/5a8725119723434daddca761b0d7be83tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p>
+<h4 id="释放锁"><a href="#释放锁" class="headerlink" title="释放锁"></a>释放锁</h4><p>我们再来看看释放锁的流程，zookeeper的<strong>客户端业务完成或者故障</strong>，都会删除临时节点，释放锁。如果是任务完成，Client1会显式调用删除lock1的指令 <img src="/images/kafka%E7%9B%B8%E5%85%B3/ecf2bec179f64ef79b180f66a327e634tplv-k3u1fbpfcp-watermark.awebp" alt="img"> 如果是客户端故障了，根据临时节点得特性，lock1是会自动删除的 <img src="/images/kafka%E7%9B%B8%E5%85%B3/e87703be60a3407e9e570c86bd4c180dtplv-k3u1fbpfcp-watermark.awebp" alt="img"> lock1节点被删除后，Client2可开心了，因为它一直监听着lock1。lock1节点删除，Client2立刻收到通知，也会查找locks下面的所有临时顺序子节点，发下lock2是最小，就获得锁。 <img src="/images/kafka%E7%9B%B8%E5%85%B3/be3c7146f2934dd69a598cdf974ab390tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p>
+<p>同理，Client2获得锁之后，Client3也对它虎视眈眈，啊哈哈~</p>
+<p><strong>从性能角度（从高到低）:</strong> 缓存 &gt; Zookeeper &gt;= 数据库</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">pb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/11/07/kafka相关/">http://example.com/2021/11/07/kafka相关/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">pb</a>！</span></div></div><div class="post-meta__tag-list"></div><div class="social-share pull-right" data-disabled="google,twitter,facebook,douban,instagram,diandian"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/11/14/%E4%BB%BF%E7%89%9B%E5%AE%A2%E8%AE%BA%E5%9D%9B%E8%AE%B0%E5%BD%95/"><i class="fa fa-chevron-left">  </i><span>仿牛客论坛记录</span></a></div><div class="next-post pull-right"><a href="/2021/11/01/11-01/"><span>11.01</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
   clientID: '52a38b388c08f769c0fe',
   clientSecret: '5428c9a58faaa3488201c1791496427b41deb385',
   repo: 'jiubukaiji.github.io',
