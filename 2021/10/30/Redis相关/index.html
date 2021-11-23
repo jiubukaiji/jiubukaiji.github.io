@@ -9,17 +9,18 @@
   },
   hexoVersion: '5.2.0'
 } </script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="pb" type="application/atom+xml">
-</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Redis是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F%EF%BC%88Redis%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E4%B8%8D%E8%B6%B3%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">Redis优缺点？（Redis的功能和不足）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88Redis%E8%BF%99%E4%B9%88%E5%BF%AB%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">为什么Redis这么快？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D%EF%BC%88%E5%AE%8C%E6%88%90%E6%9C%AA%E7%90%86%E8%A7%A3%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">Redis单线程模型介绍（完成未理解）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%88%E8%AF%B4Redis%E4%B8%AD%E6%9C%89%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%91%A2%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">为什么又说Redis中有多线程呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">6.</span> <span class="toc-text">Redis的数据结构和应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%BB%99%E6%95%B0%E6%8D%AE%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">Redis为什么要给数据设置过期时间？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%9C%9F%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F%EF%BC%883%E7%A7%8D%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">过期数据的删除策略是怎样的？（3种）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E6%9C%BA%E5%88%B6%EF%BC%888%E7%A7%8D%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">Redis内存淘汰机制（8种）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6"><span class="toc-number">10.</span> <span class="toc-text">Redis持久化机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RDB%E5%BF%AB%E7%85%A7"><span class="toc-number">10.1.</span> <span class="toc-text">RDB快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOF%E6%97%A5%E5%BF%97"><span class="toc-number">10.2.</span> <span class="toc-text">AOF日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RDB%E5%92%8CAOF%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">RDB和AOF如何选择？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E4%BA%8B%E5%8A%A1"><span class="toc-number">12.</span> <span class="toc-text">Redis事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-%E4%BA%8B%E5%8A%A1%E4%BB%8B%E7%BB%8D"><span class="toc-number">12.1.</span> <span class="toc-text">Redis 事务介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-number">12.2.</span> <span class="toc-text">相关命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%A4%E7%A7%8D%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%EF%BC%89"><span class="toc-number">12.3.</span> <span class="toc-text">事务失败处理（两种错误处理）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-number">13.</span> <span class="toc-text">缓存穿透</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="toc-number">14.</span> <span class="toc-text">缓存雪崩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="toc-number">15.</span> <span class="toc-text">缓存击穿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E9%AB%98%E5%8F%AF%E7%94%A8%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89"><span class="toc-number">16.</span> <span class="toc-text">Redis高可用（未完成）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F"><span class="toc-number">16.1.</span> <span class="toc-text">Redis主从模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F"><span class="toc-number">16.2.</span> <span class="toc-text">Redis哨兵模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">16.3.</span> <span class="toc-text">Redis集群模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7Hash%E7%AE%97%E6%B3%95"><span class="toc-number">17.</span> <span class="toc-text">一致性Hash算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">18.</span> <span class="toc-text">Redis如何保证缓存和数据库的一致性</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">98</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Redis相关</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-30</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">10.3k</span><span class="post-meta__separator">|</span><span>阅读时长: 32 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Redis是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F%EF%BC%88Redis%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E4%B8%8D%E8%B6%B3%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">Redis优缺点？（Redis的功能和不足）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88Redis%E8%BF%99%E4%B9%88%E5%BF%AB%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">为什么Redis这么快？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D%EF%BC%88%E5%AE%8C%E6%88%90%E6%9C%AA%E7%90%86%E8%A7%A3%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">Redis单线程模型介绍（完成未理解）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%88%E8%AF%B4Redis%E4%B8%AD%E6%9C%89%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%91%A2%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">为什么又说Redis中有多线程呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">6.</span> <span class="toc-text">Redis的数据结构和应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%BB%99%E6%95%B0%E6%8D%AE%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">Redis为什么要给数据设置过期时间？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%9C%9F%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F%EF%BC%883%E7%A7%8D%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">过期数据的删除策略是怎样的？（3种）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E6%9C%BA%E5%88%B6%EF%BC%888%E7%A7%8D%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">Redis内存淘汰机制（8种）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6"><span class="toc-number">10.</span> <span class="toc-text">Redis持久化机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RDB%E5%BF%AB%E7%85%A7"><span class="toc-number">10.1.</span> <span class="toc-text">RDB快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOF%E6%97%A5%E5%BF%97"><span class="toc-number">10.2.</span> <span class="toc-text">AOF日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDB%E5%92%8CAOF%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="toc-number">10.3.</span> <span class="toc-text">RDB和AOF如何选择？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E4%BA%8B%E5%8A%A1"><span class="toc-number">11.</span> <span class="toc-text">Redis事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-%E4%BA%8B%E5%8A%A1%E4%BB%8B%E7%BB%8D"><span class="toc-number">11.1.</span> <span class="toc-text">Redis 事务介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-number">11.2.</span> <span class="toc-text">相关命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%A4%E7%A7%8D%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%EF%BC%89"><span class="toc-number">11.3.</span> <span class="toc-text">事务失败处理（两种错误处理）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-number">12.</span> <span class="toc-text">缓存穿透</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="toc-number">13.</span> <span class="toc-text">缓存雪崩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="toc-number">14.</span> <span class="toc-text">缓存击穿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E9%AB%98%E5%8F%AF%E7%94%A8%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89"><span class="toc-number">15.</span> <span class="toc-text">Redis高可用（未完成）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F"><span class="toc-number">15.1.</span> <span class="toc-text">Redis主从模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F"><span class="toc-number">15.2.</span> <span class="toc-text">Redis哨兵模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">15.3.</span> <span class="toc-text">Redis集群模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7Hash%E7%AE%97%E6%B3%95"><span class="toc-number">16.</span> <span class="toc-text">一致性Hash算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">17.</span> <span class="toc-text">Redis如何保证缓存和数据库的一致性</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/111.jpg"></div><div class="author-info__name text-center">pb</div><div class="author-info__description text-center">This is my site</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">96</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">pb</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">相册</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Redis相关</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-30</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">面试学习系列</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">10.5k</span><span class="post-meta__separator">|</span><span>阅读时长: 33 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
 <p>记录一点Redis相关面试题</p>
 </blockquote>
 <a id="more"></a>
 
 <p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/780303?type=post&amp;order=time&amp;pos=&amp;page=0&amp;ncTraceId=&amp;channel=-1&amp;source_id=search_post_nctrack">https://www.nowcoder.com/discuss/780303?type=post&amp;order=time&amp;pos=&amp;page=0&amp;ncTraceId=&amp;channel=-1&amp;source_id=search_post_nctrack</a> </p>
-<h2 id="Redis是什么？"><a href="#Redis是什么？" class="headerlink" title="Redis是什么？"></a>Redis是什么？</h2><p>Redis（<code>Remote Dictionary Server</code>）是一个使用 <strong>C 语言编写</strong>的，高性能的、<strong>非关系型</strong>数据库，与mysql这种传统数据库不同的是，Redis存取的是<strong>键值对</strong>，并且Redis 的数据是存在<strong>内存中</strong>的，所以读写速度非常快，被广泛应用于缓存方向。同时，Redis的持久化机制可以将数据写入磁盘中，保证了数据的安全。</p>
-<p>缓存通常适用于高并发的情况，那些经常被访问或者读写成本（比如说从磁盘的IO）很高的情况就需要用到缓存。</p>
+<p>待解决：</p>
+<p>IO多路复用模型深入理解</p>
+<p>Redis的集群和高可用，分布式缓存相关面试题</p>
+<h2 id="Redis是什么？"><a href="#Redis是什么？" class="headerlink" title="Redis是什么？"></a>Redis是什么？</h2><p>Redis（<code>Remote Dictionary Server</code>）是一个使用底层使用 <strong>C 语言编写</strong>的，高性能的、<strong>非关系型</strong>数据库，与mysql这种关系型数据库不同，Redis存取的是<strong>键值对</strong>，并且Redis 的数据是存在<strong>内存中</strong>的，所以读写速度非常快，被广泛应用于缓存方向。并且，我们知道内存中的数据是有限的，因此Redis提供了内存淘汰机制，而且Redis提供了<strong>持久化机制</strong>，可以将数据写入磁盘中，保证了数据的安全。</p>
 <p>Redis中存储的是键值对，可以存储键和五种不同类型的值，键的类型只能为字符串，值支持五种数据类型：String、List、Hash、Set、SortedSet。</p>
 <p>Redis还可以用来作<strong>缓存</strong>、<strong>分布式锁</strong>、<strong>消息队列</strong>，支持不同的业务场景。</p>
-<p><strong>分布式缓存</strong>：</p>
 <p><strong>分布式锁：</strong></p>
 <p>set key value EX seconds nx </p>
 <p>redlock  </p>
@@ -38,31 +39,38 @@
 <h2 id="Redis优缺点？（Redis的功能和不足）"><a href="#Redis优缺点？（Redis的功能和不足）" class="headerlink" title="Redis优缺点？（Redis的功能和不足）"></a>Redis优缺点？（Redis的功能和不足）</h2><p><strong>优点</strong>：</p>
 <ol>
 <li><strong>基于内存操作</strong>，内存读写速度很快。 </li>
-<li>Redis是<strong>单线程</strong>的，避免线程切换开销及多线程的竞争问题。单线程是指网络请求使用一个线程来处理，即一个线程处理所有网络请求，Redis 运行时不止有一个线程，比如数据持久化的过程会另起线程。 </li>
-<li>有一套<strong>过期数据的删除策略和内存淘汰机制</strong>保证不会发生内存不足。</li>
+<li>Redis是<strong>单线程</strong>的，避免线程切换开销及多线程的竞争问题。Redis的单线程指一个线程处理所有网络请求，但是Redis 运行时不止有一个线程，比如数据持久化的过程会另起线程。 </li>
+<li>有一套<strong>过期数据的删除策略和内存淘汰机制</strong>保证内存空间。</li>
 <li><strong>支持多种数据类型</strong>，包括String、List、Hash、Set、SortedSet等。 </li>
 <li><strong>支持持久化</strong>。Redis支持<strong>RDB</strong>和<strong>AOF</strong>两种持久化机制，可以有效地避免数据丢失问题。 </li>
 <li><strong>支持事务</strong>。Redis的所有操作命令都是原子性的， <strong>Redis的事务不支持原子性。</strong></li>
 <li><strong>支持主从复制</strong>。主节点会自动将数据同步到从节点，可以进行读写分离。 </li>
 </ol>
-<p><strong>缺点</strong>：</p>
-<ol>
-<li>对结构化查询的支持比较差。 </li>
-<li>数据库容量受到物理内存的限制，不适合用作海量数据的高性能读写，因此Redis适合的场景主要局限在较小数据量的操作。 </li>
-<li>Redis 较难支持在线扩容，在集群容量达到上限时在线扩容会变得很复杂。</li>
-</ol>
+<blockquote>
+<p>读写分离：</p>
+<p>让主数据库进行增、改、删操作，而从数据库进行查询操作，主从数据库之间还需要进行数据的同步</p>
+</blockquote>
 <h2 id="为什么Redis这么快？"><a href="#为什么Redis这么快？" class="headerlink" title="为什么Redis这么快？"></a>为什么Redis这么快？</h2><ul>
-<li><p><strong>基于内存</strong>：Redis是使用内存存储，没有磁盘IO上的开销。数据存在内存中，读写速度快。</p>
+<li><p><strong>基于内存</strong>：Redis的数据存在内存中，读写速度快。</p>
 </li>
-<li><p><strong>单线程实现</strong>（ Redis 6.0以前）：Redis使用单个线程处理请求，避免了多个线程之间线程切换和锁资源争用的开销。</p>
+<li><p><strong>单线程实现</strong>（ Redis 6.0以前）：Redis使用单线程处理请求，避免了多个线程之间线程切换和加锁释放锁花销</p>
 </li>
-<li><p><strong>IO多路复用模型</strong>：Redis 采用 IO 多路复用技术。Redis 使用单线程来轮询描述符，将数据库的操作都转换成了事件，不在网络I/O上浪费过多的时间。</p>
+<li><p><strong>IO多路复用模型</strong>：Redis 采用 IO 多路复用技术。IO 多路复用机制是指一个线程处理多个 IO 流，简单来说就是<code>IO</code>多路复用程序会同时监听多个客户端请求，当哪个客户端执行操作后会将其交给相应的事件处理器。</p>
 </li>
-<li><p><strong>高效的数据结构</strong>：Redis 每种数据类型底层都做了优化，目的就是为了追求更快的速度。</p>
+<li><p><strong>高效的数据结构</strong>：Redis 每种数据类型底层都做了优化，操作起来很简单</p>
 </li>
 </ul>
-<h2 id="Redis单线程模型介绍（完成未理解）"><a href="#Redis单线程模型介绍（完成未理解）" class="headerlink" title="Redis单线程模型介绍（完成未理解）"></a>Redis单线程模型介绍（完成未理解）</h2><p><strong>为什么说Redis是单线程模型呢？</strong></p>
-<p>我们说Redis是单线程的，指的是执行 <strong>Redis 命令的核心模块</strong>是单线程的，而不是整个 Redis 实例就一个线程，Redis 其他模块还有各自模块的线程的。</p>
+<h2 id="Redis单线程模型介绍（完成未理解）"><a href="#Redis单线程模型介绍（完成未理解）" class="headerlink" title="Redis单线程模型介绍（完成未理解）"></a>Redis单线程模型介绍（完成未理解）</h2><p><strong>为什么Redis选择单线程模型呢？</strong></p>
+<p>Redis 选择使用单线程模型处理客户端的请求，主要还是因为 CPU 不是 Redis 的瓶颈，而Redis 的瓶颈在于内存的大小和网络带宽。因此，使用单线程已经足够快了，多线程会有性能提升，但不是很明显，而且多线程就会存在线程上下文切换和锁的问题，综合来看，使用单线程处理请求就已经够了。</p>
+<p>事实上也是有多线程的，而 Redis 引入多线程操作也是出于性能上的考虑，对于一些大键值对的删除操作，通过多线程非阻塞地释放内存空间也能减少对 Redis 主线程阻塞的时间，提高执行的效率。</p>
+<p><strong>为什么 Redis 中要使用 I/O 多路复用这种技术呢？</strong>（I/O多路复用解决了什么问题？）</p>
+<p>首先，Redis 是跑在单线程中的，所有的操作都是按照顺序线性执行的，但是由于读写操作等待用户输入或输出都是阻塞的，所以 I/O 操作在一般情况下往往不能直接返回，这会导致某一文件的 I/O 阻塞导致整个进程无法对其它客户提供服务，而 <strong>I/O 多路复用</strong>就是为了解决这个问题而出现的。</p>
+<p><strong>IO多路复用技术的理解</strong></p>
+<p>IO 多路复用机制是指一个线程处理多个 IO 流，简单来说就是<code>IO</code>多路复用程序会同时监听多个<code>socket</code>，当哪个socket执行操作后会将其交给相应的事件处理器。</p>
+<p>多路I/O复用模型是利用 select、poll、epoll 可以同时监察多个流的 I/O 事件的能力，在空闲的时候，会把当前线程阻塞掉，当有一个或多个流有 I/O 事件时，就从阻塞态中唤醒，于是程序就会轮询一遍所有的流（epoll 是只轮询那些真正发出了事件的流），并且只依次顺序的处理就绪的流，这种做法就避免了大量的无用操作。</p>
+<p><strong>这里“多路”指的是多个网络连接，“复用”指的是复用同一个线程。</strong>采用多路 I/O 复用技术可以让单个线程高效的处理多个连接请求（尽量减少网络 IO 的时间消耗），且 Redis 在内存中操作数据的速度非常快，也就是说内存内的操作不会成为影响Redis性能的瓶颈，主要由以上几点造就了 Redis 具有很高的吞吐量。</p>
+<p><strong>为什么说Redis是单线程模型呢？</strong></p>
+<p>我们说Redis是单线程的，指的是执行 <strong>Redis 命令的核心模块</strong>是单线程的，而不是整个 Redis 实例就一个线程，比如说我们在持久化的时候也会新开一个子线程去处理。</p>
 <p>Redis基于Reactor模式开发了网络事件处理器，这个处理器被称为<strong>文件事件处理器</strong>。它的组成结构为4部分：<strong>多个套接字、IO多路复用程序、文件事件分派器、事件处理器</strong>。因为文件事件分派器队列的消费是单线程的，所以Redis才叫单线程模型”</p>
 <p><code>IO</code>多路复用程序会同时监听<strong>多个<code>socket</code>**，当被监听的<code>socket</code>准备好执行<code>accept</code>、<code>read</code>、<code>write</code>、<code>close</code>等操作时，与这些操作相对应的文件事件就会产生。</strong><code>IO</code>多路复用程序<strong>会把所有产生事件的<code>socket</code>压入一个队列中，然后有序地每次仅一个<code>socket</code>的方式传送给文件事件分派器，</strong>文件事件分派器<strong>接收到<code>socket</code>之后会根据<code>socket</code>产生的事件类型调用对应的</strong>事件处理器**进行处理。</p>
 <p> Redis通过socket与客户端进行连接，并将服务器对socket的操作抽象为文件事件。redis通过单线程，并通过I/O多路复用来处理来自客户端的多个连接请求，当产生连接后，i/o多路复用程序，会将产生事件的套接字放置一个队列，通过队列以有序、同步的、每次一个套接字的方式向文件事件分派发器传送套接字。当上一个套接字的事件被处理完毕后，I/O多路复用才会向文件分派器传送下一个套接字。服务端通过监听这些事件，并完成相应的处理。被监听的套接字准备好执行连接应答(accept)、读取(read)、写入(write)、关闭(close)等操作，与操作相关的文件事件就会产生，这时文件事件处理器就会调用套接字之前关联好的事件处理器来处理这些事件。</p>
@@ -75,13 +83,8 @@
 </ul>
 <img src="/images/Redis%E7%9B%B8%E5%85%B3/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Jldml2ZWRzdW4=,size_16,color_FFFFFF,t_70.png" alt="https://img-blog.csdnimg.cn/20190822004147554.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Jldml2ZWRzdW4=,size_16,color_FFFFFF,t_70" style="zoom: 50%;" />
 
-<p><strong>为什么Redis选择单线程模型呢？</strong></p>
-<p>Redis 选择使用单线程模型处理客户端的请求，主要还是因为 CPU 不是 Redis 服务器的瓶颈，使用单线程已经足够快了，多线程会有性能提升，但不是很明显，而且多线程就会存在死锁、线程上下文切换等问题，所以综合来看使用单线程处理请求就已经够了。</p>
-<p>事实上也是有多线程的，而 Redis 引入多线程操作也是出于性能上的考虑，对于一些大键值对的删除操作，通过多线程非阻塞地释放内存空间也能减少对 Redis 主线程阻塞的时间，提高执行的效率。</p>
-<p><strong>为什么 Redis 中要使用 I/O 多路复用这种技术呢？</strong></p>
-<p>首先，Redis 是跑在单线程中的，所有的操作都是按照顺序线性执行的，但是由于读写操作等待用户输入或输出都是阻塞的，所以 I/O 操作在一般情况下往往不能直接返回，这会导致某一文件的 I/O 阻塞导致整个进程无法对其它客户提供服务，而 <strong>I/O 多路复用</strong>就是为了解决这个问题而出现的。</p>
-<p><strong>IO多路复用技术的理解</strong></p>
-<p>IO 多路复用机制是指一个线程处理多个 IO 流，简单来说就是<code>IO</code>多路复用程序会同时监听多个<code>socket</code>，当哪个socket执行操作后会将其交给相应的事件处理器。</p>
+
+
 <h2 id="为什么又说Redis中有多线程呢？"><a href="#为什么又说Redis中有多线程呢？" class="headerlink" title="为什么又说Redis中有多线程呢？"></a>为什么又说Redis中有多线程呢？</h2><p>在Redis 4.0 版本开始就有多线程的概念了，比如 Redis 通过<strong>多线程方式在后台删除一些比较大的键值对</strong></p>
 <p>在Redis 6.0 版本 里的多线程主要是为了提高网络IO读写性能， 执行命令的核心模块还是单线程的，因为Redis性能主要受限于内存和网络IO。</p>
 <p>IO 多线程处理模式默认是不开启的，需要去配置文件中开启并配置线程数</p>
@@ -140,28 +143,38 @@
 </ul>
 <p><strong>Redis如何判断数据是否过期呢？</strong></p>
 <p><img src="/images/Redis%E7%9B%B8%E5%85%B3/image-20211105182448638.png" alt="image-20211105182448638"></p>
-<p>在内部有一个<strong>过期字典</strong>来判断这个键是否过期。过期字典存储的是每个键的过期时间，字典中 key 是 键， value 是过期时间的时间戳）</p>
+<p>在内部有一个<strong>过期字典</strong>来判断这个键是否过期。过期字典存储的是每个键的过期时间，字典中 key 是设置过期时间的键， value 是过期时间的时间戳）</p>
 <ol>
 <li><strong>检查这个键是否在过期字典中，如果存在，那么取出这个键的过期时间</strong></li>
 <li><strong>和当前 UNIX 时间戳比较，如果大于，则键过期。</strong></li>
 </ol>
-<h2 id="过期数据的删除策略是怎样的？（3种）"><a href="#过期数据的删除策略是怎样的？（3种）" class="headerlink" title="过期数据的删除策略是怎样的？（3种）"></a>过期数据的删除策略是怎样的？（3种）</h2><p>目前来说有三种删除策略：</p>
+<h2 id="过期数据的删除策略是怎样的？（3种）"><a href="#过期数据的删除策略是怎样的？（3种）" class="headerlink" title="过期数据的删除策略是怎样的？（3种）"></a>过期数据的删除策略是怎样的？（3种）</h2><p>目前来说有三种删除策略： </p>
 <ul>
 <li><strong>定时删除：在设置键的过期时间时，创建一个定时器，当到达键过期时间时就会通过定时器去删除键</strong>。</li>
 <li><strong>惰性删除：是每次获取键时，会判断是否过期，如果过期则删除</strong>。</li>
-<li><strong>定期删除：每隔一段时间，就对数据库中的键进行检查，如果过期则删除。至于要删除多少什么时候删除，则是通过具体程序决定</strong>。</li>
+<li><strong>定期删除：每隔一段时间，随机抽取一些设置了过期时间的键进行检查，如果过期则删除。</strong></li>
 </ul>
 <p><strong>定时删除策略</strong></p>
-<p> 优点是：对内存友好。因为通过定时器，当一个键到达过期时间时就会立马被删除，直接就释放了内存。<br> 缺点是：对 CPU 不友好。因为如果过期键比较多，那么删除这些过期键会占用相当一部分CPU时间，如果CPU时间非常紧张的话，还将CPU时间用在删除和当前任务无关的过期键上，会对服务器的响应时间以及吞吐量造成影响。</p>
+<p> 优点是：对内存友好。因为通过定时器，当一个键到达过期时间时就会立马被删除，直接就释放了内存。</p>
+<p> 缺点是：对 CPU 不友好。因为如果过期键比较多，那么删除这些过期键会占用相当一部分CPU时间。如果服务器将大量的CPU时间用来删除过期键，那么服务器的响应时间和吞吐量就会受到影响。</p>
 <p><strong>惰性删除策略</strong></p>
-<p>优点：对 CPU 时间友好。程序只会在取出键时才会判断是否删除，并且只作用到当前键上，其他过期键不会花费 CPU 时间去处理。<br>缺点：对内存不友好。因为只有键被使用时才会去检查是否删除，如果有大量的键一直不被使用，那么这些键就算过期了也不会被删除，会一直占用着内存。这种可以理解为是一种内存泄漏——大量无用的数据一直占用着内存，并且不会被删除。</p>
+<p>优点：对 CPU 时间友好。程序只会在取出键时才会判断是否删除，并且只作用到当前键上，其他过期键不会花费 CPU 时间去处理。</p>
+<p>缺点：对内存不友好。如果数据库有很多的过期键，而这些过期键又恰好一直没有被访问到，那这些过期键就会一直占用着内存资源，造成内存空间浪费。</p>
+<p><strong>定期删除策略</strong></p>
+<p>因为key太多，如果全盘扫描所有的key会非常耗性能，所以是随机抽取一些key来删除。这样就有可能删除不完，需要惰性删除配合。</p>
 <p><strong>Redis实际使用的是惰性删除+定期删除的策略。</strong></p>
-<p>通过这两种方式可以很好的<strong>利用CPU时间以及避免内存浪费</strong>的情况。</p>
-<p>但是这样的删除策略还是有问题的，因为无论是惰性删除还是定期删除，都会发生漏掉过期 key 的情况。这样就导致大量过期 key 堆积在内存里，导致内存不足，这时候我们就需要用<strong>Redis内存淘汰机制</strong>。</p>
+<p>但是这样的删除策略还是有问题的，因为无论是惰性删除还是定期删除，都会发生漏掉过期 key 的情况。这样累积下来就导致大量过期 key 堆积在内存里，导致内存不足，这时候我们就需要用<strong>Redis内存淘汰机制</strong>。</p>
+<p><strong>在持久化和数据恢复阶段，对过期key也有一些特殊的处理。</strong></p>
+<p><strong>RDB</strong></p>
+<p>从内存数据库持久化数据到RDB文件：持久化key之前，会检查是否过期，过期的key不进入RDB文件 </p>
+<p>从RDB文件恢复数据到内存数据库：数据载入数据库之前，会对key先进行过期检查，如果过期，不导入数据库（主库情况）。</p>
+<p><strong>AOF</strong></p>
+<p>从内存数据库持久化数据到AOF文件：当key过期后，还没有被删除，此时进行执行持久化操作（该key是不会进入aof文件的，因为没有发生修改命令） 当key过期后，在发生删除操作时，程序会向aof文件追加一条del命令（在将来的以aof文件恢复数据的时候该过期的键就会被删掉）</p>
+<p> AOF重写：重写时，会先判断key是否过期，已过期的key不会重写到aof文件</p>
 <h2 id="Redis内存淘汰机制（8种）"><a href="#Redis内存淘汰机制（8种）" class="headerlink" title="Redis内存淘汰机制（8种）"></a>Redis内存淘汰机制（8种）</h2><p><strong>当MySQL里有2000W数据，redis中只存20w的数据，如何保证redis中的数据都是热点数据？</strong></p>
 <p>答：redis内存数据集大小上升到一定大小的时候，就会施行<strong>数据淘汰策略。</strong></p>
-<p>当Redis的内存超过最大允许的内存之后，Redis 会触发内存淘汰策略。（4种volatile开头的，3种allkeys开头的，还有一种拒绝写入）</p>
-<p>没有配置时，默认为no-eviction</p>
+<p>当Redis的内存超过最大允许的内存之后，Redis 会触发内存淘汰策略。（4种volatile开头的，3种allkeys开头的，还有一种拒绝写入）lru、lfu、ttl、random</p>
+<p>没有配置时，<strong>默认为no-eviction</strong>。</p>
 <ul>
 <li><p>volatile-lru    从<strong>已设置过期时间</strong>的数据集中挑选<strong>最近最少使用</strong>的数据淘汰</p>
 </li>
@@ -192,15 +205,13 @@
 <h3 id="RDB快照"><a href="#RDB快照" class="headerlink" title="RDB快照"></a>RDB快照</h3><p><code>RDB</code>是 Redis 默认的持久化方案。RDB持久化时会将内存中的数据写入到磁盘中，在指定目录下生成一个<code>dump.rdb</code>文件。Redis 重启会加载<code>dump.rdb</code>文件恢复数据。</p>
 <img src="/images/Redis%E7%9B%B8%E5%85%B3/rdb%E6%8C%81%E4%B9%85%E5%8C%96%E8%BF%87%E7%A8%8B.png" alt="img" style="zoom:80%;" />
 
-<p><strong>RDB执行流程</strong></p>
+<p><strong>BGSAVE命令执行流程</strong></p>
 <ul>
 <li><p>执行<code>BGSAVE</code>命令 ，Redis 父进程判断当前<strong>是否子进程正在执行持久化任务</strong>，如果存在，<code>BGSAVE</code>命令直接返回。 </p>
 </li>
-<li><p>父进程执行<code>fork</code>操作<strong>创建子进程</strong>，fork操作过程中父进程会阻塞。 （仅仅只创建子进程的这个过程，不影响后续操作）</p>
+<li><p>父进程执行<code>fork</code>操作<strong>创建子进程</strong>（这个fork的过程会短暂阻塞），之后<strong>父进程继续接收并处理客户端的请求</strong>，而<strong>子进程开始将内存中的数据写进硬盘的二进制文件</strong>；</p>
 </li>
-<li><p>父进程<code>fork</code>完成后，<strong>父进程继续接收并处理客户端的请求</strong>，而<strong>子进程开始将内存中的数据写进硬盘的临时文件</strong>； </p>
-</li>
-<li><p>当子进程写完所有数据后会<strong>用该临时文件替换旧的 RDB 文件</strong>。</p>
+<li><p>当子进程写完所有数据后会<strong>用该二进制文件替换旧的 RDB 文件</strong>。</p>
 </li>
 </ul>
 <p><strong>触发机制</strong></p>
@@ -208,7 +219,8 @@
 <p><strong>手动触发</strong></p>
 <p>用户执行<code>SAVE</code>或<code>BGSAVE</code>命令。</p>
 <p><code>SAVE</code>命令的执行过程会阻塞所有客户端的请求，我们一般不采用这种方式。</p>
-<p><code>BGSAVE</code>命令可以在后台异步操作，快照的同时服务器还可以继续响应客户端的请求，因此需要手动执行快照时推荐使用<code>BGSAVE</code>命令。</p>
+<p><code>BGSAVE</code>命令可以在后台异步操作，快照的同时服务器还可以继续响应客户端的请求</p>
+<p>因此手动执行快照时推荐使用<code>BGSAVE</code>命令。</p>
 <p><strong>自动触发</strong></p>
 <p>有以下情况会自动触发RDB快照：</p>
 <ul>
@@ -219,49 +231,49 @@
 <ul>
 <li><p>执行shutdown命令关闭服务器时，如果没有开启AOF持久化功能，那么会自动执行一次bgsave</p>
 </li>
-<li><p>主从同步的时候，如果从节点执行复制操作，主节点会自动执行BGSAVE生成 RDB 文件并发送给从节点。</p>
+<li><p>主从同步的时候，主节点会自动执行BGSAVE命令生成 RDB 文件并发送给从节点。</p>
 </li>
 </ul>
 <p><strong>RDB的优缺点</strong></p>
 <p><strong>优点</strong></p>
 <ul>
-<li>Redis加载RDB文件的速度比AOF快很多，因为RDB文件中直接存储的是内存数据，而AOF文件中存储的是一条条命令，需要重演命令。</li>
-<li>使用单独子进程来进行持久化，主进程不会进行任何 IO 操作，<strong>保证了 Redis 的高性能</strong>。</li>
+<li>Redis恢复数据时，加载RDB文件的速度比AOF快很多，因为RDB文件中直接存储的是内存数据，而AOF文件中存储的是一条条命令，需要重演命令。</li>
 </ul>
 <p><strong>缺点</strong></p>
 <ul>
 <li>RDB<strong>无法做到实时持久化</strong>，若在两次bgsave持久化操作间宕机，则会丢失增量数据，不适用于实时性要求较高的场景</li>
-<li>bgsave命令每次都要执行fork操作创建子进程，fork子进程属于重量级操作，并且会阻塞redis主进程</li>
 <li>RDB 文件使用特定二进制格式保存，Redis 版本升级过程中有多个格式的 RDB 版本，<strong>存在老版本 Redis 无法兼容新版 RDB 格式的问题</strong>。</li>
 </ul>
 <h3 id="AOF日志"><a href="#AOF日志" class="headerlink" title="AOF日志"></a>AOF日志</h3><p>AOF日志就是以日志的方式将<strong>每个操作指令</strong>记录到文件中，并保存到磁盘。Redis 重启后会根据日志文件的内容重新执行这些指令。与RDB快照的方式相比，AOF<strong>解决了数据持久化的实时性</strong>，AOF 是Redis持久化的主流方式。</p>
 <p><strong>默认情况下Redis没有开启AOF方式的持久化</strong>，可以通过<code>appendonly</code>参数启用：<code>appendonly yes</code></p>
 <p><strong>AOF执行流程：</strong></p>
 <ul>
-<li><p>AOF并不会每次都把命令直接写入文件中，因为这样会导致磁盘IO负担加重，它会首先将写入命令会追加到 AOP 缓冲区中。 </p>
+<li><p>AOF并不会每次都把命令直接写入文件中，因为这样会导致磁盘IO负担加重，它会首先将写入命令会追加到  缓冲区中。 </p>
 </li>
 <li><p>AOF 缓冲区到达一定容量后会根据<strong>对应的策略</strong>向硬盘同步。 （这里有三种策略将缓存区中的命令同步到硬盘中）</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">appendfsync always  &#x2F;&#x2F;每次发生数据变更会被立即记录到磁盘，数据完整性好但性能差，不建议配置</span><br><span class="line">appendfsync everysec  &#x2F;&#x2F;每秒同步一次，这样最多丢失1s的记录，建议配置</span><br><span class="line">appendfsync no   &#x2F;&#x2F;Redis不直接调用文件同步，而是让操作系统来决定何时同步磁盘</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 同样我们可以配置缓存同步的策略</span><br><span class="line">appendfsync always  &#x2F;&#x2F;每次发生数据变更会被立即记录到磁盘，数据完整性好但性能差，不建议配置</span><br><span class="line">appendfsync everysec  &#x2F;&#x2F;每秒同步一次，这样最多丢失1s的记录，建议配置</span><br><span class="line">appendfsync no   &#x2F;&#x2F;Redis不直接调用文件同步，而是让操作系统来决定何时同步磁盘</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>当 Redis 服务器重启时，可以加载 AOF 文件进行数据恢复。</li>
 </ul>
 <p><strong>AOF日志重写机制：</strong></p>
-<p>随着 AOF 文件保存的数据越来越大，需要定期对 AOF 文件进行重写，达到压缩文件体积的目的。</p>
+<p>随着 AOF 文件保存的数据越来越大，需要定期对 AOF 文件进行重写。</p>
 <p>Redis 会fork出一条新进程，读取内存中的数据，并重新写到一个临时文件中。并没有读取旧文件（你都那么大了，我还去读你？？？ o(ﾟДﾟ)っ傻啊！）。最后替换旧的AOF文件。</p>
 <p><strong>AOF的优缺点</strong></p>
 <p><strong>优点：</strong></p>
 <ul>
-<li>AOF可以更好的保护数据不丢失，可以配置 AOF 每秒执行一次<code>fsync</code>操作，如果Redis进程挂掉，最多丢失1秒的数据。</li>
+<li>AOF可以更好地实时持久化，可以配置 AOF 每秒执行一次<code>fsync</code>操作，如果Redis进程挂掉，最多丢失1秒的数据。</li>
 </ul>
 <p><strong>缺点：</strong></p>
 <ul>
-<li>AOF方式生成的日志文件太大，需要不断AOF重写，进行瘦身。</li>
-<li>数据恢复与RDB相比要慢。</li>
+<li><p>Redis进行数据恢复时，AOF要重演命令，与RDB相比要慢。</p>
+</li>
+<li><p>AOF方式生成的日志文件太大，需要不断AOF重写</p>
+</li>
 </ul>
-<h2 id="RDB和AOF如何选择？"><a href="#RDB和AOF如何选择？" class="headerlink" title="RDB和AOF如何选择？"></a>RDB和AOF如何选择？</h2><p>通常来说，应该<strong>同时使用两种持久化方案，以保证数据安全。</strong></p>
+<h3 id="RDB和AOF如何选择？"><a href="#RDB和AOF如何选择？" class="headerlink" title="RDB和AOF如何选择？"></a>RDB和AOF如何选择？</h3><p>通常来说，应该<strong>同时使用两种持久化方案，以保证数据安全。</strong></p>
 <ul>
 <li>如果数据不敏感，且可以从其他地方重新生成，可以关闭持久化。 </li>
 <li>如果数据比较重要，且能够承受几分钟的数据丢失，比如缓存等，只需要使用RDB即可。 </li>
@@ -269,86 +281,72 @@
 <li>如果只用AOF，优先使用everysec的配置选择，因为它在可靠性和性能之间取了一个平衡。 </li>
 </ul>
 <p><strong>当RDB与AOF两种方式都开启时，Redis会优先使用AOF恢复数据，因为AOF保存的文件比RDB文件更完整。</strong></p>
-<h2 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h2><h3 id="Redis-事务介绍"><a href="#Redis-事务介绍" class="headerlink" title="Redis 事务介绍"></a>Redis 事务介绍</h3><p>1）Redis 的事务是通过 <strong>MULTI，EXEC，DISCARD 和 WATCH</strong> 这四个命令来完成的。</p>
-<p>2）Redis 的单个命令都是<strong>原子性</strong>的，所以这里确保事务性的对象是<strong>命令集合</strong>。</p>
-<p>3）<strong>Redis不支持回滚操作，因此Redis事务不满足原子性</strong></p>
+<h2 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h2><h3 id="Redis-事务介绍"><a href="#Redis-事务介绍" class="headerlink" title="Redis 事务介绍"></a>Redis 事务介绍</h3><ul>
+<li><p>Redis 的事务是通过 <strong>MULTI，EXEC，DISCARD 和 WATCH</strong> 这四个命令来完成的。</p>
+</li>
+<li><p>使用MULTI命令后开启事务后，可以输入多个命令，Redis不会立即执行这些命令，而是将这些命令放入队列中，当调用了EXEC命令将执行所有命令，使用discard命令会清除队列中的命令。</p>
+</li>
+<li><p>Redis 的单个命令都是<strong>原子性</strong>的，所以这里确保事务性的对象是<strong>命令集合</strong>。</p>
+</li>
+<li><p><strong>Redis不支持回滚操作，因此Redis事务不满足原子性</strong></p>
+</li>
+</ul>
 <h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><p>使用MULT命令后开启事务可以输入多个命令。Redis不会立即执行这些命令，而是将这些命令放入队列中，当调用了EXEC命令将执行所有命令，使用discard命令会清楚掉队列中的命令。</p>
 <p><img src="/images/Redis%E7%9B%B8%E5%85%B3/v2-6c4bb09d4f8596d3e6c8ab86d35a721d_1440w.jpg" alt="img"></p>
-<p>1）MULTI：用于标记事务块的开始。Redis 会将后续的命令逐个放入队列中，然后使用 EXEC 命令原子化地执行这个命令序列。</p>
+<p>1）<strong>MULTI</strong>：用于标记事务块的开始。Redis 会将后续的命令逐个放入队列中，然后使用 EXEC 命令原子化地执行这个命令序列。</p>
 <blockquote>
 <p>127.0.0.1:6379&gt; multi # 开启事务<br>OK<br>127.0.0.1:6379&gt; set k1 alan # 设置 k1<br>QUEUED # k1 加入队列<br>127.0.0.1:6379&gt; set k2 tom # 设置 k2<br>QUEUED # k2 加入队列</p>
 </blockquote>
-<p>2）EXEC：在一个事务中执行所有先前放入队列的命令，然后恢复正常的连接状态。</p>
+<p>2）<strong>EXEC</strong>：在一个事务中执行所有先前放入队列的命令，然后恢复正常的连接状态。</p>
 <blockquote>
 <p>127.0.0.1:6379&gt; exec<br>\1) OK<br>\2) OK</p>
 </blockquote>
 <p>使用 EXEC 命令原子化地执行这个命令序列，刚刚我们设置了 k1 和 k2 两条命令，执行EXEC 命令后，给我们反馈了两个 OK，说明上述两条命令全部执行成功。</p>
-<p>3）DISCARD：清除所有先前在一个事务中放入队列的命令，然后恢复正常的连接状态。</p>
+<p>3）<strong>DISCARD</strong>：清除所有先前在一个事务中放入队列的命令，然后恢复正常的连接状态。</p>
 <blockquote>
 <p>127.0.0.1:6379&gt; multi<br>OK<br>127.0.0.1:6379&gt; set k3 lucy<br>QUEUED<br>127.0.0.1:6379&gt; set k4 jack<br>QUEUED<br>127.0.0.1:6379&gt; discard<br>OK</p>
 </blockquote>
-<p>4）WATCH：可以监控一个或多个键，一旦其中有一个键被修改，之后的事务就不会执行（类似于乐观锁）。执行EXEC命令之后，就会自动取消监控。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; watch name</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set name 1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set name 2</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; set gender 1</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get gender</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<p>4）<strong>WATCH</strong>：可以<strong>监控一个或多个键，一旦其中有一个键被修改，之后的事务就不会执行</strong>（类似于乐观锁）。执行EXEC命令之后，就会自动取消监控。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; watch name     &#x2F;&#x2F;&#96;watch name&#96;开启了对&#96;name&#96;这个&#96;key&#96;的监控 </span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set name 1     &#x2F;&#x2F; 开启事务之前设置了 name 的值</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi         &#x2F;&#x2F; 开启事务a </span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set name 2    &#x2F;&#x2F; 在事务a中修改了 name 的值</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; set gender 1</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec         &#x2F;&#x2F; 使用&#96;EXEC&#96;命令提交事务 </span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get gender    &#x2F;&#x2F; 使用命令&#96;get gender&#96;发现不存在，即事务a没有执行 </span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
 
-<p>比如上面的代码中：</p>
-<ol>
-<li><code>watch name</code>开启了对<code>name</code>这个<code>key</code>的监控 </li>
-<li>修改<code>name</code>的值 </li>
-<li>开启事务a </li>
-<li>在事务a中设置了<code>name</code>和<code>gender</code>的值 </li>
-<li>使用<code>EXEC</code>命令进提交事务 </li>
-<li>使用命令<code>get gender</code>发现不存在，即事务a没有执行 </li>
-</ol>
-<p>5）UNWATCH：可以取消WATCH命令对key的监控，所有监控锁将会被取消。</p>
-<h3 id="事务失败处理（两种错误处理）"><a href="#事务失败处理（两种错误处理）" class="headerlink" title="事务失败处理（两种错误处理）"></a>事务失败处理（两种错误处理）</h3><p><strong>1）Redis 格式错误（语法错误）</strong> ：那么事务中的命令都会被回滚</p>
+
+
+<p>5）<strong>UNWATCH</strong>：可以取消WATCH命令对key的监控，所有监控锁将会被取消。</p>
+<h3 id="事务失败处理（两种错误处理）"><a href="#事务失败处理（两种错误处理）" class="headerlink" title="事务失败处理（两种错误处理）"></a>事务失败处理（两种错误处理）</h3><p>格式错误会命令会回滚；格式正确类型错误，不会回滚。</p>
+<p><strong>1）Redis 格式错误（语法错误）</strong> ：那么事务中的命令都会被回滚</p>
 <p><img src="/images/Redis%E7%9B%B8%E5%85%B3/v2-3dc3673aa2e049602c211ab8d6df666b_1440w.jpg" alt="img"></p>
-<p>在一个事务中，当命令出现错误时，后续命令正确依旧是可以添加到命令队列中去得，但是使用 EXEC 命令执行命令队列的时候，就会报错，并且队列中正确的命令也不会被执行。</p>
+<p>在一个事务中，当命令出现错误时，后续命令正确依旧是可以添加到命令队列中去，但是使用 EXEC 命令执行命令队列的时候，就会报错，并且队列中正确的命令不会被执行。</p>
 <p><strong>2）Redis 格式正确，类型错误</strong>  ：除了错误的那一句，其他的命令都会正常执行，不满足回滚操作</p>
 <p><img src="/images/Redis%E7%9B%B8%E5%85%B3/v2-341eb047ef02f8013c4a5b33aacbb9aa_1440w.jpg" alt="img"></p>
 <p>这种错误不是命令错误，而是因为对命令理解不透彻出现的使用错误，在执行过程中会报错，因为 username1 不是 list 类型，它只是一个 string 类型。有一点需要注意，从结果可以看出，第一条命令是执行成功了的，所有我们使用”get username1”命令，返回了”alan”结果，<strong>这也证明了 Redis 是不支持事务回滚的</strong>。</p>
 <p><strong>3）为什么 Redis 不支持事务回滚？</strong></p>
 <p>（1）Redis为了性能更好就是忽略了事务回滚</p>
 <p>（2）大多数事务失败是因为<strong>语法错误或者类型错误</strong>，这两种错误，应该在开发阶段就应该被发现而不是在生产过          程中。</p>
-<h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p><strong>缓存穿透：</strong>用户发起大量请求，发现缓存中没有，并且数据库中也没有，也就是说没有经过缓存这一层，导致数据库压力过大。</p>
-<p><strong>获取缓存的流程：</strong></p>
-<p>前台请求数据，后台先从缓存中取数据，如果缓存中有直接返回结果，如果没有就从数据库中取，数据库取到后会更新缓存，并返回结果，如果数据库也没取到，那直接返回空结果。</p>
-<img src="/images/Redis%E7%9B%B8%E5%85%B3/image-20211105205040220.png" alt="image-20211105205040220" style="zoom:67%;" />
-
-
-
+<h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p><strong>缓存穿透：</strong>用户发起大量请求，去查缓存，发现缓存中没有，接着去查数据库，发现数据库中也没有，也就是说没有经过缓存这一层，导致数据库压力过大。</p>
 <p><strong>解决方案：</strong></p>
 <p><strong>首先对请求做参数校验，</strong>如果参数不合法直接拒绝该请求：比如用户id不能小于0，邮箱格式不对等等。</p>
-<p>1.<strong>缓存无效的key</strong>（适用于解决大量请求的key变化不频繁的情况）</p>
-<p>如果缓存和数据库都查不到某个key的数据，就主动把这个key写入到 Redis中去并设置过期时间，这种方式可以解决请求的key变化不频繁的情况。如果每次是不同请求的key，会导致 Redis中缓存大量无效的key，就不可行了。</p>
+<p>1.<strong>缓存无效的key</strong></p>
+<p>如果大量的请求都是查询同一个key的话，就主动把这个key写入到 Redis中去并设置过期时间，这种方式可以解决请求的key变化不频繁的情况。如果每次是不同请求的key，会导致 Redis中缓存大量无效的key，就不可行了。</p>
 <p>2.<strong>布隆过滤器</strong></p>
-<p>布隆过滤器是一种数据结构，底层是一个二进制的位数组，通过它我们可以非常方便地<strong>判断一个给定数据是否存在于海量数据中</strong>。我们需要的就是判断请求的key是否合法。</p>
-<p>具体是这样做的：把所有<strong>可能存在的请求的值都存放在布隆过滤器</strong>中，当用户请求过来，先判断用户发来的请求的值是否存在于布隆过滤器中。不存在的话，直接过滤掉就不会去查找缓存中的数据；存在的话才会走下面的流程。这样就减轻了数据库的压力。</p>
+<p>布隆过滤器是一种数据结构，底层是一个二进制的位数组（数组值只有0和1），通过它我们可以非常方便地<strong>判断一个给定数据是否存在于海量数据中</strong>。我们需要的就是判断请求的key是否合法。</p>
+<p>具体是这样做的：把所有<strong>可能存在的请求的值都存放在布隆过滤器</strong>中，当用户请求发过来，先判断用户请求的值是否存在于布隆过滤器中。不存在的话，直接过滤掉就不会去查找缓存中的数据；存在的话才会走下面的流程。这样就减轻了数据库的压力。</p>
 <p>使用布隆过滤器可能会漏掉少部分不合法的请求，有一定的误判概率</p>
 <p><strong>布隆过滤器原理：</strong></p>
 <p>当一个元素加入布隆过滤器时：</p>
-<p>1.使用布隆过滤器中的哈希函数对元素值进行计算，得到哈希值（有几个哈希函数得到几个哈希值）。</p>
+<p>1.使用布隆过滤器中的哈希函数对元素值进行计算，得到哈希值（哈希函数不止一个，得到的哈希值也就不止一个，这些<strong>哈希值代表位数组的下标</strong>）。</p>
 <p>2.根据得到的哈希值，在<strong>位数组</strong>中把对应下标的值标为1。</p>
 <p>我们再来看一下，当我们需要判断一个元素是否存在于布隆过滤器的时候，会进行哪些操作</p>
-<p>1.对给定元素进行相同的哈希计算；<br>2.得到值之后判断位数组中的每个元素是否都为1，如果值都为1，那么说明这个值在布隆过滤器中，如果存在一个值不为1，说明该元素不在布隆过滤器中。</p>
-<p>但是存在这样一种情况：<strong>不同的字符串可能哈希出来的位置相同。</strong>那么有的不合法的请求也会被判断为合法的，</p>
+<p>1.对给定元素进行相同的哈希计算；</p>
+<p>2.得到值之后判<strong>断位数组中的对应位置的元素是否都为1，如果值都为1，那么说明这个值在布隆过滤器中</strong>，如果存在一个值不为1，说明该元素不在布隆过滤器中。</p>
+<p>但是存在这样一种情况：<strong>不同的元素可能通过哈希计算出来的位置相同。</strong>那么有的不合法的请求也会被判断为合法的，</p>
 <p><strong>解决方法</strong>：可以适当增加<strong>位数组的大小</strong>或者<strong>调整我们的哈希函数</strong>来降低概率</p>
-<p>缺点：不能删除里面的元素，因为不同的元素有些位置是相同的，我们删除其中某一位时，可能把其他元素也删除了。</p>
-<p>在布隆过滤器中引用了一个<strong>误判率</strong>的概念，即它可能会把不属于这个集合的元素认为可能属于这个集合，但是不会把属于这个集合的认为不属于这个集合，布隆过滤器的特点如下：</p>
-<ol>
-<li>一个非常大<strong>的二进制的位数组</strong> （数组里只有0和1）</li>
-<li>若干个<strong>哈希函数</strong></li>
-<li><strong>空间效率</strong>和<strong>查询效率高</strong></li>
-<li>不存在<strong>漏报</strong>（False Negative）：某个元素在某个集合中，肯定能报出来。</li>
-<li>可能存在<strong>误报</strong>（False Positive）：某个元素不在某个集合中，可能也被爆出来。</li>
-<li>不提供删除方法，代码维护困难。</li>
-<li>位数组初始化都为0，它不存元素的具体值，当元素经过哈希函数哈希后的值（也就是数组下标）对应的数组位置值改为1。</li>
-</ol>
+<p><strong>缺点</strong>：不能删除里面的元素，因为不同的元素有些位置是相同的，我们删除其中某一位时，可能把其他元素也删除了。</p>
 <p><img src="/images/Redis%E7%9B%B8%E5%85%B3/image-20211108111923205.png" alt="image-20211108111923205"></p>
-<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p><strong>缓存雪崩</strong>：我们对缓存设置了相同的过期时间，导致缓存在同一时刻大面积失效，请求在短时间内全部落到了数据库上，可能导致数据库崩溃</p>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p><strong>缓存雪崩</strong>：我们对缓存设置了相同的过期时间，导致缓存在同一时间大面积失效，请求在短时间内全部落到了数据库上，可能导致数据库崩溃</p>
 <p><strong>举个例子</strong>：秒杀开始12个小时之前，我们统一存放了一批商品到 Redis中，设置的缓存过期时间也是12个小时，那么秒杀开始的时候，这些秒杀的商品的访问直接就失效了。导致的情况就是，相应的请求直接就落到了数据库上，就像雪崩一样可怕。</p>
 <p><strong>解决方案：</strong></p>
 <p>1.我们可以设置不同的缓存失效时间，比如我们可以在原有的缓存时间基础上增加一个随机值，这样每一个缓存的过期时间就会错开。</p>
-<p>2.缓存预热，在数据加热的含义就是在正式部署之前，我先把可能的数据先预先访问一遍，这样部分可能大量访问的数据就会加载到缓存中</p>
+<p>2.缓存预热，在正式部署之前，先把数据先预先访问一遍，这样部分大量访问的数据就会加载到缓存中</p>
 <p>3.对Redis服务的话，我们可以采用Redis集群的方式让Redis高可用，处理更多请求</p>
 <p>4.或者消息队列限流避免同时处理大量的请求。</p>
 <h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p><strong>缓存击穿</strong>是指一个<code>key</code>非常热点，大量请求集中对这一个key进行访问，当<strong>这个key在失效的瞬间</strong>，大量持续的请求就击穿缓存，直接请求数据库，数据库的访问压力瞬间增大。有点像袋子里面装着水，袋子破了一个洞，大量的水从洞中漏出。</p>
@@ -397,7 +395,7 @@
 <p>因此，我们提出了一致性</p>
 <p><strong>第二种方式</strong>：<strong>hash（服务器A的IP地址） %  2^32</strong></p>
 <p>考虑一个圆环，上面有2^32个点，先将服务器经过hash计算后映射到圆环上。接着将图片用同样的方式映射到圆环上，存储到顺时针移动碰到的第一个服务器。</p>
-<p>这时候，如果某一台服务器不可用了，将这台服务器存车处的数据再顺时针移动到下一台服务器即可。</p>
+<p>这时候，如果某一台服务器不可用了，将这台服务器存储的数据再顺时针移动到下一台服务器即可。</p>
 <p><strong>缺点</strong>：存在Hash环的偏斜，那么被缓存的对象很有可能大部分集中缓存在某一台服务器上</p>
 <p><img src="/images/Redis%E7%9B%B8%E5%85%B3/image-20211109113800911.png" alt="image-20211109113800911"></p>
 <p><strong>第三种方式</strong>：设置虚拟节点，将原有的物理节点通过虚拟的方法复制出来，让服务器分布相对均匀些</p>
