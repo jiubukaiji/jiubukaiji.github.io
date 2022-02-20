@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-07T03:13:47.283Z</updated>
+  <updated>2022-02-10T14:10:50.766Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2022/02/07/%E5%AE%9E%E4%B9%A0%E6%84%9F%E5%8F%97and%E6%98%A5%E8%8A%82%E8%A7%81%E9%97%BB/"/>
     <id>http://example.com/2022/02/07/%E5%AE%9E%E4%B9%A0%E6%84%9F%E5%8F%97and%E6%98%A5%E8%8A%82%E8%A7%81%E9%97%BB/</id>
     <published>2022-02-07T03:06:13.000Z</published>
-    <updated>2022-02-07T03:13:47.283Z</updated>
+    <updated>2022-02-10T14:10:50.766Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>呱呱呱，好久没写了</p></blockquote><a id="more"></a><p>实践才是王道  菜确实</p><p>想学什么就立马就去做  pb第一定律   永不过时</p><p>知道哪些东西要去学  多去担责任  软实力</p><hr><p>提升自己  多去见识  总会感叹年轻真好</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>呱呱呱，好久没写了</p></blockquote><a id="more"></a><p>实践才是王道  菜确实</p><p>想学什么就立马就去做  pb第一定律   永不过时</p><p>知道哪些东西要去学  多去担责任  软实力</p><hr><p>提升自己  多去见识  总会感叹年轻真好</p><hr>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -83,20 +83,14 @@
     <link href="http://example.com/2021/11/01/11-01/"/>
     <id>http://example.com/2021/11/01/11-01/</id>
     <published>2021-11-01T13:26:39.000Z</published>
-    <updated>2021-11-14T03:59:16.291Z</updated>
+    <updated>2022-02-20T01:57:35.866Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>呱呱呱</p></blockquote><p>down了down了。</p><p>其实也很正常，你个非科班的花俩月时间（而且还是断断续续的），就能找到好实习，如果有这么简单，要么你就是神仙，要么你当那些科班的学了好几年的是傻子呀~</p><p>不过话说回来，这段时间对于一些基础的知识认识更加清晰了，也积累了一些面试的经验（被面试毒打），总归是很不错的。</p><p>不免有一丝丝动摇了我未来的职业规划。</p><p>以后再说吧，总之还没有结束呢，还有一堆简历在池子里，看能不能被捞吧。。。</p><hr><p>虽然但是，为什么字节一面还给我过了。迷。。</p><p>准备接受第二顿毒打</p><hr><p>！！为啥字节二面也过了。。许愿三面过</p><hr><p>三面g</p><hr><p>读书能让人的心静下来，不要带着压力带着太强的目的性去读书，就会很快乐。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>呱呱呱</p></blockquote><a id="more"></a><p>down了down了。</p><p>其实也很正常，你个非科班的花俩月时间（而且还是断断续续的），就能找到好实习，如果有这么简单，要么你就是神仙，要么你当那些科班的学了好几年的是傻子呀~</p><p>不过话说回来，这段时间对于一些基础的知识认识更加清晰了，也积累了一些面试的经验（被面试毒打），总归是很不错的。</p><p>不免有一丝丝动摇了我未来的职业规划。</p><p>以后再说吧，总之还没有结束呢，还有一堆简历在池子里，看能不能被捞吧。。。</p><hr><p>虽然但是，为什么字节一面还给我过了。迷。。</p><p>准备接受第二顿毒打</p><hr><p>！！为啥字节二面也过了。。许愿三面过</p><hr><p>三面g</p><hr><p>读书能让人的心静下来，不要带着压力带着太强的目的性去读书，就会很快乐。</p>]]></content>
     
     
-      
-      
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;呱呱呱&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;down了down了。&lt;/p&gt;
-&lt;p&gt;其实也很正常，你个非科班的花俩月时间（而且还是断断续续的），就能找到好实习，如果有这么简单，要么你就是神仙，要么你当那些科班的学了好几年的是傻子呀~&lt;/p&gt;
-&lt;</summary>
-      
+&lt;/blockquote&gt;</summary>
     
     
     
@@ -336,9 +330,9 @@
     <link href="http://example.com/2021/10/18/10-18/"/>
     <id>http://example.com/2021/10/18/10-18/</id>
     <published>2021-10-18T12:58:44.000Z</published>
-    <updated>2021-10-24T02:06:19.542Z</updated>
+    <updated>2022-02-20T02:40:43.170Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>咕叽咕叽</p><p>看了几篇字节的面经，有那么点感觉好像面试题都答得上来了，至少题目都还见过，只是记得熟不熟的问题。</p><p>我飘了，快来骂醒我！！</p><p>许愿许愿，搞定了就来还愿</p></blockquote><a id="more"></a><p>10.24更</p><p>笑死，根本学不完，飘不起来。</p><hr><p>看到一个帖子，其实感触还蛮深。。。</p><p>想要说点什么</p><p><img src="/images/10-18/image-20211024100435602.png" alt="image-20211024100435602"></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>咕叽咕叽</p><p>看了几篇字节的面经，有那么点感觉好像面试题都答得上来了，至少题目都还见过，只是记得熟不熟的问题。</p><p>我飘了，快来骂醒我！！</p><p>许愿许愿，搞定了就来还愿</p></blockquote><a id="more"></a><p>10.24更</p><p>笑死，根本学不完，飘不起来。</p><hr><p>看到一个帖子，其实感触还蛮深。。。</p><p>想要说点什么</p><p><img src="/images/10-18/image-20211024100435602.png" alt="image-20211024100435602"></p><hr><p>2022.2.20更</p><p>中国人尤喜欢造神，硬将一个人推入神坛，只是将结果摆在大众面前，但往往淡化其成功的背景因素。突然想到了一个词，奉为圭臬。一个人在某个领域的成功，并不代表其在其他领域也是行家。造神往往伴随而来的就是跌下神坛，人们给的期望越高，这种人设往往越容易破灭，其实那个人还是自己，但是人们眼中那种完美的形象却不复存在了。</p>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
